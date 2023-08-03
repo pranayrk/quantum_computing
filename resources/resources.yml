@@ -1,8 +1,7 @@
 content: resources.md
 main:
   - books
+  - courses
   - other
-  - quantum_mechanics
   - testing
   - certifications
-  - courses

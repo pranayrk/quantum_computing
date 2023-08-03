@@ -2,7 +2,7 @@
 
 ## 2023-08-02
 
-##### Quantum Computing Background
+### Quantum Computing Background
 [Source](http://www.mit.edu/~aram/advice/quantum.html)
 
 *General background:* Quantum computing (theory) is at the intersection of math, physics and computer science. (Experiment also can involve electrical engineering.) Eventually you will want to learn aspects of all of these fields, but when starting you can use any for an entry into the field. Within each field, the subjects you will want to know are:
@@ -25,6 +25,19 @@
 * **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** talks about the foundation and tools you need for QC.
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** "little yellow book experience"
 
+## Books
+*source: harsh sir, presentation*
+
+* **Rieffel, Eleanor and Polak, Wolfgang Quantum computing: A gentle introduction**
+* **Flarend, Alice and Hilborn, Bob Quantum computing—from Alice to Bob**
+* **Kaye, Phillip and Laflamme, Raymond and Mosca, Michele An introduction to quantum computing,**
+* **McMahon, David, Quantum computing explained**
+* **LaPierre, Ray; Introduction to Quantum Computing**
+* **Helmut Bez and Tony Croft**
+* **Michael A. Nielsen and Isaac L. Chuang**
+* **K. R. Parthasarathy; Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory**
+* **Arthur O. Pittenger; An introduction to Quntum Computing Algorithms**
+
 
 ## More Specialized Books
 
@@ -35,18 +48,18 @@
 * **The Mathematics of Entanglement by Brandao, Christandl, Walter and myself** Idiosyncratic and incomplete lecture notes on some of our pet topics.
 
 
-#### Lecture Notes
+## Lecture Notes
 
 * [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
 
-#### Other Books
+## Other Books
 * [Qiskit Textbook by IBM](https://qiskit.org/textbook/preface.html) The Qiskit Textbook is a free digital resource for anyone learning about quantum algorithms and computations. This textbook provides a comprehensive introduction to quantum computing, covering basic quantum mechanics concepts
 
-#### Other
+## Other
 * [Quantum Computing for the very curious](https://quantum.country/qcvc) Quantum Computing for the Very Curious is a series of articles written by Andy Matuschak and Michael A. Nielsen that offers a basic and comprehensive introduction to quantum computing. The series covers a wide range of topics, from basic quantum mechanics concepts to advanced quantum algorithms.
 
-# Books focussing on Quantum Mechanics
+## Books focussing on Quantum Mechanics
 
 * Sakurai's Quantum Mechanics
 * Shankar's Principles of Quantum Mechanics
@@ -70,5 +83,4 @@
 ### Courses
 
 * [Introduction to Quantum Information Science by Artur Ekert](https://www.arturekert.org/iqis) Introduction to Quantum Information Science” is a free online course offered by Artur Ekert, a prominent physicist and professor at the University of Oxford. 
-
-
+* [NPTEL Course on Introduction to Quantum Computing: Quantum Algorithms and Qiskit](https://youtu.be/2SPjEA-4lKk)

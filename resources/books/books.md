@@ -11,6 +11,19 @@
 * **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** talks about the foundation and tools you need for QC.
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** "little yellow book experience"
 
+## Books
+*source: harsh sir, presentation*
+
+* **Rieffel, Eleanor and Polak, Wolfgang Quantum computing: A gentle introduction**
+* **Flarend, Alice and Hilborn, Bob Quantum computing—from Alice to Bob**
+* **Kaye, Phillip and Laflamme, Raymond and Mosca, Michele An introduction to quantum computing,**
+* **McMahon, David, Quantum computing explained**
+* **LaPierre, Ray; Introduction to Quantum Computing**
+* **Helmut Bez and Tony Croft**
+* **Michael A. Nielsen and Isaac L. Chuang**
+* **K. R. Parthasarathy; Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory**
+* **Arthur O. Pittenger; An introduction to Quntum Computing Algorithms**
+
 
 ## More Specialized Books
 
