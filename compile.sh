@@ -1,1 +1,1 @@
-doctree docs/quantum_computing.md
+doctree docs/README.md
