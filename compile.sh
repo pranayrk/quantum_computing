@@ -1,1 +1,1 @@
-doctree output/quantum_computing_full.md
+doctree docs/quantum_computing.md
