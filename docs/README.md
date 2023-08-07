@@ -14,6 +14,7 @@
 ## 2023-08-06
 
 `From Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak`
+
 "Many of the concepts are subtle and unintuitive, and much of the notation unfamiliar. Readers will need to spend time working with the concepts and notations to develop a level of fluency at each stage. For example, even readers with significant mathematical background may not have worked much with tensor products and may not be familiar with the relation of tensor product spaces to their component spaces ... It is well worth the effort to master them, as well as the concise Dirac notation in which they are generally expressed, but mastery will require effort. The precise nature of these mathematical formalisms provides a means of working with quantum concepts before fully understanding them. Intuition for quantum mechanics and quantum information processing will develop from playing with the formal mathematics."
 
 "features of quantum mechanics that give quantum computation its power and are responsible for its limitations. Neither the extent of the power of quantum computation nor its limitations have been fully understood. Research challenges remain not only in building quantum computers and developing novel algorithms and protocols, but also in answering fundamental questions as to the source of quantum computing’s power and the reasons for its limitations."
@@ -30,6 +31,20 @@
 
 "In the early 1990s, researchers developed the first truly quantum algorithms. In spite of the probabilistic nature of quantum mechanics, the first quantum algorithms, for which superiority over classical algorithms could be proved, give the correct answer with certainty. They improve upon classical algorithms by solving in polynomial time with certainty a problem that can be solved in polynomial time only with high probability using classical techniques."
 
+
+## 2023-08-07
+
+`From Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak`
+
+"Peter Shor, ... polynomial-time quantum algorithm for factoring integers. This result provided a solution to a well-studied problem of practical interest. ... It is unknown whether an efficient classical solution exists, so Shor’s result does not prove that quantum computers can solve a problem more efficiently than a classical computer."
+
+"Properties of quantum mechanics, such as the impossibility of reliably copying an unknown quantum state, made it look unlikely that effective error-correction techniques for quantum computation could ever be found. ... (However in) 1996 Shor and Robert Calderbank, and independently Andrew Steane, saw a way to finesse the seemingly show-stopping problems of quantum mechanics to develop quantum error correction techniques. Today, quantum error correction is arguably the most mature area of quantum information processing."
+
+![polarization realization](/images/polarized_realization.png)
+
+"In general, the set of all possible states of a physical system is called the state space of the system. Any quantum mechanical system that can be modeled by a two-dimensional complex vector space can be viewed as a qubit. ... Such systems, called two-state quantum systems, include photon polarization, electron spin, and the ground state together with an excited state of an atom. The two-state label for these systems does not mean that the state space has only two states—it has infinitely many—but rather that all possible states can be represented as a linear combination, or superposition, of just two states. For a two-dimensional complex vector space to be viewed as a qubit, two linearly independent states, labeled 0 and 1, must be distinguished."
+
+"Quantum theory postulates that any device that measures a two-state quantum system must have two preferred states whose representative vectors, {u, u⊥}, form an orthonormal basis for the associated vector space. Measurement of a state transforms the state into one of the measuring device’s associated basis vectors u or u⊥. The probability that the state is measured as basis vector u is the square of the magnitude of the amplitude of the component of the state in the direction of the basis vector u. For example, given a device for measuring the polarization of photons with associated basis {u, u⊥}, the state v = au + bu⊥ is measured as u with probability a squared and as u⊥ with probability b squared ... For this reason, whenever anyone says “measure a qubit," they must specify with respect to which basis the measurement takes place."
 
 # Resources
 
@@ -106,4 +121,22 @@
 ### Certifications
 
 * [IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X](https://www.ibm.com/training/certification/C0010300), you can find all kinds of exam related resources and information from qiskit slack channel #qiskit-cert-exam, this certificate proven yourself able to demonstrates fundamental knowledge of quantum computing concepts and is able to express them using the qiskit open sources SDK. This also open opportunity for you to join [qiskit-advocate](https://qiskit.org/advocates/).
+
+# Project
+
+## Presentation Slides
+
+* Quantum Computing Timeline 1: 
+    * Main Image: Timeline
+    * Early 1980s: Charles Bennett, Feynman, etc
+* Quantum Computing Timeline 2:
+    * Main Image: Timeline
+    * Early 1990s: Proof that quantum computer could be faster, Shor's Algorithm, Grover's Algorithm
+* Key facts from Quantum Mechanics
+    * Photons have polarization a v1 + b v2 where a and b are complex numbers
+    * Measuring a state changes it to one of the preferred bases with a certain probability
+* Introduction to Qubits
+    * Two state systems, which could be from photon polarization, electron spin, and the ground state together with an excited state of an atom.
+* A concrete realization of a Qubit through polarizing filters
+* Introduction to the Braket Notation
 
