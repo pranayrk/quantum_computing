@@ -17,8 +17,8 @@
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** "little yellow book experience"
 
 ## Popular Science
-* **Dancing with Qubits, Robert Sutor**
-* **Quantum Computing Since Democritus, Scott Aaronson**
+* **Dancing with Qubits, Robert Sutor** [gdrive](https://drive.google.com/file/d/1T9Iw5vR8IKcT21suxGx7q-K4Iy_x5Wyx/view?usp=drive_link)
+* **Quantum Computing Since Democritus, Scott Aaronson** [gdrive](https://drive.google.com/file/d/1MNHmFXQ-Fq1hFREg1PzlEOml8z1R6KyI/view?usp=drive_link)
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises

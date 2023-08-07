@@ -11,6 +11,26 @@
 * Math: First linear algebra and probability. Later my preferences would be to learn some group and representation theory, random matrix theory and functional analysis, but eventually most fields of math have some overlap with quantum information, and other researchers may emphasize different areas of math.
 * Computer Science: Most theory topics are relevant although are less crucial at first: i.e. algorithms, cryptography, information theory, error-correcting codes, optimization, complexity, machine learning. If you haven't had any CS theory exposure, undergrad algorithms is a good place to start because it will show you CS-theory ways of thinking, including ideas like asymptotic analysis. 
 
+## 2023-08-06
+
+`From Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak`
+"Many of the concepts are subtle and unintuitive, and much of the notation unfamiliar. Readers will need to spend time working with the concepts and notations to develop a level of fluency at each stage. For example, even readers with significant mathematical background may not have worked much with tensor products and may not be familiar with the relation of tensor product spaces to their component spaces ... It is well worth the effort to master them, as well as the concise Dirac notation in which they are generally expressed, but mastery will require effort. The precise nature of these mathematical formalisms provides a means of working with quantum concepts before fully understanding them. Intuition for quantum mechanics and quantum information processing will develop from playing with the formal mathematics."
+
+"features of quantum mechanics that give quantum computation its power and are responsible for its limitations. Neither the extent of the power of quantum computation nor its limitations have been fully understood. Research challenges remain not only in building quantum computers and developing novel algorithms and protocols, but also in answering fundamental questions as to the source of quantum computing’s power and the reasons for its limitations."
+
+"In the last decades of the twentieth century, scientists sought to combine two of the century’s most influential and revolutionary theories: information theory and quantum mechanics. Their success gave rise to a new view of computation and information."
+
+"In the early 1980s, a few researchers realized that quantum mechanics had unanticipated implications for information processing. Charles Bennett and Gilles Brassard, building on ideas of Stephen Wiesner, showed how nonclassical properties of quantum measurement provided a provably secure mechanism for establishing a cryptographic key. Richard Feynman, Yuri Manin, and others recognized that certain quantum phenomena—phenomena associated with so-called entangled particles—could not be simulated efficiently by a Turing machine. This observation led to speculation that perhaps these quantum phenomena could be used to speed up computation in general. Such a program required rethinking the information theoretic model underlying computation, taking it out of the purely classical realm."
+
+"Quantum information processing ... explores the implications of using quantummechanics instead of classical mechanics to model information and its processing. ... The change starts at the most basic level: the fundamental unit of computation is no longer the bit, but rather the quantum bit or qubit. Placing computation on a quantum mechanical foundation led to the discovery of faster algorithms, novel cryptographic mechanisms, and improved communication protocols.
+
+"As a final example, while the conversion between general classical circuits and reversible classical circuits is a purely classical topic, it is the heart of the proof that anything a classical computer can do, a quantum computers can do with comparable efficiency. ... David Deutsch developed a notion of a quantum mechanical Turing machine. Daniel Bernstein, Vijay Vazirani, and Andrew Yao improved upon his model and showed that a quantum Turing machine could simulate a classical Turing machine, and hence any classical computation, with at most a polynomial time slowdown."
+
+"The standard quantum circuit model was then defined, which led to an understanding of quantum complexity in terms of a set of basic quantum transformations called quantum gates. These gates are theoretical constructs that may or may not have direct analogs in the physical components of an actual quantum computer."
+
+"In the early 1990s, researchers developed the first truly quantum algorithms. In spite of the probabilistic nature of quantum mechanics, the first quantum algorithms, for which superiority over classical algorithms could be proved, give the correct answer with certainty. They improve upon classical algorithms by solving in polynomial time with certainty a problem that can be solved in polynomial time only with high probability using classical techniques."
+
+
 # Resources
 
 ## Books
@@ -32,8 +52,8 @@
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** "little yellow book experience"
 
 ## Popular Science
-* **Dancing with Qubits, Robert Sutor**
-* **Quantum Computing Since Democritus, Scott Aaronson**
+* **Dancing with Qubits, Robert Sutor** [gdrive](https://drive.google.com/file/d/1T9Iw5vR8IKcT21suxGx7q-K4Iy_x5Wyx/view?usp=drive_link)
+* **Quantum Computing Since Democritus, Scott Aaronson** [gdrive](https://drive.google.com/file/d/1MNHmFXQ-Fq1hFREg1PzlEOml8z1R6KyI/view?usp=drive_link)
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises
@@ -46,6 +66,9 @@
 * [Introduction to Quantum Information Science by Artur Ekert](https://www.arturekert.org/iqis) Introduction to Quantum Information Science” is a free online course offered by Artur Ekert, a prominent physicist and professor at the University of Oxford. 
 * [NPTEL Course on Introduction to Quantum Computing: Quantum Algorithms and Qiskit](https://youtu.be/2SPjEA-4lKk)
 
+
+## Presentations
+* **Qubit system and measurement in Quantum Computing, Harsh Trivedi** [gdrive](https://drive.google.com/file/d/1F11b4QNZwfx_-KpL3y2b4heORlBNOIwr/view?usp=drive_link)
 
 ## Lecture Notes
 
