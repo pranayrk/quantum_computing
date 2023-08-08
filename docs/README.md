@@ -4,7 +4,7 @@
 ## What is quantum computing?
 
 * The computers we use today rely on classical information theory, which are based on 'bits' which can represents a 0 or 1 state. 
-* These computers, referred to as classical computers henceforth, can be reduced to an equivalence with a Turing Machine, they can both compute similar things with similar efficiency.
+* These computers, referred to as classical computers henceforth, can be reduced to an equivalence with a Turing Machine, i.e. they can both compute similar things with similar efficiency.
 * In the last decades of the twentieth century, certain scientists sought to combine two of the recent most influential and revolutionary theories: information theory and quantum mechanics.
 * They recognized that certain quantum phenomena (those associated with "entangled particles") could not be simulated efficiently by a Turing machine.
 * This observation led to speculation that these quantum phenomena could be used to speed up computation in general.
@@ -15,6 +15,10 @@
 The Bra–ket notation, or Dirac notation, is a notation for linear algebra and linear operators on complex vector spaces.
 It is specifically designed to ease the types of calculations that frequently come up in quantum mechanics, and it's use is very widespread to denote quantum states and linear transformations that act on these quantum stat to denote quantum states and linear transformations that act on these quantum states.
 We will be using it extensively in these notes and will incrementally explain how it works.
+
+## From Quantum Computing Since Democritus, Scott Aaronson
+
+"Quantum mechanics is a beautiful generalization of the laws of probability: a generalization based on the 2-norm rather than the 1-norm, and on complex numbers rather than nonnegative real numbers. It can be studied completely separately from its applications to physics (and indeed, doing so provides a good starting point for learning the physical applications later). This generalized probability theory leads naturally to a new model of computation – the quantum computing model – that challenges ideas about computation once considered a priori, and that theoretical computer scientists might have been driven to invent for their own purposes, even if there were no relation to physics. In short, while quantum mechanics was invented a century ago to solve technical problems in physics, today it can be fruitfully explained from an extremely different perspective: as part of the history of ideas, in math, logic, computation, and philosophy, about the limits of the knowable."
 
 ## Qubits
 
@@ -28,17 +32,42 @@ Formally,
 Consider the two-dimensional complex vector space $V$ that forms the qubit. 
 
 The standard basis of this vector space $V$ are normally denoted as
-$\ket{\rightarrow} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{\uparrow} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
+$\ket{0} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$
 
-The 'state' of the qubit can be represented as any unit vector in $V$, and can be considered to be a **superposition** between the basis vectors $\ket{\rightarrow}$ and $\ket{\uparrow}$.
-With respect to the standard basis is $\ket{v} = a \ket{\rightarrow} + b \ket{\uparrow}$ where $a,b \in \mathbb{C}$.
+The 'state' of the qubit can be represented as any unit vector in $V$. 
+With respect to the standard basis we can write the state as $\ket{v} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$.
+When $a$ and $b$ are both non-zero, $\ket{v}$ is said to be a superposition of $\ket{0}$ and $\ket{1}$
 
 > **Dirac's Notation:** Observe above that we have written the vector $\vec{v} \in V$ as $\ket{v}$. This is the notation for a vector in Dirac's bra/ket notation, and is read **ket v**
 
+The systems able to be represented as $\ket{v} = a \ket{0} + b \ket{1}$ are called 'two-state quantum' systems.
+Note that this does not mean that this system has only two states, but rather that all possible states exist as a linear combination of just two states, which are the vectors in the basis we choose.
+This highlights the difference between bits and qubits. Where bits can take on only 2 values, say $\ket{0}$ and $\ket{1}$, qubits can take on 
+any superposition of these values $a \ket{0} + b \ket{1}$, where $a^2 + b^2 = 1$. 
+
 ![Qubit](/images/qubit_space.png)
 
+For $\ket{v} = a \ket{0} + b \ket{1}$, where $a, b \in \mathbb{C}$, $a^2 + b^2 =1$ 
+and 
+$\ket{v'} = a \ket{0} + b \ket{1}$ where $a', b' \in \mathbb{C}$, $(a')^2 + (b')^2 = 1$, 
+if $\ket{v} = c(\ket{v'})$ where $c \in \mathbb{C}$, $c = e^{i \phi}$ is a complex number with modulus 1, then $\ket{v}$ and $\ket{v'}$ are considered to be the same qubit value.
+
+Of course as is the case with vector spaces, we are not limited to choosing $\ket{0}$ and $\ket{1}$ as basis,  however in quantum mechanics we are mainly concerned with bases that are **orthonormal**, unless specified otherwise.
+
+Other than $\{ \ket{0}, \ket{1}\}$, another common basis that we often use is the **Hadamard Basis** which is given by $\left\{ \ket{+}, \ket{-} \right\}$ where $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1})$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1})$
+
+There could be systems whose states are modelled as vectors in $3$-dimensional vector spaces, these are called qutrits. Similar, systems whose states are modelled with $n$-dimensional vector spaces are called qudrits. However, all of these higher dimensional systems can be modelled by a system of qubits, so they do not offer any higher computational power.
 
 There can be quite a few real-life realizations of qubits which satisfy the above criteria, these could include photon polarization, or electron spin, or an atom with its ground state and excited state.
+
+The fact that a qubit can exist in superposition of two basis vectors $\ket{0}$ and $\ket{1}$ may lead us to believe that we have a continuum of values to work with in our computational model. However, this is not the case. While the qubit itself  may be in a superposition state, quantum theory states that we cannot interact with the qubit without fundamentally altering its state. Any measurement device that interacts with the qubit will itself have two preferred basis vectors, say $\ket{u}$ and $\ket{u^\perp}$. When we measure the state of the qubit, it will give the value of one of the preferred basis vectors. 
+
+Given the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement will yield the value of either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$.
+This also changes the state of the qubit itself to the result of the measurement.
+
+This behaviour is an axiom of quantum mechanics, found by empirical observation from experiments with measurement devices. 
+This property restricts the amount of information that can be extracted from a qubit, a single measurment yields atmost a single classical bit worth of information, and we cannot make more than one measurement of original state of the qubit.
+
 
 
 # Resources
