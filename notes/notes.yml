@@ -1,0 +1,4 @@
+content: notes.md
+main:
+  - introduction
+  - qubits

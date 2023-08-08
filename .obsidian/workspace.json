@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "output/quantum_computing_full.md",
+                "file": "docs/README.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "output/quantum_computing_full.md",
+                "file": "docs/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "output/quantum_computing_full.md",
+                "file": "docs/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "output/quantum_computing_full.md"
+                "file": "docs/README.md"
               }
             }
           }
@@ -147,5 +147,7 @@
     }
   },
   "active": "72d189e44511a3d1",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "quantum_computing.md"
+  ]
 }

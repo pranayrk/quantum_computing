@@ -1,50 +1,45 @@
-# Daily Learning
-
-## 2023-08-02
-
-### Quantum Computing Background
-[Source](http://www.mit.edu/~aram/advice/quantum.html)
-
-*General background:* Quantum computing (theory) is at the intersection of math, physics and computer science. (Experiment also can involve electrical engineering.) Eventually you will want to learn aspects of all of these fields, but when starting you can use any for an entry into the field. Within each field, the subjects you will want to know are:
-
-* Physics: First learn quantum mechanics. At more advanced levels, various aspects of quantum information overlap with AMO, condensed matter and high energy.
-* Math: First linear algebra and probability. Later my preferences would be to learn some group and representation theory, random matrix theory and functional analysis, but eventually most fields of math have some overlap with quantum information, and other researchers may emphasize different areas of math.
-* Computer Science: Most theory topics are relevant although are less crucial at first: i.e. algorithms, cryptography, information theory, error-correcting codes, optimization, complexity, machine learning. If you haven't had any CS theory exposure, undergrad algorithms is a good place to start because it will show you CS-theory ways of thinking, including ideas like asymptotic analysis. 
-
-## 2023-08-06
-
-`From Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak`
-
-"Many of the concepts are subtle and unintuitive, and much of the notation unfamiliar. Readers will need to spend time working with the concepts and notations to develop a level of fluency at each stage. For example, even readers with significant mathematical background may not have worked much with tensor products and may not be familiar with the relation of tensor product spaces to their component spaces ... It is well worth the effort to master them, as well as the concise Dirac notation in which they are generally expressed, but mastery will require effort. The precise nature of these mathematical formalisms provides a means of working with quantum concepts before fully understanding them. Intuition for quantum mechanics and quantum information processing will develop from playing with the formal mathematics."
-
-"features of quantum mechanics that give quantum computation its power and are responsible for its limitations. Neither the extent of the power of quantum computation nor its limitations have been fully understood. Research challenges remain not only in building quantum computers and developing novel algorithms and protocols, but also in answering fundamental questions as to the source of quantum computing’s power and the reasons for its limitations."
-
-"In the last decades of the twentieth century, scientists sought to combine two of the century’s most influential and revolutionary theories: information theory and quantum mechanics. Their success gave rise to a new view of computation and information."
-
-"In the early 1980s, a few researchers realized that quantum mechanics had unanticipated implications for information processing. Charles Bennett and Gilles Brassard, building on ideas of Stephen Wiesner, showed how nonclassical properties of quantum measurement provided a provably secure mechanism for establishing a cryptographic key. Richard Feynman, Yuri Manin, and others recognized that certain quantum phenomena—phenomena associated with so-called entangled particles—could not be simulated efficiently by a Turing machine. This observation led to speculation that perhaps these quantum phenomena could be used to speed up computation in general. Such a program required rethinking the information theoretic model underlying computation, taking it out of the purely classical realm."
-
-"Quantum information processing ... explores the implications of using quantummechanics instead of classical mechanics to model information and its processing. ... The change starts at the most basic level: the fundamental unit of computation is no longer the bit, but rather the quantum bit or qubit. Placing computation on a quantum mechanical foundation led to the discovery of faster algorithms, novel cryptographic mechanisms, and improved communication protocols.
-
-"As a final example, while the conversion between general classical circuits and reversible classical circuits is a purely classical topic, it is the heart of the proof that anything a classical computer can do, a quantum computers can do with comparable efficiency. ... David Deutsch developed a notion of a quantum mechanical Turing machine. Daniel Bernstein, Vijay Vazirani, and Andrew Yao improved upon his model and showed that a quantum Turing machine could simulate a classical Turing machine, and hence any classical computation, with at most a polynomial time slowdown."
-
-"The standard quantum circuit model was then defined, which led to an understanding of quantum complexity in terms of a set of basic quantum transformations called quantum gates. These gates are theoretical constructs that may or may not have direct analogs in the physical components of an actual quantum computer."
-
-"In the early 1990s, researchers developed the first truly quantum algorithms. In spite of the probabilistic nature of quantum mechanics, the first quantum algorithms, for which superiority over classical algorithms could be proved, give the correct answer with certainty. They improve upon classical algorithms by solving in polynomial time with certainty a problem that can be solved in polynomial time only with high probability using classical techniques."
+# Notes
 
 
-## 2023-08-07
+## What is quantum computing?
 
-`From Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak`
+* The computers we use today rely on classical information theory, which are based on 'bits' which can represents a 0 or 1 state. 
+* These computers, referred to as classical computers henceforth, can be reduced to an equivalence with a Turing Machine, they can both compute similar things with similar efficiency.
+* In the last decades of the twentieth century, certain scientists sought to combine two of the recent most influential and revolutionary theories: information theory and quantum mechanics.
+* They recognized that certain quantum phenomena (those associated with "entangled particles") could not be simulated efficiently by a Turing machine.
+* This observation led to speculation that these quantum phenomena could be used to speed up computation in general.
+* Such a program required rethinking the information theoretic model underlying computation, which resulted in a new framework for computation called quantum computing
 
-"Peter Shor, ... polynomial-time quantum algorithm for factoring integers. This result provided a solution to a well-studied problem of practical interest. ... It is unknown whether an efficient classical solution exists, so Shor’s result does not prove that quantum computers can solve a problem more efficiently than a classical computer."
+## A note on Dirac's Bra/Ket Notation
 
-"Properties of quantum mechanics, such as the impossibility of reliably copying an unknown quantum state, made it look unlikely that effective error-correction techniques for quantum computation could ever be found. ... (However in) 1996 Shor and Robert Calderbank, and independently Andrew Steane, saw a way to finesse the seemingly show-stopping problems of quantum mechanics to develop quantum error correction techniques. Today, quantum error correction is arguably the most mature area of quantum information processing."
+The Bra–ket notation, or Dirac notation, is a notation for linear algebra and linear operators on complex vector spaces.
+It is specifically designed to ease the types of calculations that frequently come up in quantum mechanics, and it's use is very widespread to denote quantum states and linear transformations that act on these quantum stat to denote quantum states and linear transformations that act on these quantum states.
+We will be using it extensively in these notes and will incrementally explain how it works.
 
-![polarization realization](/images/polarized_realization.png)
+## Qubits
 
-"In general, the set of all possible states of a physical system is called the state space of the system. Any quantum mechanical system that can be modeled by a two-dimensional complex vector space can be viewed as a qubit. ... Such systems, called two-state quantum systems, include photon polarization, electron spin, and the ground state together with an excited state of an atom. The two-state label for these systems does not mean that the state space has only two states—it has infinitely many—but rather that all possible states can be represented as a linear combination, or superposition, of just two states. For a two-dimensional complex vector space to be viewed as a qubit, two linearly independent states, labeled 0 and 1, must be distinguished."
+A qubit is the basic unit of information in the quantum computing framework.
+It is the counterpart to the bit (binary digit) in classical computing.
+Unlike bits which take on only two values, quantum bits take on a continuum of values.
 
-"Quantum theory postulates that any device that measures a two-state quantum system must have two preferred states whose representative vectors, {u, u⊥}, form an orthonormal basis for the associated vector space. Measurement of a state transforms the state into one of the measuring device’s associated basis vectors u or u⊥. The probability that the state is measured as basis vector u is the square of the magnitude of the amplitude of the component of the state in the direction of the basis vector u. For example, given a device for measuring the polarization of photons with associated basis {u, u⊥}, the state v = au + bu⊥ is measured as u with probability a squared and as u⊥ with probability b squared ... For this reason, whenever anyone says “measure a qubit," they must specify with respect to which basis the measurement takes place."
+Formally,
+> Any quantum mechanical system that can be modeled by a two-dimensional complex vector space can be viewed as a **qubit**
+
+Consider the two-dimensional complex vector space $V$ that forms the qubit. 
+
+The standard basis of this vector space $V$ are normally denoted as
+$\ket{\rightarrow} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{\uparrow} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
+
+The 'state' of the qubit can be represented as any unit vector in $V$, and can be considered to be a **superposition** between the basis vectors $\ket{\rightarrow}$ and $\ket{\uparrow}$.
+With respect to the standard basis is $\ket{v} = a \ket{\rightarrow} + b \ket{\uparrow}$ where $a,b \in \mathbb{C}$.
+
+> **Dirac's Notation:** Observe above that we have written the vector $\vec{v} \in V$ as $\ket{v}$. This is the notation for a vector in Dirac's bra/ket notation, and is read **ket v**
+
+![Qubit](/images/qubit_space.png)
+
+
+There can be quite a few real-life realizations of qubits which satisfy the above criteria, these could include photon polarization, or electron spin, or an atom with its ground state and excited state.
+
 
 # Resources
 
@@ -126,6 +121,8 @@
 
 ## Presentation Slides
 
+* Quantum Computing Title
+* Quantum Computing Introduction
 * Quantum Computing Timeline 1: 
     * Main Image: Timeline
     * Early 1980s: Charles Bennett, Feynman, etc
