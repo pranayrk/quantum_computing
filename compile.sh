@@ -1,1 +1,1 @@
-doctree docs/README.md
+doctree quantum_computing.yml docs/README.md
