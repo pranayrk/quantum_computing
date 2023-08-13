@@ -1,4 +1,6 @@
 content: notes.md
 main:
   - introduction
-  - qubits
+  - single_qubits
+  - multiple_qubits
+  - mathematical_foundations
