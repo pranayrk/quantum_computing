@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/multiple_qubits/multiple_qubits.md",
+                "file": "docs/quantum_computing.md",
                 "mode": "preview",
                 "source": false
               }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "a8eb511c446d450f",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/multiple_qubits/multiple_qubits.md",
+                "file": "docs/quantum_computing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/multiple_qubits/multiple_qubits.md",
+                "file": "docs/quantum_computing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/multiple_qubits/multiple_qubits.md"
+                "file": "docs/quantum_computing.md"
               }
             }
           }
@@ -148,8 +149,8 @@
   },
   "active": "2d6b7a55c0e0d0fb",
   "lastOpenFiles": [
-    "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/multiple_qubits/multiple_qubits.md",
+    "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/single_qubits/qubits.md",
     "notes/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.yml",

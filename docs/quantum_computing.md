@@ -20,29 +20,35 @@ We will be using it extensively in these notes and will incrementally explain ho
 
 "Quantum mechanics is a beautiful generalization of the laws of probability: a generalization based on the 2-norm rather than the 1-norm, and on complex numbers rather than nonnegative real numbers. It can be studied completely separately from its applications to physics (and indeed, doing so provides a good starting point for learning the physical applications later). This generalized probability theory leads naturally to a new model of computation – the quantum computing model – that challenges ideas about computation once considered a priori, and that theoretical computer scientists might have been driven to invent for their own purposes, even if there were no relation to physics. In short, while quantum mechanics was invented a century ago to solve technical problems in physics, today it can be fruitfully explained from an extremely different perspective: as part of the history of ideas, in math, logic, computation, and philosophy, about the limits of the knowable."
 
+## From Carnegie Mellon -- Quantum Computation and Information 2015
+The idea of quantum computation was pioneered in the 1980s mainly by Feynman and Deutsch, with Albert independently introducing quantumautomata and with Benioff analyzing the link between quantum mechanics andreversible classical computation. The initial idea of Feynman was the following: Although it is perfectly possible to use a (normal) computer to simulate the behavior of n-particlesystems evolving according to the laws of quantum, it seems be extremely inefficient. In particular, it seems to take an amount of time/space that is exponential in $n$. This is peculiar because the actual particles can be viewed as simulating themselves efficiently. So why not call the particles themselves a “computer”? After all, although we have sophisticated theoretical models of (normal) computation, in the end computers are ultimately physical objects operating according to the laws of physics. If we simply regard the particles following their natural quantum-mechanical behavior as a computer, then this “quantum computer” appears to be performing a certain computation (namely, simulating a quantum system)exponentially more efficiently than we know how to perform it with a normal, “classical” computer. Perhaps we can carefully engineer multi-particle systems in such a way that their natural quantum behavior will do other interesting computations exponentially more efficiently than classical computers can.This is the basic idea behind quantum computers. As it turns out, you can get (seemingly) exponential speedups for a (seemingly) small number of natural computational problems by carefully designing a multi-particle quantum system and letting it evolve according tothe (100-year old, extremely well-confirmed) laws of quantum mechanics. By far the most spectacular example is Shor’s factoring algorithm, an algorithm implementable on a quantum computer that can factor any $n$-digit integer (with high probability) in roughly $n^2$-time. This is contrast to the fact that the fastest known “classical” algorithm for factoring $n$-digit integers seems to require roughly $2^{n^{1/3}}$-time, and in fact the presumed computational difficulty of factoring is relied upon in an enormous number of real-world cryptographic applications
+
 ## Qubits
 
-A qubit is the basic unit of information in the quantum computing framework.
-It is the counterpart to the bit (binary digit) in classical computing.
+A qubit (quantum bit) is the basic unit of information in any quantum computing framework. It is based on a quantum-mechanical system.
+It is the counterpart to the bit (binary digit) in classical computing which takes on two values, usually referred to as $0$ and $1$.
 Unlike bits which take on only two values, quantum bits take on a continuum of values.
 
-Formally,
-> A **qubit** is any quantum mechanical system that can be modeled by a two-dimensional complex vector space. 
-> The **state** of the qubit is any vector in that vector space.
+On a real-life quantum computer, the underlying quantum mechanical system could be be implemented using a multitude of phenomena.A qubit could be implemented by photon polarization, electron spin, an atom's ground/excited state, or even defect centers in diamonds. The specific implementation of the system is of little concern as long as they all follow the same rules, which we will abstract out.
 
-On a real quantum computer, the underlying quantum mechanical system could be be based on photon polarization, electron spin, or an atom's ground state and excited state, or even defect centers in diamonds. The specific implementation of the system is of little concern as they all will follow the same rules. So it is enough to work with an abstracted idea of a qubit.
+> A **qubit** is any quantum mechanical system that can be modeled by a two-dimensional complex Hilbert space $\mathcal{H}$ (known as the **state space**) and follows the below postulates:
+> * Postulate of Superposition
+> * Measurement (Born's Rule) Postulate
+> * Entanglement Postulate
+>
+> The **state** of the qubit is any unit vector in that vector space.
 
-We will consider only unit vectors as valid states (because then the amplitudes have a more direct relation to
-the measurement probabilities and because keeping track of the normalization factor provides a
-check that helps avoid errors.)
+We will consider only unit vectors as valid states (because then the amplitudes have a more direct relation to the measurement probabilities and because keeping track of the normalization factor provides a check that helps avoid errors.)
 
-Consider the two-dimensional complex vector space $V$ that forms the qubit. 
-The standard basis of this vector space $V$ are normally denoted as
+Consider the two-dimensional complex vector space $\mathcal{H}$ that models the qubit. 
+The standard basis (often referred to as the 'computational basis' of this vector space $\mathcal{H}$ are normally denoted as
 $\ket{0} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$
 
-With respect to the standard basis we can write the state of the qubit as $\ket{v} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$ and $a^2 + b^2 = 1$. When $a$ and $b$ are both non-zero, $\ket{v}$ is said to be a superposition of $\ket{0}$ and $\ket{1}$
+> **Postulate of Superposition**
+> With respect to the basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as $\ket{v} = a \ket{0} + b \ket{1} = \begin{bmatrix} 0 \\ a \end{bmatrix} + \begin{bmatrix} b \\ 0 \end{bmatrix} = \begin{bmatrix} b \\ a \end{bmatrix}$ where $a,b \in \mathbb{C}$ and $a^2 + b^2 = 1$. 
+> When $a$ and $b$ are both non-zero, $\ket{v}$ is said to be a superposition of $\ket{0}$ and $\ket{1}$
 
-> **Dirac's Notation:** Observe above that we have written the vector $\vec{v} \in V$ as $\ket{v}$. This is the notation for a vector in Dirac's bra/ket notation, and is read **ket v**
+> **Dirac's Bra/Ket Notation:** Observe above that we have written the vector $\vec{v} \in V$ as $\ket{v}$. This is the notation for a vector in Dirac's bra/ket notation, and is read **ket v**
 
 These qubits are called 'two-state quantum' systems. This does not mean that this system has only two states, but rather that all possible states exist as a linear combination of just two states, i.e. vectors in the basis for the two-dimensional complex vector space. This highlights the difference between bits and qubits. Where bits can take on only 2 values, say $\ket{0}$ and $\ket{1}$, qubits can take on any superposition of these values as $a \ket{0} + b \ket{1}$, where $a,b \in \mathbb{C}$ and $a^2 + b^2 = 1$. (there is a caveat however, we will not have the information in all the superposition states actually available to us).
 There could be systems whose states are modelled as vectors in $3$-dimensional vector spaces, these are called qutrits. Similar, systems whose states are modelled with $n$-dimensional vector spaces are called qudrits. However, all of these higher dimensional systems can be modelled by a system of qubits, so they do not offer any higher computational power.
@@ -55,7 +61,85 @@ Of course as is the case with vector spaces, we are not limited to choosing $\ke
 
 The fact that a qubit can exist in superposition of two basis vectors $\ket{0}$ and $\ket{1}$ may lead us to believe that we have a continuum of values to work with in our computational model. However, this is not the case. While the qubit itself  may be in a superposition state, quantum theory states that we cannot interact with the qubit without fundamentally altering its state. Any measurement device that interacts with the qubit will itself have two preferred basis vectors, say $\ket{u}$ and $\ket{v}$. When we measure the state of the qubit, it will result the value of one of the preferred basis vectors. 
 
-Given the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement will yield the value of either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. This also changes the state of the qubit itself to the result of the measurement. This behaviour is an axiom of quantum mechanics, found by empirical observation from experiments with measurement devices. This property restricts the amount of information that can be extracted from a qubit, a single measurment yields atmost a single classical bit worth of information, and we cannot make more than one measurement of original state of the qubit.
+> **Measurement ([Born's Rule](https://en.wikipedia.org/wiki/Born_rule)) Postulate for a single qubit** 
+> Given the measurement device is calibrated with the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield the value of either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. 
+
+
+This also changes the state of the qubit itself to the result of the measurement. This behaviour is an axiom of quantum mechanics, found by empirical observation from experiments with measurement devices. This property restricts the amount of information that can be extracted from a qubit, a single measurment yields atmost a single classical bit worth of information, and we cannot make more than one measurement of original state of the qubit.
+
+<!-- ### Review of Direct Sum
+
+Let $V$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n}$ and $W$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_m} \}$
+The **direct sum** $V \oplus W$ is the $n+m$-dimensional vector space with basis $\alpha \cup \beta = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n}, \ket{b_1}, \ket{b_2}, ..., \ket{b_m} \}$, where every vector in $V \oplus W$ can be written as $v \oplus w = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix}$ for some $v = x_1 a_1 + x_2 a_2 + ... + x_n a_n = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \in V$ and $w = y_1 b_1 + y_2 b_2 + ... + y_m b_m = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix} \in W$.
+
+-->
+
+### Review of Tensor Product
+Let $V$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n}$ and $W$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_m} \}$
+The tensor product $V \otimes W$ is an $nm$-dimensional space with basis elements of the form $\ket{a_i} \otimes \ket{b_j}$, where $\otimes$ is the tensor product defined to satisfy the following relations:
+1. $(\ket{v_1} + \ket{v_2} ) \otimes w = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$
+2. $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) =  \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$
+3. $(a \cdot \ket{v}) \otimes \ket{w} = \ket{v} \otimes (a \cdot \ket{w})  = a \cdot (\ket{v} \otimes \ket{w})$
+
+Every element in $V \otimes W$ can be represented as $\ket{v_1} \otimes \ket{w_1} + \ket{v_2} \otimes \ket{w_2} + ... + \ket{v_k} \otimes \ket{w_k}$ where $k = \text{min}(n,m)$ and $v_i \in V, w_i \in W$.
+
+Every element in $V \otimes W$ can also be written as $\alpha_1 (\ket{a_1} \otimes \ket{b_1}) + \alpha_2 (\ket{a_2} \otimes \ket{b_2}) + ... + \alpha_{nm} (\ket{a_{nm}} \otimes \ket{b_{nm}})$, but most elements cannot be written as $\ket{v} \otimes \ket{w}$ where $v \in V, w \in W$.
+
+
+The tensor product of two unit vectors is a unit vector.
+
+If the underlying vector spaces all have orthonormal bases, then the tensor product space has an orthonormal basis consisting of the tensor product of basis vectors.
+
+#### Relationship between outer and inner product
+*Source: [Carnegie Melon PDF](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf), Observation 2.4*
+$\mathrm{tr}(\ket{x2}\bra{x1}) = \braket{x1|x2}$
+
+## Systems of Multiple Qubits
+
+While it may seem like a qubit has an infinite number of states, in reality, a single qubit only gives us one bit worth of information once measured. The benefits of quantum computing become more apparent once we start including multiple interacting qubits in the system. 
+In a classical world, a computer with $n$-bit register will have one dimension for each bit, resulting in a state space of dimensions $n$. This is because each bit has *one independent degree of freedom*.
+Therefore, adding one bit into the $n$-bit register adds one more dimension to the state space, resulting in $n+1$-dimensions, i.e. it is linear in $n$.
+
+<!--
+Let us consider the case when we have a system of $n$ qubits which are kept isolated and not allowed to interact.
+Let each qubit have the state $\ket{v_i} = a_i \ket{0} + b_i \ket{1} = \begin{bmatrix} b_i \\ a_i \end{bmatrix}$ where $a_i, b_i \in \mathbb{C}$ and $a_i ^2 + b_i ^2 = 1$.
+The state of the complete system of $n$ bits can be represented by the vector $\begin{bmatrix} a_1 \\ b_1 \\ a_2 \\ b_2 \\ \vdots \\ a_n \\ b_n \end{bmatrix}$, i.e. a system of $n$ isolated qubits results in a state space of $2n$. Thus the state space grows linearly, when we have a system of non-interacting qubits.
+To be more precise, the state space of $n$ isolated qubits is the direct sum $V_1 \oplus V_2 \oplus ... \oplus V_n$ of the vector spaces $V_i$ modelling each individual qubit.
+-->
+
+
+When allowed to interact, Quantum Computing systems behave very differently, they have *exponential state space*.
+Now let us consider a system of $n$-qubits where each qubit is allowed to interact with each other. 
+
+
+`Refer Kaye's Book, P46`
+> **Entanglement Postulate:**
+> When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $V_1 \otimes V_2$ of the state spaces $V_1, V_2$ of the component qubit subsystems.
+> If the first qubit is in state $\ket{v}$ and the second in state $\ket{w}$, then the combined system of two interacting qubits is in state $\ket{v} \otimes \ket{w}$.
+> Similarly, for a system of $n$ qubits, the state space is the tensor product $V_1 \otimes V_2 \otimes ... \otimes V_n$ of the state spaces of the $n$ independent qubits.
+
+Therefore the entanglement of $n$ qubits interacting in a system will result in a state space of $2^n$.
+
+> **Dirac's Bra/Ket Notation:** When considering the tensor product of two states, $\ket{v} \otimes \ket{w}$, we will write it in the reduced form $\ket{v}\ket{w}$ or even $\ket{vw}$
+
+Consider a system of two qubits, each with standard basis $\{ \ket{0}, \ket{1} \}$, then the combined system will have state space $V \otimes W$ which has $\{ \ket{0} \otimes \ket{0}, \ket{0} \otimes \ket{1}, \ket{1} \otimes \ket{0}, \ket{1} \otimes \ket{1} \} = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$ as standard basis.
+
+If the first qubit has the state $a_1 \ket{0} + b_1 \ket{1}$ and the second has state $a_2 \ket{0} + b_2 \ket{1}$, then the tensor product $a_1 a_2 \ket{0} + a_1 b_2 \ket{1} + a_2 b_1 \ket{2} + a_2 b_2 \ket{3} = \begin{bmatrix} a_1 a_2 \\ a_1 b_2 \\ a_2 b_1 \\ a_2 b_2 \end{bmatrix}$ represents the state of the 2-qubit system.
+
+Most states in a 2-qubit system cannot be written as a tensor product of vectors in $V$ and $W$, most states are said to be *entangled*.
+`Verify through Proof`
+
+
+## Hilbert Space
+> **Definition** A Hilbert space is a real or complex inner product space that is also a complete metric space with respect to the distance function induced by the inner product.
+
+To say that a complex vector space $\mathcal{H}$ is a complex inner product space means that there is an inner product $\langle x, y \rangle$ associating a complex number to each pair of elements $x,y$ of $\mathcal{H}$ that satisfies the following properties: 
+1. Conjugate Symmetric: $\langle y,x \rangle = \overline{\langle x,y \rangle}$
+2. Linear in first argument: $\langle a x_1 + b x_2 , y \rangle  = a \langle x_1, y \rangle + b \langle x_2, y \rangle$
+3. Inner product of an element with itself is positive definite: $\langle x,x \rangle > 0$ if $x \neq 0$, $\langle x,x \rangle = 0$ if $x = 0$
+
+Hilbert spaces have an easier structure and are in a way (most often infinite dimensional) Euclidian spaces. However, many spaces of interest that are Banach spaces are not Hilbert spaces, hence they are important too. 
+A Hilbert space is a very special type of Banach space - one which is meant to generalize familiar notions from $\mathbb{R}^n$. 
 
 # Resources
 
@@ -96,12 +180,19 @@ Given the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit 
 ## Presentations
 * **Qubit system and measurement in Quantum Computing, Harsh Trivedi** [gdrive](https://drive.google.com/file/d/1F11b4QNZwfx_-KpL3y2b4heORlBNOIwr/view?usp=drive_link)
 
-## Lecture Notes
+## Lecture Notes and Course Material
 
 * [Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
 * [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
 * [Quantum Algorithms lecture notes, Andrew Childs](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
+* [Carnegie Mellon - Quantum Computation and Information 2015 Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/) | [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+
+## Articles and Blog Posts
+* [Igor Ferst's Blog on State Space](https://sirjosephporter.com/2022/02/14/state-space/)
+
+## Videos
+* [Lukas's Lab - How to Build a Quantum Computer](https://www.youtube.com/watch?v=N06hC1GL1ns)
 
 ## Books focussing on Quantum Mechanics
 
@@ -132,24 +223,4 @@ Given the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit 
 ### Certifications
 
 * [IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X](https://www.ibm.com/training/certification/C0010300), you can find all kinds of exam related resources and information from qiskit slack channel #qiskit-cert-exam, this certificate proven yourself able to demonstrates fundamental knowledge of quantum computing concepts and is able to express them using the qiskit open sources SDK. This also open opportunity for you to join [qiskit-advocate](https://qiskit.org/advocates/).
-
-# Project
-
-## Presentation Slides
-
-* Quantum Computing Title
-* Quantum Computing Introduction
-* Quantum Computing Timeline 1: 
-    * Main Image: Timeline
-    * Early 1980s: Charles Bennett, Feynman, etc
-* Quantum Computing Timeline 2:
-    * Main Image: Timeline
-    * Early 1990s: Proof that quantum computer could be faster, Shor's Algorithm, Grover's Algorithm
-* Key facts from Quantum Mechanics
-    * Photons have polarization a v1 + b v2 where a and b are complex numbers
-    * Measuring a state changes it to one of the preferred bases with a certain probability
-* Introduction to Qubits
-    * Two state systems, which could be from photon polarization, electron spin, and the ground state together with an excited state of an atom.
-* A concrete realization of a Qubit through polarizing filters
-* Introduction to the Braket Notation
 

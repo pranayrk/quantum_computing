@@ -37,12 +37,19 @@
 ## Presentations
 * **Qubit system and measurement in Quantum Computing, Harsh Trivedi** [gdrive](https://drive.google.com/file/d/1F11b4QNZwfx_-KpL3y2b4heORlBNOIwr/view?usp=drive_link)
 
-## Lecture Notes
+## Lecture Notes and Course Material
 
 * [Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
 * [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
 * [Quantum Algorithms lecture notes, Andrew Childs](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
+* [Carnegie Mellon - Quantum Computation and Information 2015 Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/) | [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+
+## Articles and Blog Posts
+* [Igor Ferst's Blog on State Space](https://sirjosephporter.com/2022/02/14/state-space/)
+
+## Videos
+* [Lukas's Lab - How to Build a Quantum Computer](https://www.youtube.com/watch?v=N06hC1GL1ns)
 
 ## Books focussing on Quantum Mechanics
 
@@ -73,24 +80,4 @@
 ### Certifications
 
 * [IBM Certified Associate Developer - Quantum Computation using Qiskit v0.2X](https://www.ibm.com/training/certification/C0010300), you can find all kinds of exam related resources and information from qiskit slack channel #qiskit-cert-exam, this certificate proven yourself able to demonstrates fundamental knowledge of quantum computing concepts and is able to express them using the qiskit open sources SDK. This also open opportunity for you to join [qiskit-advocate](https://qiskit.org/advocates/).
-
-# Project
-
-## Presentation Slides
-
-* Quantum Computing Title
-* Quantum Computing Introduction
-* Quantum Computing Timeline 1: 
-    * Main Image: Timeline
-    * Early 1980s: Charles Bennett, Feynman, etc
-* Quantum Computing Timeline 2:
-    * Main Image: Timeline
-    * Early 1990s: Proof that quantum computer could be faster, Shor's Algorithm, Grover's Algorithm
-* Key facts from Quantum Mechanics
-    * Photons have polarization a v1 + b v2 where a and b are complex numbers
-    * Measuring a state changes it to one of the preferred bases with a certain probability
-* Introduction to Qubits
-    * Two state systems, which could be from photon polarization, electron spin, and the ground state together with an excited state of an atom.
-* A concrete realization of a Qubit through polarizing filters
-* Introduction to the Braket Notation
 

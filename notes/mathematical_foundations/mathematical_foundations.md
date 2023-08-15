@@ -5,3 +5,6 @@ To say that a complex vector space $\mathcal{H}$ is a complex inner product spac
 1. Conjugate Symmetric: $\langle y,x \rangle = \overline{\langle x,y \rangle}$
 2. Linear in first argument: $\langle a x_1 + b x_2 , y \rangle  = a \langle x_1, y \rangle + b \langle x_2, y \rangle$
 3. Inner product of an element with itself is positive definite: $\langle x,x \rangle > 0$ if $x \neq 0$, $\langle x,x \rangle = 0$ if $x = 0$
+
+Hilbert spaces have an easier structure and are in a way (most often infinite dimensional) Euclidian spaces. However, many spaces of interest that are Banach spaces are not Hilbert spaces, hence they are important too. 
+A Hilbert space is a very special type of Banach space - one which is meant to generalize familiar notions from $\mathbb{R}^n$. 
