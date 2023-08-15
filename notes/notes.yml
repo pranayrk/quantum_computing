@@ -4,3 +4,4 @@ main:
   - single_qubits
   - multiple_qubits
   - mathematical_foundations
+  - measurement_detail

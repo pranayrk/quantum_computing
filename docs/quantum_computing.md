@@ -59,13 +59,14 @@ Note: For $\ket{v} = a \ket{0} + b \ket{1}$, where $a, b \in \mathbb{C}$, $a^2 +
 
 Of course as is the case with vector spaces, we are not limited to choosing $\ket{0}$ and $\ket{1}$ as basis. It is to be noted that in general we will mainly use bases that are **orthonormal**, unless specified otherwise. For example, other than the standard basis $\{ \ket{0}, \ket{1}\}$, another common basis that we often use is the **Hadamard Basis** which is given by $\left\{ \ket{+}, \ket{-} \right\}$ where $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1})$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1})$
 
-The fact that a qubit can exist in superposition of two basis vectors $\ket{0}$ and $\ket{1}$ may lead us to believe that we have a continuum of values to work with in our computational model. However, this is not the case. While the qubit itself  may be in a superposition state, quantum theory states that we cannot interact with the qubit without fundamentally altering its state. Any measurement device that interacts with the qubit will itself have two preferred basis vectors, say $\ket{u}$ and $\ket{v}$. When we measure the state of the qubit, it will result the value of one of the preferred basis vectors. 
+The fact that a qubit can exist in superposition of two basis vectors $\ket{0}$ and $\ket{1}$ may lead us to believe that we have a continuum of values to work with in our computational model. However, this is not the case. While the qubit itself  may be in a superposition state, quantum theory states that we cannot interact with the qubit without fundamentally altering its state. 
 
 > **Measurement ([Born's Rule](https://en.wikipedia.org/wiki/Born_rule)) Postulate for a single qubit** 
-> Given the measurement device is calibrated with the orthonormal basis $\{ \ket{u}, \ket{v} \}$, if the state of the qubit is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield the value of either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. 
+> Any measurement device that interacts with the qubit will be calibrated with a pair of orthonormal vectors called the **preferred basis**, say $\{ \ket{u}, \ket{v} \}$. When we measure the state of the qubit with the device, it will output the result as one of the preferred basis vectors. 
+> If the state of the qubit with respect to the preferred basis is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. 
+> After measurement, the state of the qubit itself will be changed to the output of the measurement.
 
-
-This also changes the state of the qubit itself to the result of the measurement. This behaviour is an axiom of quantum mechanics, found by empirical observation from experiments with measurement devices. This property restricts the amount of information that can be extracted from a qubit, a single measurment yields atmost a single classical bit worth of information, and we cannot make more than one measurement of original state of the qubit.
+This behaviour is an axiom of quantum mechanics, found by empirical observation from experiments with measurement devices. This property restricts the amount of information that can be extracted from a qubit, a single measurment yields atmost a single classical bit worth of information, and we cannot make more than one measurement of original state of the qubit.
 
 <!-- ### Review of Direct Sum
 
@@ -141,35 +142,71 @@ To say that a complex vector space $\mathcal{H}$ is a complex inner product spac
 Hilbert spaces have an easier structure and are in a way (most often infinite dimensional) Euclidian spaces. However, many spaces of interest that are Banach spaces are not Hilbert spaces, hence they are important too. 
 A Hilbert space is a very special type of Banach space - one which is meant to generalize familiar notions from $\mathbb{R}^n$. 
 
+### Review of Direct Sum
+
+Let $V$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n}$ and $W$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_m} \}$
+The **direct sum** $V \oplus W$ is the $n+m$-dimensional vector space with basis $\alpha \cup \beta = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n}, \ket{b_1}, \ket{b_2}, ..., \ket{b_m} \}$, where every vector in $V \oplus W$ can be written as $v \oplus w = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix}$ for some $v = x_1 a_1 + x_2 a_2 + ... + x_n a_n = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix} \in V$ and $w = y_1 b_1 + y_2 b_2 + ... + y_m b_m = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_m \end{bmatrix} \in W$.
+
+`Note: Include Representation of Linear Transformations in Bra/Ket Notation, P48`
+
+### Measurement Revisited
+
+We saw that measurement the state of a single qubit follow the postulate:
+
+> **Measurement ([Born's Rule](https://en.wikipedia.org/wiki/Born_rule)) Postulate for a single qubit**
+> Any measurement device that interacts with the qubit will be calibrated with a pair of orthonormal vectors called the **preferred basis**, say $\{ \ket{u}, \ket{v} \}$. When we measure the state of the qubit with the device, it will output the result as one of the preferred basis vectors.
+> If the state of the qubit with respect to the preferred basis is $\ket{v} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$.
+> After measurement, the state of the qubit itself will be changed to the output of the measurement.
+
+We wish to formulate this rule in mathematical way, and generalize it to measurement on multiple qubits.
+
+Consider the vector space $V$ modelling a system of $n$ qubits. For any subspace $S$ of $V$, the subspace $S^{\perp}$ consists of all the vectors in $V$ that are perpendicular to all the vectors in $S$. Then we can write $V$ as a direct-sum decomposition of as $V = S \oplus S^{\perp}$, 
+and any vector $\ket{v} \in V$ can be written as $\ket{v} = \vec{s_1} + \vec{s_2}$ where $\vec{s_1} \in S, \vec{s_2} \in S^{\perp}$.
+
+We can then find the projection of $\ket{v}$ onto $S$ or $S^{\perp}$ with the help of a **projection operator** (or **projector**).
+For a subspace $S$ of $V$, the projection operator $P_S$ is the linear operator $P_S : V \to S$ that sends $\ket{v} \to \vec{s_1}$ where $\ket{v} = \vec{s_1} + \vec{s_2}$ with $\vec{S_1} \in S, \vec{S_2} \in S^{\perp}$.
+For a one-dimensional subspace of $V$ spanned by $\ket{\psi}$, we can write the projection operator as $\ket{\psi}\bra{\psi}$.
+
+> **Dirac's Bra/Ket Notation:** 
+> $\bra{v}$ refers to the conjugate transpose of $\ket{v}$ and is read **bra v** 
+> When $\ket{v} = a \ket{0} + b \ket{1} = \begin{bmatrix} b \\ a \end{bmatrix}$, then $\bra{v} = \ket{v}^\dagger = \begin{bmatrix} \overline{b} & \overline{a} \end{bmatrix}$
+> Here the dagger symbol $\dagger$ refers to the operation of conjugate transpose.
+
+For a unit vector $\ket{psi} = a \ket{0} + b \ket{1}$, we have $\ket{\psi}\bra{\psi} = \begin{bmatrix} b \\ a \end{bmatrix} \begin{bmatrix} \overline{b} & \overline{a} \end{bmatrix} = \begin{bmatrix} |b|^2 & \overline{a} b \\ a \overline{b} & |a|^2  \end{bmatrix}$.
+
+Consider we want the projection of $\ket{v} = a \ket{0} + b \ket{1}$ onto $\ket{0}$. Then we will apply the projection operator $\ket{0}\bra{0}$ onto $\ket{v}$. Here $\ket{0}\bra{0} = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix}$. Therefore,
+$\ket{0}\bra{0} (\ket{v}) = \begin{bmatrix} 1 & 0 \\ 0 & 0 \end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} a \\ 0 \end{bmatrix} = a \ket{0}$
+
+For a qubit with vector space $V$ which has direct sum decomposition $V = S_1 \oplus S_2 \oplus S_3 ... \oplus S_k$ into orthogonal subspaces $S_i$, measuring the state of the qubit in state $\ket{\psi}$ results in the state $\ket{\phi} = \frac{P_i \ket{\psi}}{|P_i \ket{\psi}|}$ with probability $|P_i \ket{\psi}|^2$ where $P_i$ are the projectors $P_i : V \to S_i$.
+
+
+
 # Resources
 
 ## Books
 * **Quantum Computing: A Gentle Introduction, Eleanor G. Rieffel and Wolfgang H. Polak** [gdrive](https://drive.google.com/file/d/11I6w6WlGISlnUawouQzLZCT5r_DFQdpl/view?usp=drive_link)
-* **Quantum Computing: From Alice to Bob, Alice Flarend and Robert Hilborn** [gdrive](https://drive.google.com/file/d/1BGsw5h7frncfrsQ9ZJQdfbR0a919623-/view?usp=drive_link)
-* **An Introduction to Quantum Computing, Phillip Kaye, Raymond Laflamme, Michele Mosca** [gdrive](https://drive.google.com/file/d/1bThjMp9Ia796H3Zpwge5FpymBaKGsUfH/view?usp=drive_link)
 * **Quantum Computing Explained, David McMahon** [gdrive](https://drive.google.com/file/d/1MfQkNf7F_SKvthIoWRu0Z6WXzWPf2e09/view?usp=drive_link)
+* **An Introduction to Quantum Computing, Phillip Kaye, Raymond Laflamme, Michele Mosca** [gdrive](https://drive.google.com/file/d/1bThjMp9Ia796H3Zpwge5FpymBaKGsUfH/view?usp=drive_link)
+* **Quantum Computing: From Alice to Bob, Alice Flarend and Robert Hilborn** [gdrive](https://drive.google.com/file/d/1BGsw5h7frncfrsQ9ZJQdfbR0a919623-/view?usp=drive_link)
 * **Introduction to Quantum Computing, Ray LaPierre** [gdrive](https://drive.google.com/file/d/1fQSs4b_kv1JTULjYOag6nIUZh2O8XZY4/view?usp=drive_link)
 * **Quantum Computation, Helmut Bez, Tony Croft** [gdrive](https://drive.google.com/file/d/13q01a5_762HS5-k01gNdbzUWhPYOHeLn/view?usp=drive_link)
 * **Quantum Computation and Quantum Information, Michael A. Nielsen, Isaac L. Chuang** [gdrive](https://drive.google.com/file/d/19sczt6sHbE9Kdokkk6653lphdDkzTvHM/view?usp=drive_link)
 * **An Introduction to Quantum Computing Algorithms, Arthur O. Pittenger** [gdrive](https://drive.google.com/file/d/1B3HScVBFhsVGjgIJtIo-cpvf5unQlpbb/view?usp=drive_link)
-
-## Other Recommended Books
-* **Principles Of Quantum Computation And Information by Giuliano Benenti, Giuliano Strini, Giulio Casati** This is a more beginner-friendly version, compared to Nielsen's book, but it also covers in depth many experimental applications and quantum information theory aspects rather than QC in particular
-* **An Introduction to Quantum. Computing, Phillip Kaye, Raymond Laflamme, and Michele Mosca. Oxford U. Press, New York, 20072. An Introduction to Quantum. Computing, Phillip Kaye, Raymond Laflamme, and Michele Mosca. Oxford U. Press, New York, 2007** his is an excellent book for QC. It explains in detail all of the fundamental QC problems (Deutsch-Jozsa, Simon, Grover, QFT-based algorithms and Shor's algorithm as well as many of the more theoretical problems such as the abelian stabilizer problem or the Solovay–Kitaev theorem with the appropiate Group Theory background being laid out).
-* **Quantum Computer Science, N. David Mermin, Cambridge University Press 2007**
-* **Introduction to Classical and Quantum Computing by Thomas Wong**  a super introduction book that explains basic Classical computing to Quantum computing.
-* **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** talks about the foundation and tools you need for QC.
-* **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** "little yellow book experience"
-
-## Popular Science
-* **Dancing with Qubits, Robert Sutor** [gdrive](https://drive.google.com/file/d/1T9Iw5vR8IKcT21suxGx7q-K4Iy_x5Wyx/view?usp=drive_link)
-* **Quantum Computing Since Democritus, Scott Aaronson** [gdrive](https://drive.google.com/file/d/1MNHmFXQ-Fq1hFREg1PzlEOml8z1R6KyI/view?usp=drive_link)
+* **Principles Of Quantum Computation And Information by Giuliano Benenti, Giuliano Strini, Giulio Casati** [gdrive](https://drive.google.com/file/d/1rw_7z9fPHqUHMceGHSnojIlQQlHwmHi0/view?usp=drive_link) This is a more beginner-friendly version, compared to Nielsen's book, but it also covers in depth many experimental applications and quantum information theory aspects rather than QC in particular
+* **Quantum Computer Science, N. David Mermin, Cambridge University Press 2007** [gdrive](https://drive.google.com/file/d/110YqOICSQmQOrqHZC68iwz3zr8u316tZ/view?usp=drive_link)
+* **Introduction to Classical and Quantum Computing by Thomas Wong** [gdrive](https://drive.google.com/file/d/1CCZoKao3bLZak_A_RWvZq5nhcBhId1Bn/view?usp=drive_link)  a super introduction book that explains basic Classical computing to Quantum computing.
+* **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
+* **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** [gdrive](https://drive.google.com/file/d/1nXKgPD0-GjEkJ_PQ6vsn5HHEACy2WBOT/view?usp=drive_link) "little yellow book experience"
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises
 * **The Functional Analysis of Quantum Information Theory written by Gupta, Mandayam and Sunder based on lectures by Effros, Paulsen, Pisier and Winter** Denser and focused on the math side more than applications.
 * **Alice and Bob meet Banach by Aubrun and Szarek** Incomplete textbook draft, but it looks like it'll be the definitive treatment of the probabilistic method in quantum information.
 * **The Mathematics of Entanglement by Brandao, Christandl, Walter and myself** Idiosyncratic and incomplete lecture notes on some of our pet topics.
+
+## Popular Science
+* **Dancing with Qubits, Robert Sutor** [gdrive](https://drive.google.com/file/d/1T9Iw5vR8IKcT21suxGx7q-K4Iy_x5Wyx/view?usp=drive_link)
+* **Quantum Computing Since Democritus, Scott Aaronson** [gdrive](https://drive.google.com/file/d/1MNHmFXQ-Fq1hFREg1PzlEOml8z1R6KyI/view?usp=drive_link)
 
 ### Courses
 

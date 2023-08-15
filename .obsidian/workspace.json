@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/quantum_computing.md",
+                "file": "notes/measurement_detail/measurement_detail.md",
                 "mode": "preview",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/quantum_computing.md",
+                "file": "notes/measurement_detail/measurement_detail.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/quantum_computing.md",
+                "file": "notes/measurement_detail/measurement_detail.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/quantum_computing.md"
+                "file": "notes/measurement_detail/measurement_detail.md"
               }
             }
           }
@@ -149,6 +149,16 @@
   },
   "active": "2d6b7a55c0e0d0fb",
   "lastOpenFiles": [
+    "docs/quantum_computing.md",
+    "notes/measurement_detail/measurement_detail.md",
+    "notes/measurement_detail/review_direct_sum/review_direct_sum.md",
+    "notes/measurement_detail/review_direct_sum/review_direct_sum.yml",
+    "notes/measurement_detail/review_direct_sum",
+    "notes/measurement_detail/measurement_detail.yml",
+    "notes/measurement_detail",
+    "notes/measurement/measurement.md",
+    "notes/measurement/measurement.yml",
+    "notes/measurement",
     "notes/multiple_qubits/multiple_qubits.md",
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/single_qubits/qubits.md",
@@ -157,14 +167,7 @@
     "notes/multiple_qubits/review_direct_sum_tensor_product",
     "notes/review_direct_sum_tensor_product/review_direct_sum_tensor_product.yml",
     "notes/review_direct_sum_tensor_product",
-    "docs/quantum_computing.md",
     "notes/mathematical_foundations/mathematical_foundations.md",
-    "notes/mathematical_foundations/mathematical_foundations.yml",
-    "notes/mathematical_foundations",
-    "notes/multiple_qubits/multiple_qubits.yml",
-    "notes/multiple_qubits",
-    "notes/single_qubits/single_qubits.yml",
-    "notes/single_qubits/single_cubits.yml",
     "notes/single_qubits/geometric_representations/geometric_representations.md",
     "images/bloch_sphere.png",
     "notes/qubits/geometric_representations/geometric_representations.md",
