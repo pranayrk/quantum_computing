@@ -1,4 +1,4 @@
-content: quantum_computing.md
-main:
+map:
+  - quantum_computing.md
   - notes
   - resources

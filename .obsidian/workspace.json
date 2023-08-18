@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/measurement_detail/measurement_detail.md",
+                "file": "docs/quantum_computing.md",
                 "mode": "preview",
                 "source": false
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/measurement_detail/measurement_detail.md",
+                "file": "docs/quantum_computing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/measurement_detail/measurement_detail.md",
+                "file": "docs/quantum_computing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/measurement_detail/measurement_detail.md"
+                "file": "docs/quantum_computing.md"
               }
             }
           }
@@ -149,8 +149,13 @@
   },
   "active": "2d6b7a55c0e0d0fb",
   "lastOpenFiles": [
+    "notes/transformations/transformations.md",
+    "notes/multiple_qubits/multiple_qubits.md",
+    "notes/single_qubits/qubits.md",
     "docs/quantum_computing.md",
     "notes/measurement_detail/measurement_detail.md",
+    "notes/transformations/transformations.yml",
+    "notes/transformations",
     "notes/measurement_detail/review_direct_sum/review_direct_sum.md",
     "notes/measurement_detail/review_direct_sum/review_direct_sum.yml",
     "notes/measurement_detail/review_direct_sum",
@@ -159,14 +164,10 @@
     "notes/measurement/measurement.md",
     "notes/measurement/measurement.yml",
     "notes/measurement",
-    "notes/multiple_qubits/multiple_qubits.md",
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
-    "notes/single_qubits/qubits.md",
     "notes/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.yml",
     "notes/multiple_qubits/review_direct_sum_tensor_product",
-    "notes/review_direct_sum_tensor_product/review_direct_sum_tensor_product.yml",
-    "notes/review_direct_sum_tensor_product",
     "notes/mathematical_foundations/mathematical_foundations.md",
     "notes/single_qubits/geometric_representations/geometric_representations.md",
     "images/bloch_sphere.png",

@@ -3,6 +3,7 @@
 
 ## Lecture Notes and Course Material
 
+* [Peter Shor's Lecture Notes 2022](https://math.mit.edu/~shor/435-LN/)
 * [Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
 * [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective

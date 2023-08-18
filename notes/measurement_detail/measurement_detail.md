@@ -19,7 +19,7 @@ For a subspace $S$ of $V$, the projection operator $P_S$ is the linear operator 
 For a one-dimensional subspace of $V$ spanned by $\ket{\psi}$, we can write the projection operator as $\ket{\psi}\bra{\psi}$.
 
 > **Dirac's Bra/Ket Notation:** 
-> $\bra{v}$ refers to the conjugate transpose of $\ket{v}$ and is read **bra v** 
+> $\bra{v}$ refers to the conjugate transpose (also known as Hermitian conjugate or dual vector) of $\ket{v}$ and is read **bra v** 
 > When $\ket{v} = a \ket{0} + b \ket{1} = \begin{bmatrix} b \\ a \end{bmatrix}$, then $\bra{v} = \ket{v}^\dagger = \begin{bmatrix} \overline{b} & \overline{a} \end{bmatrix}$
 > Here the dagger symbol $\dagger$ refers to the operation of conjugate transpose.
 

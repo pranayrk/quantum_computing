@@ -1,7 +1,8 @@
-content: notes.md
-main:
-  - introduction
+map:
+  - notes.md
+  - introduction.md
   - single_qubits
   - multiple_qubits
   - mathematical_foundations
   - measurement_detail
+  - transformations

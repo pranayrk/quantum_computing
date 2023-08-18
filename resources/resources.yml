@@ -1,7 +1,7 @@
-content: resources.md
-main:
-  - books
-  - courses
-  - other
-  - testing
-  - certifications
+map:
+  - resources.md
+  - books.md
+  - courses.md
+  - other.md
+  - testing.md
+  - certifications.md

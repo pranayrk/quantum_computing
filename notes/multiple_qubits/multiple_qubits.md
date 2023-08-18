@@ -30,6 +30,17 @@ Consider a system of two qubits, each with standard basis $\{ \ket{0}, \ket{1} \
 
 If the first qubit has the state $a_1 \ket{0} + b_1 \ket{1}$ and the second has state $a_2 \ket{0} + b_2 \ket{1}$, then the tensor product $a_1 a_2 \ket{0} + a_1 b_2 \ket{1} + a_2 b_1 \ket{2} + a_2 b_2 \ket{3} = \begin{bmatrix} a_1 a_2 \\ a_1 b_2 \\ a_2 b_1 \\ a_2 b_2 \end{bmatrix}$ represents the state of the 2-qubit system.
 
+
+Consider the bipartite quantum system (two qubits), we have the state space $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H_2}$
+The most natural basis for $\mathcal{H}$ is constructed from the tensor products of the basis vectors $\mathcal{H_1}$ (say $\{ \ket{0}_1, \ket{1}_1 \}$and $\mathcal{H_2}$ (say $\{ \ket{0}_2, \ket{1}_2\}$), then a basis for $\mathcal{H}$ is given by $\{ \ket{0}_1 \otimes \ket{0}_2, \ket{0}_1 \otimes \ket{1}_2, \ket{1}_1 \otimes \ket{0}_2, \ket{1}_1 \otimes \ket{1}_2 \} = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$
+
+So an arbitary state $\ket{\psi}$ for the bipartite system can be described using the basis vectors as $\ket{\psi} = c_1 \ket{00} + c_2 \ket{01} + c_3 \ket{10} + c_4 \ket{11}$.
+
+A state $\ket{\psi}$ is said to be **entangled** if it cannot be written as a simple tensor product of states $\ket{\alpha}_1 \in \mathcal{H}_1$ and $\ket{\beta}_2 \in \mathcal{H}_2$. If we can write $\ket{\psi} = \ket{\alpha}_1 \otimes \ket{\beta}_2$, the state is said to be **seperable**.
+
+**Example:** Consider the state $\ket{\psi_1} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. We can show this is entangled.
+`TODO`
+**Example:** Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. We can show this is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
+
 Most states in a 2-qubit system cannot be written as a tensor product of vectors in $V$ and $W$, most states are said to be *entangled*.
 `Verify through Proof`
-
