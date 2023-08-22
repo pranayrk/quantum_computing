@@ -10,13 +10,14 @@
 * **An Introduction to Quantum Computing Algorithms, Arthur O. Pittenger** [gdrive](https://drive.google.com/file/d/1B3HScVBFhsVGjgIJtIo-cpvf5unQlpbb/view?usp=drive_link)
 * **Quantum Computer Science, N. David Mermin, Cambridge University Press 2007** [gdrive](https://drive.google.com/file/d/110YqOICSQmQOrqHZC68iwz3zr8u316tZ/view?usp=drive_link)
 * **Introduction to Classical and Quantum Computing by Thomas Wong** [gdrive](https://drive.google.com/file/d/1CCZoKao3bLZak_A_RWvZq5nhcBhId1Bn/view?usp=drive_link)  a super introduction book that explains basic Classical computing to Quantum computing.
-* **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
+* **Quantum Computing: An Applied Approach - Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** [gdrive](https://drive.google.com/file/d/1nXKgPD0-GjEkJ_PQ6vsn5HHEACy2WBOT/view?usp=drive_link) "little yellow book experience"
+* **Mathematics of Quantum Computing, Wolfgang Scherer** [gdrive](https://drive.google.com/file/d/1Q-YXEJgXcxaOXiG7aQpucIXx2752orCL/view?usp=drive_link)
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises
-* **The Functional Analysis of Quantum Information Theory written by Gupta, Mandayam and Sunder based on lectures by Effros, Paulsen, Pisier and Winter** Denser and focused on the math side more than applications.
-* **Alice and Bob meet Banach by Aubrun and Szarek** Incomplete textbook draft, but it looks like it'll be the definitive treatment of the probabilistic method in quantum information.
+* **The Functional Analysis of Quantum Information Theory written by Gupta, Mandayam and Sunder based on lectures by Effros, Paulsen, Pisier and Winter** [gdrive](https://drive.google.com/file/d/1MnuA8Q61ltqzK6uHwwXm_TwwVZf8cgRX/view?usp=drive_link) Denser and focused on the math side more than applications.
+* **Alice and Bob meet Banach by Aubrun and Szarek** [gdrive](https://drive.google.com/file/d/15-gpf4XmVcZrPZ7SJ2Efzt_lwfY6igw9/view?usp=drive_link) Incomplete textbook draft, but it looks like it'll be the definitive treatment of the probabilistic method in quantum information.
 * **The Mathematics of Entanglement by Brandao, Christandl, Walter and myself** Idiosyncratic and incomplete lecture notes on some of our pet topics.
 
 ## Popular Science

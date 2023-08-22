@@ -12,13 +12,14 @@
 * **An Introduction to Quantum Computing Algorithms, Arthur O. Pittenger** [gdrive](https://drive.google.com/file/d/1B3HScVBFhsVGjgIJtIo-cpvf5unQlpbb/view?usp=drive_link)
 * **Quantum Computer Science, N. David Mermin, Cambridge University Press 2007** [gdrive](https://drive.google.com/file/d/110YqOICSQmQOrqHZC68iwz3zr8u316tZ/view?usp=drive_link)
 * **Introduction to Classical and Quantum Computing by Thomas Wong** [gdrive](https://drive.google.com/file/d/1CCZoKao3bLZak_A_RWvZq5nhcBhId1Bn/view?usp=drive_link)  a super introduction book that explains basic Classical computing to Quantum computing.
-* **Quantum Computing: An Applied Approach -Springer (2021) by Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
+* **Quantum Computing: An Applied Approach - Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** [gdrive](https://drive.google.com/file/d/1nXKgPD0-GjEkJ_PQ6vsn5HHEACy2WBOT/view?usp=drive_link) "little yellow book experience"
+* **Mathematics of Quantum Computing, Wolfgang Scherer** [gdrive](https://drive.google.com/file/d/1Q-YXEJgXcxaOXiG7aQpucIXx2752orCL/view?usp=drive_link)
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises
-* **The Functional Analysis of Quantum Information Theory written by Gupta, Mandayam and Sunder based on lectures by Effros, Paulsen, Pisier and Winter** Denser and focused on the math side more than applications.
-* **Alice and Bob meet Banach by Aubrun and Szarek** Incomplete textbook draft, but it looks like it'll be the definitive treatment of the probabilistic method in quantum information.
+* **The Functional Analysis of Quantum Information Theory written by Gupta, Mandayam and Sunder based on lectures by Effros, Paulsen, Pisier and Winter** [gdrive](https://drive.google.com/file/d/1MnuA8Q61ltqzK6uHwwXm_TwwVZf8cgRX/view?usp=drive_link) Denser and focused on the math side more than applications.
+* **Alice and Bob meet Banach by Aubrun and Szarek** [gdrive](https://drive.google.com/file/d/15-gpf4XmVcZrPZ7SJ2Efzt_lwfY6igw9/view?usp=drive_link) Incomplete textbook draft, but it looks like it'll be the definitive treatment of the probabilistic method in quantum information.
 * **The Mathematics of Entanglement by Brandao, Christandl, Walter and myself** Idiosyncratic and incomplete lecture notes on some of our pet topics.
 
 ## Popular Science
@@ -36,25 +37,26 @@
 
 ## Lecture Notes and Course Material
 
-* [Peter Shor's Lecture Notes 2022](https://math.mit.edu/~shor/435-LN/)
-* [Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
-* [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
-* [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
-* [Quantum Algorithms lecture notes, Andrew Childs](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
-* [Carnegie Mellon - Quantum Computation and Information 2015 Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/) | [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+* **Peter Shor's Lecture Notes 2022** [link](https://math.mit.edu/~shor/435-LN/)
+* **Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy** [gdrive](https://drive.google.com/file/d/1TMH9vhqeMa2rc1UUx3-fdhOLthdJgqT8/view?usp=drive_link) [link](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
+* **David Mermin's lecture notes** [link](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
+* **John Presskil Lecture notes** [link](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
+* **Quantum Algorithms lecture notes, Andrew Childs** [link](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
+* **Carnegie Mellon - Quantum Computation and Information 2015 Course Notes** [link](https://www.cs.cmu.edu/~odonnell/quantum15/) -- [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+* **The Mathematics of Entanglement by Brandao, Christandl, Walter and Harrow** [gdrive] (https://drive.google.com/file/d/1cDlfgP1u4v5xzjqmnu4O91oIteMR-TCT/view?usp=drive_link) Idiosyncratic and incomplete lecture notes on some of our pet topics.
 
 ## Articles and Blog Posts
-* [Igor Ferst's Blog on State Space](https://sirjosephporter.com/2022/02/14/state-space/)
+* **Igor Ferst's Blog on State Space** [link](https://sirjosephporter.com/2022/02/14/state-space/)
 
 ## Videos
-* [Lukas's Lab - How to Build a Quantum Computer](https://www.youtube.com/watch?v=N06hC1GL1ns)
+* **Lukas's Lab - How to Build a Quantum Computer** [link](https://www.youtube.com/watch?v=N06hC1GL1ns)
 
-## Books focussing on Quantum Mechanics
+## Books for Quantum Mechanics
 
 * **Sakurai's Quantum Mechanics**
 * **Shankar's Principles of Quantum Mechanics**
 
-## Books for the mathematics
+## Books for mathematics
 * **Linear Algebra and Linear Models by R. B. Bapat.**
 
 ## Other Books
@@ -62,6 +64,7 @@
 
 ## Other
 * [Quantum Computing for the very curious](https://quantum.country/qcvc) Quantum Computing for the Very Curious is a series of articles written by Andy Matuschak and Michael A. Nielsen that offers a basic and comprehensive introduction to quantum computing. The series covers a wide range of topics, from basic quantum mechanics concepts to advanced quantum algorithms.
+* [QOSF - Learning Resources on Quantum Computing](https://www.qosf.org/learn_quantum/)
 
 
 ### Running and Testing

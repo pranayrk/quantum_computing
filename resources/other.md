@@ -3,25 +3,26 @@
 
 ## Lecture Notes and Course Material
 
-* [Peter Shor's Lecture Notes 2022](https://math.mit.edu/~shor/435-LN/)
-* [Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
-* [David Mermin's lecture notes](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
-* [John Presskil Lecture notes](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
-* [Quantum Algorithms lecture notes, Andrew Childs](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
-* [Carnegie Mellon - Quantum Computation and Information 2015 Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/) | [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+* **Peter Shor's Lecture Notes 2022** [link](https://math.mit.edu/~shor/435-LN/)
+* **Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy** [gdrive](https://drive.google.com/file/d/1TMH9vhqeMa2rc1UUx3-fdhOLthdJgqT8/view?usp=drive_link) [link](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
+* **David Mermin's lecture notes** [link](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
+* **John Presskil Lecture notes** [link](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
+* **Quantum Algorithms lecture notes, Andrew Childs** [link](http://www.cs.umd.edu/~amchilds/qa/qa.pdf)
+* **Carnegie Mellon - Quantum Computation and Information 2015 Course Notes** [link](https://www.cs.cmu.edu/~odonnell/quantum15/) -- [Full Course Notes](https://www.cs.cmu.edu/~odonnell/quantum15/QuantumComputationScribeNotesByRyanODonnellAndJohnWright.pdf)
+* **The Mathematics of Entanglement by Brandao, Christandl, Walter and Harrow** [gdrive] (https://drive.google.com/file/d/1cDlfgP1u4v5xzjqmnu4O91oIteMR-TCT/view?usp=drive_link) Idiosyncratic and incomplete lecture notes on some of our pet topics.
 
 ## Articles and Blog Posts
-* [Igor Ferst's Blog on State Space](https://sirjosephporter.com/2022/02/14/state-space/)
+* **Igor Ferst's Blog on State Space** [link](https://sirjosephporter.com/2022/02/14/state-space/)
 
 ## Videos
-* [Lukas's Lab - How to Build a Quantum Computer](https://www.youtube.com/watch?v=N06hC1GL1ns)
+* **Lukas's Lab - How to Build a Quantum Computer** [link](https://www.youtube.com/watch?v=N06hC1GL1ns)
 
-## Books focussing on Quantum Mechanics
+## Books for Quantum Mechanics
 
 * **Sakurai's Quantum Mechanics**
 * **Shankar's Principles of Quantum Mechanics**
 
-## Books for the mathematics
+## Books for mathematics
 * **Linear Algebra and Linear Models by R. B. Bapat.**
 
 ## Other Books
@@ -29,3 +30,4 @@
 
 ## Other
 * [Quantum Computing for the very curious](https://quantum.country/qcvc) Quantum Computing for the Very Curious is a series of articles written by Andy Matuschak and Michael A. Nielsen that offers a basic and comprehensive introduction to quantum computing. The series covers a wide range of topics, from basic quantum mechanics concepts to advanced quantum algorithms.
+* [QOSF - Learning Resources on Quantum Computing](https://www.qosf.org/learn_quantum/)
