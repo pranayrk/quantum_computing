@@ -23,3 +23,12 @@
 ## Popular Science
 * **Dancing with Qubits, Robert Sutor** [gdrive](https://drive.google.com/file/d/1T9Iw5vR8IKcT21suxGx7q-K4Iy_x5Wyx/view?usp=drive_link)
 * **Quantum Computing Since Democritus, Scott Aaronson** [gdrive](https://drive.google.com/file/d/1MNHmFXQ-Fq1hFREg1PzlEOml8z1R6KyI/view?usp=drive_link)
+
+## Books for Quantum Mechanics, Mathematics
+* **Sakurai's Quantum Mechanics**
+* **Shankar's Principles of Quantum Mechanics**
+* **Functional Analysis and Operator Theory for Quantum Physics: The Pavner Exner Anniversary Volume**
+* **Linear Algebra and Linear Models by R. B. Bapat.**
+* **Quantum Functional Analysis, Non-Coordinate Approach, Alexander Khelemskiy**
+* **Functional Analysis and Operator Theory for Quantum Physics: The Pavner Exner Anniversary Volume**
+* **Operator Spaces by Effros and Ruan**
