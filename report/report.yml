@@ -1,0 +1,10 @@
+map:
+  - src/preamble
+  - src/title_page
+  - src/abstract
+  - src/certificate
+  - src/acknowledgement
+  - src/list_of_notations
+  - src/table_of_contents
+  - src/qubits
+  - src/bibliography

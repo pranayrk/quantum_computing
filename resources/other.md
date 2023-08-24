@@ -27,3 +27,5 @@
 ## Other
 * [Quantum Computing for the very curious](https://quantum.country/qcvc) Quantum Computing for the Very Curious is a series of articles written by Andy Matuschak and Michael A. Nielsen that offers a basic and comprehensive introduction to quantum computing. The series covers a wide range of topics, from basic quantum mechanics concepts to advanced quantum algorithms.
 * [QOSF - Learning Resources on Quantum Computing](https://www.qosf.org/learn_quantum/)
+* [Qubit Zoo - For learning about different physical implementations](https://qubitzoo.org)
+* [Algassert - Test Quantum Circuits](https://algassert.com/quirk)

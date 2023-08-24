@@ -1,0 +1,162 @@
+\documentclass[12pt,twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,graphicx,amsthm}
+\usepackage{epsfig,amssymb}
+%\usepackage{ upgreek }
+
+\usepackage{caption}
+\usepackage{fancyhdr}
+
+%\theoremstyle{definition}
+\newtheorem{defn}[subsection]{Definition}
+\newtheorem{note}{Note}
+\newtheorem{thm}[subsection]{Theorem}
+\newtheorem{corollary}[subsection]{Corollary}
+\newtheorem{eg}[subsection]{Example}
+%\newtheorem{ex}[subsection]{Exercise}
+\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{result}[subsection]{Result}
+\newtheorem{problem}[subsection]{Problem}
+\newtheorem{sol}{Solution}
+\newtheorem*{sol*}{Solution}
+\newtheorem{remark}[subsection]{Remark}
+\newtheorem{prop}[subsection]{Proposition}
+
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{0.25cm}
+        \Huge{\textbf{\large Mathematics of Quantum Computing \\(Tentative Title)}}\\
+        \vspace{0.50cm}
+        \small
+        A report submitted in partial fulfillment\\
+        of the requirement for the  degree of  \\
+        \vspace{0.25cm}
+        \textbf{MASTER OF SCIENCE \\ IN \\ MATHEMATICS}\\
+        \vspace{1.00cm}
+        by\\ \vspace{0.25cm}
+        \large
+        \textbf{Pranay Raja Krishnan}\\
+        \vspace{0.15cm}
+        \large{22MMT002}\\
+        \vspace{0.25cm}
+        Under the guidance of\\
+        \vspace{0.25cm}
+        \textbf{Dr. Trivedi Harsh Chandrakant}\\
+
+        %\vfill
+        \vspace{1cm}
+        \includegraphics[width=8cm]{LNMIIT.jpg}\\
+        \vspace{1.50cm}
+        \large
+        \textbf{Department of Mathematics\\
+        The LNM Institute of Information Technology,\\ Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031 (INDIA).}\\%May 2019\\
+        %\title{}
+    \end{center}
+\end{titlepage}
+\pagenumbering{roman}
+
+\newpage
+
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{abstract}
+    %\begin{center}
+    \vspace{1cm}
+        ((TODO))
+    %\end{center}
+\end{abstract}
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\chapter*{\centering CERTIFICATE}
+\addcontentsline{toc}{chapter}{Certificate}
+%\markboth{Acknowledgements}{Certificate}
+
+This is to certify that the dissertation entitled \textbf{Mathematics of Quantum Computing (Tentative Title)} submitted by \textbf{Pranay Raja Krishnan} (22MMT002) towards the partial fulfillment of the requirement for the degree of Master of Science (M.Sc) is a bonafide record of work carried out by him at the Department of Mathematics, The LNM Institute of Information Technology, Jaipur, (Rajasthan) India, during the academic session 2018-2019 under my supervision and guidance. \\
+\vspace*{3cm}
+\begin{flushright}
+	\hfill
+	{\parbox{7cm}{\textbf{Dr. Trivedi Harsh Chandrakant\\
+	Assistant Professor\\
+	Department of Mathematics\\
+	The LNM Institute of Information Technology, Jaipur}}}
+\end{flushright}
+
+\chapter*{\centering Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\markboth{Acknowledgements}{Acknowledgement}
+\centering ((TODO))
+\vspace*{3cm}
+Date: \today
+\hfill{}
+Pranay Raja Krishnan
+
+\chapter*{List of Notations}
+\addcontentsline{toc}{chapter}{List of Notations}
+\markboth{List of Notations}{List of Notations}
+Unless explicitly defined the following notations are used.\\
+((TODO: Rewrite))
+\begin{tabular}{p{2cm}p{5cm}}
+	\textbf{Symbol} & \textbf{Meaning}\\
+	\hline
+	& \\
+	$\subseteq$ & subset or equal to \\%[3pt]
+	$\not\subset$ & not subset\\%[3pt]
+	$\supseteq$ & superset or equal to \\
+	$\emptyset$ & empty set\\%[3pt]
+	$\in$ & belongs to\\%[3pt]
+	$\not \in $ & does not belong to \\
+	$\displaystyle\prod_{i \in I}$ & product over index set $I$ \\
+	$\mathbb{C}$ & the set of real numbers\\%[3pt]
+	$\mathbb{R}$ & the set of real numbers\\%[3pt]
+	$\mathbb{N}$ & the set of natural numbers\\%[3pt]
+	%PD Matrix & Positive Definite Matrix \\
+	%PSD Matrix & Positive Semi Definite Matrix
+\end{tabular}
+
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Qubits}
+\line(1,0){360} \\
+((TEST TEST TEST))
+\section{Qubits}
+\begin{defn}[Qubit]
+    A qubit
+\end{defn}
+
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\begin{thebibliography}{9}
+    \bibitem{latexcompanion}
+        Bhatia, Rajendra. Positive definite matrices. Vol. 16. Princeton university press, 2009.
+    \bibitem{latexcompanion}
+        Abraham, Berman, and Shaked-monderer Naomi. Completely positive matrices. World Scientific, 2003.
+        %\bibitem{latexcompanion}
+        %Hari Kishan. A text book matrices. Atlantic, 2008.
+    \bibitem{latexcompanion}
+        Horn, Roger A., and Charles R. Johnson. "Matrix analysis, 2nd." Cambridge University, New York (2013).
+    \bibitem{latexcompanion}
+        Jänich, Klaus. "Linear Maps." Linear Algebra. Springer, New York, NY, 1994. 62-84.
+    \bibitem{latexcompanion}
+        Berg, Christian, Jens Peter Reus Christensen, and Paul Ressel. Harmonic analysis on semigroups: theory of positive definite and related functions. Vol. 100. New York: Springer, 1984.
+    \bibitem{latexcompanion}
+        Debnath, Lokenath, and Piotr Mikusinski. Introduction to Hilbert spaces with applications. Academic press, 2005.
+        %\bibitem{latexcompanion}
+        %Gallone, Franco. Hilbert Space and Quantum Mechanics. World Scientific Publishing Company, 2014.
+        %\bibitem{latexcompanion}
+        %Bazaraa, Mokhtar S., Hanif D. Sherali, and Chitharanjan M. Shetty. Nonlinear programming: theory and algorithms. John Wiley \& Sons, 2013.
+        %\bibitem{latexcompanion}
+        %Rao, Singiresu S. Engineering optimization: theory and practice. John Wiley \& Sons, 2009.
+        %\bibitem{latexcompanion}
+        %Sinha, S. M. Mathematical Programming: Theory and Methods. Elsevier, 2005.
+
+\end{thebibliography}
+\end{document}
+
