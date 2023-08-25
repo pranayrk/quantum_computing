@@ -2,10 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,graphicx,amsthm}
 \usepackage{epsfig,amssymb}
-%\usepackage{ upgreek }
-
 \usepackage{caption}
 \usepackage{fancyhdr}
+\usepackage{lipsum}
 
 %\theoremstyle{definition}
 \newtheorem{defn}[subsection]{Definition}
@@ -65,10 +64,8 @@
 
 \addcontentsline{toc}{chapter}{Abstract}
 \begin{abstract}
-    %\begin{center}
     \vspace{1cm}
-        ((TODO))
-    %\end{center}
+    \lipsum[1]
 \end{abstract}
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
@@ -90,7 +87,10 @@ This is to certify that the dissertation entitled \textbf{Mathematics of Quantum
 \chapter*{\centering Acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \markboth{Acknowledgements}{Acknowledgement}
-\centering ((TODO))
+
+\lipsum[2]
+
+
 \vspace*{3cm}
 Date: \today
 \hfill{}
@@ -100,23 +100,23 @@ Pranay Raja Krishnan
 \addcontentsline{toc}{chapter}{List of Notations}
 \markboth{List of Notations}{List of Notations}
 Unless explicitly defined the following notations are used.\\
-((TODO: Rewrite))
+
 \begin{tabular}{p{2cm}p{5cm}}
-	\textbf{Symbol} & \textbf{Meaning}\\
-	\hline
-	& \\
-	$\subseteq$ & subset or equal to \\%[3pt]
-	$\not\subset$ & not subset\\%[3pt]
-	$\supseteq$ & superset or equal to \\
-	$\emptyset$ & empty set\\%[3pt]
-	$\in$ & belongs to\\%[3pt]
-	$\not \in $ & does not belong to \\
-	$\displaystyle\prod_{i \in I}$ & product over index set $I$ \\
-	$\mathbb{C}$ & the set of real numbers\\%[3pt]
-	$\mathbb{R}$ & the set of real numbers\\%[3pt]
-	$\mathbb{N}$ & the set of natural numbers\\%[3pt]
-	%PD Matrix & Positive Definite Matrix \\
-	%PSD Matrix & Positive Semi Definite Matrix
+\textbf{Symbol} & \textbf{Meaning}\\
+\hline
+& \\
+$\subseteq$ & subset or equal to \\%[3pt]
+$\not\subset$ & not subset\\%[3pt]
+$\supseteq$ & superset or equal to \\
+$\emptyset$ & empty set\\%[3pt]
+$\in$ & belongs to\\%[3pt]
+$\not \in $ & does not belong to \\
+$\displaystyle\prod_{i \in I}$ & product over index set $I$ \\
+$\mathbb{C}$ & the set of real numbers\\%[3pt]
+$\mathbb{R}$ & the set of real numbers\\%[3pt]
+$\mathbb{N}$ & the set of natural numbers\\%[3pt]
+%PD Matrix & Positive Definite Matrix \\
+%PSD Matrix & Positive Semi Definite Matrix
 \end{tabular}
 
 \tableofcontents
@@ -135,28 +135,17 @@ Unless explicitly defined the following notations are used.\\
 \addcontentsline{toc}{chapter}{Bibliography}
 \begin{thebibliography}{9}
     \bibitem{latexcompanion}
-        Bhatia, Rajendra. Positive definite matrices. Vol. 16. Princeton university press, 2009.
+        \lipsum[1][1-3]
     \bibitem{latexcompanion}
-        Abraham, Berman, and Shaked-monderer Naomi. Completely positive matrices. World Scientific, 2003.
-        %\bibitem{latexcompanion}
-        %Hari Kishan. A text book matrices. Atlantic, 2008.
+        \lipsum[2][1-3]
     \bibitem{latexcompanion}
-        Horn, Roger A., and Charles R. Johnson. "Matrix analysis, 2nd." Cambridge University, New York (2013).
+        \lipsum[3][1-3]
     \bibitem{latexcompanion}
-        Jänich, Klaus. "Linear Maps." Linear Algebra. Springer, New York, NY, 1994. 62-84.
+        \lipsum[4][1-3]
     \bibitem{latexcompanion}
-        Berg, Christian, Jens Peter Reus Christensen, and Paul Ressel. Harmonic analysis on semigroups: theory of positive definite and related functions. Vol. 100. New York: Springer, 1984.
+        \lipsum[5][1-3]
     \bibitem{latexcompanion}
-        Debnath, Lokenath, and Piotr Mikusinski. Introduction to Hilbert spaces with applications. Academic press, 2005.
-        %\bibitem{latexcompanion}
-        %Gallone, Franco. Hilbert Space and Quantum Mechanics. World Scientific Publishing Company, 2014.
-        %\bibitem{latexcompanion}
-        %Bazaraa, Mokhtar S., Hanif D. Sherali, and Chitharanjan M. Shetty. Nonlinear programming: theory and algorithms. John Wiley \& Sons, 2013.
-        %\bibitem{latexcompanion}
-        %Rao, Singiresu S. Engineering optimization: theory and practice. John Wiley \& Sons, 2009.
-        %\bibitem{latexcompanion}
-        %Sinha, S. M. Mathematical Programming: Theory and Methods. Elsevier, 2005.
-
+        \lipsum[6][1-3]
 \end{thebibliography}
 \end{document}
 
