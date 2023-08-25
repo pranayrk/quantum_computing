@@ -2,6 +2,7 @@
 \contentsline {chapter}{Certificate}{ii}{}%
 \contentsline {chapter}{Acknowledgements}{iii}{}%
 \contentsline {chapter}{List of Notations}{iv}{}%
-\contentsline {chapter}{\numberline {1}Qubits}{1}{}%
-\contentsline {section}{\numberline {1.1}Qubits}{1}{}%
-\contentsline {chapter}{Bibliography}{2}{}%
+\contentsline {chapter}{\numberline {1}A brief history of Quantum Computing}{1}{}%
+\contentsline {chapter}{\numberline {2}Qubits}{2}{}%
+\contentsline {section}{\numberline {2.1}Setting up the Qubit}{2}{}%
+\contentsline {chapter}{Bibliography}{5}{}%

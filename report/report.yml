@@ -6,5 +6,6 @@ map:
   - src/acknowledgement
   - src/list_of_notations
   - src/table_of_contents
+  - src/introduction
   - src/qubits
   - src/bibliography

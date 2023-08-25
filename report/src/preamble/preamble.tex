@@ -5,10 +5,14 @@
 \usepackage{caption}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
+\usepackage{verbatim}
+\usepackage{braket}
+%\usepackage{parskip}
 
 %\theoremstyle{definition}
 \newtheorem{defn}[subsection]{Definition}
 \newtheorem{note}{Note}
+\newtheorem{notation}[subsection]{Notation}
 \newtheorem{thm}[subsection]{Theorem}
 \newtheorem{corollary}[subsection]{Corollary}
 \newtheorem{eg}[subsection]{Example}
@@ -24,5 +28,9 @@
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
+
+\widowpenalties 1 10000
+\raggedbottom
+\setlength{\parindent}{0pt}
 
 \begin{document}
