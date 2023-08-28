@@ -5,4 +5,4 @@
 \contentsline {chapter}{\numberline {1}A brief history of Quantum Computing}{1}{}%
 \contentsline {chapter}{\numberline {2}Qubits}{2}{}%
 \contentsline {section}{\numberline {2.1}Setting up the Qubit}{2}{}%
-\contentsline {chapter}{Bibliography}{5}{}%
+\contentsline {chapter}{Bibliography}{8}{}%
