@@ -8,4 +8,5 @@ map:
   - src/table_of_contents
   - src/introduction
   - src/qubits
+  - src/gates
   - src/bibliography

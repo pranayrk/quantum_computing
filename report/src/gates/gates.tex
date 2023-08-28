@@ -1,0 +1,101 @@
+\chapter{Gates}
+\line(1,0){360} \\
+
+\begin{defn}
+    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
+\end{defn}
+
+\begin{defn}
+    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
+    \begin{enumerate}
+        \item $U^\dagger U = I$
+        \item $U U^\dagger = I$
+        \item the columns of $U$ are orthonormal vectors
+        \item the rows of $U$ are orthonormal vectors
+    \end{enumerate}
+\end{defn}
+
+
+`Alternate from Scherer`
+\begin{defn}
+    An operator $U$ on $H$ is called \textbf{unitary} if \\
+    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
+\end{defn}
+
+\begin{prop}
+Gates are described by unitary matrices.
+\end{prop}
+\begin{proof}
+    Let $M$ be a transformation of a quantum qubit state $\ket{\psi}$. Physics says that the evolution of an isolated quantum system is linear, so the transformation $M$ can be described by a matrix. \\
+
+    For any state $\ket{\psi}$, $M \ket{\psi}$ has to be a unit vector. \\
+    If $M \ket{\psi}$ is a unit vector, the inner product with itself is $1$.\\
+    $\implies \braket{ \ (M\ket{\psi}) \ |\  (M \ket{\psi}) \ } = 1$\\
+    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$ \\
+    $\implies M^\dagger M = I$ where $I$ is the identity matrix\\
+    $\implies$ $M$ is unitary\\
+\end{proof}
+
+
+Since $U U^\dagger = I$, we can conclude that every unitary matrix is invertible.
+This leads to the following result:
+\begin{result}
+    Only reversible gates can be implemented in quantum computing and any reversible gate has a quantum analog.
+\end{result}
+
+This shows us that the classical $\text{NOT}$ gate has a quantum analog but $\text{NAND}$ does not.
+
+Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in practice.
+
+
+`TODO Notation $\ket{}\bra{}$`
+\section{Gates on a single Qubit}
+
+
+\begin{defn}[Pauli Gates]
+    $I, X, Y, Z$ are known as the Pauli gates and are defined as: 
+    \begin{enumerate}
+        \item $I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \ket{0}\bra{0} + \ket{1}\bra{1}$
+        \item $X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \ket{1}\bra{0} + \ket{0}\bra{1}$
+        \item $Y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = i \ket{1}\bra{0} - i \ket{0}\bra{1}$
+        \item $Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \ket{0}\bra{0} - \ket{1}\bra{1}$
+    \end{enumerate}
+\end{defn}
+
+`TODO: Effect of the Pauli Gates on the Bloch Sphere`
+
+\begin{defn}[Hadamard Gate]
+    The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
+    $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$ 
+    $H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \ket{-}$.  It is defined by the matrix 
+    $\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \ket{0}\bra{+} + \ket{1}\bra{-}$
+\end{defn}
+The Hadamard gate allows us to obtain a superposition state.
+
+\begin{remark}
+    The Hadamard gate is its own inverse.\\
+    $H^2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = $
+    $\frac{1}{2} \begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix} = I$
+\end{remark}
+\begin{remark}
+    $H =   \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = \frac{1}{\sqrt{2}} (X + Z)$
+\end{remark}
+
+\begin{defn}
+    The \textbf{Phase Gate} defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    It is given by $R_\phi = \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$
+\end{defn}
+
+\section{Gates on Multiple Qubits}
+
+\begin{defn}
+    The \textbf{CNOT gate} is a gate that acts on 2 qubits which flips the second bit if the first bit is in the $\ket{1}$ state.\\
+    It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X$
+\end{defn}
+The CNOT gate allows us to obtain an entangled state.
+
+\begin{defn}
+    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
+\end{defn}
+
+Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
