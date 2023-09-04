@@ -1,27 +1,6 @@
 \chapter{Gates}
 \line(1,0){360} \\
 
-\begin{defn}
-    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
-\end{defn}
-
-\begin{defn}
-    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
-    \begin{enumerate}
-        \item $U^\dagger U = I$
-        \item $U U^\dagger = I$
-        \item the columns of $U$ are orthonormal vectors
-        \item the rows of $U$ are orthonormal vectors
-    \end{enumerate}
-\end{defn}
-
-
-`Alternate from Scherer`
-\begin{defn}
-    An operator $U$ on $H$ is called \textbf{unitary} if \\
-    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
-\end{defn}
-
 \begin{prop}
 Gates are described by unitary matrices.
 \end{prop}
@@ -82,8 +61,13 @@ The Hadamard gate allows us to obtain a superposition state.
 \end{remark}
 
 \begin{defn}
-    The \textbf{Phase Gate} defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
-    It is given by $R_\phi = \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$
+    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
+
+    The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
+    The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
 \end{defn}
 
 \section{Gates on Multiple Qubits}

@@ -7,8 +7,15 @@
 \usepackage{lipsum}
 \usepackage{verbatim}
 \usepackage{braket}
+\usepackage{titlesec}
+% \usepackage[showframe]{geometry}
 
-%\theoremstyle{definition}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+\newtheoremstyle{thmstyle}{10pt}{20pt}{}{}{\bfseries}{:}{.5em}{}
+\theoremstyle{thmstyle}
+
 \newtheorem{defn}[subsection]{Definition}
 \newtheorem{note}{Note}
 \newtheorem{notation}[subsection]{Notation}
@@ -30,6 +37,13 @@
 
 \widowpenalties 1 10000
 \raggedbottom
+
+\parskip=0pt plus 7pt
 \setlength{\parindent}{0pt}
+
+\setlength{\oddsidemargin}{36pt}
+\setlength{\evensidemargin}{36pt}
+
+\renewcommand{\contentsname}{\centering Contents}
 
 \begin{document}

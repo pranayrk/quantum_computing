@@ -7,8 +7,15 @@
 \usepackage{lipsum}
 \usepackage{verbatim}
 \usepackage{braket}
+\usepackage{titlesec}
+% \usepackage[showframe]{geometry}
 
-%\theoremstyle{definition}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+\newtheoremstyle{thmstyle}{10pt}{20pt}{}{}{\bfseries}{:}{.5em}{}
+\theoremstyle{thmstyle}
+
 \newtheorem{defn}[subsection]{Definition}
 \newtheorem{note}{Note}
 \newtheorem{notation}[subsection]{Notation}
@@ -30,7 +37,14 @@
 
 \widowpenalties 1 10000
 \raggedbottom
+
+\parskip=0pt plus 7pt
 \setlength{\parindent}{0pt}
+
+\setlength{\oddsidemargin}{36pt}
+\setlength{\evensidemargin}{36pt}
+
+\renewcommand{\contentsname}{\centering Contents}
 
 \begin{document}
 
@@ -69,19 +83,17 @@
 
 \newpage
 
+\chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-\begin{abstract}
-    \vspace{1cm}
-    \lipsum[1]
-\end{abstract}
+\lipsum[1]
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 
-\chapter*{\centering CERTIFICATE}
+\chapter*{Certificate}
 \addcontentsline{toc}{chapter}{Certificate}
 %\markboth{Acknowledgements}{Certificate}
 
-This is to certify that the dissertation entitled \textbf{Mathematics of Quantum Computing (Tentative Title)} submitted by \textbf{Pranay Raja Krishnan} (22MMT002) towards the partial fulfillment of the requirement for the degree of Master of Science (M.Sc) is a bonafide record of work carried out by him at the Department of Mathematics, The LNM Institute of Information Technology, Jaipur, (Rajasthan) India, during the academic session 2018-2019 under my supervision and guidance. \\
+This is to certify that the dissertation entitled \textbf{Mathematics of Quantum Computing (Tentative Title)} submitted by \textbf{Pranay Raja Krishnan} (22MMT002) towards the partial fulfillment of the requirement for the degree of Master of Science (M.Sc) is a bonafide record of work carried out by him at the Department of Mathematics, The LNM Institute of Information Technology, Jaipur, (Rajasthan) India, during the academic session 2023-2024 under my supervision and guidance. \\
 \vspace*{3cm}
 \begin{flushright}
 	\hfill
@@ -91,7 +103,7 @@ This is to certify that the dissertation entitled \textbf{Mathematics of Quantum
 	The LNM Institute of Information Technology, Jaipur}}}
 \end{flushright}
 
-\chapter*{\centering Acknowledgements}
+\chapter*{Acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \markboth{Acknowledgements}{Acknowledgement}
 
@@ -131,25 +143,15 @@ $\mathbb{N}$ & the set of natural numbers\\%[3pt]
 \newpage
 \pagenumbering{arabic}
 
-\chapter{A brief history of Quantum Computing}
-\line(1,0){360} \\ \\
-In the last decades of the twentieth century, certain scientists sought to combine two recent theories that were highly influential: \textbf{Information Theory} and \textbf{Quantum Mechanics}.
-
-\begin{itemize}
-\item \textbf{1984:} Charles Bennet and Gilles Brassad published a quantum key distribution protocol now called \textbf{BB84}, allowing two parties to establish an absolutely secure secret key.
-\item \textbf{1980s:} Feynman recognized that a system of
-    $n$-particle quantum systems could not be simulated efficiently by a Turing machine, seemingly requiring time/space that is exponential in $n$. He proposed that computers based on quantum systems could simulate quantum processes with more efficiency. This led to the question: If simluating quantum problems was more efficient on a quantum computer, would there be other problems that would run more efficiently on a quantum computer?
-\item \textbf{1994:} Peter Shor found the famous \textbf{Shor's Algorithm} for a quantum computer which could factors $n$-digit integers into primes with $n^2$ efficiency (with high probability). The fastest known algorithm for factoring $n$-digit integers in classical computing is of efficiency around $2^{n^{1/3}}$
-\end{itemize}
-
 \chapter{Qubits}
+
 \line(1,0){360} \\
 
 The computers we use today rely on classical information theory, which are based on \textbf{bits} (binary digits) which can represents a $0$ or $1$ state. These \textbf{classical computers}) are equivalent to a Turing Machine in computational efficiency. 
 
 On a quantum computer the \textbf{qubit} (quantum bit) is the basic unit of information.
 
-On a real-life quantum computer, a qubit can be implemented using a variety of quantum phenomena. In labs, qubits have been implemented using photon polarization, electron spin, the ground/excited state of an atom in a cavity, and even defect centers in a diamond. While there could be many such real-life realizations of qubits, in this text, we are not concerned with the specific implementation as long as they follow certain abstract rules.
+In labs, qubits have been implemented using photon polarization, electron spin, the ground/excited state of an atom in a cavity, and even defect centers in a diamond. In this paper, we will define a qubit as an abstracted mathematical object and expect that every real-world implementation follow the same rules.
 
 \begin{samepage}
 \begin{defn}[Qubit]
@@ -157,7 +159,6 @@ A \textbf{qubit} is any quantum mechanical system which is associated with $2$-d
 \begin{itemize}
     \item Principle of Superposition
     \item Principle of Measurement
-    \item Principle of Projection `TODO: Refer Scherer, P37`
     \item Principle of Entanglement
     \item Principle of Transformation
 \end{itemize}
@@ -171,38 +172,45 @@ The principles in the above definition will be elaborated on in the upcoming sec
     Observe above that we have written the vector $\vec{\psi} \in \mathcal{H}$ as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}
 \end{notation}
 
+\section{Superposition}
+
 \begin{lemma}[Principle of Superposition]
 Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two perfectly distinguishable quantum states of a quantum system, and $\alpha, \beta \in \mathbb{C}$ with $\alpha^2 + \beta ^2 = 1$. Then $\alpha \ket{\psi} + \beta \ket{\sigma}$ is a valid state of the quantum system.
 \end{lemma}
 
-The principle of superposition says that the state of a qubit can be modelled with a $2$-dimensional Hilbert space. This leads to qubits being referred to as \textbf{two-state} quantum systems. This does not mean that this system has only two states, but rather that all possible states exist as a linear combination of just two states.
+The principle of superposition says that any linear combination of two orthogonal states is a valid state of the qubit. This leads to qubits being referred to as \textbf{two-state} quantum systems. These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit.
 
+\vspace*{0.75cm}
 When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}. 
 \begin{defn}
-The \textbf{computational basis} of the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
+The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
 \end{defn}
 
 With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $a^2 + b^2 = 1$.
 
+\vspace*{0.75cm}
 Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
+
 \begin{defn}
-The \textbf{Hadamard Basis} $\{ \ket{+}, \ket{-} \}$ is given by \\
-$\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1})$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1})$
+The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathcal{H}$ is  $\{ \ket{+}, \ket{-} \}$ where \\
+    $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
 \end{defn}
 
-\iffalse
-Like qubits are modelled by $2$-dimensional Hilbert spaces, there could be quantum systems whose states are modelled as vectors in $3$-dimensional vector spaces, these are called \textbf{qutrits}. Similarly, quantum systems whose states are modelled with $n$-dimensional vector spaces are called \textbf{qudits}. A result shows that a system of qutrits or qudits can be reduced to a system of multiple qubits that has similar efficiency, so these systems are rarely used.
-\fi
-
-The principle of superposition says that the state of a qubit is a continuum which might indicate that we can use a single qubit to store an infinite amount of information. However, a principal of quantum mechanics states that we cannot interact with the qubit without fundamentally altering its state. To work with the state stored in a qubit, we must perform a measurement which forces the state of the qubit to "collapse" into one of two \textit{preferred states}.
+\section{Measurement}
+The principle of superposition might indicate that we can use the continuum state of single qubit to store an infinite amount of information. However, a principal of quantum mechanics states that we cannot interact with the qubit without fundamentally altering its state. To know the state stored in a qubit, we must perform a measurement which forces the state of the qubit to "collapse" into one of two \textit{preferred states}.
 
 \begin{lemma}[Principle of Measurement]
     Any measurement device that interacts with the qubit will be calibrated with a pair of orthonormal vectors called the \textbf{preferred basis}, say $\{ \ket{u}, \ket{v} \}$. If the state of the qubit with respect to the preferred basis is $\ket{\psi} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. \\
 After measurement, the state of the qubit itself will be changed to the output of the measurement.
-`TODO Formalize`
 \end{lemma}
 
-This behaviour is an axiom of quantum mechanics substantiated by empirical observations from experiments over the last hundred years.
+This principle can be formalised in a manner which couples the preferred basis and the result in a tighter way. 
+
+`TODO: Add Von Neumann Projection`
+`TODO: Add Self Adjoint Operators formalism`
+
+`TODO: Add Appendix with POVM Formalism`
+`TODO: Make appendix with observables type of measurement and POVM, refer shor lec04`
 
 `From Scherer`
 \begin{defn}
@@ -269,7 +277,9 @@ Every element $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ can be writ
 Most elements $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ \textit{cannot} be decomposed to $\ket{\sigma} = \ket{v}\ket{w}$ where $v \in \mathcal{H}_1, w \in \mathcal{H}_2$.
 `TODO: Check proof`
 
+\section{Entanglement}
 As we have observed, a single qubit only gives us one classical bit worth of information. This equivalence diverges once we include *multiple* interacting qubits in the system. A system of $n$ classical bits will have one degree of freedom for each bit, resulting in a state-space of $n$ dimensions, i.e. classical systems are linear in $n$. In quantum systems, however, a system of $n$ qubits will result in a state space of $2^n$ dimensions. This is because of the quantum property of *entanglement* which describes how quantum systems interact with each other.
+
 
 \begin{lemma}[Principle of Entanglement]
 When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. If the first qubit is in state $\ket{\psi}$ and the second in state $\ket{\sigma}$, then the combined system of two interacting qubits is in state $\ket{\psi\sigma} = \ket{\psi}\ket{\sigma}$. Similarly, for a system of $n$ qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ independent qubits.
@@ -291,9 +301,11 @@ Consider the state $\ket{\psi_1} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. We
 Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. We can show this is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
 \end{eg}
 
+\section{Transformation}
 
-\chapter{Gates}
-\line(1,0){360} \\
+\begin{lemma}[Principle of Transformation]
+    Isolated Quantum states evolve unitarily, i.e. for an isolated system there exists a unitary matrix $U_t$ such that $\ket{\psi_t} = U_t \ket{\psi_0}$ where $\ket{\psi_0}$ is the starting state and $\ket{\psi_t}$ is the state at time $t$.
+\end{lemma}
 
 \begin{defn}
     An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
@@ -309,12 +321,14 @@ Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. We
     \end{enumerate}
 \end{defn}
 
-
 `Alternate from Scherer`
 \begin{defn}
     An operator $U$ on $H$ is called \textbf{unitary} if \\
     $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
 \end{defn}
+
+\chapter{Gates}
+\line(1,0){360} \\
 
 \begin{prop}
 Gates are described by unitary matrices.
@@ -376,8 +390,13 @@ The Hadamard gate allows us to obtain a superposition state.
 \end{remark}
 
 \begin{defn}
-    The \textbf{Phase Gate} defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
-    It is given by $R_\phi = \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$
+    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
+
+    The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
+    The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
 \end{defn}
 
 \section{Gates on Multiple Qubits}

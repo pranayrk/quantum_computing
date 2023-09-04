@@ -6,7 +6,7 @@ map:
   - src/acknowledgement
   - src/list_of_notations
   - src/table_of_contents
-  - src/introduction
+    # - src/introduction
   - src/qubits
-  - src/gates
+  - src/quantum_computing
   - src/bibliography

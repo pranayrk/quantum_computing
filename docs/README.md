@@ -19,7 +19,7 @@
 * **Quantum Computing: An Applied Approach - Hidary, Jack D.** [gdrive](https://drive.google.com/file/d/1itsLK62K6EoZauyMlxrrghFMCrTSZn-G/view?usp=drive_link) talks about the foundation and tools you need for QC.
 * **Classical and Quantum Computation by Kitaev, Shen and Vyalyi** [gdrive](https://drive.google.com/file/d/1nXKgPD0-GjEkJ_PQ6vsn5HHEACy2WBOT/view?usp=drive_link) "little yellow book experience"
 * **Introduction to Classical and Quantum Computing by Thomas Wong** [gdrive](https://drive.google.com/file/d/1CCZoKao3bLZak_A_RWvZq5nhcBhId1Bn/view?usp=drive_link)  a super introduction book that explains basic Classical computing to Quantum computing.
-* **Quantum Computers. Theory and Algorithms, Belal Ehsan Baaquie, Leong-Chuan Kwek** 
+* **Quantum Computers. Theory and Algorithms, Belal Ehsan Baaquie, Leong-Chuan Kwek** [gdrive](https://drive.google.com/file/d/114kE6DmQH2Gj-qCmlH4PNXzDu5nOTs5E/view?usp=drive_link)
 
 ## More Specialized Books
 * **From Classical to Quantum Shannon Theory, Mark Wilde** Thorough and detailed with plenty of exercises
