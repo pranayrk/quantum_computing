@@ -329,7 +329,8 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 As we have observed, a single qubit only gives us one classical bit worth of information. This equivalence diverges once we include \textit{multiple} interacting qubits in the system. A system of $n$ classical bits will have one degree of freedom for each bit, resulting in a state-space of $n$ dimensions, i.e. classical systems are linear in $n$. In quantum systems, however, a system of $n$ qubits will result in a state space of $2^n$ dimensions. This is because of the quantum property of \textit{entanglement} which describes how quantum systems interact with each other.
 
 \begin{defn}
-    The \textbf{tensor product} $\otimes$ is defined to satisfy the following properties:
+    Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.
+    The \textbf{tensor product} $\mathcal{H}_1 \otimes \mathcal{H}_2$ is a Hilbert space in which every element can be represented as $\ket{v_1} \otimes \ket{w_1} + \ket{v_2} \otimes \ket{w_2} \otimes ... \otimes \ket{v_k} \otimes \ket{w_k}$ where $k = \text{min}(n,m)$ and $\ket{v_i} \in \mathcal{H}_1, \ket{w_i} \in \mathcal{H}_2$ and $\otimes$ is the tensor product defined to satisfy the following properties:
     \begin{enumerate}
         \item $(\ket{v_1} + \ket{v_2}) \otimes \ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$
         \item $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$
@@ -337,18 +338,19 @@ As we have observed, a single qubit only gives us one classical bit worth of inf
     \end{enumerate}
 \end{defn}
 
+If $\ket{\psi} = \alpha_1 \ket{v_1} + \alpha_2 \ket{v_2} + ... + \alpha_n \ket{v_n}$ and $\ket{\phi} = \beta_1 \ket{w_1} + \beta_2 \ket{w_2} + ... + \beta_m \ket{w_m}$, their tensor product is $\ket{\psi} \otimes \ket{\phi} = \sum_{i=1}^n \sum_{j=1}^m \alpha_i \beta_j \ket{v_i} \otimes \ket{w_j}$
+
+
+
 \begin{notation}
     In dirac's bra/ket notation, the tensor product $\ket{v} \otimes \ket{w}$ of $\ket{v} \in \mathcal{H}_1$ and $\ket{w} \in \mathcal{H}_2$ is written as $\ket{vw}$ or $\ket{v}\ket{w}$
 \end{notation}
 
-
-\begin{defn}
-    The Hilbert Space $\mathcal{H}_1 \otimes \mathcal{H}_2$ with the scalar product is called the \textbf{tensor product} of the Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
-\end{defn}
-
 \begin{prop}
-    Let $\{ \ket{\phi_a} \} \subset \mathcal{H}_1$ be an orthonormal basis in $\mathcal{H}_1$ and $\{ \ket{\psi_b} \} \subset \mathcal{H}_2$ be an orthonormal basis in $\mathcal{H}_2$. Then the set $\{ \ket{\phi_a\psi_b} \}$ forms an orthonormal basis in $\mathcal{H}_1 \otimes \mathcal{H}_2$ and for finite-dimensional $\mathcal{H}_1$ and $\mathcal{H}_2$, $\text{dim}(\mathcal{H}_1 \otimes \mathcal{H}_2) = \text{dim}(\mathcal{H}_1) \text{dim}(\mathcal{H}_2)$
+    Let $\{ \ket{v_i} \} \subset \mathcal{H}_1$ be an orthonormal basis in $\mathcal{H}_1$ and $\{ \ket{w_j} \} \subset \mathcal{H}_2$ be an orthonormal basis in $\mathcal{H}_2$. Then the set $\{ \ket{v_i w_j} \}$ forms an orthonormal basis in $\mathcal{H}_1 \otimes \mathcal{H}_2$ and for finite-dimensional $\mathcal{H}_1$ and $\mathcal{H}_2$, $\text{dim}(\mathcal{H}_1 \otimes \mathcal{H}_2) = \text{dim}(\mathcal{H}_1) \text{dim}(\mathcal{H}_2)$
 \end{prop}
+\begin{proof}
+\end{proof}
 
 \begin{lemma}[Principle of Entanglement]
 When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
@@ -360,7 +362,7 @@ If the first qubit is in state $\ket{\psi}$ and the second in state $\ket{\sigma
 Similarly, for a system of $n$ qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ independent qubits.
 \end{lemma}
 
-The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ is constructed from the tensor products of the basis vectors of $\mathcal{H}_1$ (say $\{ \ket{0}_1, \ket{1}_1 \}$ and of $\mathcal{H}_2$ (say $\{ \ket{0}_2, \ket{1}_2 \}$), then a basis for $\mathcal{H}$ is given by $\{ \ket{0}_1\ket{0}_2, \ket{0}_1\ket{1}_2, \ket{1}_1\ket{0}_2, \ket{1}_1\ket{1}_2 \} \\ = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$.
+The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ is constructed from the tensor products of the computational basis vectors of $\mathcal{H}_1$ (say $\{ \ket{0}_1, \ket{1}_1 \}$ and of $\mathcal{H}_2$ (say $\{ \ket{0}_2, \ket{1}_2 \}$), then a basis for $\mathcal{H}$ is given by $\{ \ket{0}_1\ket{0}_2, \ket{0}_1\ket{1}_2, \ket{1}_1\ket{0}_2, \ket{1}_1\ket{1}_2 \} \\ = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$.
 
 We will often this basis as $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$ when the context is unambiguous. So an arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = c_0 \ket{00} + c_1 \ket{01} + c_2 \ket{10} + c_3 \ket{11} = c_0 \ket{0} + c_1 \ket{1} + c_2 \ket{2} + c_3 \ket{3}$.
 
@@ -383,13 +385,16 @@ Consider the state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. This
     Equating the components, we find $\alpha_1 \alpha_2 = \frac{1}{\sqrt{2}}$, $\alpha_1 \beta_2 = 0$, $\beta_1 \alpha_2 = 0$ and $\beta_1 \beta_2 = \frac{1}{\sqrt{2}}$. These equations cannot be satisfied simulataneously as either one of $\alpha_1$ or $\beta_2$ has to be $0$.
 \end{eg}
 
-\begin{lemma}
-    Most states are entangled.
-\end{lemma}
+\begin{prop}
+    For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
+\end{prop}
+\begin{proof}[intuition]
+    Consider a state $\ket{\psi} = a \ket{0} + b \ket{1} \in \mathcal{H}_1$, $a,b \in \mathbb{C}$. Since $a$ and $b$ are complex coefficients, we would have $4$ degrees of freedom to assign a particular $\ket{\psi}$. However including the constraints that $a^2 + b^2 = 1$ and that multiplying by global phase leaves the state unchanged, we are effectively left with $2$ degrees of freedom for assigning $\ket{\psi}$. 
+    
+Similarly assigning $\ket{\phi} \in \mathcal{H}_2$ has $2$ degrees of freedom.
 
-\begin{lemma}
-    Tensor product of basis elements form a basis of the tensor space.
-\end{lemma}
+    Consider the $4$-dimensional tensor space $\mathcal{H}_1 \otimes \mathcal{H}_2$. Since the state of any vector $\ket{\omega}$ in this space can be written as $\ket{\omega} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11}$, where $a, b, c, d \in \mathbb{C}$ we have $8$ degrees of freedom initially for assigning the vector $\ket{\omega}$. Including constraint $a^2 + b^2 + c^2 + d^2 = 1$ and that multiplying by global phase leaves the state unchanged, we have $6$ degrees of freedom in assigning the value of $\ket{\omega}$ which is $2$ degrees of freedom more than $4 = 2 \times 2$ from the individual qubits.
+\end{proof}
 
 \section{Transformation}
 

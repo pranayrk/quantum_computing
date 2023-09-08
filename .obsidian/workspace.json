@@ -148,6 +148,8 @@
   },
   "active": "ca0213b2a48872ad",
   "lastOpenFiles": [
+    "report/project_report.pdf",
+    "report/project_report.tex",
     "notes/measurement_detail/review_direct_sum/review_direct_sum.md",
     "notes/multiple_qubits/multiple_qubits.md",
     "notes/transformations/transformations.md",
@@ -166,7 +168,6 @@
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
     "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.yml",
-    "notes/multiple_qubits/review_direct_sum_tensor_product",
     "notes/mathematical_foundations/mathematical_foundations.md",
     "notes/single_qubits/geometric_representations/geometric_representations.md",
     "images/bloch_sphere.png",
