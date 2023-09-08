@@ -1,0 +1,51 @@
+\section{Transformation}
+
+\begin{lemma}[Principle of Transformation]
+    Isolated Quantum states evolve unitarily, i.e. for an isolated system there exists a unitary matrix $U_t$ such that $\ket{\psi_t} = U_t \ket{\psi_0}$ where $\ket{\psi_0}$ is the starting state and $\ket{\psi_t}$ is the state at time $t$.
+\end{lemma}
+
+\begin{thm}
+    Any change applied to a quantum state can be represented by a unitary matrix $M$.
+\end{thm}
+\begin{proof}
+    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{psi}$ is a unit vector itself.
+
+    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
+
+    $\implies \bra{psi} M^\dagger M \ket{\psi} = 1$
+    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
+\end{proof}
+
+
+\begin{defn}
+    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
+\end{defn}
+
+\begin{defn}
+    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
+    \begin{enumerate}
+        \item $U^\dagger U = I$
+        \item $U U^\dagger = I$
+        \item the columns of $U$ are orthonormal vectors
+        \item the rows of $U$ are orthonormal vectors
+    \end{enumerate}
+\end{defn}
+
+`Alternate from Scherer`
+\begin{defn}
+    An operator $U$ on $H$ is called \textbf{unitary} if \\
+    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
+\end{defn}
+
+\begin{lemma}
+    The operator that takes $\ket{a_1} \to \ket{b_1}$ and $\ket{a_2} \to \ket{b_2}$ is obtained by the operation:
+    $\ket{b_1}\ket{b_1} + \ket{b_2}\bra{a_2}$.
+\end{lemma}
+
+\begin{lemma}
+    Quantum gates have the same number of inputs and outputs.
+\end{lemma}
+
+\begin{lemma}
+    Quantum Gates are reversible.
+\end{lemma}

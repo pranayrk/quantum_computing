@@ -9,175 +9,22 @@ On a quantum computer the \textbf{qubit} (quantum bit) is the basic unit of info
 In labs, qubits have been implemented using photon polarization, electron spin, the ground/excited state of an atom in a cavity, and even defect centers in a diamond. In this paper, we will define a qubit as an abstracted mathematical object and expect that every real-world implementation follow the same rules.
 
 \begin{samepage}
-\begin{defn}[Qubit]
-A \textbf{qubit} is any quantum mechanical system which is associated with $2$-dimensional complex Hilbert space $\mathcal{H}$ (known as the \textbf{state space} and follows the below principles:
+\begin{defn}
+A \textbf{qubit} is any quantum mechanical system which is associated with $2$-dimensional complex Hilbert space $\mathcal{H}$ known as the \textbf{state space} and follows the below principles:
 \begin{itemize}
     \item Principle of Superposition
-    \item Principle of Measurement
     \item Principle of Entanglement
+    \item Principle of Measurement
     \item Principle of Transformation
 \end{itemize}
  A given state of the system is completely described by a
  \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space
 \end{defn}
+
 The principles in the above definition will be elaborated on in the upcoming sections.
+
 \end{samepage}
 
 \begin{notation}
     Observe above that we have written the vector $\vec{\psi} \in \mathcal{H}$ as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}
 \end{notation}
-
-\section{Superposition}
-
-\begin{lemma}[Principle of Superposition]
-Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two perfectly distinguishable quantum states of a quantum system, and $\alpha, \beta \in \mathbb{C}$ with $\alpha^2 + \beta ^2 = 1$. Then $\alpha \ket{\psi} + \beta \ket{\sigma}$ is a valid state of the quantum system.
-\end{lemma}
-
-The principle of superposition says that any linear combination of two orthogonal states is a valid state of the qubit. This leads to qubits being referred to as \textbf{two-state} quantum systems. These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit.
-
-\vspace*{0.75cm}
-When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}. 
-\begin{defn}
-The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
-\end{defn}
-
-With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $a^2 + b^2 = 1$.
-
-\vspace*{0.75cm}
-Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
-
-\begin{defn}
-The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathcal{H}$ is  $\{ \ket{+}, \ket{-} \}$ where \\
-    $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
-\end{defn}
-
-\section{Measurement}
-The principle of superposition might indicate that we can use the continuum state of single qubit to store an infinite amount of information. However, a principal of quantum mechanics states that we cannot interact with the qubit without fundamentally altering its state. To know the state stored in a qubit, we must perform a measurement which forces the state of the qubit to "collapse" into one of two \textit{preferred states}.
-
-\begin{lemma}[Principle of Measurement]
-    Any measurement device that interacts with the qubit will be calibrated with a pair of orthonormal vectors called the \textbf{preferred basis}, say $\{ \ket{u}, \ket{v} \}$. If the state of the qubit with respect to the preferred basis is $\ket{\psi} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. \\
-After measurement, the state of the qubit itself will be changed to the output of the measurement.
-\end{lemma}
-
-This principle can be formalised in a manner which couples the preferred basis and the result in a tighter way. 
-
-`TODO: Add Von Neumann Projection`
-`TODO: Add Self Adjoint Operators formalism`
-
-`TODO: Add Appendix with POVM Formalism`
-`TODO: Make appendix with observables type of measurement and POVM, refer shor lec04`
-
-`From Scherer`
-\begin{defn}
-    An \textbf{observable} is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space
-\end{defn}
-
-\begin{lemma}
-    In a qubit represented by Hilbert space $\mathcal{H}$, the possible measurement values of an observable are given by the spectrum $\sigma(A)$ of the self adjoint operator $A$ representing the observable.
-    The probability $p_\psi(\lambda)$ that a quantum system in the pure state $\ket{\psi} \in \mathcal{H}$ yields the eigenvalue $\lambda$ of $A$ upon measurement is given by the projection $P_\lambda$ onto the eigenspace $\text{Eig}(A, \lambda)$ of $\lambda$ as $p_\psi(\lambda) = || P_\lambda \ket{\psi} ||^2$
-\end{lemma}
-
-\begin{defn}
-    Let $\mathcal{H}$ be a Hilbert space. We call states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n} \in \mathcal{H}$ perfectly distinguishable if there exists a measurement system $\{ M_i \}_{i=1}^m$ with $m \geq n$ such that $|| M_j \ket{\psi_1} ||^2 = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases}$ 
-\end{defn}
-Here \textit{perfectly distinguishable} means that there is some experiment or experimental setup that can distinguish between these two states, atleast in theory.
-\begin{result}
-    The states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n}$ are perfectly distinguishable if and only if they are orthogonal. This result is the reason we use orthogonal basis in quantum computing.
-\end{result}
-`TODO: Refer Nielsen, Chuang
-
-
-This property limits the amount of information that can be extracted from a qubit: a measurment yields atmost a single classical bit worth of information. In most cases, we also cannot make more than one measurement of original state of the qubit. On measurement, we have two possibilities, each corresponding to a probability of $|a|^2$ and $|b|^2$, then the total probability of the whole space will be $|a|^2 + |b|^2 = 1$, which is valid for unit vectors $\ket{\psi} = a \ket{0} + b \ket{1}$.
-
-\begin{notation}
-    When $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}$, then $\bra{\psi}$ is the conjugate transpose of $\ket{\psi}$ and is read as \textbf{bra psi}, $\bra{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix}$
-\end{notation}
-
-This lets us write the inner product for $\mathcal{H}$ as:
-For any $\ket{v} = \begin{bmatrix} a \\ b \end{bmatrix}, \ket{w} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the operation $\braket{v|w} = \bra{v}\ket{w} = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d $
-
-We will consider the inner product as being linear in the second variable and conjugate-linear in the first variable.
-
-\begin{remark}
-If $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmatrix}$, then we can show $\braket{0|\psi} = a$, $\braket{1|\psi} = b$.
-Therefore we can write $\ket{\psi} = a \ket{0} + b \ket{1} = \braket{0|\psi} \ket{0} + \braket{1|\psi} \ket{1}$.
-\end{remark}
-
-\begin{remark}
-The standard inner product of the $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmatrix}$ with itself in the Hilbert space $\mathcal{H}$ can therefore be written as $\braket{\psi | \psi} = \bra{\psi}\ket{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = |a|^2 + |b|^2 = 1$
-\end{remark}
-
-\begin{lemma}[Principle of Measurement]
-Any physical observable is associated with a self-adjoint operator $\mathcal{A}$ on the Hilbert space $\mathcal{H}_S$. The possible outcome of a measurement of the observable $\mathcal{A}$ is one of the eigenvalues of the operator $\mathcal{A}$. \\
-Writing the eigenvalues equation, $\mathcal{A} \ket{i} = a_i \ket{i}$ where $\ket{i}$ is an orthonormal basis of eigenvectors of the operator $\mathcal{A}$, and  $\ket{\psi} = \sum_i c_i \ket{i}$,  then the probability that a measurement of the observable $\mathcal{A}$ results in the outcome $a_i$ is given by $p_i = |\braket{i|\psi}|^2 = |c_i|^2$
-\end{lemma}
-
-`TODO: Proof that self-adjoint matrices represent measurement operators`
-`TODO: Relation of POVM and matrices`
-
-Let $\mathcal{H}_1$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n} \}$ and $\mathcal{H}_2$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_n} \}$, then the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ is an $nm$-dimensional space with basis elements of the form $\ket{a_i} \otimes \ket{b_j}$
-
-\begin{notation}
-    In dirac's bra/ket notation, the tensor product of $\ket{v} \in \mathcal{H}_2, \ket{w} \in \mathcal{H}_2$ is $\ket{vw} = \ket{v}\ket{w} = \ket{v} \otimes \ket{w}$
-\end{notation}
-
-The tensor product is defined to satisfy the following properties:
-\begin{enumerate}
-    \item $(\ket{v_1} + \ket{v_2} ) \ket{w} = \ket{v_1}\ket{w} + \ket{v_2}\ket{w}$
-    \item $\ket{v}(\ket{w_1} + \ket{w_2}) =  \ket{v}\ket{w_1} + \ket{v}\ket{w_2}$
-    \item $(a \cdot \ket{v})\ket{w} = \ket{v}(a \cdot \ket{w})  = a \cdot (\ket{v}\ket{w})$
-\end{enumerate}
-Every element $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ can be written as a superposition of elements of the basis $\{ \ket{a_i}\ket{bj} \}$ as $\ket{\sigma} = \alpha_{11} \ket{a_1 b_1} + \alpha_{12} \ket{a_1 b2} + ... + \alpha_{nm} \ket{a_n b_m}$.
-
-Most elements $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ \textit{cannot} be decomposed to $\ket{\sigma} = \ket{v}\ket{w}$ where $v \in \mathcal{H}_1, w \in \mathcal{H}_2$.
-`TODO: Check proof`
-
-\section{Entanglement}
-As we have observed, a single qubit only gives us one classical bit worth of information. This equivalence diverges once we include *multiple* interacting qubits in the system. A system of $n$ classical bits will have one degree of freedom for each bit, resulting in a state-space of $n$ dimensions, i.e. classical systems are linear in $n$. In quantum systems, however, a system of $n$ qubits will result in a state space of $2^n$ dimensions. This is because of the quantum property of *entanglement* which describes how quantum systems interact with each other.
-
-
-\begin{lemma}[Principle of Entanglement]
-When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. If the first qubit is in state $\ket{\psi}$ and the second in state $\ket{\sigma}$, then the combined system of two interacting qubits is in state $\ket{\psi\sigma} = \ket{\psi}\ket{\sigma}$. Similarly, for a system of $n$ qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ independent qubits.
-\end{lemma}
-
-The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ is constructed from the tensor products of the basis vectors of $\mathcal{H}_1$ (say $\{ \ket{0}_1, \ket{1}_1 \}$ and of $\mathcal{H}_2$ (say $\{ \ket{0}_2, \ket{1}_2 \}$), then a basis for $\mathcal{H}$ is given by $\{ \ket{0}_1\ket{0}_2, \ket{0}_1\ket{1}_2, \ket{1}_1\ket{0}_2, \ket{1}_1\ket{1}_2 \} \\ = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$.
-
-We will often this basis as $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$ when the context is unambiguous. So an arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = c_0 \ket{00} + c_1 \ket{01} + c_2 \ket{10} + c_3 \ket{11} = c_0 \ket{0} + c_1 \ket{1} + c_2 \ket{2} + c_3 \ket{3}$.
-
-\begin{defn}
-A state $\ket{\psi}$ is said to be \textbf{entangled} if it cannot be written as a simple tensor product of states $\ket{v} \in \mathcal{H}_1$ and $\ket{w} \in \mathcal{H}_2$. If we can write $\ket{\psi} = \ket{v}\ket{w}$, the state is said to be \textbf{seperable}.
-\end{defn}
-
-\begin{eg}
-Consider the state $\ket{\psi_1} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. We can show this is entangled. `TODO`
-\end{eg}
-
-\begin{eg}
-Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. We can show this is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
-\end{eg}
-
-\section{Transformation}
-
-\begin{lemma}[Principle of Transformation]
-    Isolated Quantum states evolve unitarily, i.e. for an isolated system there exists a unitary matrix $U_t$ such that $\ket{\psi_t} = U_t \ket{\psi_0}$ where $\ket{\psi_0}$ is the starting state and $\ket{\psi_t}$ is the state at time $t$.
-\end{lemma}
-
-\begin{defn}
-    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
-\end{defn}
-
-\begin{defn}
-    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
-    \begin{enumerate}
-        \item $U^\dagger U = I$
-        \item $U U^\dagger = I$
-        \item the columns of $U$ are orthonormal vectors
-        \item the rows of $U$ are orthonormal vectors
-    \end{enumerate}
-\end{defn}
-
-`Alternate from Scherer`
-\begin{defn}
-    An operator $U$ on $H$ is called \textbf{unitary} if \\
-    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
-\end{defn}
