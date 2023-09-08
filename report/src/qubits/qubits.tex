@@ -8,6 +8,17 @@ On a quantum computer the \textbf{qubit} (quantum bit) is the basic unit of info
 
 In labs, qubits have been implemented using photon polarization, electron spin, the ground/excited state of an atom in a cavity, and even defect centers in a diamond. In this paper, we will define a qubit as an abstracted mathematical object and expect that every real-world implementation follow the same rules.
 
+\begin{defn}
+    A \textbf{Hilbert space} $\mathcal{H}$ is a complete vector space with a positive definite scalar product $\braket{.|.} : \mathcal{H} \times \mathcal{H} \to \mathbb{C}$ defined as $(\psi,\phi) \to \braket{\psi|\phi}$ such that for all $\phi, \phi_1, \phi_2, \psi \in \mathcal{H}$ and $a, b \in \mathbb{C}$:
+    \begin{enumerate}
+        \item $\braket{\psi | \phi} = \overline{\braket{\phi | \psi}}$
+        \item $\braket{\psi | \psi} \geq 0$
+        \item $\braket{\psi | \psi} = 0 \iff \psi = 0$
+        \item $\braket{\psi | a \phi_1 + b \phi_2} = a \braket{\psi | \phi_1} + b \braket{\psi | \phi_2}$
+    \end{enumerate}
+    and this scalar product induces a norm $||.|| : \mathcal{H} \to \mathbb{R}$ defined as $\psi \to \sqrt{\braket{\psi|\psi}}$ in which $\mathcal{H}$ is complete.
+\end{defn}
+
 \begin{samepage}
 \begin{defn}
 A \textbf{qubit} is any quantum mechanical system which is associated with $2$-dimensional complex Hilbert space $\mathcal{H}$ known as the \textbf{state space} and follows the below principles:

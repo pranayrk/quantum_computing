@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "9252d8a3b95036a4",
+        "id": "73993676eee4e64a",
         "type": "tabs",
         "children": [
           {
-            "id": "2d6b7a55c0e0d0fb",
+            "id": "ca0213b2a48872ad",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/quantum_computing.md",
-                "mode": "preview",
+                "file": "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "a8eb511c446d450f",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/quantum_computing.md",
+                "file": "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "docs/quantum_computing.md",
+                "file": "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/quantum_computing.md"
+                "file": "notes/multiple_qubits/review_direct_sum_tensor_product/review_direct_sum_tensor_product.md"
               }
             }
           }
@@ -147,16 +146,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2d6b7a55c0e0d0fb",
+  "active": "ca0213b2a48872ad",
   "lastOpenFiles": [
-    "notes/transformations/transformations.md",
+    "notes/measurement_detail/review_direct_sum/review_direct_sum.md",
     "notes/multiple_qubits/multiple_qubits.md",
+    "notes/transformations/transformations.md",
     "notes/single_qubits/qubits.md",
     "docs/quantum_computing.md",
     "notes/measurement_detail/measurement_detail.md",
     "notes/transformations/transformations.yml",
     "notes/transformations",
-    "notes/measurement_detail/review_direct_sum/review_direct_sum.md",
     "notes/measurement_detail/review_direct_sum/review_direct_sum.yml",
     "notes/measurement_detail/review_direct_sum",
     "notes/measurement_detail/measurement_detail.yml",

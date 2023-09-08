@@ -1,8 +1,36 @@
 \section{Entanglement}
-As we have observed, a single qubit only gives us one classical bit worth of information. This equivalence diverges once we include *multiple* interacting qubits in the system. A system of $n$ classical bits will have one degree of freedom for each bit, resulting in a state-space of $n$ dimensions, i.e. classical systems are linear in $n$. In quantum systems, however, a system of $n$ qubits will result in a state space of $2^n$ dimensions. This is because of the quantum property of *entanglement* which describes how quantum systems interact with each other.
+As we have observed, a single qubit only gives us one classical bit worth of information. This equivalence diverges once we include \textit{multiple} interacting qubits in the system. A system of $n$ classical bits will have one degree of freedom for each bit, resulting in a state-space of $n$ dimensions, i.e. classical systems are linear in $n$. In quantum systems, however, a system of $n$ qubits will result in a state space of $2^n$ dimensions. This is because of the quantum property of \textit{entanglement} which describes how quantum systems interact with each other.
+
+\begin{defn}
+    The \textbf{tensor product} on two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ $\otimes : \mathcal{H}_2 \times \mathcal{H}_2 \to \mathbb{C} $  is defined to satisfy the following properties:
+    \begin{enumerate}
+        \item $(\ket{v_1} + \ket{v_2}) \otimes \ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$
+        \item $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$
+        \item $(a \cdot \ket{v}) \otimes \ket{w} = \ket{v} \otimes (a \cdot \ket{w}) = a \cdot (\ket{v} \otimes \ket{w})$
+    \end{enumerate}
+\end{defn}
+
+\begin{notation}
+    In dirac's bra/ket notation, the tensor product $\ket{v} \otimes \ket{w}$ of $\ket{v} \in \mathcal{H}_1$ and $\ket{w} \in \mathcal{H}_2$ is written as $\ket{vw}$ or $\ket{v}\ket{w}$
+\end{notation}
+
+
+\begin{defn}
+    The Hilbert Space $\mathcal{H}_1 \otimes \mathcal{H}_2$ with the scalar product is called the \textbf{tensor product} of the Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
+\end{defn}
+
+\begin{prop}
+    Let $\{ \ket{\phi_a} \} \subset \mathcal{H}_1$ be an orthonormal basis in $\mathcal{H}_1$ and $\{ \ket{\psi_b} \} \subset \mathcal{H}_2$ be an orthonormal basis in $\mathcal{H}_2$. Then the set $\{ \ket{\phi_a\psi_b} \}$ forms an orthonormal basis in $\mathcal{H}_1 \otimes \mathcal{H}_2$ and for finite-dimensional $\mathcal{H}_1$ and $\mathcal{H}_2$, $\text{dim}(\mathcal{H}_1 \otimes \mathcal{H}_2) = \text{dim}(\mathcal{H}_1) \text{dim}(\mathcal{H}_2)$
+\end{prop}
 
 \begin{lemma}[Principle of Entanglement]
-When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. If the first qubit is in state $\ket{\psi}$ and the second in state $\ket{\sigma}$, then the combined system of two interacting qubits is in state $\ket{\psi\sigma} = \ket{\psi}\ket{\sigma}$. Similarly, for a system of $n$ qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ independent qubits.
+When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
+
+    \vspace{0.2cm}
+If the first qubit is in state $\ket{\psi}$ and the second in state $\ket{\sigma}$, then the combined system of two interacting qubits is in state $\ket{\psi\sigma} = \ket{\psi}\ket{\sigma}$.
+
+    \vspace{0.2cm}
+Similarly, for a system of $n$ qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ independent qubits.
 \end{lemma}
 
 The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ is constructed from the tensor products of the basis vectors of $\mathcal{H}_1$ (say $\{ \ket{0}_1, \ket{1}_1 \}$ and of $\mathcal{H}_2$ (say $\{ \ket{0}_2, \ket{1}_2 \}$), then a basis for $\mathcal{H}$ is given by $\{ \ket{0}_1\ket{0}_2, \ket{0}_1\ket{1}_2, \ket{1}_1\ket{0}_2, \ket{1}_1\ket{1}_2 \} \\ = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$.
@@ -14,11 +42,18 @@ A state $\ket{\psi}$ is said to be \textbf{entangled} if it cannot be written as
 \end{defn}
 
 \begin{eg}
-Consider the state $\ket{\psi_1} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. We can show this is entangled. `TODO`
+Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. This state is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
 \end{eg}
 
+
 \begin{eg}
-Consider the state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$. We can show this is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
+Consider the state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$. This is an entangled state.
+    \vspace{0.5cm}
+    Assume that  $\ket{\psi} \frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) $ can be decomposed as $\ket{\psi} = (\alpha_1 \ket{0}_1 + \beta_1 \ket{1}_1) \otimes (\alpha_2 \ket{0}_2 + \beta_2 \ket{1}_2) = \alpha_1 \alpha_2 \ket{00} + \alpha_1 \beta_2 \ket{01} + \beta_1 \alpha_2 \ket{10} + \beta_1 \beta_2 \ket{11}$.
+
+    \vspace{0.5cm}
+
+    Equating the components, we find $\alpha_1 \alpha_2 = \frac{1}{\sqrt{2}}$, $\alpha_1 \beta_2 = 0$, $\beta_1 \alpha_2 = 0$ and $\beta_1 \beta_2 = \frac{1}{\sqrt{2}}$. These equations cannot be satisfied simulataneously as either one of $\alpha_1$ or $\beta_2$ has to be $0$.
 \end{eg}
 
 \begin{lemma}
