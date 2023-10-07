@@ -3,11 +3,12 @@
 \contentsline {chapter}{Acknowledgements}{iii}{}%
 \contentsline {chapter}{List of Notations}{iv}{}%
 \contentsline {chapter}{\numberline {1}Qubits}{1}{}%
-\contentsline {section}{\numberline {1.1}Superposition}{2}{}%
-\contentsline {section}{\numberline {1.2}Measurement}{3}{}%
-\contentsline {section}{\numberline {1.3}Entanglement}{8}{}%
-\contentsline {section}{\numberline {1.4}Transformation}{10}{}%
-\contentsline {chapter}{\numberline {2}Gates}{12}{}%
-\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{13}{}%
-\contentsline {section}{\numberline {2.2}Gates on Multiple Qubits}{14}{}%
-\contentsline {chapter}{Bibliography}{15}{}%
+\contentsline {section}{\numberline {1.1}Superposition}{4}{}%
+\contentsline {section}{\numberline {1.2}Entanglement}{5}{}%
+\contentsline {section}{\numberline {1.3}Measurement}{8}{}%
+\contentsline {section}{\numberline {1.4}Transformation}{12}{}%
+\contentsline {chapter}{\numberline {2}Gates}{14}{}%
+\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{15}{}%
+\contentsline {section}{\numberline {2.2}Gates on Multiple Qubits}{16}{}%
+\contentsline {chapter}{\numberline {3}Algorithms}{17}{}%
+\contentsline {chapter}{Bibliography}{18}{}%

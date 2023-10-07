@@ -1,6 +1,6 @@
 map:
   - qubits.tex
   - superposition.tex
-  - measurement.tex
   - entanglement.tex
+  - measurement.tex
   - transformation.tex

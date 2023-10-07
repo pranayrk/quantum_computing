@@ -6,7 +6,6 @@
 
 A given state of the system is completely described by a \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space. This leads to qubits being referred to as \textbf{two-state} quantum systems since its state is the linear combination of two orthogonal basis vectors. These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit.
 
-\vspace*{0.75cm}
 When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}.
 \begin{defn}
 The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
@@ -14,7 +13,6 @@ The \textbf{computational basis} for the two dimensional complex vector space $\
 
 With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $a^2 + b^2 = 1$.
 
-\vspace*{0.75cm}
 Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
 
 \begin{defn}
@@ -23,9 +21,11 @@ The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathc
 \end{defn}
 
 \begin{lemma}
-    Unit vectors equivalent upto multiplication by a complex number of modulus 1 represent the same state.
-
-    Consider $\ket{\psi} = a \ket{0} + b \ket{1}$ where $|a|^2 + |b|^2 = 1$ and $\ket{\sigma} = a' \ket{0} + b' \ket{1}$ where $|a'|^2 + |b'|^2 = 1$ and $a \ket{0} + b \ket{1} = c (a' \ket{0} + b' \ket{1})$ where $c \in \mathbb{C}$ is a complex number of modulus $1$. Then $\ket\psi$ and $\ket\sigma$ represent the same state.
+Consider a state $\ket{\psi} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$ and a state $\ket{\sigma} = a' \ket{0} + b' \ket{1}$ where $a',b' \in \mathbb{C}$ and $|a'|^2 + |b'|^2 = 1$. Let $a \ket{0} + b \ket{1} = c (a' \ket{0} + b' \ket{1})$ where $c \in \mathbb{C}$ is a complex number of modulus $1$. Then $\ket\psi$ and $\ket\sigma$ represent the same state.
 \end{lemma}
 
-The multiple $c$ by which two vectors representing the same quantum state differ is called the \textbf{global phase}. Global phases are artefacts of the mathematical framework we are using and have no physical meaning.
+\begin{defn}
+The multiple $c \in \mathbb{C}$ with $|c| = 1$ by which two vectors representing the same quantum state differ is called the \textbf{global phase}. 
+\end{defn}
+Global phases are artefacts of the mathematical framework we are using and have no physical meaning.
+

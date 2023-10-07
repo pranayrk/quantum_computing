@@ -2,40 +2,83 @@
 
 \line(1,0){360} \\
 
-The computers we use today rely on classical information theory, which are based on \textbf{bits} (binary digits) which can represents a $0$ or $1$ state. These \textbf{classical computers}) are equivalent to a Turing Machine in computational efficiency. 
+The computers we use today are based on \textbf{bits} (binary digits) each of which can represent a $0$ or $1$ state. The rules governing these bits are laid out in classical information theory and these computers can be considered equivalent to a ideal abstract computational framework - the Turing Machine.
 
-On a quantum computer the \textbf{qubit} (quantum bit) is the basic unit of information.
+By exploiting certain phenomena observed in the working of quantum particles, we can derive a model of a computer which can achieve results that can not be replicated efficiently on a Turing Machine. In these quantum computers, the \textbf{qubit} (quantum bit) forms the foundational unit of computing.
 
-In labs, qubits have been implemented using photon polarization, electron spin, the ground/excited state of an atom in a cavity, and even defect centers in a diamond. In this paper, we will define a qubit as an abstracted mathematical object and expect that every real-world implementation follow the same rules.
-
-\begin{defn}
-    A \textbf{Hilbert space} $\mathcal{H}$ is a complete vector space with a positive definite scalar product $\braket{.|.} : \mathcal{H} \times \mathcal{H} \to \mathbb{C}$ defined as $(\psi,\phi) \to \braket{\psi|\phi}$ such that for all $\phi, \phi_1, \phi_2, \psi \in \mathcal{H}$ and $a, b \in \mathbb{C}$:
-    \begin{enumerate}
-        \item $\braket{\psi | \phi} = \overline{\braket{\phi | \psi}}$
-        \item $\braket{\psi | \psi} \geq 0$
-        \item $\braket{\psi | \psi} = 0 \iff \psi = 0$
-        \item $\braket{\psi | a \phi_1 + b \phi_2} = a \braket{\psi | \phi_1} + b \braket{\psi | \phi_2}$
-    \end{enumerate}
-    and this scalar product induces a norm $||.|| : \mathcal{H} \to \mathbb{R}$ defined as $\psi \to \sqrt{\braket{\psi|\psi}}$ in which $\mathcal{H}$ is complete.
-\end{defn}
+Many different quantum particle effects have been used in labs - photon polarization, electron spin, the state of an atom in a cavity, and even defect centers in a diamond have been leveraged to created real life implementations of qubits. We will define a qubit as a mathematical object with a certain ruleset and expect that every real-world implementation follows the working of the abstract model.
 
 \begin{samepage}
 \begin{defn}
-A \textbf{qubit} is any quantum mechanical system which is associated with $2$-dimensional complex Hilbert space $\mathcal{H}$ known as the \textbf{state space} and follows the below principles:
+    A complex \textbf{Hilbert space} $\mathcal{H}$ is a vector space over $\mathbb{C}$ with a positive definite inner product $\braket{} : \mathcal{H} \times \mathcal{H} \to \mathbb{C}$ defined as $(\psi,\phi) \to \braket{\psi,\phi}$ such that for all $\phi, \phi_1, \phi_2, \psi \in \mathcal{H}$ and $a, b \in \mathbb{C}$ the inner product is:
+    \begin{enumerate}
+        \item conjugate symmetric: $\braket{\psi,\phi} = \overline{\braket{\phi,\psi}}$
+        \item positive definite: $\braket{\psi, \psi} \geq 0$ and $\braket{\psi, \psi} = 0 \iff \psi = 0$
+        \item linear in first argument: $\braket{a \phi_1 + b \phi_2, \psi} = a \braket{\phi_1, \psi} + b \braket{\phi_2, \psi}$
+        \item antilinear in second argument: $\braket{\psi, a \phi_1 + b \phi_2} = \overline{a} \braket{\psi,\phi_1} + \overline{b} \braket{\psi,\phi_2}$
+    \end{enumerate}
+    and this inner product induces a norm $||.|| : \mathcal{H} \to \mathbb{R}$ defined as $\psi \to \sqrt{\braket{\psi,\psi}}$ in which $\mathcal{H}$ is complete.
+\end{defn}
+\end{samepage}
+
+\begin{samepage}
+\begin{defn}
+    A \textbf{qubit} is any quantum mechanical system whose state can be completely described by a unit vector in a $2$-dimensional complex Hilbert space $\mathcal{H}$ and which follows these principles: 
 \begin{itemize}
     \item Principle of Superposition
     \item Principle of Entanglement
     \item Principle of Measurement
     \item Principle of Transformation
 \end{itemize}
- A given state of the system is completely described by a
- \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space
+    The Hilbert space $\mathcal{H}$ is known as the \textbf{state space} and is equipped with the inner product $\braket{}$ which is defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. Any unit vector of $\mathcal{H}$ is called a \textbf{state vector}.
 \end{defn}
 
 The principles in the above definition will be elaborated on in the upcoming sections.
-
 \end{samepage}
 
+\begin{defn}
+    Any function $\phi: V \to \mathbb{F}$ from a vector space to its base field is called a \textbf{functional}. A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. This is equivalent to $\phi$ being continuous.
+\end{defn}
+
+\begin{defn}
+    The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
+\end{defn}
+
+\begin{thm}[Riesz' representation theorem]
+    For a continuous linear functional $\phi$ on a Hilbert space $\mathcal{H}$, there exists a unique $u \in \mathcal{H}$ such that $\phi(u,v) = \braket{u,v}$ for all $v \in \mathcal{H}$. This implies Hilbert spaces are conjugate isomorphic to their own conjugate dual spaces and there exists a bijection between a Hilbert space and its continuous dual space.
+\end{thm}
+
+The above property of Hilbert spaces leads us to the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics and quantum information theory, and which we will follow in the rest of this paper.
+The inner product on the quantum mechanical Hilbert space defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any  $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. 
+
+\begin{result}
+For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \mathcal{H} \to \mathbb{C}$ such that $f_\psi(\phi) = \braket{\psi,\phi}$ for all $\phi \in \mathcal{H}$. Then $f_\psi$ is continuous and unique. 
+\end{result}
+\begin{proof}
+    $f_\psi$ is continuous if and only if it is bounded. 
+    The Cauchy-Schwarz inequality for inner product tells us that $|\braket{\psi,\phi}| \leq ||\psi||||\phi||$.
+    This implies $|f_\psi| = |\braket{\psi,\phi}| \leq M ||\phi||$ where $M = ||\psi||$ is a fixed quantity, i.e. $|f_\psi|$ is bounded.
+    Hence $f_\psi$ is continuous. 
+    
+    Since $f_\psi$ is a continuous linear functional, it is an element of the continuous dual space of $\mathcal{H}$ and is therefore unique by Riesz's representation theorem.
+\end{proof}
+
 \begin{notation}
-    Observe above that we have written the vector $\vec{\psi} \in \mathcal{H}$ as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}
+    Any $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}.
+
+    Consider $f_\psi$ for a fixed $\psi \in \mathcal{H}$ as defined in the above result. We will write this unique $f_\psi$ as $\bra{\psi}$ and is read \textbf{bra psi}.
+
+    The linear functional $\bra{\psi}$ applied on a vector $\ket{\phi}$ is written as $\braket{\psi|\phi}$ and $\braket{\psi|\phi} = f_\psi(\phi) = \braket{\psi,\phi}$ is the inner product of $\psi$ and $\phi$.
 \end{notation}
+
+\begin{result}
+    If the inner product is defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, then $\braket{\psi|\phi} = \bra{\psi} \ket{\phi} = \ket{\psi}^\dagger \ket{\phi}$ where $\ket{\psi}^\dagger$ is the conjugate transpose of $\ket{\psi}$, i.e. $\ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. We denote $\bra{\psi} = \ket{\psi}^\dagger$ and understand the operation $\bra{\psi} \ket{\phi}$ to be that of matrix multiplication.
+\end{result}
+\begin{proof}
+    Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.
+
+
+        Then $\ket{\psi}^\dagger \ket{\phi} = \begin{bmatrix}\overline{a} & \overline{b} \end{bmatrix}  \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d = \braket{\psi|\phi} = f_{\ket{\psi}}(\ket{\phi})$ for some continuous linear functional $f_{\ket{\psi}}: \mathcal{H} \to \mathbb{C}$.
+
+            Since $f_{\ket\psi}$ is unique by Riesz's representation theorem, we can set $f_{\ket\psi}(\phi) = \psi^\dagger \phi$ for all $\ket\phi \in \mathcal{H}$.
+\end{proof}
