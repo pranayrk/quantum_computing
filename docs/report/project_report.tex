@@ -50,29 +50,29 @@
 
 \begin{titlepage}
     \begin{center}
-        \vspace*{0.25cm}
+        \vspace*{0.15cm}
         \Huge{\textbf{\large Mathematics of Quantum Computing \\(Tentative Title)}}\\
-        \vspace{0.50cm}
+        \vspace{0.25cm}
         \small
         A report submitted in partial fulfillment\\
         of the requirement for the  degree of  \\
-        \vspace{0.25cm}
+        \vspace{0.15cm}
         \textbf{MASTER OF SCIENCE \\ IN \\ MATHEMATICS}\\
-        \vspace{1.00cm}
+        \vspace{0.25cm}
         by\\ \vspace{0.25cm}
         \large
         \textbf{Pranay Raja Krishnan}\\
         \vspace{0.15cm}
         \large{22MMT002}\\
-        \vspace{0.25cm}
+        \vspace{0.15cm}
         Under the guidance of\\
-        \vspace{0.25cm}
+        \vspace{0.15cm}
         \textbf{Dr. Trivedi Harsh Chandrakant}\\
 
         %\vfill
         \vspace{1cm}
-        \includegraphics[width=8cm]{LNMIIT.jpg}\\
-        \vspace{1.50cm}
+        \includegraphics[width=7cm]{LNMIIT.jpg}\\
+        \vspace{1cm}
         \large
         \textbf{Department of Mathematics\\
         The LNM Institute of Information Technology,\\ Rupa ki Nangal, Post-Sumel, Via-Jamdoli, Jaipur, Rajasthan 302031 (INDIA).}\\%May 2019\\
@@ -526,7 +526,7 @@ Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in pract
 `TODO Notation $\ket{}\bra{}$`
 \section{Gates on a single Qubit}
 
-
+\subsection{Pauli Gates}
 \begin{defn}[Pauli Gates]
     $I, X, Y, Z$ are known as the Pauli gates and are defined as: 
     \begin{enumerate}
@@ -539,6 +539,7 @@ Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in pract
 
 `TODO: Effect of the Pauli Gates on the Bloch Sphere`
 
+\subsection{Hadamard Gate}
 \begin{defn}[Hadamard Gate]
     The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
     $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$ 
@@ -556,6 +557,7 @@ The Hadamard gate allows us to obtain a superposition state.
     $H =   \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = \frac{1}{\sqrt{2}} (X + Z)$
 \end{remark}
 
+\subsection{Phase Gate}
 \begin{defn}
     The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
     It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
@@ -568,12 +570,14 @@ The Hadamard gate allows us to obtain a superposition state.
 
 \section{Gates on Multiple Qubits}
 
+\subsection{CNOT Gate}
 \begin{defn}
     The \textbf{CNOT gate} is a gate that acts on 2 qubits which flips the second bit if the first bit is in the $\ket{1}$ state.\\
     It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X$
 \end{defn}
 The CNOT gate allows us to obtain an entangled state.
 
+\subsection{Toffoli Gate}
 \begin{defn}
     The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
 \end{defn}
@@ -581,11 +585,142 @@ The CNOT gate allows us to obtain an entangled state.
 Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
 
 \chapter{Algorithms}
+
 \line(1,0){360} \\
 
+To include:
+\begin{itemize}
+\item Quantum Algorithms can be abstracted as circuits, and these circuits can be represented as a product of matrices
+\item For any classical circuit, there exists a quantum circuit that performs the computation with similar efficiency
+\item 
+\end{itemize}
+
+A circuit model for quantum computing describes all computations in terms of a circuit composed of simple gates followed by a sequence of measurements.
+
+The standard circuit model for quantum computation uses gates from { CNOT gate together with all single qubit transformations} and its measurements as all single qubit measurements in the standard basis, i.e. all computations in the standard basis consist of a sequence of gates that are either CNOT or single-qubit gates followed by a sequence of single-qubit measurements.
+
+
+
+\section{Deutsch Algorithm and Deutsch-Jozsa Algorithm}
+\subsection{Hadamard Transform}
 \begin{defn}
-Test
+Given a register of $n$ qubits, the \textbf{Hadamard Transform} $H^{\otimes n}$ is the transformation that applies the Hadamard gate $H = \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$ on each of the $n$ qubits.
 \end{defn}
+\begin{eg}
+Consider the Hadamard transform applied on a $n$ qubit register, where each qubit is in the $\ket{0}$ state, i.e. the register is in the state $\ket{0^n}$.
+Then \[ H^{\otimes n} \ket{0^n} = \frac{1}{2^{n/2}} (\ket{0} + \ket{1})(\ket{0} + \ket{1})...(\ket{0} \ket{1}) \\ = \frac{1}{2^{n/2}} \sum_{j=0}^{2^n-1} \ket{j} \] where $\ket{j}$ is the bitstring that represents $j$ in binary.
+\end{eg}
+
+\begin{result}
+For any arbitrary state $\ket{j}$ in an $n$ qubit register $\otimes_{i=1}^n \mathcal{H}_i$, \[ H^{\otimes n} \ket{j} = \frac{1}{2^{n/2}} \sum_{k=0}^{2^n-1} (-1)^{j.k} \ket{k}\] where $j.k$ is the dot product of $j$ and $k$.
+\end{result}
+`Refer Shor Lec 16`
+
+\subsection{Deutsch Algorithm}
+\subsection{Deutsch-Josza Algorithm}
+
+\section{Simon's Algorithm}
+
+\section{Quantum Fourier Transform}
+
+\section{Shor's Algorithm}
+
+\section{Grover's Search Algorithm}
+\begin{itemize}
+\item Unlike Shor's does not have as impressive of an advantage over classical, but can be applied to a broader range of problems
+\item Simplest General problem which this can be applied to is search
+\item The problem of search is to find a string $x \in \{0,1 \}^n$ such that $f(x) = 1$ or conclude that no such string exists (Note in this definition $N = 2^n$ as there are $2^n$ possibilities
+\item This problem is completely unstructured. There is no clever tricks we can use in the general case (e.g. binary search if it was ordered)
+\item Similar to Shor's and Simon's there will be some classical post-processing after the algorithm is run, perhaps multiple times
+\item First considered by Lov Grover
+\item Grover's algorithm in theory be applied to a broad range of problems (unlike Shor's) but there is question on how practical these implications are
+\item Solves a black box problem, and uses a black box similar to Deutsch, Deutsch-Jozsa and Simon's Algorithm
+\item One of the strengths of Grover's is that there does not need to be any promises on the black box
+\item Results in a $O(\sqrt{N})$ time complexity (calls to black box) where the best classical algorithms have $O(N)$ complexity (calls to black box)
+\item Depends on efficiency of black box
+\item $O(\sqrt{N})$ is provably optimal, no quantum algorithm can do better
+\item usually presented as a probabilistic algorithm that succeeds with high probability, but variants that do suceed with certainty are known
+\item Geometric Interpretation
+\item Problem Setup
+\item Oracle Setup
+\item Analysing Grover's Algorithm is more difficult than describing it, it will help to think about reflections and rotations in the plane
+\item Shor Notes, Grover Analysis
+\end{itemize}
+
+\begin{itemize}
+    \item Shor's Notes Lec 24 and 25
+    \item Watrous Notes Lec 12 and 13
+\end{itemize}
+
+Example: Consider we have a an equation which has a finite set of possible solutions, each of which is numbered from $1$ to $N$, and a black box which tells us whether a particular possible solution $i \in 1, ..., N$ is a solution. A classical naive algorithm will iterate over all possibilities, plugging them one after another into the black box, and determine the solution in $O(N)$ time.
+
+The problem is captured in a black box that is described by a Boolean function, $P : \{ 0, ..., N-1 \} \to \{ 0, 1 \}$. The goal is to find a solution $x \in \{0, ..., N-1 \}$ such that $P(x) = 1$. 
+The predicate $P$ is viewed as a black box, around which we will wrap a phase oracle. For a single solution case, even the best classical algorithms must inspect $N/2$ possiblities, i.e. $O(N)$.
+
+We are given a phase oracle that tells us whether an input $x \in 1, ..., N-1$ is a solution.
+
+Suppose we encode $x$ in $N-1$ qubits as binary, i.e. the combination of $\ket{0}$ and $\ket{1}$ that results in $\ket{x}$ in binary. Assume that $N$ is a power of $2$ (we can do this by adding dummy search elements until we reach a power of $2$).
+
+Then the oracle $O_p$ applied to $\ket{x}$ will give $O_p \ket{x} = \begin{cases} -\ket{x} & \text{ if } x \text{ is a solution} \\ \ket{x} & \text{otherwise } \end{cases}$
+
+Show that it is unitary
+
+Construct the above phase oracle transformation with Toffoli Gates, $\sigma_x$ and $\sigma_z$ gates.
+
+Implementing this oracle:
+Start with a circuit that finds whether the input is a solution or not such that it sets the output qubit to $\ket{0}$ if the input is a solution and $\ket{1}$ on the output qubit if the input is not a solution. Apply $\sigma_z$ to this output qubit and then uncompute everything to get $\pm \ket{x}$
+
+The oracle can be described by the circuit: 
+input:
+\[ \sum_x c_x \ket{x} \ket{0} \]
+output: 
+\[ \sum_x c_x \ket{x} \ket{P(x)} \]
+
+
+Grovers algorithm iteratively increases the amplitudes $c_x$ of each $\ket{x}$ with $P(x) = 1$ so that a final measurement will return a value of $x$ of interest with high probability.
+
+
+Grovers Algorithm starts with the superposition of every item in the search space, i.e. a superposition of $1, ..., N-1$, call this as $\ket\psi$, i.e. $\ket\psi = \frac{1}{\sqrt{N}} \sum_{i=1}^N \ket{i}$.
+
+
+Algorithm:
+Repeat a certain number of times:
+\begin{enumerate}
+    \item Apply the oracle $O_p$
+    \item Apply the Hadamard transform $H^{\otimes n}$ 
+    \item Apply the gate $2 \ket{0}\bra{0} - I$
+    \item Apply the Hadamard transform $H^{\otimes n}$ 
+\end{enumerate}
+
+Refer to Shor, Lec 24 to see how to implement $2 \ket{0}\bra{0} - I$ and its effect. 
+
+Grovers Initital Analysis: 
+
+Note: $H^{\otimes n} \ket{0} = \ket{\psi}$
+This implies $H^{\otimes n} (2 \ket{0}\bra{0} - I) H^{\otimes n} = 2 \ket{sigma}\bra{sigma} - I$
+ the above (last 3 steps of the algorithm) reflects all the amplitudes around their average value.
+
+The first step $O_p$ reflects each of the amplitudes around $0$ and the last three steps reflects each of the amplitudes about their average value.
+
+Marked state starts off with amplitude $\frac{1}{\sqrt{N}}$. First reflection about $x$ axis takes it to $- \frac{1}{\sqrt{N}}$ and average is still $\frac{1}{\sqrt{N}}$.
+
+After last 3 steps, marked state will be $\frac{3}{\sqrt{N}}$.
+
+One more iteration of the algorithm gives, $\frac{5}{\sqrt{N}}$ and in general, the $k$-th iteration will have the marked state as $\frac{2k + 1}{\sqrt{N}}$.
+
+After $\frac{1}{2} \sqrt{N} \sim O(\sqrt{N})$ steps, almost all the amplitudes will be in the marked state, and we will have nearly a probability 1 of finding it.
+
+
+Check Shor Lec 24 for textbook analysis of the algorithm
+
+
+
+
+
+
+
+
+
 
 \newpage
 \addcontentsline{toc}{chapter}{Bibliography}

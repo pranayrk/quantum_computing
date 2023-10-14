@@ -33,7 +33,7 @@ Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in pract
 `TODO Notation $\ket{}\bra{}$`
 \section{Gates on a single Qubit}
 
-
+\subsection{Pauli Gates}
 \begin{defn}[Pauli Gates]
     $I, X, Y, Z$ are known as the Pauli gates and are defined as: 
     \begin{enumerate}
@@ -46,6 +46,7 @@ Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in pract
 
 `TODO: Effect of the Pauli Gates on the Bloch Sphere`
 
+\subsection{Hadamard Gate}
 \begin{defn}[Hadamard Gate]
     The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
     $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$ 
@@ -63,6 +64,7 @@ The Hadamard gate allows us to obtain a superposition state.
     $H =   \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = \frac{1}{\sqrt{2}} (X + Z)$
 \end{remark}
 
+\subsection{Phase Gate}
 \begin{defn}
     The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
     It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
@@ -75,12 +77,14 @@ The Hadamard gate allows us to obtain a superposition state.
 
 \section{Gates on Multiple Qubits}
 
+\subsection{CNOT Gate}
 \begin{defn}
     The \textbf{CNOT gate} is a gate that acts on 2 qubits which flips the second bit if the first bit is in the $\ket{1}$ state.\\
     It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X$
 \end{defn}
 The CNOT gate allows us to obtain an entangled state.
 
+\subsection{Toffoli Gate}
 \begin{defn}
     The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
 \end{defn}

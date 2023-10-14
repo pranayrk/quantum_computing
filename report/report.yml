@@ -8,5 +8,6 @@ map:
   - src/table_of_contents
     # - src/introduction
   - src/qubits
-  - src/quantum_computing
+  - src/gates
+  - src/algorithms
   - src/bibliography
