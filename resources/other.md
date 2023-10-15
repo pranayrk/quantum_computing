@@ -26,6 +26,12 @@
 ## Videos
 * Lukas's Lab - How to Build a Quantum Computer [link](https://www.youtube.com/watch?v=N06hC1GL1ns)
 * Properties of operators in quantum mechanics - Professor M does Science (playlist) [link](https://www.youtube.com/playlist?list=PL8W2boV7eVfnb10T_COKPozxEYzEKDwns)
+* Ronald de Wolf - Lectures [01 - Deutsch-Josza and Shor's](https://www.youtube.com/watch?v=MvSYyxZcAr8) [02 - Grover's Search and its Applications](https://www.youtube.com/watch?v=tCAKqpXW2CY)
+* Ronald de Wolf - Quantum Algorithms [link](https://www.youtube.com/watch?v=XEgBdWQdvfk)
+* Grovers Algorithm — Programming on Quantum Computers — Coding with Qiskit S2E3 [link](https://www.youtube.com/watch?v=0RPFWZj7Jm0)
+* Qiskit Algorithms - Coding with Qiskit Season 2 [playlist](https://www.youtube.com/playlist?list=PLOFEBzvs-VvrhKYASly1BXo1AdPyoCsor)
+* 2022 Bad Honnef School on Quantum Computing [playlist](https://www.youtube.com/playlist?list=PLbBoaSCFITu5s-rivUi2okpaGj4VRtkZw)
+* Mathematics of Quantum Mechanics - Quantum Sense [playlist](https://www.youtube.com/playlist?list=PL8ER5-vAoiHAWm1UcZsiauUGPlJChgNXC)
 
 ## Other Books
 * [Qiskit Textbook by IBM](https://qiskit.org/textbook/preface.html) The Qiskit Textbook is a free digital resource for anyone learning about quantum algorithms and computations. This textbook provides a comprehensive introduction to quantum computing, covering basic quantum mechanics concepts
