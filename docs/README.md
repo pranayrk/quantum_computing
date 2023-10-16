@@ -53,6 +53,7 @@
 ## Lecture Notes, Course Material
 
 * **Peter Shor's Lecture Notes 2022** [link](https://math.mit.edu/~shor/435-LN/)
+* **Ronald De Wolf Lecture Notes** [link](https://homepages.cwi.nl/~rdewolf/qcnotes.pdf) [gdrive](https://drive.google.com/file/d/1n33zmR7O05bHON9rKRg1IC-US-VAMdIT/view?usp=drive_link)
 * Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy [gdrive](https://drive.google.com/file/d/1TMH9vhqeMa2rc1UUx3-fdhOLthdJgqT8/view?usp=drive_link) [link](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
 * David Mermin's lecture notes [link](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * John Presskil Lecture notes [link](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
