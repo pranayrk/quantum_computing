@@ -1,11 +1,9 @@
-## Presentations
-* **Qubit system and measurement in Quantum Computing, Harsh Trivedi** [gdrive](https://drive.google.com/file/d/1F11b4QNZwfx_-KpL3y2b4heORlBNOIwr/view?usp=drive_link)
-* Operator spaces and Quantum Information Theory, Marius Junge [gdrive](https://drive.google.com/file/d/1yZgpWSQ25W5G1G1nS8Zwr5QmrQu7n6-U/view?usp=drive_link) [link](https://www.birs.ca/workshops/2010/10w5005/files/junge.pdf)
-
-## Lecture Notes, Course Material
+## Presentations, Lecture Notes and Course Material
 
 * **Peter Shor's Lecture Notes 2022** [link](https://math.mit.edu/~shor/435-LN/)
 * **Ronald De Wolf Lecture Notes** [link](https://homepages.cwi.nl/~rdewolf/qcnotes.pdf) [gdrive](https://drive.google.com/file/d/1n33zmR7O05bHON9rKRg1IC-US-VAMdIT/view?usp=drive_link)
+* **Qubit system and measurement in Quantum Computing, Harsh Trivedi** [gdrive](https://drive.google.com/file/d/1F11b4QNZwfx_-KpL3y2b4heORlBNOIwr/view?usp=drive_link)
+* Operator spaces and Quantum Information Theory, Marius Junge [gdrive](https://drive.google.com/file/d/1yZgpWSQ25W5G1G1nS8Zwr5QmrQu7n6-U/view?usp=drive_link) [link](https://www.birs.ca/workshops/2010/10w5005/files/junge.pdf)
 * Lectures on Quantum Computation, Quantum Error Correcting Codes and Information Theory, K. R. Parthasarathy [gdrive](https://drive.google.com/file/d/1TMH9vhqeMa2rc1UUx3-fdhOLthdJgqT8/view?usp=drive_link) [link](https://static.cse.iitk.ac.in/users/ppk/notes/krp.pdf)
 * David Mermin's lecture notes [link](http://www.lassp.cornell.edu/mermin/qcomp/CS483.html) are elementary and have a CS focus 
 * John Presskil Lecture notes [link](http://www.theory.caltech.edu/~preskill/ph229/) are slightly more advanced and use a physics perspective
@@ -33,6 +31,7 @@
 * Qiskit Algorithms - Coding with Qiskit Season 2 [playlist](https://www.youtube.com/playlist?list=PLOFEBzvs-VvrhKYASly1BXo1AdPyoCsor)
 * 2022 Bad Honnef School on Quantum Computing [playlist](https://www.youtube.com/playlist?list=PLbBoaSCFITu5s-rivUi2okpaGj4VRtkZw)
 * Mathematics of Quantum Mechanics - Quantum Sense [playlist](https://www.youtube.com/playlist?list=PL8ER5-vAoiHAWm1UcZsiauUGPlJChgNXC)
+* Grover's algorithm - NYU Quantum Technology Lab [link](https://www.youtube.com/watch?v=f4Fg7JAmBX0)
 
 ## Other Books
 * [Qiskit Textbook by IBM](https://qiskit.org/textbook/preface.html) The Qiskit Textbook is a free digital resource for anyone learning about quantum algorithms and computations. This textbook provides a comprehensive introduction to quantum computing, covering basic quantum mechanics concepts
