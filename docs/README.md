@@ -80,6 +80,9 @@
 * 2022 Bad Honnef School on Quantum Computing [playlist](https://www.youtube.com/playlist?list=PLbBoaSCFITu5s-rivUi2okpaGj4VRtkZw)
 * Mathematics of Quantum Mechanics - Quantum Sense [playlist](https://www.youtube.com/playlist?list=PL8ER5-vAoiHAWm1UcZsiauUGPlJChgNXC)
 * Grover's algorithm - NYU Quantum Technology Lab [link](https://www.youtube.com/watch?v=f4Fg7JAmBX0)
+* Quantum Machine Learning - Keio University [link](https://www.youtube.com/watch?v=Lbndu5EIWvI)
+* Quantum Algorithms for Systems of Linear Equations - Rolando Somma [link](https://www.youtube.com/watch?v=JlIyLNndHaU)
+* Quantum Computing: Dismantling the Hype, Scott Aaronson and Timothy Nguyen [link](https://www.youtube.com/watch?v=qs0D9sdbKPU)
 
 ## Other Books
 * [Qiskit Textbook by IBM](https://qiskit.org/textbook/preface.html) The Qiskit Textbook is a free digital resource for anyone learning about quantum algorithms and computations. This textbook provides a comprehensive introduction to quantum computing, covering basic quantum mechanics concepts
