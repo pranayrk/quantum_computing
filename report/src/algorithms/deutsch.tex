@@ -1,17 +1,3 @@
 \section{Deutsch Algorithm and Deutsch-Jozsa Algorithm}
-\subsection{Hadamard Transform}
-\begin{defn}
-Given a register of $n$ qubits, the \textbf{Hadamard Transform} $H^{\otimes n}$ is the transformation that applies the Hadamard gate $H = \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$ on each of the $n$ qubits.
-\end{defn}
-\begin{eg}
-Consider the Hadamard transform applied on a $n$ qubit register, where each qubit is in the $\ket{0}$ state, i.e. the register is in the state $\ket{0^n}$.
-Then \[ H^{\otimes n} \ket{0^n} = \frac{1}{2^{n/2}} (\ket{0} + \ket{1})(\ket{0} + \ket{1})...(\ket{0} \ket{1}) \\ = \frac{1}{2^{n/2}} \sum_{j=0}^{2^n-1} \ket{j} \] where $\ket{j}$ is the bitstring that represents $j$ in binary.
-\end{eg}
-
-\begin{result}
-For any arbitrary state $\ket{j}$ in an $n$ qubit register $\otimes_{i=1}^n \mathcal{H}_i$, \[ H^{\otimes n} \ket{j} = \frac{1}{2^{n/2}} \sum_{k=0}^{2^n-1} (-1)^{j.k} \ket{k}\] where $j.k$ is the dot product of $j$ and $k$.
-\end{result}
-`Refer Shor Lec 16`
-
 \subsection{Deutsch Algorithm}
 \subsection{Deutsch-Josza Algorithm}

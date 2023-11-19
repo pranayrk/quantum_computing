@@ -1,17 +1,18 @@
 \section{Superposition}
 
 \begin{lemma}[Principle of Superposition]
-    Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two mutually orthogonal vectors in the state space $\mathcal{H}$ of a quantum system, and $a, b \in \mathbb{C}$. Then $a \ket{\psi} + b \ket{\sigma}$ is a valid state vector of the quantum system when $a^2 + b^2 = 1$. The state of the system is completely defined by its state vector which is a unit vector in the systems' state space.
+    Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two mutually orthogonal vectors in the state space $\mathcal{H}$ of a quantum system, and $a, b \in \mathbb{C}$. Then $a \ket{\psi} + b \ket{\sigma}$ is a valid state vector of the quantum system when $|a|^2 + |b|^2 = 1$. The state of the system is completely defined by its state vector which is a unit vector in the systems' state space.
 \end{lemma}
 
-A given state of the system is completely described by a \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space. This leads to qubits being referred to as \textbf{two-state} quantum systems since its state is the linear combination of two orthogonal basis vectors. These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit.
+A given state of the system is completely described by a \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space. This leads to qubits being referred to as \textbf{two-state} quantum systems since its state is the linear combination of two orthogonal basis vectors. 
 
-When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}.
+These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit. When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}.
+
 \begin{defn}
 The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
 \end{defn}
 
-With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $a^2 + b^2 = 1$.
+With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$.
 
 Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
 
@@ -20,8 +21,9 @@ The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathc
     $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
 \end{defn}
 
+Not all choices of $a, b \in \mathbb{C}$ lead to different states. 
 \begin{lemma}
-Consider a state $\ket{\psi} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$ and a state $\ket{\sigma} = a' \ket{0} + b' \ket{1}$ where $a',b' \in \mathbb{C}$ and $|a'|^2 + |b'|^2 = 1$. Let $a \ket{0} + b \ket{1} = c (a' \ket{0} + b' \ket{1})$ where $c \in \mathbb{C}$ is a complex number of modulus $1$. Then $\ket\psi$ and $\ket\sigma$ represent the same state.
+Consider a state $\ket{\psi} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$ and a state $\ket{\sigma} = a' \ket{0} + b' \ket{1}$ where $a',b' \in \mathbb{C}$ and $|a'|^2 + |b'|^2 = 1$. Let $a \ket{0} + b \ket{1} = c (a' \ket{0} + b' \ket{1})$ where $c \in \mathbb{C}$ is a complex number of modulus $1$, i.e. $|c| = 1$. Then $\ket\psi$ and $\ket\sigma$ represent the same state.
 \end{lemma}
 
 \begin{defn}

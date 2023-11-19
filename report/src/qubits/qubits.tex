@@ -34,34 +34,58 @@ Many different quantum particle effects have been used in labs - photon polariza
 \end{defn}
 
 The principles in the above definition will be elaborated on in the upcoming sections.
+They are empirical observations of the behaviour of quantum mechanical systems and will be considered as axioms in our abstract qubit system.
 \end{samepage}
 
 \begin{defn}
-    Any function $\phi: V \to \mathbb{F}$ from a vector space to its base field is called a \textbf{functional}. A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. This is equivalent to $\phi$ being continuous.
+    Given a matrix $A$, the \textbf{conjugate transpose} $A^\dagger$ is obtained by transposing $A$ and applying the complex conjugate of each entry.
+
+    $A^\dagger = (\overline{A})^T = \overline{(A^T)}$ where $\overline{A}$ is the complex conjugate of $A$ and $A^T$ is the transpose of $A$.
 \end{defn}
+
+\begin{defn}
+    The inner product on the quantum mechanical Hilbert space of a qubit is defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any  $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. 
+\end{defn}
+
+\begin{defn}
+    Any function $\phi: V \to \mathbb{F}$ from a vector space to its base field is called a \textbf{functional}. 
+\end{defn}
+
+\begin{defn}
+A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. 
+\end{defn}
+
+A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuous.
 
 \begin{defn}
     The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
 \end{defn}
 
-\begin{thm}[Riesz' representation theorem]
-    For a continuous linear functional $\phi$ on a Hilbert space $\mathcal{H}$, there exists a unique $u \in \mathcal{H}$ such that $\phi(u,v) = \braket{u,v}$ for all $v \in \mathcal{H}$. This implies Hilbert spaces are conjugate isomorphic to their own conjugate dual spaces and there exists a bijection between a Hilbert space and its continuous dual space.
-\end{thm}
+\begin{result}[Riesz' representation theorem]
+    For a continuous linear functional $\phi$ on a Hilbert space $\mathcal{H}$, there exists a unique $u \in \mathcal{H}$ such that $\phi(u,v) = \braket{u,v}$ for all $v \in \mathcal{H}$. 
+
+    This implies Hilbert spaces are conjugate isomorphic to their own conjugate dual spaces and there exists a bijection between a Hilbert space and its continuous dual space.
+\end{result}
 
 The above property of Hilbert spaces leads us to the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics and quantum information theory, and which we will follow in the rest of this paper.
-The inner product on the quantum mechanical Hilbert space defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any  $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. 
 
+\begin{samepage}
 \begin{result}
 For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \mathcal{H} \to \mathbb{C}$ such that $f_\psi(\phi) = \braket{\psi,\phi}$ for all $\phi \in \mathcal{H}$. Then $f_\psi$ is continuous and unique. 
 \end{result}
 \begin{proof}
     $f_\psi$ is continuous if and only if it is bounded. 
+
     The Cauchy-Schwarz inequality for inner product tells us that $|\braket{\psi,\phi}| \leq ||\psi||||\phi||$.
+
     This implies $|f_\psi| = |\braket{\psi,\phi}| \leq M ||\phi||$ where $M = ||\psi||$ is a fixed quantity, i.e. $|f_\psi|$ is bounded.
+
     Hence $f_\psi$ is continuous. 
+
     
     Since $f_\psi$ is a continuous linear functional, it is an element of the continuous dual space of $\mathcal{H}$ and is therefore unique by Riesz's representation theorem.
 \end{proof}
+\end{samepage}
 
 \begin{notation}
     Any $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}.
@@ -72,13 +96,14 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 \end{notation}
 
 \begin{result}
-    If the inner product is defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, then $\braket{\psi|\phi} = \bra{\psi} \ket{\phi} = \ket{\psi}^\dagger \ket{\phi}$ where $\ket{\psi}^\dagger$ is the conjugate transpose of $\ket{\psi}$, i.e. $\ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. We denote $\bra{\psi} = \ket{\psi}^\dagger$ and understand the operation $\bra{\psi} \ket{\phi}$ to be that of matrix multiplication.
+    If the inner product is defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, then $\bra{\psi}$ has the matrix representation of $\ket{\psi}^\dagger$. 
+
 \end{result}
 \begin{proof}
-    Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.
 
+    Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.
 
         Then $\ket{\psi}^\dagger \ket{\phi} = \begin{bmatrix}\overline{a} & \overline{b} \end{bmatrix}  \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d = \braket{\psi|\phi} = f_{\ket{\psi}}(\ket{\phi})$ for some continuous linear functional $f_{\ket{\psi}}: \mathcal{H} \to \mathbb{C}$.
 
-            Since $f_{\ket\psi}$ is unique by Riesz's representation theorem, we can set $f_{\ket\psi}(\phi) = \psi^\dagger \phi$ for all $\ket\phi \in \mathcal{H}$.
+            Since $f_{\ket\psi}$ is unique by Riesz's representation theorem, we can set $\bra{\psi} = f_{\ket\psi}(\phi) = \ket{\psi}^\dagger \ket{\phi}$ for all $\ket\phi \in \mathcal{H}$, i.e. $\bra{\psi}$ is the linear functional which has matrix representation $\ket{\psi}^\dagger$.
 \end{proof}
