@@ -17,8 +17,7 @@
 \theoremstyle{thmstyle}
 
 \newtheorem{defn}{Definition}
-\newtheorem{note}{Note}
-\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
 \newtheorem{thm}{Theorem}
 \newtheorem{corollary}{Corollary}
 \newtheorem{eg}{Example}
@@ -201,7 +200,10 @@ They are empirical observations of the behaviour of quantum mechanical systems a
 A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. 
 \end{defn}
 
+\begin{note}
 A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuous.
+\end{note}
+
 
 \begin{defn}
     The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
@@ -233,18 +235,17 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 \end{proof}
 \end{samepage}
 
-\begin{notation}
-    Any $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}.
+\begin{note}
+    Any vector $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textbf{Dirac's bra/ket notation}, and is read \textit{ket psi}.
 
-    Consider $f_\psi$ for a fixed $\psi \in \mathcal{H}$ as defined in the above result. We will write this unique $f_\psi$ as $\bra{\psi}$ and is read \textbf{bra psi}.
+    Consider the unique linear functional $f_\psi$ associated with a vector $\psi \in \mathcal{H}$ as defined in the above result. The linear functional $f_\psi$ will be written as $\bra{\psi}$ and is read \textit{bra psi}.
 
     The linear functional $\bra{\psi}$ applied on a vector $\ket{\phi}$ is written as $\braket{\psi|\phi}$ and $\braket{\psi|\phi} = f_\psi(\phi) = \braket{\psi,\phi}$ is the inner product of $\psi$ and $\phi$.
-\end{notation}
+\end{note}
 
-\begin{result}
-    If the inner product is defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, then $\bra{\psi}$ has the matrix representation of $\ket{\psi}^\dagger$. 
-
-\end{result}
+\begin{thm}
+    For the inner product of a qubit's state space $\mathcal{H}$ defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the linear functional $\bra{\psi}$ has the matrix representation $\ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. 
+\end{thm}
 \begin{proof}
 
     Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.
@@ -254,21 +255,27 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
             Since $f_{\ket\psi}$ is unique by Riesz's representation theorem, we can set $\bra{\psi} = f_{\ket\psi}(\phi) = \ket{\psi}^\dagger \ket{\phi}$ for all $\ket\phi \in \mathcal{H}$, i.e. $\bra{\psi}$ is the linear functional which has matrix representation $\ket{\psi}^\dagger$.
 \end{proof}
 
+\pagebreak 
 \section{Superposition}
-
 \begin{lemma}[Principle of Superposition]
-    Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two mutually orthogonal vectors in the state space $\mathcal{H}$ of a quantum system, and $a, b \in \mathbb{C}$. Then $a \ket{\psi} + b \ket{\sigma}$ is a valid state vector of the quantum system when $|a|^2 + |b|^2 = 1$. The state of the system is completely defined by its state vector which is a unit vector in the systems' state space.
+
+    Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two mutually orthogonal vectors in a Hilbert space $\mathcal{H}$, and $a, b \in \mathbb{C}$. 
+
+    Then $a \ket{\psi} + b \ket{\sigma} \in \mathcal{H}$ is a valid state vector of the state space of a qubit when $|a|^2 + |b|^2 = 1$. 
+
+    The state of the system is completely defined by its state vector which is a unit vector in the systems' state space.
 \end{lemma}
 
 A given state of the system is completely described by a \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space. This leads to qubits being referred to as \textbf{two-state} quantum systems since its state is the linear combination of two orthogonal basis vectors. 
 
-These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit. When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases}.
+These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit. When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases} to describe state vectors.
 
 \begin{defn}
 The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
-\end{defn}
 
 With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$.
+
+\end{defn}
 
 Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
 
@@ -277,15 +284,18 @@ The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathc
     $\ket{+} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} + \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $\ket{-} = \displaystyle\frac{1}{\sqrt 2} (\ket{0} - \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}$
 \end{defn}
 
-Not all choices of $a, b \in \mathbb{C}$ lead to different states. 
+\begin{samepage}
 \begin{lemma}
 Consider a state $\ket{\psi} = a \ket{0} + b \ket{1}$ where $a,b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$ and a state $\ket{\sigma} = a' \ket{0} + b' \ket{1}$ where $a',b' \in \mathbb{C}$ and $|a'|^2 + |b'|^2 = 1$. Let $a \ket{0} + b \ket{1} = c (a' \ket{0} + b' \ket{1})$ where $c \in \mathbb{C}$ is a complex number of modulus $1$, i.e. $|c| = 1$. Then $\ket\psi$ and $\ket\sigma$ represent the same state.
 \end{lemma}
 
+Therefore, not all choices of $a, b \in \mathbb{C}$ with $|a|^2 + |b|^2 = 1$ result in different quantum state vectors. 
 \begin{defn}
-The multiple $c \in \mathbb{C}$ with $|c| = 1$ by which two vectors representing the same quantum state differ is called the \textbf{global phase}. 
+The multiple $c \in \mathbb{C}$ with $|c| = 1$ by which two vectors representing the same quantum state vector differ is called the \textbf{global phase}. 
 \end{defn}
 Global phases are artefacts of the mathematical framework we are using and have no physical meaning.
+\end{samepage}
+
 
 
 \section{Entanglement}
@@ -310,9 +320,9 @@ Global phases are artefacts of the mathematical framework we are using and have 
 This implies if $\ket{\psi} = \alpha_1 \ket{v_1} + \alpha_2 \ket{v_2} + ... + \alpha_n \ket{v_n}$ and $\ket{\phi} = \beta_1 \ket{w_1} + \beta_2 \ket{w_2} + ... + \beta_m \ket{w_m}$, their tensor product representation with respect to the above basis is $\ket{\psi} \otimes \ket{\phi} = \sum_{i=1}^n \sum_{j=1}^m \alpha_i \beta_j \ket{v_i} \otimes \ket{w_j}$
 
 
-\begin{notation}
+\begin{note}
     In dirac's bra/ket notation, the tensor product $\ket{v} \otimes \ket{w}$ of $\ket{v} \in \mathcal{H}_1$ and $\ket{w} \in \mathcal{H}_2$ is written as $\ket{vw}$ or $\ket{v}\ket{w}$
-\end{notation}
+\end{note}
 
 \begin{prop}
     Let $\{ \ket{v_i} \} \subset \mathcal{H}_1$ be an orthonormal basis in $\mathcal{H}_1$ and $\{ \ket{w_j} \} \subset \mathcal{H}_2$ be an orthonormal basis in $\mathcal{H}_2$. Then the set $\{ \ket{v_i w_j} \}$ forms an orthonormal basis in $\mathcal{H}_1 \otimes \mathcal{H}_2$ and for finite-dimensional $\mathcal{H}_1$ and $\mathcal{H}_2$, $\text{dim}(\mathcal{H}_1 \otimes \mathcal{H}_2) = \text{dim}(\mathcal{H}_1) \text{dim}(\mathcal{H}_2)$
@@ -433,9 +443,9 @@ Here \textit{perfectly distinguishable} means that there is some experiment or e
 
 This property limits the amount of information that can be extracted from a qubit: a measurment yields atmost a single classical bit worth of information. In most cases, we also cannot make more than one measurement of original state of the qubit. On measurement, we have two possibilities, each corresponding to a probability of $|a|^2$ and $|b|^2$, then the total probability of the whole space will be $|a|^2 + |b|^2 = 1$, which is valid for unit vectors $\ket{\psi} = a \ket{0} + b \ket{1}$.
 
-\begin{notation}
+\begin{note}
     When $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}$, then $\bra{\psi}$ is the conjugate transpose of $\ket{\psi}$ and is read as \textbf{bra psi}, $\bra{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix}$
-\end{notation}
+\end{note}
 
 This lets us write the inner product for $\mathcal{H}$ as:
 For any $\ket{v} = \begin{bmatrix} a \\ b \end{bmatrix}, \ket{w} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the operation $\braket{v|w} = \bra{v}\ket{w} = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d $
@@ -456,9 +466,9 @@ The standard inner product of the $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmat
 
 Let $\mathcal{H}_1$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n} \}$ and $\mathcal{H}_2$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_n} \}$, then the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ is an $nm$-dimensional space with basis elements of the form $\ket{a_i} \otimes \ket{b_j}$
 
-\begin{notation}
+\begin{note}
     In dirac's bra/ket notation, the tensor product of $\ket{v} \in \mathcal{H}_2, \ket{w} \in \mathcal{H}_2$ is $\ket{vw} = \ket{v}\ket{w} = \ket{v} \otimes \ket{w}$
-\end{notation}
+\end{note}
 
 The tensor product is defined to satisfy the following properties:
 \begin{enumerate}

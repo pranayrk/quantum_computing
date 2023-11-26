@@ -55,7 +55,10 @@ They are empirical observations of the behaviour of quantum mechanical systems a
 A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. 
 \end{defn}
 
+\begin{note}
 A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuous.
+\end{note}
+
 
 \begin{defn}
     The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
@@ -87,18 +90,17 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 \end{proof}
 \end{samepage}
 
-\begin{notation}
-    Any $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textnormal{Dirac's bra/ket notation}, and is read \textbf{ket psi}.
+\begin{note}
+    Any vector $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textbf{Dirac's bra/ket notation}, and is read \textit{ket psi}.
 
-    Consider $f_\psi$ for a fixed $\psi \in \mathcal{H}$ as defined in the above result. We will write this unique $f_\psi$ as $\bra{\psi}$ and is read \textbf{bra psi}.
+    Consider the unique linear functional $f_\psi$ associated with a vector $\psi \in \mathcal{H}$ as defined in the above result. The linear functional $f_\psi$ will be written as $\bra{\psi}$ and is read \textit{bra psi}.
 
     The linear functional $\bra{\psi}$ applied on a vector $\ket{\phi}$ is written as $\braket{\psi|\phi}$ and $\braket{\psi|\phi} = f_\psi(\phi) = \braket{\psi,\phi}$ is the inner product of $\psi$ and $\phi$.
-\end{notation}
+\end{note}
 
-\begin{result}
-    If the inner product is defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, then $\bra{\psi}$ has the matrix representation of $\ket{\psi}^\dagger$. 
-
-\end{result}
+\begin{thm}
+    For the inner product of a qubit's state space $\mathcal{H}$ defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the linear functional $\bra{\psi}$ has the matrix representation $\ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. 
+\end{thm}
 \begin{proof}
 
     Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.

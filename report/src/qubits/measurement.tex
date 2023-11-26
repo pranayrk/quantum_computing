@@ -56,9 +56,9 @@ Here \textit{perfectly distinguishable} means that there is some experiment or e
 
 This property limits the amount of information that can be extracted from a qubit: a measurment yields atmost a single classical bit worth of information. In most cases, we also cannot make more than one measurement of original state of the qubit. On measurement, we have two possibilities, each corresponding to a probability of $|a|^2$ and $|b|^2$, then the total probability of the whole space will be $|a|^2 + |b|^2 = 1$, which is valid for unit vectors $\ket{\psi} = a \ket{0} + b \ket{1}$.
 
-\begin{notation}
+\begin{note}
     When $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}$, then $\bra{\psi}$ is the conjugate transpose of $\ket{\psi}$ and is read as \textbf{bra psi}, $\bra{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix}$
-\end{notation}
+\end{note}
 
 This lets us write the inner product for $\mathcal{H}$ as:
 For any $\ket{v} = \begin{bmatrix} a \\ b \end{bmatrix}, \ket{w} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the operation $\braket{v|w} = \bra{v}\ket{w} = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d $
@@ -79,9 +79,9 @@ The standard inner product of the $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmat
 
 Let $\mathcal{H}_1$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n} \}$ and $\mathcal{H}_2$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_n} \}$, then the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ is an $nm$-dimensional space with basis elements of the form $\ket{a_i} \otimes \ket{b_j}$
 
-\begin{notation}
+\begin{note}
     In dirac's bra/ket notation, the tensor product of $\ket{v} \in \mathcal{H}_2, \ket{w} \in \mathcal{H}_2$ is $\ket{vw} = \ket{v}\ket{w} = \ket{v} \otimes \ket{w}$
-\end{notation}
+\end{note}
 
 The tensor product is defined to satisfy the following properties:
 \begin{enumerate}
