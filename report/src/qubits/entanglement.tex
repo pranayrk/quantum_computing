@@ -1,4 +1,95 @@
+\pagebreak
 \section{Entanglement}
+
+\begin{thm}
+    Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
+
+    Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
+\end{thm}
+\begin{proof}
+
+    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$. 
+    \begin{align*}
+        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2} 
+        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$ 
+    for some $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
+
+    \begin{align*}
+    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi} 
+        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
+        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
+
+    This implies that $f_{\psi,\phi}$ is antilinear in both arguments.
+
+    \vspace{0.5cm}
+    From \textbf{Theorem \ref{innerproduct:continuous}}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
+\end{proof}
+
+\begin{thm}
+    Consider the set $\mathcal{G}$ of all such functionals $f_{\psi,\phi}$ defined as in the above theorem.
+    Then $\mathcal{G} = \{ f_{\psi,\phi} \: | \: \ket{\psi} \in \mathcal{H}_1 \text{ and } \ket{\phi} \in \mathcal{H}_2 \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta}) = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta})$
+\end{thm}
+\begin{proof}
+
+    Consider any two functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ for some $\ket{\psi_1}, \ket{\psi_2} \in \mathcal{H}_1$ and $\ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$.
+    \begin{align*}
+        \text{Then } [ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta})  & = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta}) 
+        \\ & = \braket{\xi|\psi_1} \braket{\eta|\phi_1} + \braket{\xi|\psi_2} \braket{\eta|\phi_2}
+        \\ & = \braket{\eta \; | \braket{\xi | \psi_1} \phi_1 + \braket{\xi|\psi_2} \phi_2}
+        \\ \text{ TODO: Check }
+        \\ & \implies \mathcal{G} \text{ is closed under vector addition}
+    \end{align*}
+
+
+    Consider a functional $f_{\psi,\phi}$ in $\mathcal{G}$. 
+    \begin{align*}
+        \text{Then }[ a f_{\psi,\phi}](\ket\xi, \ket\eta) & = a \braket{\xi|\psi} \braket{\eta|\phi} 
+        \\ & = \braket{a \xi | \psi} \braket{\eta | \phi}
+        \\ & = f_{a\psi,\phi} \in \mathcal{G}
+        \\ & \implies [a f_{\psi,\phi}] \in \mathcal{G}
+        \\ & \implies \mathcal{G} \text{ is closed under scalar multiplication.}
+    \end{align*}
+    
+
+    Consider $f_{0_1, 0_2}$ in $\mathcal{G}$ where $\ket{0_1}$ is the zero vector in $\mathcal{H}_1$ and $\ket{0_2}$ is the zero vector in $\mathcal{H}_2$.
+    Consider any other $f_{\psi,\phi}$ in $\mathcal{G}$.
+    \begin{align*}
+        [f_{\psi,\phi} + f_{0_1, 0_2}](\ket\xi,\ket\eta) & = f_{\psi,\phi} (\ket\xi,\ket\eta)+ f_{0_1, 0_2} (\ket\xi,\ket\eta)
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} + \underbrace{\braket{\xi|0_1}\braket{\eta|0_2}}_{= 0}
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi}
+        \\ & = f_{\psi,\phi}(\ket\xi,\ket\eta)
+        \\ & \implies f_{0_1, 0_2} \text{ is the zero vector in } \mathcal{G}
+    \end{align*}
+
+    Consider any $f_{\psi,\phi}$ in $\mathcal{G}$. Then $- f_{\psi, \phi}$ is in $\mathcal{G}$.
+    \begin{align*}
+        [f_{\psi,\phi} + - f_{\psi, \phi}](\ket\xi, \ket\eta) & = f_{\psi,\phi}(\ket\xi, \ket\eta) + - f_(\psi,\phi)(\ket\xi, \ket\eta) 
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} - \braket{\xi|\psi}\braket{\eta|\phi}
+        \\ & = 0 
+        \\ & = \braket{\xi|0_1}\braket{\eta|0_2}
+        \\ & = f_{0_1,0_2}(\ket\xi, \ket\eta) 
+        \\ \implies  -f_{\psi,\phi} \text{ is the inverse of } f_{\psi,\phi} \text{ in } \mathcal{G}
+    \end{align*}
+\end{proof}
+
+\begin{defn}
+    For linear functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ defined as above, define the inner product on $\mathcal{G}$ as $\braket{f_{\psi_1|\phi_1}, f_{\psi_2, \phi_2}} = \braket{\psi_1|\psi_2}_{\mathcal{H}_1} \braket{\phi_1|\phi_2}_{\mathcal{H}_2}$.
+    Then $\mathcal{G}$ together with the above defined inner product is a Hilbert space and is called the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
+\end{defn}
+
+\begin{note}
+
+\end{note}
 
 \begin{defn}
     Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.
@@ -31,11 +122,13 @@ This implies if $\ket{\psi} = \alpha_1 \ket{v_1} + \alpha_2 \ket{v_2} + ... + \a
 \end{proof}
 
 \begin{samepage}
+    \begin{mdframed}
 \begin{lemma}[Principle of Entanglement]
 When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
 
     Similarly, for a system of $n$ interacting qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ qubits taken independently.
 \end{lemma}
+    \end{mdframed}
 \end{samepage}
 
 The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ is constructed from the tensor products of the computational basis vectors of $\mathcal{H}_1, \mathcal{H}_2, ..., \mathcal{H}_n$. 
@@ -74,8 +167,10 @@ The state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$ of a $2$-qubit
     Equating the components, we find $\alpha_1 \alpha_2 = \displaystyle\frac{1}{\sqrt{2}}$, $\alpha_1 \beta_2 = 0$, $\beta_1 \alpha_2 = 0$ and $\beta_1 \beta_2 = \displaystyle\frac{1}{\sqrt{2}}$. These equations cannot be satisfied simulataneously as either one of $\alpha_1$ or $\beta_2$ has to be $0$.
 \end{eg}
 
+
+For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
 \begin{prop}
-    For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
+    The set of seperable states has measure 0.
 \end{prop}
 \begin{proof}[intuition]
     Consider a state $\ket{\psi} = a \ket{0} + b \ket{1} \in \mathcal{H}_1$, $a,b \in \mathbb{C}$. Since $a$ and $b$ are complex coefficients, we would have $4$ degrees of freedom to assign a particular $\ket{\psi}$. However including the constraints that $a^2 + b^2 = 1$ and that multiplying by global phase leaves the state unchanged, we are effectively left with $2$ degrees of freedom for assigning $\ket{\psi}$. 

@@ -1,4 +1,4 @@
-\documentclass[12pt,twoside]{report}
+\documentclass[12pt,twoside,fleqn]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,graphicx,amsthm}
 \usepackage{epsfig,amssymb}
@@ -8,7 +8,7 @@
 \usepackage{verbatim}
 \usepackage{braket}
 \usepackage{titlesec}
-% \usepackage[showframe]{geometry}
+\usepackage[]{mdframed}
 
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
@@ -16,19 +16,17 @@
 \newtheoremstyle{thmstyle}{10pt}{10pt}{}{}{\bfseries}{:}{.5em}{}
 \theoremstyle{thmstyle}
 
-\newtheorem{defn}{Definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{eg}{Example}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
 \newtheorem*{note}{Note}
-\newtheorem{thm}{Theorem}
-\newtheorem{corollary}{Corollary}
-\newtheorem{eg}{Example}
-%\newtheorem{ex}[subsection]{Exercise}
-\newtheorem{lemma}{Lemma}
-\newtheorem{result}{Result}
-\newtheorem{problem}{Problem}
-\newtheorem{sol}{Solution}
-\newtheorem*{sol*}{Solution}
-\newtheorem{remark}{Remark}
-\newtheorem{prop}{Proposition}
+\newtheorem*{sol}{Solution}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -218,9 +216,10 @@ A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuou
 The above property of Hilbert spaces leads us to the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics and quantum information theory, and which we will follow in the rest of this paper.
 
 \begin{samepage}
-\begin{result}
+\begin{thm}
+\label{innerproduct:continuous}
 For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \mathcal{H} \to \mathbb{C}$ such that $f_\psi(\phi) = \braket{\psi,\phi}$ for all $\phi \in \mathcal{H}$. Then $f_\psi$ is continuous and unique. 
-\end{result}
+\end{thm}
 \begin{proof}
     $f_\psi$ is continuous if and only if it is bounded. 
 
@@ -257,6 +256,7 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 
 \pagebreak 
 \section{Superposition}
+\begin{mdframed}
 \begin{lemma}[Principle of Superposition]
 
     Suppose $\ket{\psi}$ and $\ket{\sigma}$ are two mutually orthogonal vectors in a Hilbert space $\mathcal{H}$, and $a, b \in \mathbb{C}$. 
@@ -265,6 +265,7 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 
     The state of the system is completely defined by its state vector which is a unit vector in the systems' state space.
 \end{lemma}
+\end{mdframed}
 
 A given state of the system is completely described by a \textit{unit vector} $\ket{\psi}$, which is called the \textbf{state vector} (or wave function) on the Hilbert Space. This leads to qubits being referred to as \textbf{two-state} quantum systems since its state is the linear combination of two orthogonal basis vectors. 
 
@@ -298,7 +299,94 @@ Global phases are artefacts of the mathematical framework we are using and have 
 
 
 
+\pagebreak
 \section{Entanglement}
+
+\begin{thm}
+    Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
+
+    Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
+\end{thm}
+\begin{proof}
+
+    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$. 
+    \begin{align*}
+        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2} 
+        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$ 
+    for some $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
+
+    \begin{align*}
+    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi} 
+        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
+        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
+
+    This implies that $f_{\psi,\phi}$ is antilinear in both arguments.
+
+    \vspace{0.5cm}
+    From \textbf{Theorem \ref{innerproduct:continuous}}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
+\end{proof}
+
+\begin{thm}
+    Consider the set $\mathcal{G}$ of all such functionals $f_{\psi,\phi}$ defined as in the above theorem.
+    Then $\mathcal{G} = \{ f_{\psi,\phi} \: | \: \ket{\psi} \in \mathcal{H}_1 \text{ and } \ket{\phi} \in \mathcal{H}_2 \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta}) = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta})$
+\end{thm}
+\begin{proof}
+
+    Consider any two functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ for some $\ket{\psi_1}, \ket{\psi_2} \in \mathcal{H}_1$ and $\ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$.
+    \begin{align*}
+        \text{Then } [ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta})  & = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta}) 
+        \\ & = \braket{\xi|\psi_1} \braket{\eta|\phi_1} + \braket{\xi|\psi_2} \braket{\eta|\phi_2}
+        \\ & = \braket{\eta \; | \braket{\xi | \psi_1} \phi_1 + \braket{\xi|\psi_2} \phi_2}
+        \\ \text{ TODO: Check }
+        \\ & \implies \mathcal{G} \text{ is closed under vector addition}
+    \end{align*}
+
+
+    Consider a functional $f_{\psi,\phi}$ in $\mathcal{G}$. 
+    \begin{align*}
+        \text{Then }[ a f_{\psi,\phi}](\ket\xi, \ket\eta) & = a \braket{\xi|\psi} \braket{\eta|\phi} 
+        \\ & = \braket{a \xi | \psi} \braket{\eta | \phi}
+        \\ & = f_{a\psi,\phi} \in \mathcal{G}
+        \\ & \implies [a f_{\psi,\phi}] \in \mathcal{G}
+        \\ & \implies \mathcal{G} \text{ is closed under scalar multiplication.}
+    \end{align*}
+    
+
+    Consider $f_{0_1, 0_2}$ in $\mathcal{G}$ where $\ket{0_1}$ is the zero vector in $\mathcal{H}_1$ and $\ket{0_2}$ is the zero vector in $\mathcal{H}_2$.
+    Consider any other $f_{\psi,\phi}$ in $\mathcal{G}$.
+    \begin{align*}
+        [f_{\psi,\phi} + f_{0_1, 0_2}](\ket\xi,\ket\eta) & = f_{\psi,\phi} (\ket\xi,\ket\eta)+ f_{0_1, 0_2} (\ket\xi,\ket\eta)
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} + \underbrace{\braket{\xi|0_1}\braket{\eta|0_2}}_{= 0}
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi}
+        \\ & = f_{\psi,\phi}(\ket\xi,\ket\eta)
+        \\ & \implies f_{0_1, 0_2} \text{ is the zero vector in } \mathcal{G}
+    \end{align*}
+
+    Consider any $f_{\psi,\phi}$ in $\mathcal{G}$. Then $- f_{\psi, \phi}$ is in $\mathcal{G}$.
+    \begin{align*}
+        [f_{\psi,\phi} + - f_{\psi, \phi}](\ket\xi, \ket\eta) & = f_{\psi,\phi}(\ket\xi, \ket\eta) + - f_(\psi,\phi)(\ket\xi, \ket\eta) 
+        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} - \braket{\xi|\psi}\braket{\eta|\phi}
+        \\ & = 0 
+        \\ & = \braket{\xi|0_1}\braket{\eta|0_2}
+        \\ & = f_{0_1,0_2}(\ket\xi, \ket\eta) 
+        \\ \implies  -f_{\psi,\phi} \text{ is the inverse of } f_{\psi,\phi} \text{ in } \mathcal{G}
+    \end{align*}
+\end{proof}
+
+\begin{defn}
+    For linear functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ defined as above, define the inner product on $\mathcal{G}$ as $\braket{f_{\psi_1|\phi_1}, f_{\psi_2, \phi_2}} = \braket{\psi_1|\psi_2}_{\mathcal{H}_1} \braket{\phi_1|\phi_2}_{\mathcal{H}_2}$.
+    Then $\mathcal{G}$ together with the above defined inner product is a Hilbert space and is called the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
+\end{defn}
 
 \begin{defn}
     Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.
@@ -331,11 +419,13 @@ This implies if $\ket{\psi} = \alpha_1 \ket{v_1} + \alpha_2 \ket{v_2} + ... + \a
 \end{proof}
 
 \begin{samepage}
+    \begin{mdframed}
 \begin{lemma}[Principle of Entanglement]
 When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
 
     Similarly, for a system of $n$ interacting qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ qubits taken independently.
 \end{lemma}
+    \end{mdframed}
 \end{samepage}
 
 The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ is constructed from the tensor products of the computational basis vectors of $\mathcal{H}_1, \mathcal{H}_2, ..., \mathcal{H}_n$. 
@@ -374,8 +464,10 @@ The state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$ of a $2$-qubit
     Equating the components, we find $\alpha_1 \alpha_2 = \displaystyle\frac{1}{\sqrt{2}}$, $\alpha_1 \beta_2 = 0$, $\beta_1 \alpha_2 = 0$ and $\beta_1 \beta_2 = \displaystyle\frac{1}{\sqrt{2}}$. These equations cannot be satisfied simulataneously as either one of $\alpha_1$ or $\beta_2$ has to be $0$.
 \end{eg}
 
+
+For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
 \begin{prop}
-    For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
+    The set of seperable states has measure 0.
 \end{prop}
 \begin{proof}[intuition]
     Consider a state $\ket{\psi} = a \ket{0} + b \ket{1} \in \mathcal{H}_1$, $a,b \in \mathbb{C}$. Since $a$ and $b$ are complex coefficients, we would have $4$ degrees of freedom to assign a particular $\ket{\psi}$. However including the constraints that $a^2 + b^2 = 1$ and that multiplying by global phase leaves the state unchanged, we are effectively left with $2$ degrees of freedom for assigning $\ket{\psi}$. 
@@ -495,26 +587,25 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 
 \section{Transformation}
 
-\begin{lemma}[Principle of Transformation]
-    Isolated Quantum states evolve unitarily, i.e. for an isolated system there exists a unitary matrix $U_t$ such that $\ket{\psi_t} = U_t \ket{\psi_0}$ where $\ket{\psi_0}$ is the starting state and $\ket{\psi_t}$ is the state at time $t$.
-\end{lemma}
+\begin{defn}
+    A \textbf{unitary transformation} $U: \mathcal{H}_1 \to \mathcal{H}_2$ between two Hilbert space $\mathcal{H}_1$ and $\mathcal{H}_2$ is a isomorphism that preserves the inner product.
 
-\begin{thm}
-    Any change applied to a quantum state can be represented by a unitary matrix $M$.
-\end{thm}
-\begin{proof}
-    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
+    For a unitary transformation $U$ on $\mathcal{H}$ we have
+    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
 
-    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
-
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
-    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
-\end{proof}
-
+\end{defn}
 
 \begin{defn}
-    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
+    A unitary matrix $U$ is called \textbf{unitary} if its conjugate transpose $U^\dagger$ is its inverse.
+
+    That is, a matrix is said to be unitary if $U U^\dagger = U^\dagger U = I$.
 \end{defn}
+
+\begin{thm}
+A unitary transformation $U$ is represented by a unitary matrix.
+\end{thm}
+\begin{proof}
+\end{proof}
 
 \begin{defn}
     A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
@@ -528,9 +619,33 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 
 `Alternate from Scherer`
 \begin{defn}
-    An operator $U$ on $H$ is called \textbf{unitary} if \\
-    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
 \end{defn}
+
+
+Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantum states which are not measured evolve unitarily.
+
+\begin{samepage}
+\begin{mdframed}
+\begin{lemma}[Principle of Transformation]
+    In a quantum state space $\mathcal{H}$, every change of a quantum state over time that has not been caused by measurement is described by a unitary transformation.
+    
+    If $\ket{\psi}_1$ is the quantum space at time $t_1$ and $\ket{\psi}_2$ is the quantum state space at time $t_2 > t_1$, then $\ket{\psi}_2$ is described by $\ket{\psi}_2 = U \ket{\psi}_1$ where $U$ is a unitary transformation on the state space $\mathcal{H}$
+\end{lemma}
+\end{mdframed}
+\end{samepage}
+
+\begin{thm}
+    Any change applied to a quantum state can be represented by a unitary matrix $M$.
+\end{thm}
+\begin{proof}
+    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
+
+    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
+
+    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
+    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
+\end{proof}
+
 
 \begin{lemma}
     The operator that takes $\ket{a_1} \to \ket{b_1}$ and $\ket{a_2} \to \ket{b_2}$ is obtained by the operation:

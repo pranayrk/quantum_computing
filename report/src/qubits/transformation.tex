@@ -1,25 +1,24 @@
 \section{Transformation}
 
-\begin{lemma}[Principle of Transformation]
-    Isolated Quantum states evolve unitarily, i.e. for an isolated system there exists a unitary matrix $U_t$ such that $\ket{\psi_t} = U_t \ket{\psi_0}$ where $\ket{\psi_0}$ is the starting state and $\ket{\psi_t}$ is the state at time $t$.
-\end{lemma}
+\begin{defn}
+    A \textbf{unitary transformation} $U: \mathcal{H}_1 \to \mathcal{H}_2$ between two Hilbert space $\mathcal{H}_1$ and $\mathcal{H}_2$ is a isomorphism that preserves the inner product.
 
-\begin{thm}
-    Any change applied to a quantum state can be represented by a unitary matrix $M$.
-\end{thm}
-\begin{proof}
-    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
+    For a unitary transformation $U$ on $\mathcal{H}$ we have
+    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
 
-    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
-
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
-    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
-\end{proof}
-
+\end{defn}
 
 \begin{defn}
-    An observable is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on a Hilbert space.
+    A unitary matrix $U$ is called \textbf{unitary} if its conjugate transpose $U^\dagger$ is its inverse.
+
+    That is, a matrix is said to be unitary if $U U^\dagger = U^\dagger U = I$.
 \end{defn}
+
+\begin{thm}
+A unitary transformation $U$ is represented by a unitary matrix.
+\end{thm}
+\begin{proof}
+\end{proof}
 
 \begin{defn}
     A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
@@ -33,9 +32,33 @@
 
 `Alternate from Scherer`
 \begin{defn}
-    An operator $U$ on $H$ is called \textbf{unitary} if \\
-    $\braket{U \psi | U \phi } = \braket{\psi | \phi }$ for all $\ket{\psi}, \ket{\phi} \in \mathcal{H}$
 \end{defn}
+
+
+Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantum states which are not measured evolve unitarily.
+
+\begin{samepage}
+\begin{mdframed}
+\begin{lemma}[Principle of Transformation]
+    In a quantum state space $\mathcal{H}$, every change of a quantum state over time that has not been caused by measurement is described by a unitary transformation.
+    
+    If $\ket{\psi}_1$ is the quantum space at time $t_1$ and $\ket{\psi}_2$ is the quantum state space at time $t_2 > t_1$, then $\ket{\psi}_2$ is described by $\ket{\psi}_2 = U \ket{\psi}_1$ where $U$ is a unitary transformation on the state space $\mathcal{H}$
+\end{lemma}
+\end{mdframed}
+\end{samepage}
+
+\begin{thm}
+    Any change applied to a quantum state can be represented by a unitary matrix $M$.
+\end{thm}
+\begin{proof}
+    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
+
+    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
+
+    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
+    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
+\end{proof}
+
 
 \begin{lemma}
     The operator that takes $\ket{a_1} \to \ket{b_1}$ and $\ket{a_2} \to \ket{b_2}$ is obtained by the operation:

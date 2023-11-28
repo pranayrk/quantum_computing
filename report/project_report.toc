@@ -4,22 +4,22 @@
 \contentsline {chapter}{List of Notations}{iv}{}%
 \contentsline {chapter}{\numberline {1}Qubits}{1}{}%
 \contentsline {section}{\numberline {1.1}Superposition}{5}{}%
-\contentsline {section}{\numberline {1.2}Entanglement}{6}{}%
-\contentsline {section}{\numberline {1.3}Measurement}{9}{}%
-\contentsline {section}{\numberline {1.4}Transformation}{13}{}%
-\contentsline {chapter}{\numberline {2}Gates and Circuits}{15}{}%
-\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{16}{}%
-\contentsline {subsection}{\numberline {2.1.1}Pauli Gates}{16}{}%
-\contentsline {subsection}{\numberline {2.1.2}Hadamard Gate}{16}{}%
-\contentsline {subsection}{\numberline {2.1.3}Phase Gate}{17}{}%
-\contentsline {section}{\numberline {2.2}Gates on Multiple Qubits}{17}{}%
-\contentsline {subsection}{\numberline {2.2.1}CNOT Gate}{17}{}%
-\contentsline {subsection}{\numberline {2.2.2}Toffoli Gate}{17}{}%
-\contentsline {subsection}{\numberline {2.2.3}Hadamard Transform}{18}{}%
-\contentsline {chapter}{\numberline {3}Algorithms}{19}{}%
-\contentsline {section}{\numberline {3.1}Deutsch Algorithm and Deutsch-Jozsa Algorithm}{20}{}%
-\contentsline {subsection}{\numberline {3.1.1}Deutsch Algorithm}{20}{}%
-\contentsline {subsection}{\numberline {3.1.2}Deutsch-Josza Algorithm}{20}{}%
-\contentsline {section}{\numberline {3.2}Simon's Algorithm}{20}{}%
-\contentsline {section}{\numberline {3.3}Grover's Search Algorithm}{20}{}%
-\contentsline {chapter}{Bibliography}{24}{}%
+\contentsline {section}{\numberline {1.2}Entanglement}{7}{}%
+\contentsline {section}{\numberline {1.3}Measurement}{12}{}%
+\contentsline {section}{\numberline {1.4}Transformation}{16}{}%
+\contentsline {chapter}{\numberline {2}Gates and Circuits}{18}{}%
+\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{19}{}%
+\contentsline {subsection}{\numberline {2.1.1}Pauli Gates}{19}{}%
+\contentsline {subsection}{\numberline {2.1.2}Hadamard Gate}{19}{}%
+\contentsline {subsection}{\numberline {2.1.3}Phase Gate}{20}{}%
+\contentsline {section}{\numberline {2.2}Gates on Multiple Qubits}{20}{}%
+\contentsline {subsection}{\numberline {2.2.1}CNOT Gate}{20}{}%
+\contentsline {subsection}{\numberline {2.2.2}Toffoli Gate}{20}{}%
+\contentsline {subsection}{\numberline {2.2.3}Hadamard Transform}{21}{}%
+\contentsline {chapter}{\numberline {3}Algorithms}{22}{}%
+\contentsline {section}{\numberline {3.1}Deutsch Algorithm and Deutsch-Jozsa Algorithm}{23}{}%
+\contentsline {subsection}{\numberline {3.1.1}Deutsch Algorithm}{23}{}%
+\contentsline {subsection}{\numberline {3.1.2}Deutsch-Josza Algorithm}{23}{}%
+\contentsline {section}{\numberline {3.2}Simon's Algorithm}{23}{}%
+\contentsline {section}{\numberline {3.3}Grover's Search Algorithm}{23}{}%
+\contentsline {chapter}{Bibliography}{27}{}%

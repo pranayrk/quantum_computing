@@ -1,4 +1,4 @@
-\documentclass[12pt,twoside]{report}
+\documentclass[12pt,twoside,fleqn]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsfonts,graphicx,amsthm}
 \usepackage{epsfig,amssymb}
@@ -8,7 +8,7 @@
 \usepackage{verbatim}
 \usepackage{braket}
 \usepackage{titlesec}
-% \usepackage[showframe]{geometry}
+\usepackage[]{mdframed}
 
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
@@ -16,19 +16,17 @@
 \newtheoremstyle{thmstyle}{10pt}{10pt}{}{}{\bfseries}{:}{.5em}{}
 \theoremstyle{thmstyle}
 
-\newtheorem{defn}{Definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{eg}{Example}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{result}{Result}[section]
+\newtheorem{problem}{Problem}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{prop}{Proposition}[section]
 \newtheorem*{note}{Note}
-\newtheorem{thm}{Theorem}
-\newtheorem{corollary}{Corollary}
-\newtheorem{eg}{Example}
-%\newtheorem{ex}[subsection]{Exercise}
-\newtheorem{lemma}{Lemma}
-\newtheorem{result}{Result}
-\newtheorem{problem}{Problem}
-\newtheorem{sol}{Solution}
-\newtheorem*{sol*}{Solution}
-\newtheorem{remark}{Remark}
-\newtheorem{prop}{Proposition}
+\newtheorem*{sol}{Solution}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
