@@ -8,6 +8,8 @@
 \usepackage{verbatim}
 \usepackage{braket}
 \usepackage{titlesec}
+\usepackage{bm}
+\usepackage{comment}
 \usepackage[]{mdframed}
 
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
@@ -16,17 +18,18 @@
 \newtheoremstyle{thmstyle}{10pt}{10pt}{}{}{\bfseries}{:}{.5em}{}
 \theoremstyle{thmstyle}
 
-\newtheorem{defn}{Definition}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{eg}{Example}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{result}{Result}[section]
-\newtheorem{problem}{Problem}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem*{note}{Note}
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{eg}{Example}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{result}{Result}[chapter]
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+% \newtheorem*{note}{Note}
 \newtheorem*{sol}{Solution}
+\newenvironment{note}{\paragraph{\textbf{Note:}}}{\hfill$\square$}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -166,7 +169,7 @@ Many different quantum particle effects have been used in labs - photon polariza
 
 \begin{samepage}
 \begin{defn}
-    A \textbf{qubit} is any quantum mechanical system whose state can be completely described by a unit vector in a $2$-dimensional complex Hilbert space $\mathcal{H}$ and which follows these principles: 
+    A \textbf{qubit} is any quantum mechanical system whose state can be completely described by a unit vector in a $2$-dimensional complex Hilbert space $\mathcal{H}$ and which follows these axioms: 
 \begin{itemize}
     \item Principle of Superposition
     \item Principle of Entanglement
@@ -303,6 +306,33 @@ Global phases are artefacts of the mathematical framework we are using and have 
 \section{Entanglement}
 
 \begin{thm}
+    Given two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$, consider the set $\mathcal{G}$ of all anti-linear and continuous functionals from $\mathcal{H}_1 \times \mathcal{H}_2$ to $\mathbb{C}$.
+    Then $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is anti-linear and continuous } \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ g_1 + g_2] (\ket{\xi}, \ket{\eta}) = g_1(\ket{\xi}, \ket{\eta}) + g_2(\ket{\xi}, \ket{\eta})$ for any $g_1, g_2 \in \mathcal{G}$ and scalar multiplication is defined as expected.
+\end{thm}
+\begin{proof}
+    Consider any two $g_1, g_2$ in $\mathcal{G}$,
+    \begin{align*}
+        [g_1 + g_2](\ket\xi, \ket\eta) & = g_1(\ket\xi, \ket\eta) + g_2(\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is continuous}
+    \end{align*}
+
+    Also, consider $a \in \mathbb{C}$. 
+    \begin{align*}
+        \text{Then }[g_1 + g_2](a \ket\xi, \ket\eta) & = g_1(a \ket\xi, \ket\eta) + g_2(a \ket\xi, \ket\eta)
+        \\ & = \overline{a} g_1(\ket\xi, \ket\eta) + \overline{a} g_2(\ket\xi, \ket\eta) 
+        \\ & = \overline{a} (g_1(\ket\xi, \ket\eta) + g_2(\ket\xi,\ket\eta))
+        \\ & = \overline{a}[g_1 + g_2](\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is anti-linear}
+    \end{align*}
+
+    Also for any functional $g$ in $\mathcal{G}$, $a \; g(\ket\xi, \ket\eta) = a \times g(\ket\xi, \ket\eta)$ is anti-linear and continuous.
+
+    The null function $g_0 : \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}, g_0(\ket\xi, \ket\eta) = 0$ for all $\ket\xi \in \mathcal{H}_1, \ket\eta \in \mathcal{H}_2$ is the null vector in $\mathcal{G}$.
+
+    For any $g$ in $\mathcal{G}$, its inverse in $\mathcal{G}$ is $-g$.
+\end{proof}
+
+\begin{thm}
     Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
 
     Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
@@ -336,57 +366,14 @@ Global phases are artefacts of the mathematical framework we are using and have 
     From \textbf{Theorem \ref{innerproduct:continuous}}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
 \end{proof}
 
+\begin{note}
+    The set $\{ f_{\psi,\phi} \; | \; \ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2 \} \subset \mathcal{G}$ where $f_{\psi,\phi}$ is defined as previously.
+\end{note}
+
 \begin{thm}
-    Consider the set $\mathcal{G}$ of all such functionals $f_{\psi,\phi}$ defined as in the above theorem.
-    Then $\mathcal{G} = \{ f_{\psi,\phi} \: | \: \ket{\psi} \in \mathcal{H}_1 \text{ and } \ket{\phi} \in \mathcal{H}_2 \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta}) = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta})$
+
 \end{thm}
-\begin{proof}
 
-    Consider any two functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ for some $\ket{\psi_1}, \ket{\psi_2} \in \mathcal{H}_1$ and $\ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$.
-    \begin{align*}
-        \text{Then } [ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta})  & = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta}) 
-        \\ & = \braket{\xi|\psi_1} \braket{\eta|\phi_1} + \braket{\xi|\psi_2} \braket{\eta|\phi_2}
-        \\ & = \braket{\eta \; | \braket{\xi | \psi_1} \phi_1 + \braket{\xi|\psi_2} \phi_2}
-        \\ \text{ TODO: Check }
-        \\ & \implies \mathcal{G} \text{ is closed under vector addition}
-    \end{align*}
-
-
-    Consider a functional $f_{\psi,\phi}$ in $\mathcal{G}$. 
-    \begin{align*}
-        \text{Then }[ a f_{\psi,\phi}](\ket\xi, \ket\eta) & = a \braket{\xi|\psi} \braket{\eta|\phi} 
-        \\ & = \braket{a \xi | \psi} \braket{\eta | \phi}
-        \\ & = f_{a\psi,\phi} \in \mathcal{G}
-        \\ & \implies [a f_{\psi,\phi}] \in \mathcal{G}
-        \\ & \implies \mathcal{G} \text{ is closed under scalar multiplication.}
-    \end{align*}
-    
-
-    Consider $f_{0_1, 0_2}$ in $\mathcal{G}$ where $\ket{0_1}$ is the zero vector in $\mathcal{H}_1$ and $\ket{0_2}$ is the zero vector in $\mathcal{H}_2$.
-    Consider any other $f_{\psi,\phi}$ in $\mathcal{G}$.
-    \begin{align*}
-        [f_{\psi,\phi} + f_{0_1, 0_2}](\ket\xi,\ket\eta) & = f_{\psi,\phi} (\ket\xi,\ket\eta)+ f_{0_1, 0_2} (\ket\xi,\ket\eta)
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} + \underbrace{\braket{\xi|0_1}\braket{\eta|0_2}}_{= 0}
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi}
-        \\ & = f_{\psi,\phi}(\ket\xi,\ket\eta)
-        \\ & \implies f_{0_1, 0_2} \text{ is the zero vector in } \mathcal{G}
-    \end{align*}
-
-    Consider any $f_{\psi,\phi}$ in $\mathcal{G}$. Then $- f_{\psi, \phi}$ is in $\mathcal{G}$.
-    \begin{align*}
-        [f_{\psi,\phi} + - f_{\psi, \phi}](\ket\xi, \ket\eta) & = f_{\psi,\phi}(\ket\xi, \ket\eta) + - f_(\psi,\phi)(\ket\xi, \ket\eta) 
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} - \braket{\xi|\psi}\braket{\eta|\phi}
-        \\ & = 0 
-        \\ & = \braket{\xi|0_1}\braket{\eta|0_2}
-        \\ & = f_{0_1,0_2}(\ket\xi, \ket\eta) 
-        \\ \implies  -f_{\psi,\phi} \text{ is the inverse of } f_{\psi,\phi} \text{ in } \mathcal{G}
-    \end{align*}
-\end{proof}
-
-\begin{defn}
-    For linear functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ defined as above, define the inner product on $\mathcal{G}$ as $\braket{f_{\psi_1|\phi_1}, f_{\psi_2, \phi_2}} = \braket{\psi_1|\psi_2}_{\mathcal{H}_1} \braket{\phi_1|\phi_2}_{\mathcal{H}_2}$.
-    Then $\mathcal{G}$ together with the above defined inner product is a Hilbert space and is called the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
-\end{defn}
 
 \begin{defn}
     Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.
@@ -627,6 +614,7 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \begin{samepage}
 \begin{mdframed}
 \begin{lemma}[Principle of Transformation]
+    \label{transformation}
     In a quantum state space $\mathcal{H}$, every change of a quantum state over time that has not been caused by measurement is described by a unitary transformation.
     
     If $\ket{\psi}_1$ is the quantum space at time $t_1$ and $\ket{\psi}_2$ is the quantum state space at time $t_2 > t_1$, then $\ket{\psi}_2$ is described by $\ket{\psi}_2 = U \ket{\psi}_1$ where $U$ is a unitary transformation on the state space $\mathcal{H}$
@@ -663,41 +651,49 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \chapter{Gates and Circuits}
 \line(1,0){360} \\
 
+\begin{comment}
+     * Definitition of quantum gates
+     * Gates are unitary
+     * reversible defn
+     * Gates are reversible
+     * ket bra defn
+     * any reversible classical gate has a valid quantum analog
+     * Quantum gates have an equal number of inputs and outputs?
+     * Single Qubit Gates
+     * Eigen values and Eigenvectors of Hadamard Gate
+     * Multiple Qubit Gates
+     * Proof that each gate described is unitary
+     * deferred measurement principle
+\end{comment}
+
+
+\begin{defn}
+    A \textbf{quantum gate} is a function $U: \mathcal{H} \to \mathcal{H}$ such that $f(\ket\psi) = \ket\phi$ where $\ket\psi, \ket\phi \in \mathcal{H}$ are valid quantum states in the state space $\mathcal{H}$ of $n$ interacting qubits.
+\end{defn}
+
 \begin{prop}
-Gates are described by unitary matrices.
+    Any quantum gate is unitary and reversible.
 \end{prop}
 \begin{proof}
-    Let $M$ be a transformation of a quantum qubit state $\ket{\psi}$. Physics says that the evolution of an isolated quantum system is linear, so the transformation $M$ can be described by a matrix. \\
+Lemma \ref{transformation} tells us that the time-evolution of the quantum state is linear and unitary. 
 
-    For any state $\ket{\psi}$, $M \ket{\psi}$ has to be a unit vector. \\
-    If $M \ket{\psi}$ is a unit vector, the inner product with itself is $1$.\\
-    $\implies \braket{ \ (M\ket{\psi}) \ |\  (M \ket{\psi}) \ } = 1$\\
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$ \\
-    $\implies M^\dagger M = I$ where $I$ is the identity matrix\\
-    $\implies$ $M$ is unitary\\
+    This implies any quantum gate $U$ is unitary, i.e. $U U^{\dagger} = I$. 
+
+    $U U^\dagger = I \implies U^{-1} = U^\dagger$.
+    Also, $ U U^\dagger = I \implies U^\dagger$ is unitary.  
+    This means reverse the operation of any quantum gate $U$ on the system by applying the quantum gate $U^\dagger$.
 \end{proof}
 
-\begin{eg}
-    Verify that the Hadamard gate is unitary and find its eigenvalues, eigenvectors.
-\end{eg}
 
-Since $U U^\dagger = I$, we can conclude that every unitary matrix is invertible.
-This leads to the following result:
-\begin{result}
-    Only reversible gates can be implemented in quantum computing and any reversible gate has a quantum analog.
-\end{result}
+\begin{defn}
+    A \textbf{quantum circuit} is a sequence of quantum gates and measurement operators applied to an $n$-qubit register initialized to some known quantum state.
+\end{defn}
 
-This shows us that the classical $\text{NOT}$ gate has a quantum analog but $\text{NAND}$ does not.
-
-Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in practice.
-
-
-`TODO Notation $\ket{}\bra{}$`
 \section{Gates on a single Qubit}
 
 \subsection{Pauli Gates}
 \begin{defn}[Pauli Gates]
-    $I, X, Y, Z$ are known as the Pauli gates and are defined as: 
+    $I, X, Y, Z$ are known as the Pauli gates and are defined as:
     \begin{enumerate}
         \item $I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \ket{0}\bra{0} + \ket{1}\bra{1}$
         \item $X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \ket{1}\bra{0} + \ket{0}\bra{1}$
@@ -711,8 +707,8 @@ Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in pract
 \subsection{Hadamard Gate}
 \begin{defn}[Hadamard Gate]
     The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
-    $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$ 
-    $H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \ket{-}$.  It is defined by the matrix 
+    $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$
+    $H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \ket{-}$.  It is defined by the matrix
     $\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \ket{0}\bra{+} + \ket{1}\bra{-}$
 \end{defn}
 The Hadamard gate allows us to obtain a superposition state.
@@ -784,9 +780,7 @@ The standard circuit model for quantum computation uses gates from { CNOT gate t
 
 In this paper, we will focus on the class of 'black box' algorithms.
 
-\section{Deutsch Algorithm and Deutsch-Jozsa Algorithm}
-\subsection{Deutsch Algorithm}
-\subsection{Deutsch-Josza Algorithm}
+\section{Deutsch-Josza Algorithm}
 
 \section{Simon's Algorithm}
 

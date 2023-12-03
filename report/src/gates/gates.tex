@@ -1,106 +1,46 @@
 \chapter{Gates and Circuits}
 \line(1,0){360} \\
 
+\begin{comment}
+     x Definitition of quantum gates
+     x Gates are unitary
+     x reversible defn
+     x Gates are reversible
+     x quantum circuit definition
+     * Quantum Gates applied to one qubit in an $n$-qubit register
+     * deferred measurement principle
+     * ket bra notation and how it describes a transformation
+     x any reversible classical gate has a valid quantum analog
+     x Quantum gates have an equal number of inputs and outputs?
+     * Single Qubit Gates
+     * Eigen values and Eigenvectors of Hadamard Gate
+     * Multiple Qubit Gates
+     * Proof that each gate described is unitary
+\end{comment}
+
+
+\begin{defn}
+    A \textbf{quantum gate} is a function $U: \mathcal{H} \to \mathcal{H}$ such that $f(\ket\psi) = \ket\phi$ where $\ket\psi, \ket\phi \in \mathcal{H}$ are valid quantum states in the state space $\mathcal{H}$ of $n$ interacting qubits.
+\end{defn}
+
 \begin{prop}
-Gates are described by unitary matrices.
+    Any quantum gate is unitary and reversible.
 \end{prop}
 \begin{proof}
-    Let $M$ be a transformation of a quantum qubit state $\ket{\psi}$. Physics says that the evolution of an isolated quantum system is linear, so the transformation $M$ can be described by a matrix. \\
+    The principle of transformation (Lemma \ref{transformation}) tells us that the time-evolution of the quantum state is linear and unitary. 
 
-    For any state $\ket{\psi}$, $M \ket{\psi}$ has to be a unit vector. \\
-    If $M \ket{\psi}$ is a unit vector, the inner product with itself is $1$.\\
-    $\implies \braket{ \ (M\ket{\psi}) \ |\  (M \ket{\psi}) \ } = 1$\\
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$ \\
-    $\implies M^\dagger M = I$ where $I$ is the identity matrix\\
-    $\implies$ $M$ is unitary\\
+    This implies any quantum gate $U$ is unitary, i.e. $U U^{\dagger} = I$. 
+
+    $U U^\dagger = I \implies U^{-1} = U^\dagger$.
+    Also, $ U U^\dagger = I \implies U^\dagger$ is unitary.  
+    This means reverse the operation of any quantum gate $U$ on the system by applying the quantum gate $U^\dagger$.
 \end{proof}
 
-\begin{eg}
-    Verify that the Hadamard gate is unitary and find its eigenvalues, eigenvectors.
-\end{eg}
-
-Since $U U^\dagger = I$, we can conclude that every unitary matrix is invertible.
-This leads to the following result:
-\begin{result}
-    Only reversible gates can be implemented in quantum computing and any reversible gate has a quantum analog.
-\end{result}
-
-This shows us that the classical $\text{NOT}$ gate has a quantum analog but $\text{NAND}$ does not.
-
-Any unitary $2 \times 2$ matrix is a valid gate but only a few are used in practice.
-
-
-`TODO Notation $\ket{}\bra{}$`
-\section{Gates on a single Qubit}
-
-\subsection{Pauli Gates}
-\begin{defn}[Pauli Gates]
-    $I, X, Y, Z$ are known as the Pauli gates and are defined as: 
-    \begin{enumerate}
-        \item $I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \ket{0}\bra{0} + \ket{1}\bra{1}$
-        \item $X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \ket{1}\bra{0} + \ket{0}\bra{1}$
-        \item $Y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = i \ket{1}\bra{0} - i \ket{0}\bra{1}$
-        \item $Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \ket{0}\bra{0} - \ket{1}\bra{1}$
-    \end{enumerate}
-\end{defn}
-
-`TODO: Effect of the Pauli Gates on the Bloch Sphere`
-
-\subsection{Hadamard Gate}
-\begin{defn}[Hadamard Gate]
-    The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
-    $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$ 
-    $H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \ket{-}$.  It is defined by the matrix 
-    $\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \ket{0}\bra{+} + \ket{1}\bra{-}$
-\end{defn}
-The Hadamard gate allows us to obtain a superposition state.
-
-\begin{remark}
-    The Hadamard gate is its own inverse.\\
-    $H^2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = $
-    $\frac{1}{2} \begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix} = I$
-\end{remark}
-\begin{remark}
-    $H =   \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = \frac{1}{\sqrt{2}} (X + Z)$
-\end{remark}
-
-\subsection{Phase Gate}
 \begin{defn}
-    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
-    It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
-
-    The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
-    The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
+    A \textbf{quantum circuit} is a sequence of quantum gates and measurement operators applied to an $n$-qubit register initialized to some known quantum state.
 \end{defn}
 
-\section{Gates on Multiple Qubits}
+\begin{prop}[Deferred Measurement Principle]
+    Every quantum circuit is equivalent to a circuit in which all measurements are made after all other computations.
+\end{prop}
 
-\subsection{CNOT Gate}
-\begin{defn}
-    The \textbf{CNOT gate} is a gate that acts on 2 qubits which flips the second bit if the first bit is in the $\ket{1}$ state.\\
-    It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X$
-\end{defn}
-The CNOT gate allows us to obtain an entangled state.
-
-\subsection{Toffoli Gate}
-\begin{defn}
-    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
-\end{defn}
-
-Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
-
-\subsection{Hadamard Transform}
-\begin{defn}
-    Given a register of $n$ qubits, the \textbf{Hadamard Transform} $H^{\otimes n}$ is the transformation that applies the Hadamard gate $H = \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$ on each of the $n$ qubits.
-\end{defn}
-\begin{eg}
-    Consider the Hadamard transform applied on a $n$ qubit register, where each qubit is in the $\ket{0}$ state, i.e. the register is in the state $\ket{0^n}$.
-    Then \[ H^{\otimes n} \ket{0^n} = \frac{1}{2^{n/2}} (\ket{0} + \ket{1})(\ket{0} + \ket{1})...(\ket{0} \ket{1}) = \frac{1}{2^{n/2}} \sum_{j=0}^{2^n-1} \ket{j} \] where $\ket{j}$ is the bitstring that represents $j$ in binary.
-\end{eg}
-
-\begin{result}
-    For any arbitrary state $\ket{j}$ in an $n$ qubit register $\otimes_{i=1}^n \mathcal{H}_i$, \[ H^{\otimes n} \ket{j} = \frac{1}{2^{n/2}} \sum_{k=0}^{2^n-1} (-1)^{j.k} \ket{k}\] where $j.k$ is the dot product of $j$ and $k$.
-\end{result}
-`Refer Shor Lec 16`

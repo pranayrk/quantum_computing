@@ -2,6 +2,33 @@
 \section{Entanglement}
 
 \begin{thm}
+    Given two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$, consider the set $\mathcal{G}$ of all anti-linear and continuous functionals from $\mathcal{H}_1 \times \mathcal{H}_2$ to $\mathbb{C}$.
+    Then $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is anti-linear and continuous } \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ g_1 + g_2] (\ket{\xi}, \ket{\eta}) = g_1(\ket{\xi}, \ket{\eta}) + g_2(\ket{\xi}, \ket{\eta})$ for any $g_1, g_2 \in \mathcal{G}$ and scalar multiplication is defined as expected.
+\end{thm}
+\begin{proof}
+    Consider any two $g_1, g_2$ in $\mathcal{G}$,
+    \begin{align*}
+        [g_1 + g_2](\ket\xi, \ket\eta) & = g_1(\ket\xi, \ket\eta) + g_2(\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is continuous}
+    \end{align*}
+
+    Also, consider $a \in \mathbb{C}$. 
+    \begin{align*}
+        \text{Then }[g_1 + g_2](a \ket\xi, \ket\eta) & = g_1(a \ket\xi, \ket\eta) + g_2(a \ket\xi, \ket\eta)
+        \\ & = \overline{a} g_1(\ket\xi, \ket\eta) + \overline{a} g_2(\ket\xi, \ket\eta) 
+        \\ & = \overline{a} (g_1(\ket\xi, \ket\eta) + g_2(\ket\xi,\ket\eta))
+        \\ & = \overline{a}[g_1 + g_2](\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is anti-linear}
+    \end{align*}
+
+    Also for any functional $g$ in $\mathcal{G}$, $a \; g(\ket\xi, \ket\eta) = a \times g(\ket\xi, \ket\eta)$ is anti-linear and continuous.
+
+    The null function $g_0 : \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}, g_0(\ket\xi, \ket\eta) = 0$ for all $\ket\xi \in \mathcal{H}_1, \ket\eta \in \mathcal{H}_2$ is the null vector in $\mathcal{G}$.
+
+    For any $g$ in $\mathcal{G}$, its inverse in $\mathcal{G}$ is $-g$.
+\end{proof}
+
+\begin{thm}
     Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
 
     Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
@@ -35,61 +62,14 @@
     From \textbf{Theorem \ref{innerproduct:continuous}}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
 \end{proof}
 
-\begin{thm}
-    Consider the set $\mathcal{G}$ of all such functionals $f_{\psi,\phi}$ defined as in the above theorem.
-    Then $\mathcal{G} = \{ f_{\psi,\phi} \: | \: \ket{\psi} \in \mathcal{H}_1 \text{ and } \ket{\phi} \in \mathcal{H}_2 \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta}) = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta})$
-\end{thm}
-\begin{proof}
-
-    Consider any two functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ for some $\ket{\psi_1}, \ket{\psi_2} \in \mathcal{H}_1$ and $\ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$.
-    \begin{align*}
-        \text{Then } [ f_{\psi_1,\phi_1} + f_{\psi_2,\phi_2} ] (\ket{\xi}, \ket{\eta})  & = f_{\psi_1,\phi_1}(\ket{\xi}, \ket{\eta}) + f_{\psi_2,\phi_2}(\ket{\xi}, \ket{\eta}) 
-        \\ & = \braket{\xi|\psi_1} \braket{\eta|\phi_1} + \braket{\xi|\psi_2} \braket{\eta|\phi_2}
-        \\ & = \braket{\eta \; | \braket{\xi | \psi_1} \phi_1 + \braket{\xi|\psi_2} \phi_2}
-        \\ \text{ TODO: Check }
-        \\ & \implies \mathcal{G} \text{ is closed under vector addition}
-    \end{align*}
-
-
-    Consider a functional $f_{\psi,\phi}$ in $\mathcal{G}$. 
-    \begin{align*}
-        \text{Then }[ a f_{\psi,\phi}](\ket\xi, \ket\eta) & = a \braket{\xi|\psi} \braket{\eta|\phi} 
-        \\ & = \braket{a \xi | \psi} \braket{\eta | \phi}
-        \\ & = f_{a\psi,\phi} \in \mathcal{G}
-        \\ & \implies [a f_{\psi,\phi}] \in \mathcal{G}
-        \\ & \implies \mathcal{G} \text{ is closed under scalar multiplication.}
-    \end{align*}
-    
-
-    Consider $f_{0_1, 0_2}$ in $\mathcal{G}$ where $\ket{0_1}$ is the zero vector in $\mathcal{H}_1$ and $\ket{0_2}$ is the zero vector in $\mathcal{H}_2$.
-    Consider any other $f_{\psi,\phi}$ in $\mathcal{G}$.
-    \begin{align*}
-        [f_{\psi,\phi} + f_{0_1, 0_2}](\ket\xi,\ket\eta) & = f_{\psi,\phi} (\ket\xi,\ket\eta)+ f_{0_1, 0_2} (\ket\xi,\ket\eta)
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} + \underbrace{\braket{\xi|0_1}\braket{\eta|0_2}}_{= 0}
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi}
-        \\ & = f_{\psi,\phi}(\ket\xi,\ket\eta)
-        \\ & \implies f_{0_1, 0_2} \text{ is the zero vector in } \mathcal{G}
-    \end{align*}
-
-    Consider any $f_{\psi,\phi}$ in $\mathcal{G}$. Then $- f_{\psi, \phi}$ is in $\mathcal{G}$.
-    \begin{align*}
-        [f_{\psi,\phi} + - f_{\psi, \phi}](\ket\xi, \ket\eta) & = f_{\psi,\phi}(\ket\xi, \ket\eta) + - f_(\psi,\phi)(\ket\xi, \ket\eta) 
-        \\ & = \braket{\xi|\psi}\braket{\eta|\phi} - \braket{\xi|\psi}\braket{\eta|\phi}
-        \\ & = 0 
-        \\ & = \braket{\xi|0_1}\braket{\eta|0_2}
-        \\ & = f_{0_1,0_2}(\ket\xi, \ket\eta) 
-        \\ \implies  -f_{\psi,\phi} \text{ is the inverse of } f_{\psi,\phi} \text{ in } \mathcal{G}
-    \end{align*}
-\end{proof}
-
-\begin{defn}
-    For linear functionals $f_{\psi_1,\phi_1}$ and $f_{\psi_2,\phi_2}$ in $\mathcal{G}$ defined as above, define the inner product on $\mathcal{G}$ as $\braket{f_{\psi_1|\phi_1}, f_{\psi_2, \phi_2}} = \braket{\psi_1|\psi_2}_{\mathcal{H}_1} \braket{\phi_1|\phi_2}_{\mathcal{H}_2}$.
-    Then $\mathcal{G}$ together with the above defined inner product is a Hilbert space and is called the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
-\end{defn}
-
 \begin{note}
-
+    The set $\{ f_{\psi,\phi} \; | \; \ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2 \} \subset \mathcal{G}$ where $f_{\psi,\phi}$ is defined as previously.
 \end{note}
+
+\begin{thm}
+
+\end{thm}
+
 
 \begin{defn}
     Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.

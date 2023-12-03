@@ -8,6 +8,8 @@
 \usepackage{verbatim}
 \usepackage{braket}
 \usepackage{titlesec}
+\usepackage{bm}
+\usepackage{comment}
 \usepackage[]{mdframed}
 
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
@@ -16,17 +18,18 @@
 \newtheoremstyle{thmstyle}{10pt}{10pt}{}{}{\bfseries}{:}{.5em}{}
 \theoremstyle{thmstyle}
 
-\newtheorem{defn}{Definition}[section]
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{eg}{Example}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{result}{Result}[section]
-\newtheorem{problem}{Problem}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem*{note}{Note}
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{eg}{Example}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{result}{Result}[chapter]
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{prop}{Proposition}[chapter]
+% \newtheorem*{note}{Note}
 \newtheorem*{sol}{Solution}
+\newenvironment{note}{\paragraph{\textbf{Note:}}}{\hfill$\square$}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}

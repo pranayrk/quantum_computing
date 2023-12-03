@@ -1,2 +1,4 @@
-map: 
+map:
   - gates.tex
+  - single_qubit_gates.tex
+  - multiple_qubit_gates.tex

@@ -1,0 +1,43 @@
+\section{Gates on a single Qubit}
+
+\subsection{Pauli Gates}
+\begin{defn}[Pauli Gates]
+    $I, X, Y, Z$ are known as the Pauli gates and are defined as:
+    \begin{enumerate}
+        \item $I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} = \ket{0}\bra{0} + \ket{1}\bra{1}$
+        \item $X = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} = \ket{1}\bra{0} + \ket{0}\bra{1}$
+        \item $Y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix} = i \ket{1}\bra{0} - i \ket{0}\bra{1}$
+        \item $Z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} = \ket{0}\bra{0} - \ket{1}\bra{1}$
+    \end{enumerate}
+\end{defn}
+
+`TODO: Effect of the Pauli Gates on the Bloch Sphere`
+
+\subsection{Hadamard Gate}
+\begin{defn}[Hadamard Gate]
+    The \textbf{Hadamard Gate} is the transformation $H: \mathcal{H} \to \mathcal{H}$ such that \\
+    $H \ket{0} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) = \ket{+}$
+    $H \ket{1} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \ket{-}$.  It is defined by the matrix
+    $\frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \ket{0}\bra{+} + \ket{1}\bra{-}$
+\end{defn}
+The Hadamard gate allows us to obtain a superposition state.
+
+\begin{remark}
+    The Hadamard gate is its own inverse.\\
+    $H^2 = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = $
+    $\frac{1}{2} \begin{bmatrix}2 & 0 \\ 0 & 2 \end{bmatrix} = I$
+\end{remark}
+\begin{remark}
+    $H =   \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}  + \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} \right) = \frac{1}{\sqrt{2}} (X + Z)$
+\end{remark}
+
+\subsection{Phase Gate}
+\begin{defn}
+    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
+
+    The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
+    The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
+    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
+\end{defn}
