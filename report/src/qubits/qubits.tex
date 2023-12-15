@@ -14,12 +14,17 @@ Many different quantum particle effects have been used in labs - photon polariza
     \begin{enumerate}
         \item conjugate symmetric: $\braket{\psi,\phi} = \overline{\braket{\phi,\psi}}$
         \item positive definite: $\braket{\psi, \psi} \geq 0$ and $\braket{\psi, \psi} = 0 \iff \psi = 0$
-        \item linear in first argument: $\braket{a \phi_1 + b \phi_2, \psi} = a \braket{\phi_1, \psi} + b \braket{\phi_2, \psi}$
-        \item antilinear in second argument: $\braket{\psi, a \phi_1 + b \phi_2} = \overline{a} \braket{\psi,\phi_1} + \overline{b} \braket{\psi,\phi_2}$
+        \item anti-linear in first argument: $\braket{a \phi_1 + b \phi_2, \psi} = \overline{a} \braket{\phi_1, \psi} + \overline{b} \braket{\phi_2, \psi}$
+        \item linear in second argument: $\braket{\psi, a \phi_1 + b \phi_2} = a \braket{\psi,\phi_1} + b \braket{\psi,\phi_2}$
     \end{enumerate}
     and this inner product induces a norm $||.|| : \mathcal{H} \to \mathbb{R}$ defined as $\psi \to \sqrt{\braket{\psi,\psi}}$ in which $\mathcal{H}$ is complete.
 \end{defn}
+
+\begin{note}
+    We have set the inner product to be linear in the second argument and anti-linear in the first argument, which is opposite what is used in many books. This is to make later calculations easier.
+\end{note}
 \end{samepage}
+
 
 \begin{samepage}
 \begin{defn}

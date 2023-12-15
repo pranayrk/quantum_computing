@@ -3,25 +3,26 @@
 \contentsline {chapter}{Acknowledgements}{iii}{}%
 \contentsline {chapter}{List of Notations}{iv}{}%
 \contentsline {chapter}{\numberline {1}Qubits}{1}{}%
+\contentsline {paragraph}{\textbf {Note:}}{2}{}%
 \contentsline {paragraph}{\textbf {Note:}}{3}{}%
 \contentsline {paragraph}{\textbf {Note:}}{4}{}%
-\contentsline {section}{\numberline {1.1}Superposition}{5}{}%
-\contentsline {section}{\numberline {1.2}Entanglement}{7}{}%
+\contentsline {section}{\numberline {1.1}Superposition}{6}{}%
+\contentsline {section}{\numberline {1.2}Entanglement}{8}{}%
 \contentsline {paragraph}{\textbf {Note:}}{8}{}%
-\contentsline {paragraph}{\textbf {Note:}}{9}{}%
-\contentsline {section}{\numberline {1.3}Measurement}{11}{}%
+\contentsline {paragraph}{\textbf {Note:}}{10}{}%
+\contentsline {section}{\numberline {1.3}Measurement}{12}{}%
 \contentsline {paragraph}{\textbf {Note:}}{14}{}%
-\contentsline {paragraph}{\textbf {Note:}}{14}{}%
+\contentsline {paragraph}{\textbf {Note:}}{15}{}%
 \contentsline {section}{\numberline {1.4}Transformation}{15}{}%
 \contentsline {chapter}{\numberline {2}Gates and Circuits}{18}{}%
-\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{18}{}%
-\contentsline {subsection}{\numberline {2.1.1}Pauli Gates}{18}{}%
+\contentsline {section}{\numberline {2.1}Gates on a single Qubit}{19}{}%
+\contentsline {subsection}{\numberline {2.1.1}Pauli Gates}{19}{}%
 \contentsline {subsection}{\numberline {2.1.2}Hadamard Gate}{19}{}%
-\contentsline {subsection}{\numberline {2.1.3}Phase Gate}{19}{}%
+\contentsline {subsection}{\numberline {2.1.3}Phase Gate}{20}{}%
 \contentsline {section}{\numberline {2.2}Gates on Multiple Qubits}{20}{}%
 \contentsline {subsection}{\numberline {2.2.1}CNOT Gate}{20}{}%
 \contentsline {subsection}{\numberline {2.2.2}Toffoli Gate}{20}{}%
-\contentsline {subsection}{\numberline {2.2.3}Hadamard Transform}{20}{}%
+\contentsline {subsection}{\numberline {2.2.3}Hadamard Transform}{21}{}%
 \contentsline {chapter}{\numberline {3}Algorithms}{22}{}%
 \contentsline {section}{\numberline {3.1}Deutsch-Josza Algorithm}{23}{}%
 \contentsline {section}{\numberline {3.2}Simon's Algorithm}{23}{}%

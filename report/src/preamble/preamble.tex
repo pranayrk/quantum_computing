@@ -12,11 +12,25 @@
 \usepackage{comment}
 \usepackage[]{mdframed}
 
+\setlength{\mathindent}{0cm}
 \titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}    
 \titlespacing*{\chapter}{0pt}{0pt}{20pt}
 
 \newtheoremstyle{thmstyle}{10pt}{10pt}{}{}{\bfseries}{:}{.5em}{}
 \theoremstyle{thmstyle}
+
+
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@\relax
+\trivlist
+\item[\hskip\labelsep\itshape#1\@addpunct{.}]\mbox{}\par\nobreak\ignorespaces
+}{%
+    \popQED\endtrivlist\@endpefalse
+    }
+    \makeatother
 
 \newtheorem{defn}{Definition}[chapter]
 \newtheorem{thm}{Theorem}[chapter]
@@ -29,7 +43,7 @@
 \newtheorem{prop}{Proposition}[chapter]
 % \newtheorem*{note}{Note}
 \newtheorem*{sol}{Solution}
-\newenvironment{note}{\paragraph{\textbf{Note:}}}{\hfill$\square$}
+\newenvironment{note}{\paragraph{\textbf{Note:}}}{\hfill\ensuremath{\diamondsuit}}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}

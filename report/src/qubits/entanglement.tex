@@ -1,12 +1,80 @@
 \pagebreak
 \section{Entanglement}
 
-\begin{thm}
+\begin{comment}
+x notation for tensor product of vectors
+x Simple notation
+x properties of tensor product of vectors
+* orthonormal basis for tensor product space
+* Inner product defined on space of tensor products of vectors
+* Definition of tensor product of spaces -- Hilbert space
+* Notation for tensor product of spaces
+* Tensor product multiplication rules
+* Principle of Entanglement
+* Proof that most states are entangled
+\end{comment}
+
+
+\begin{prop}
+    Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
+
+    Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
+\end{prop}
+\begin{proof}
+
+    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$. 
+    \begin{align*}
+        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2} 
+        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$ 
+    for some $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
+    \begin{align*}
+    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi} 
+        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
+        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
+
+    This implies that $f_{\psi,\phi}$ is antilinear in both arguments.
+
+    \vspace{0.5cm}
+    From Theorem \ref{innerproduct:continuous}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
+\end{proof}
+
+\begin{note}
+    In dirac's bra/ket notation, the functional $f_{\psi,\phi}$ is written as $\ket{\psi} \otimes \ket{\phi}$ where $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$.
+    For simplicity, we also write $\ket{\psi} \otimes \ket{\phi}$ as $\ket{\psi}\ket{\phi}$ or $\ket{\psi\phi}$.
+\end{note}
+
+
+\begin{prop}
+    Consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$.
+    The linear functional $\ket{\psi} \otimes \ket{\phi}$ defined as $[\ket\psi \otimes \ket\phi](\ket\xi,\ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}$  satisfies the following properties:
+    \begin{enumerate}
+        \item $(a \ket\psi) \otimes \ket\phi = \ket\psi \otimes (a \ket\phi) = a (\ket\psi \otimes \ket\phi)$
+        \item $a (\ket\psi \otimes \ket\phi) + b (\ket\psi \otimes \ket\phi) = (a + b) (\ket\psi \otimes \ket\phi)$
+        \item $(\ket\psi_1 + \ket\psi_2) \otimes \ket\phi = \ket\psi_1 \otimes \ket\phi + \ket\psi_2 \otimes \ket\phi$
+        \item $\ket\psi \otimes (\ket\phi_1 + \ket\phi_2) = \ket\psi \otimes \ket\phi_1 + \ket\psi \otimes \ket\phi_2$
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    [TODO]
+\end{proof}
+
+\begin{prop}
     Given two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$, consider the set $\mathcal{G}$ of all anti-linear and continuous functionals from $\mathcal{H}_1 \times \mathcal{H}_2$ to $\mathbb{C}$.
     Then $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is anti-linear and continuous } \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ g_1 + g_2] (\ket{\xi}, \ket{\eta}) = g_1(\ket{\xi}, \ket{\eta}) + g_2(\ket{\xi}, \ket{\eta})$ for any $g_1, g_2 \in \mathcal{G}$ and scalar multiplication is defined as expected.
-\end{thm}
+\end{prop}
 \begin{proof}
-    Consider any two $g_1, g_2$ in $\mathcal{G}$,
+
+    Consider any two $g_1, g_2$ in $\mathcal{G}$.
     \begin{align*}
         [g_1 + g_2](\ket\xi, \ket\eta) & = g_1(\ket\xi, \ket\eta) + g_2(\ket\xi, \ket\eta)
         \\ & \implies [g_1 + g_2] \text{ is continuous}
@@ -28,78 +96,20 @@
     For any $g$ in $\mathcal{G}$, its inverse in $\mathcal{G}$ is $-g$.
 \end{proof}
 
-\begin{thm}
-    Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
-
-    Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
-\end{thm}
-\begin{proof}
-
-    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$. 
-    \begin{align*}
-        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2} 
-        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
-        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
-        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
-    \end{align*}
-
-    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$ 
-    for some $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
-
-    \begin{align*}
-    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi} 
-        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
-        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
-        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
-        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
-    \end{align*}
-
-    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
-
-    This implies that $f_{\psi,\phi}$ is antilinear in both arguments.
-
-    \vspace{0.5cm}
-    From \textbf{Theorem \ref{innerproduct:continuous}}, we have that $\braket{\xi|\psi}_{\mathcal{H}_1}$ is continuous and $\braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous. Therefore, $f_{\psi,\phi}(\xi, \eta) =  \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ is continuous since product of two complex-valued continuous functions is continuous.
-\end{proof}
-
 \begin{note}
-    The set $\{ f_{\psi,\phi} \; | \; \ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2 \} \subset \mathcal{G}$ where $f_{\psi,\phi}$ is defined as previously.
+    Consider the set $\mathcal{F} = \{ \ket\psi \otimes \ket\phi \; | \; \ket\psi \in \mathcal{H}_1 \text{ and } \ket\phi \in \mathcal{H}_2 \}$ where $\ket\psi \otimes \ket\phi$ is defined as previously.
+    Then any $\ket\psi \otimes \ket\phi \in \mathcal{F}$ is anti-linear and continuous which implies $\mathcal{F} \subseteq \mathcal{G}$.
 \end{note}
 
 \begin{thm}
-
+    The set $\mathcal{F} \subseteq \mathcal{G}$ forms an orthonormal basis for $\mathcal{G}$
 \end{thm}
-
-
-\begin{defn}
-    Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be finite dimensional Hilbert spaces.
-    The \textbf{tensor product} $\mathcal{H}_1 \otimes \mathcal{H}_2$ is a Hilbert space in which every element can be represented as $\ket{v_1} \otimes \ket{w_1} + \ket{v_2} \otimes \ket{w_2} \otimes ... \otimes \ket{v_k} \otimes \ket{w_k}$ where $k = \text{min}(n,m)$ and $\ket{v_i} \in \mathcal{H}_1, \ket{w_i} \in \mathcal{H}_2$ and $\otimes$ is the tensor product defined to satisfy the following properties:
-    \begin{enumerate}
-        \item $(\ket{v_1} + \ket{v_2}) \otimes \ket{w} = \ket{v_1} \otimes \ket{w} + \ket{v_2} \otimes \ket{w}$
-        \item $\ket{v} \otimes (\ket{w_1} + \ket{w_2}) = \ket{v} \otimes \ket{w_1} + \ket{v} \otimes \ket{w_2}$
-        \item $(a \cdot \ket{v}) \otimes \ket{w} = \ket{v} \otimes (a \cdot \ket{w}) = a \cdot (\ket{v} \otimes \ket{w})$
-    \end{enumerate}
-\end{defn}
-
-\begin{result}
-    A basis for the tensor product space is given by $\{ v_i \otimes w_j | 1 \leq i \leq n, 1 \leq j \leq m \}$
-\end{result}
 \begin{proof}
-
+    [TODO]
 \end{proof}
 
 This implies if $\ket{\psi} = \alpha_1 \ket{v_1} + \alpha_2 \ket{v_2} + ... + \alpha_n \ket{v_n}$ and $\ket{\phi} = \beta_1 \ket{w_1} + \beta_2 \ket{w_2} + ... + \beta_m \ket{w_m}$, their tensor product representation with respect to the above basis is $\ket{\psi} \otimes \ket{\phi} = \sum_{i=1}^n \sum_{j=1}^m \alpha_i \beta_j \ket{v_i} \otimes \ket{w_j}$
 
-
-\begin{note}
-    In dirac's bra/ket notation, the tensor product $\ket{v} \otimes \ket{w}$ of $\ket{v} \in \mathcal{H}_1$ and $\ket{w} \in \mathcal{H}_2$ is written as $\ket{vw}$ or $\ket{v}\ket{w}$
-\end{note}
-
-\begin{prop}
-    Let $\{ \ket{v_i} \} \subset \mathcal{H}_1$ be an orthonormal basis in $\mathcal{H}_1$ and $\{ \ket{w_j} \} \subset \mathcal{H}_2$ be an orthonormal basis in $\mathcal{H}_2$. Then the set $\{ \ket{v_i w_j} \}$ forms an orthonormal basis in $\mathcal{H}_1 \otimes \mathcal{H}_2$ and for finite-dimensional $\mathcal{H}_1$ and $\mathcal{H}_2$, $\text{dim}(\mathcal{H}_1 \otimes \mathcal{H}_2) = \text{dim}(\mathcal{H}_1) \text{dim}(\mathcal{H}_2)$
-\end{prop}
-\begin{proof}
-\end{proof}
 
 \begin{samepage}
     \begin{mdframed}
@@ -111,19 +121,11 @@ When we have two qubits being treated as a combined system, the state space of t
     \end{mdframed}
 \end{samepage}
 
-The most natural basis for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ is constructed from the tensor products of the computational basis vectors of $\mathcal{H}_1, \mathcal{H}_2, ..., \mathcal{H}_n$. 
-\begin{defn}
-    For $\mathcal{H}_i$ with computational basis $\{ \ket{0}_i, \ket{1}_i \}$ where $i \in \{1, ..., n\}$, the \textbf{computational basis} for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2 ... \otimes \mathcal{H}_n$ is given by $\{ \ket{0}_1\ket{0}_2...\ket{0}_n, \ket{0}_1\ket{0}_2...\ket{0}_{n-1}\ket{1}_n, ..., \ket{1}_1\ket{1}_2...\ket{1}_n\} = \{ \ket{00...0}, \ket{00...1}, ... , \ket{11...1} \}$.
-
-    For simplicity, this basis is often represented by condensing the bit-string inside the ket notation as $ \{ \ket{00...0}, \ket{00...1}, ... , \ket{11...1} \} = \{ \ket{0}, \ket{1},..., \ket{2^n - 1} \}$ when the context is unambiguous.
-\end{defn}
-
 \begin{eg}
 For $n=2$, the state space for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ has computational basis $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$.
 
     Any arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11} = a \ket{0} + b \ket{1} + c \ket{2} + d \ket{3}$ \\ where $a, b, c, d \in \mathbb{C}$ and $|a|^2 + |b|^2 + |c|^2 + |d|^2 = 1$.
 \end{eg}
-
 
 
 \begin{defn}
