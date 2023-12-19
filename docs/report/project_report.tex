@@ -586,19 +586,6 @@ A general topological result is stated below.
     The vector space $\mathcal{G} =  \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$  along with the inner product defined as previously is known as the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
 \end{defn}
 
-\begin{prop}
-    Consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$.
-    The linear functional $\ket{\psi} \otimes \ket{\phi}$ defined as $[\ket\psi \otimes \ket\phi](\ket\xi,\ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}$  satisfies the following properties:
-    \begin{enumerate}
-        \item $(a \ket\psi) \otimes \ket\phi = \ket\psi \otimes (a \ket\phi) = a (\ket\psi \otimes \ket\phi)$
-        \item $a (\ket\psi \otimes \ket\phi) + b (\ket\psi \otimes \ket\phi) = (a + b) (\ket\psi \otimes \ket\phi)$
-        \item $(\ket\psi_1 + \ket\psi_2) \otimes \ket\phi = \ket\psi_1 \otimes \ket\phi + \ket\psi_2 \otimes \ket\phi$
-        \item $\ket\psi \otimes (\ket\phi_1 + \ket\phi_2) = \ket\psi \otimes \ket\phi_1 + \ket\psi \otimes \ket\phi_2$
-    \end{enumerate}
-\end{prop}
-\begin{proof}
-    [TODO]
-\end{proof}
 
 
 \begin{samepage}
@@ -610,6 +597,21 @@ When we have two qubits being treated as a combined system, the state space of t
 \end{lemma}
     \end{mdframed}
 \end{samepage}
+
+\begin{prop}
+    Consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$.
+    The linear functional $\ket{\psi} \otimes \ket{\phi}$ defined as $[\ket\psi \otimes \ket\phi](\ket\xi,\ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}$  satisfies the following properties:
+    \begin{enumerate}
+        \item $(a \ket\psi) \otimes \ket\phi = \ket\psi \otimes (a \ket\phi) = a (\ket\psi \otimes \ket\phi)$
+        \item $a (\ket\psi \otimes \ket\phi) + b (\ket\psi \otimes \ket\phi) = (a + b) (\ket\psi \otimes \ket\phi)$
+        \item $(\ket\psi_1 + \ket\psi_2) \otimes \ket\phi = \ket\psi_1 \otimes \ket\phi + \ket\psi_2 \otimes \ket\phi$
+        \item $\ket\psi \otimes (\ket\phi_1 + \ket\phi_2) = \ket\psi \otimes \ket\phi_1 + \ket\psi \otimes \ket\phi_2$
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    [TODO]
+\end{proof}
 
 \begin{eg}
 For $n=2$, the state space for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ has computational basis $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$.
