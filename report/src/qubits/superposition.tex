@@ -1,4 +1,3 @@
-\pagebreak 
 \section{Superposition}
 \begin{mdframed}
 \begin{lemma}[Principle of Superposition]
@@ -15,14 +14,51 @@ A given state of the system is completely described by a \textit{unit vector} $\
 
 These orthogonal states act as the basis elements of the Hilbert space $\mathcal{H}$ modelling the qubit. When working with Hilbert spaces associated with quantum systems, we normally use \textit{orthonormal bases} to describe state vectors.
 
+
+\begin{prop}
+    Define $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
+        Then the set $\{ \; \ket{0}, \ket{1} \; \}$ is an orthonormal basis
+\end{prop}
+\begin{proof} 
+    \emph{To verify linear independence:} \\
+    Consider we set $a \ket{0} + b \ket{1} = 0_\mathcal{H}$ for some $a, b \in \mathbb{C}$ where $0_\mathcal{H} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$ is the zero vector of $\mathcal{H}$.
+
+        Then $a \begin{bmatrix} 1 \\ 0 \end{bmatrix} + b \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 0 \implies \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies a = 0 \text{ and } b = 0$ 
+
+
+    \emph{To verify that $\{ \; \ket{0}, \ket{1} \; \}$ is a spanning set:} \\
+    The set is a linearly independent set of $2$ vectors in a Hilbert space of dimension $2 \implies$  it is a spanning set.
+
+    \emph{To verify orthonormality:} \\
+    $\braket{0|0} = \bra{0}\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1$ and $\braket{1|1} = \bra{1}\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 1$
+        Also, 
+    $\braket{1|0} = \bra{1}\ket{0} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 0$ and $\braket{0|1} = \overline{\braket{1|0}} = 0$.
+\end{proof}
+
 \begin{defn}
 The \textbf{computational basis} for the two dimensional complex vector space $\mathcal{H}$ is $\{ \ket{0}, \ket{1} \}$ where $\ket{0} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\ket{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$
-
 With respect to the computational basis $\{ \ket{0}, \ket{1} \}$, the state of the qubit can be described as \\ $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ 0 \end{bmatrix} + \begin{bmatrix} 0 \\ b \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix} $ where $a, b \in \mathbb{C}$ and $|a|^2 + |b|^2 = 1$.
-
 \end{defn}
 
-Another commonly used orthonormal basis for the Hilbert space $\mathcal{H}$ modelling a qubit is the Hadamard Basis.
+\begin{prop}
+    Define $\ket{+} = \frac{1}{\sqrt{2}} ( \ket{0} + \ket{1} ) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}$ and $\ket{-} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}$. Then the set $\{ \; \ket{+}, \ket{-} \; \}$ is an orthonormal basis. 
+\end{prop}
+\begin{proof}
+    \emph{To verify linear independence:} \\
+    Consider we set $a \ket{+} + b \ket{-} = 0_\mathcal{H}$ for some $a, b \in \mathbb{C}$ where $0_\mathcal{H} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$ is the zero vector of $\mathcal{H}$.
+
+        Then $a \ket{+} + b \ket{-} = \frac{1}{\sqrt{2}} \begin{bmatrix} a + b \\ a - b \end{bmatrix} = 0_\mathcal{H} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \implies a + b = 0 \text { and } a - b = 0 \implies a  = 0 \text{ and } b = 0$
+
+    \emph{To verify $\{ \; \ket{+}, \ket{-} \; \} $ spanning set:} \\
+    The set is a linearly independent set of $2$ vectors in a Hilbert space of dimension $2 \implies$  it is a spanning set.
+
+    \emph{To verify orthonormality:} \\
+    $\braket{+|+} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}^\dagger \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix} =  \frac{1}{2} \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \frac{1}{2} \cdot 2 = 1$ 
+    and $\braket{-|-} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix}^\dagger \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix} =  \frac{1}{2} \begin{bmatrix} 1 & -1 \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix} = \frac{1}{2} \cdot 2 = 1$ 
+
+    Also, $\braket{+|-} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ 1 \end{bmatrix}^\dagger \frac{1}{\sqrt{2}} \begin{bmatrix} 1 \\ -1 \end{bmatrix} =  \frac{1}{2} \begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ -1 \end{bmatrix} = 0$  and $\braket{-|+} = \overline{\braket{+|-}} = 0$
+
+\end{proof}
 
 \begin{defn}
 The \textbf{Hadamard Basis} for the two dimensional complex vector space $\mathcal{H}$ is  $\{ \ket{+}, \ket{-} \}$ where \\

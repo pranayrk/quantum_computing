@@ -14,16 +14,22 @@ Many different quantum particle effects have been used in labs - photon polariza
     \begin{enumerate}
         \item conjugate symmetric: $\braket{\psi,\phi} = \overline{\braket{\phi,\psi}}$
         \item positive definite: $\braket{\psi, \psi} \geq 0$ and $\braket{\psi, \psi} = 0 \iff \psi = 0$
-        \item anti-linear in first argument: $\braket{a \phi_1 + b \phi_2, \psi} = \overline{a} \braket{\phi_1, \psi} + \overline{b} \braket{\phi_2, \psi}$
+        \item conjugate-linear in first argument: $\braket{a \phi_1 + b \phi_2, \psi} = \overline{a} \braket{\phi_1, \psi} + \overline{b} \braket{\phi_2, \psi}$
         \item linear in second argument: $\braket{\psi, a \phi_1 + b \phi_2} = a \braket{\psi,\phi_1} + b \braket{\psi,\phi_2}$
     \end{enumerate}
     and this inner product induces a norm $||.|| : \mathcal{H} \to \mathbb{R}$ defined as $\psi \to \sqrt{\braket{\psi,\psi}}$ in which $\mathcal{H}$ is complete.
 \end{defn}
 
 \begin{note}
-    We have set the inner product to be linear in the second argument and anti-linear in the first argument, which is opposite what is used in many books. This is to make later calculations easier.
+    We have set the inner product to be linear in the second argument and anti-linear in the first argument. This is to make later calculations easier.
 \end{note}
 \end{samepage}
+
+\begin{defn}
+    Given a matrix $A$, the \textbf{conjugate transpose} $A^\dagger$ is obtained by transposing $A$ and applying the complex conjugate of each entry.
+
+    $A^\dagger = (\overline{A})^T = \overline{(A^T)}$ where $\overline{A}$ is the complex conjugate of $A$ and $A^T$ is the transpose of $A$.
+\end{defn}
 
 
 \begin{samepage}
@@ -35,22 +41,13 @@ Many different quantum particle effects have been used in labs - photon polariza
     \item Principle of Measurement
     \item Principle of Transformation
 \end{itemize}
-    The Hilbert space $\mathcal{H}$ is known as the \textbf{state space} and is equipped with the inner product $\braket{}$ which is defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. Any unit vector of $\mathcal{H}$ is called a \textbf{state vector}.
+    The Hilbert space $\mathcal{H}$ is known as the \textbf{state space} and is equipped with the inner product $\braket{}$ which is defined as $\braket{\psi, \phi} = \begin{bmatrix} a \\ b \end{bmatrix}^\dagger \begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d$ for any $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. Any unit vector of $\mathcal{H}$ is called a \textbf{state vector}.
 \end{defn}
 
 The principles in the above definition will be elaborated on in the upcoming sections.
 They are empirical observations of the behaviour of quantum mechanical systems and will be considered as axioms in our abstract qubit system.
 \end{samepage}
 
-\begin{defn}
-    Given a matrix $A$, the \textbf{conjugate transpose} $A^\dagger$ is obtained by transposing $A$ and applying the complex conjugate of each entry.
-
-    $A^\dagger = (\overline{A})^T = \overline{(A^T)}$ where $\overline{A}$ is the complex conjugate of $A$ and $A^T$ is the transpose of $A$.
-\end{defn}
-
-\begin{defn}
-    The inner product on the quantum mechanical Hilbert space of a qubit is defined as $\braket{\psi, \phi} = \overline{a} c + \overline{b} d$ for any  $\psi = \begin{bmatrix} a\\b\end{bmatrix}, \phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$. 
-\end{defn}
 
 \begin{defn}
     Any function $\phi: V \to \mathbb{F}$ from a vector space to its base field is called a \textbf{functional}. 
@@ -64,49 +61,49 @@ A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bo
 A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuous.
 \end{note}
 
-
 \begin{defn}
     The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
 \end{defn}
 
 \begin{result}[Riesz' representation theorem]
-    For a continuous linear functional $\phi$ on a Hilbert space $\mathcal{H}$, there exists a unique $u \in \mathcal{H}$ such that $\phi(u,v) = \braket{u,v}$ for all $v \in \mathcal{H}$. 
-
-    This implies Hilbert spaces are conjugate isomorphic to their own conjugate dual spaces and there exists a bijection between a Hilbert space and its continuous dual space.
+    For any continuous linear functional $\phi$ on a Hilbert space $\mathcal{H}$, there exists a unique $u \in \mathcal{H}$ such that $\phi(v) = \braket{u,v}$ for all $v \in \mathcal{H}$. 
 \end{result}
 
-The above property of Hilbert spaces leads us to the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics and quantum information theory, and which we will follow in the rest of this paper.
+In fact the converse is true as well.
 
-\begin{samepage}
 \begin{thm}
 \label{innerproduct:continuous}
 For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \mathcal{H} \to \mathbb{C}$ such that $f_\psi(\phi) = \braket{\psi,\phi}$ for all $\phi \in \mathcal{H}$. Then $f_\psi$ is continuous and unique. 
 \end{thm}
 \begin{proof}
+    \textit{To verify $f_\psi$ is continuous:} \\
     $f_\psi$ is continuous if and only if it is bounded. 
 
     The Cauchy-Schwarz inequality for inner product tells us that $|\braket{\psi,\phi}| \leq ||\psi||||\phi||$.
 
-    This implies $|f_\psi| = |\braket{\psi,\phi}| \leq M ||\phi||$ where $M = ||\psi||$ is a fixed quantity, i.e. $|f_\psi|$ is bounded.
+    This implies $|f_\psi| = |\braket{\psi,\phi}| \leq ||\psi|| ||\phi|| = M ||\phi||$ where $M = ||\psi||$ is a fixed quantity for a fixed $\psi \in \mathcal{H}$, i.e. $|f_\psi|$ is bounded.
 
     Hence $f_\psi$ is continuous. 
 
+    \textit{To verify $f_\psi$ is unique:} \\
     
     Since $f_\psi$ is a continuous linear functional, it is an element of the continuous dual space of $\mathcal{H}$ and is therefore unique by Riesz's representation theorem.
 \end{proof}
-\end{samepage}
 
-\begin{note}
-    Any vector $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$. This is the notation for a vector in \textbf{Dirac's bra/ket notation}, and is read \textit{ket psi}.
+The above properties of Hilbert spaces justifies the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics, and which we will follow in this paper.
 
-    Consider the unique linear functional $f_\psi$ associated with a vector $\psi \in \mathcal{H}$ as defined in the above result. The linear functional $f_\psi$ will be written as $\bra{\psi}$ and is read \textit{bra psi}.
+\begin{note}[Dirac Bra/Ket Notation]
 
-    The linear functional $\bra{\psi}$ applied on a vector $\ket{\phi}$ is written as $\braket{\psi|\phi}$ and $\braket{\psi|\phi} = f_\psi(\phi) = \braket{\psi,\phi}$ is the inner product of $\psi$ and $\phi$.
+    Any vector $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$ and is read \textit{ket psi}.
+
+    The unique continuous linear functional $f_\psi$ defined as $f_{\psi}(\phi) = \braket{\psi, \phi}$ for all $\phi \in \mathcal{H}$ and a fixed $\psi \in \mathcal{H}$ will be written as $\bra{\psi}$ and is read \textit{bra psi}.
+
+    The inner product $\braket{\psi, \phi}$ will then be written as $\bra{\psi} \ket{\phi}$ or more simply as $\braket{\psi|\phi}$.
 \end{note}
 
-\begin{thm}
-    For the inner product of a qubit's state space $\mathcal{H}$ defined as $\braket{\psi|\phi} = \overline{a} c + \overline{b} d$ for any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the linear functional $\bra{\psi}$ has the matrix representation $\ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. 
-\end{thm}
+\begin{prop}
+    For any $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix} \in \mathcal{H}$, the linear functional $\bra{\psi}$ has the matrix representation $\bra\psi = \ket{\psi}^\dagger = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix}$. 
+\end{prop}
 \begin{proof}
 
     Consider $\ket{\psi} = \begin{bmatrix} a \\ b\end{bmatrix}, \ket{\phi} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$.

@@ -16,9 +16,9 @@ x properties of tensor product of vectors
 
 
 \begin{prop}
-    Consider we have finite dimensional vector spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
+    Consider we have finite dimensional Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for some $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
 
-    Then the functional $f_{\psi,\phi}$ is anti-linear and continuous.
+    Then the functional $f_{\psi,\phi}$ is conjugate linear and continuous.
 \end{prop}
 \begin{proof}
 
@@ -154,7 +154,10 @@ For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, m
 \begin{prop}
     The set of seperable states has measure 0.
 \end{prop}
+
 \begin{proof}[intuition]
+    refer https://physics.stackexchange.com/questions/268831/are-there-more-entangled-states-or-non-entangled-ones 
+
     Consider a state $\ket{\psi} = a \ket{0} + b \ket{1} \in \mathcal{H}_1$, $a,b \in \mathbb{C}$. Since $a$ and $b$ are complex coefficients, we would have $4$ degrees of freedom to assign a particular $\ket{\psi}$. However including the constraints that $a^2 + b^2 = 1$ and that multiplying by global phase leaves the state unchanged, we are effectively left with $2$ degrees of freedom for assigning $\ket{\psi}$. 
     
 Similarly assigning $\ket{\phi} \in \mathcal{H}_2$ has $2$ degrees of freedom.

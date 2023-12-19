@@ -43,7 +43,7 @@
 \newtheorem{prop}{Proposition}[chapter]
 % \newtheorem*{note}{Note}
 \newtheorem*{sol}{Solution}
-\newenvironment{note}{\paragraph{\textbf{Note:}}}{\hfill\ensuremath{\diamondsuit}}
+\newenvironment{note}{\textbf{Note:}}{\hfill\ensuremath{\diamondsuit}}
 
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
@@ -60,5 +60,7 @@
 \setlength{\evensidemargin}{36pt}
 
 \renewcommand{\contentsname}{\centering Contents}
+
+\everymath{\displaystyle}
 
 \begin{document}
