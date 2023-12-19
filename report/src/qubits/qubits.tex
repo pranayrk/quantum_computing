@@ -31,6 +31,16 @@ Many different quantum particle effects have been used in labs - photon polariza
     $A^\dagger = (\overline{A})^T = \overline{(A^T)}$ where $\overline{A}$ is the complex conjugate of $A$ and $A^T$ is the transpose of $A$.
 \end{defn}
 
+\begin{result}
+    The conjugate transpose has the following properties:
+    \begin{itemize}
+        \item $(A + B)^\dagger = A^\dagger + B^\dagger$
+        \item $(c \cdot A)^\dagger = \overline{c} A^\dagger$ for any $c \in \mathbb{C}$
+        \item $(AB)^\dagger = B^\dagger A^\dagger$
+        \item $(A^\dagger)^\dagger = A$
+    \end{itemize}
+\end{result}
+
 
 \begin{samepage}
 \begin{defn}
@@ -57,9 +67,9 @@ They are empirical observations of the behaviour of quantum mechanical systems a
 A linear functional $\phi$ on a normed linear space $V$ is said to be \textbf{bounded} if there exists some real $M$ such that $|| \phi(v)|| \leq M ||v||$ for all $v \in V$. 
 \end{defn}
 
-\begin{note}
+\begin{result}
 A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuous.
-\end{note}
+\end{result}
 
 \begin{defn}
     The set of all continuous linear functionals on a vector space $V$ is known as the \textbf{continuous dual space} of $V$.
@@ -71,10 +81,10 @@ A linear functional $\phi$ being bounded is equivalent to $\phi$ being continuou
 
 In fact the converse is true as well.
 
-\begin{thm}
+\begin{prop}
 \label{innerproduct:continuous}
 For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \mathcal{H} \to \mathbb{C}$ such that $f_\psi(\phi) = \braket{\psi,\phi}$ for all $\phi \in \mathcal{H}$. Then $f_\psi$ is continuous and unique. 
-\end{thm}
+\end{prop}
 \begin{proof}
     \textit{To verify $f_\psi$ is continuous:} \\
     $f_\psi$ is continuous if and only if it is bounded. 
@@ -92,7 +102,8 @@ For a fixed $\psi \in \mathcal{H}$, consider a linear functional $f_\psi : \math
 
 The above properties of Hilbert spaces justifies the \textbf{Dirac Bra/Ket Notation} which is widely used in quantum mechanics, and which we will follow in this paper.
 
-\begin{note}[Dirac Bra/Ket Notation]
+\begin{note}
+    The \textbf{Dirac Bra/Ket Notation} is ubiquitously used in quantum mechanics and quantum information science. It allows vectors, continuous dual functions, and inner products to be represented conveniently. 
 
     Any vector $\psi \in \mathcal{H}$ will be written as $\ket{\psi}$ and is read \textit{ket psi}.
 
