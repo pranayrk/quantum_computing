@@ -431,8 +431,6 @@ When we have two qubits being treated as a combined system, the state space of t
 
 \begin{prop}
     For a $2$ qubit system, the set $\{ \ket{0} \otimes \ket{0}, \ket{0} \otimes \ket{1}, \ket{1} \otimes \ket{0}, \ket{1} \otimes \ket{1} \} = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is an orthonormal basis for the state space $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$.
-
-    Any arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11} = a \ket{0} + b \ket{1} + c \ket{2} + d \ket{3}$ \\ where $a, b, c, d \in \mathbb{C}$ and $|a|^2 + |b|^2 + |c|^2 + |d|^2 = 1$.
 \end{prop}
 \begin{proof}
     \emph{To show  $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is a basis: } \\
@@ -462,6 +460,7 @@ When we have two qubits being treated as a combined system, the state space of t
     \end{itemize}
 
 \end{defn}
+
 \begin{defn}
     For a system of two interacting qubits, the set $\{ \ket{\phi^+}, \ket{\phi^-}, \ket{\psi^+}, \ket{\psi^-} \}$ forms an orthonormal basis known as the \textbf{bell basis} where 
 
@@ -486,9 +485,7 @@ When we have two qubits being treated as a combined system, the state space of t
 \end{defn}
 
 \begin{eg}
-The state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$ of a $2$-qubit system is seperable. 
-
-We can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
+The state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$ of a $2$-qubit system is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
 \end{eg}
 
 
@@ -502,9 +499,12 @@ The state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$ of a $2$-qubit
 
 
 For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
+
+\begin{comment}
 \begin{prop}
     The set of seperable states has measure 0.
 \end{prop}
+
 
 \begin{proof}[intuition]
     refer https://physics.stackexchange.com/questions/268831/are-there-more-entangled-states-or-non-entangled-ones 
@@ -515,6 +515,7 @@ Similarly assigning $\ket{\phi} \in \mathcal{H}_2$ has $2$ degrees of freedom.
 
     Consider the $4$-dimensional tensor space $\mathcal{H}_1 \otimes \mathcal{H}_2$. Since the state of any vector $\ket{\omega}$ in this space can be written as $\ket{\omega} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11}$, where $a, b, c, d \in \mathbb{C}$ we have $8$ degrees of freedom initially for assigning the vector $\ket{\omega}$. Including constraint $a^2 + b^2 + c^2 + d^2 = 1$ and that multiplying by global phase leaves the state unchanged, we have $6$ degrees of freedom in assigning the value of $\ket{\omega}$ which is $2$ degrees of freedom more than $4 = 2 \times 2$ from the individual qubits.
 \end{proof}
+\end{comment}
 
 \section{Measurement}
 The principle of superposition might indicate that we can use the continuum state of single qubit to store an infinite amount of information. However, a principal of quantum mechanics states that we cannot interact with the qubit without fundamentally altering its state. To know the state stored in a qubit, we must perform a measurement which forces the state of the qubit to "collapse" into one of two \textit{preferred states}.
@@ -626,6 +627,14 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 
 \section{Transformation}
 
+\begin{comment}
+    * Unitary transformation
+    * Unitary matrix and properties
+    * Every transformation is unitary
+    * No cloning principle, Rieffel Polak P73
+    * A measurement cannot be a transformation
+\end{comment}
+
 \begin{defn}
     A \textbf{unitary transformation} $U: \mathcal{H}_1 \to \mathcal{H}_2$ between two Hilbert space $\mathcal{H}_1$ and $\mathcal{H}_2$ is a isomorphism that preserves the inner product.
 
@@ -634,6 +643,32 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 
 \end{defn}
 
+\begin{prop}
+    Unitary transformations map orthonormal bases to orthonormal bases.
+\end{prop}
+\begin{proof}
+    Consider an $n$ dimensional Hilbert space $\mathcal{H}$ with orthonormal bases $\{ \ket{e_i} \}_{i=1}^n$ and a unitary transformation $U$.
+    Let $\ket{f_i} = U(\ket{e_i})$ for all $1 \leq i \leq n$.
+
+    \emph{To show $\{ \ket{f_i} \}$ is a basis:}\\
+    Consider there are constants $c_1, c_2, ..., c_n$ such that $c_1 \ket{f_1} + c_2 \ket{f_2} + ... + c_n \ket{f_n} = 0_\mathcal{H}$.
+
+    Then $ c_1 \ket{f_1} + c_2 \ket{f_2} + ... + c_n \ket{f_n} = 0_\mathcal{H} \implies c_1 U(\ket{e_1}) + c_2 U(\ket{e_2} + ... + c_n U(\ket{e_n}) = 0_\mathcal{H} \implies U(c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n}) = 0_\mathcal{H} \implies c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n} = 0_\mathcal{H}$.
+
+    The last implication follows from the fact that $\braket{U \psi | U \phi} = 0$ for all $\ket{\psi} \in \mathcal{H} \implies \braket{\psi|\phi} = 0$ for all $\ket\psi \in \mathcal{H} \implies \ket\phi = 0$ 
+
+    Since $\{ \ket{e_i} \}_{i=1}^n$ is a basis, this implies $c_1 = c_2 = ...=  c_n = 0 \implies \{ \ket{f_i} \}_{i=1}^n$ is linearly independent.
+
+    Since $\{ \ket{f_i} \}_{i=1}^n$ is a linearly independent set of $n$ elements, it is a spanning set for the $n$-dimensional space $\mathcal{H}$.
+
+    \emph{To show $\{ \ket{f_i} \}$ is orthonormal:} \\
+
+
+    Then $\braket{f_\alpha|f_\beta} = \braket{U e_\alpha|U e_\beta} = \braket{e_\alpha|e_\beta} = \delta_{\alpha, \beta}$ since $U$ is unitary.
+
+    This implies $\{ \ket{f_i} \}_{i=1}^n$ is orthonormal.
+\end{proof}
+
 \begin{defn}
     A unitary matrix $U$ is called \textbf{unitary} if its conjugate transpose $U^\dagger$ is its inverse.
 
@@ -641,25 +676,22 @@ Positive-Operator-Valued Measures (POVMs) are a further generalization of the Pr
 \end{defn}
 
 \begin{thm}
-A unitary transformation $U$ is represented by a unitary matrix.
+A transformation is unitary if and only if its matrix representation $U$ is a unitary matrix.
 \end{thm}
 \begin{proof}
+    Note that $\braket{U \psi | U \phi} = \bra{U \psi} \ket{U \phi} = \ket{U \psi}^\dagger \ket{U \phi} = \ket{\psi}^\dagger U^\dagger \ket{U \phi} = \bra{\psi} U^\dagger U \ket{U\phi}$.
+
+    \emph{To show a unitary matrix $U$ is a unitary transformation: }\\
+    Let $U$ be a unitary matrix with $U\dagger U = I$ and $\ket\psi, \ket\phi \in \mathcal{H}$.
+
+    Then $\braket{U \psi | U \phi} = \bra{\psi} U^\dagger U \ket{\phi} = \bra{\psi} \ket{\phi} = \braket{\psi|\phi} \implies $the transformation is unitary.
+
+    \emph{To show a unitary transformation is represented by a unitary matrix: }\\
+    Let $U$ be a unitary transformation with $\braket{U \psi | U \phi} = \braket{\psi|\phi}$ for all $\ket\psi, \ket\phi \in \mathcal{H}$.
+
+    Then  $\bra{\psi} U^\dagger U \ket{\phi} = \bra{\psi} \ket{\phi}$.
+    Multiplying with $\bra{\psi}^{-1}$ on the left of both sides and $\ket{\phi}^{-1}$ on the right of both sides we have the required equality $U^\dagger U = I$.
 \end{proof}
-
-\begin{defn}
-    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
-    \begin{enumerate}
-        \item $U^\dagger U = I$
-        \item $U U^\dagger = I$
-        \item the columns of $U$ are orthonormal vectors
-        \item the rows of $U$ are orthonormal vectors
-    \end{enumerate}
-\end{defn}
-
-`Alternate from Scherer`
-\begin{defn}
-\end{defn}
-
 
 Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantum states which are not measured evolve unitarily.
 
@@ -674,24 +706,6 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \end{mdframed}
 \end{samepage}
 
-\begin{thm}
-    Any change applied to a quantum state can be represented by a unitary matrix $M$.
-\end{thm}
-\begin{proof}
-    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
-
-    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
-
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
-    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
-\end{proof}
-
-
-\begin{lemma}
-    The operator that takes $\ket{a_1} \to \ket{b_1}$ and $\ket{a_2} \to \ket{b_2}$ is obtained by the operation:
-    $\ket{b_1}\ket{b_1} + \ket{b_2}\bra{a_2}$.
-\end{lemma}
-
 \begin{lemma}
     Quantum gates have the same number of inputs and outputs.
 \end{lemma}
@@ -700,24 +714,25 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
     Quantum Gates are reversible.
 \end{lemma}
 
+\begin{prop}[No Cloning Principle]
+\end{prop}
+
 \chapter{Gates and Circuits}
 \line(1,0){360} \\
 
 \begin{comment}
      x Definitition of quantum gates
-     x Gates are unitary
      x reversible defn
-     x Gates are reversible
      x quantum circuit definition
-     * Quantum Gates applied to one qubit in an $n$-qubit register
-     * deferred measurement principle
-     * ket bra notation and how it describes a transformation
+     x deferred measurement principle
+     x Representation of a quantum gate in dirac notation
+     x gate which takes \ket\psi to \ket\phi
+     x ket bra notation and how it describes a transformation
      x any reversible classical gate has a valid quantum analog
-     x Quantum gates have an equal number of inputs and outputs?
      * Single Qubit Gates
      * Eigen values and Eigenvectors of Hadamard Gate
      * Multiple Qubit Gates
-     * Proof that each gate described is unitary
+     * Quantum Gates applied to one qubit in an $n$-qubit register
 \end{comment}
 
 
@@ -725,27 +740,87 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
     A \textbf{quantum gate} is a function $U: \mathcal{H} \to \mathcal{H}$ such that $f(\ket\psi) = \ket\phi$ where $\ket\psi, \ket\phi \in \mathcal{H}$ are valid quantum states in the state space $\mathcal{H}$ of $n$ interacting qubits.
 \end{defn}
 
-\begin{prop}
-    Any quantum gate is unitary and reversible.
-\end{prop}
-\begin{proof}
-    The principle of transformation (Lemma \ref{transformation}) tells us that the time-evolution of the quantum state is linear and unitary. 
-
-    This implies any quantum gate $U$ is unitary, i.e. $U U^{\dagger} = I$. 
-
-    $U U^\dagger = I \implies U^{-1} = U^\dagger$.
-    Also, $ U U^\dagger = I \implies U^\dagger$ is unitary.  
-    This means reverse the operation of any quantum gate $U$ on the system by applying the quantum gate $U^\dagger$.
-\end{proof}
-
 \begin{defn}
     A \textbf{quantum circuit} is a sequence of quantum gates and measurement operators applied to an $n$-qubit register initialized to some known quantum state.
 \end{defn}
+
+The following proposition is stated without proof. 
 
 \begin{prop}[Deferred Measurement Principle]
     Every quantum circuit is equivalent to a circuit in which all measurements are made after all other computations.
 \end{prop}
 
+This principle allows us to postpone any required measurements till after all quantum gates are applied on the circuit.
+
+\begin{prop}
+    Consider a quantum state space of a single qubit $\mathcal{H}$..
+    The transformation $T$ which takes a quantum state $\ket\psi$ to another state $\ket\phi$ is described by the matrix $T = \ket{\phi}\bra{\psi}$
+\end{prop}
+\begin{proof}
+    \emph{To show $T$ takes $\ket{\psi}$ to $\ket{\phi}$: }\\
+    Let $\ket\psi = \begin{bmatrix} a \\ b \end{bmatrix}$ and $\ket\phi = \begin{bmatrix} c \\ d \end{bmatrix}$ with respect to the computational basis where $|a|^2 + |b|^2 = 1$ and $|c|^2 + |d|^2 = 1$.
+
+        Then $\ket\phi \bra\psi = \begin{bmatrix} c \\ d \end{bmatrix}\begin{bmatrix} a \\ b \end{bmatrix}^\dagger = \begin{bmatrix} c \\ d \end{bmatrix} \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} = \begin{bmatrix} c \overline{a} & c \overline{b} \\ d \overline{a} & d \overline{b} \end{bmatrix}$.
+
+            Applying this matrix to $\ket\psi$, we have $T (\ket\psi) = (\ket\phi \bra\psi) \ket\psi =   \begin{bmatrix} c \overline{a} & c \overline{b} \\ d \overline{a} & d \overline{b} \end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} c \overline{a} a + c \overline{b} b \\ d \overline{a} a + d \overline{b} b\end{bmatrix} = \begin{bmatrix} c (|a|^2 + |b|^2) \\ d (|a|^2 + |b|^2 \end{bmatrix} = \begin{bmatrix} c \\ d \end{bmatrix} = \ket{\phi}$
+
+\end{proof}
+
+\begin{note}
+    The transformation $T$ need not be unitary, i.e. it may not be a valid quantum gate.
+\end{note}
+
+\begin{prop}
+    \label{compbasischange}
+    Let $\{ \ket{a}, \ket{b} \}$ be an orthonormal basis for a qubit state space $\mathcal{H}$.
+    Then the transformation $U$ that takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$ is given by $U = \ket{a}\bra{0} + \ket{b}\bra{1}$.
+
+    Further the transformation is unitary.
+\end{prop}
+\begin{proof}
+    \emph{To show $U$ takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$:} \\
+    $U (\ket{0}) = (\ket{a}\bra{0} + \ket{b}\bra{1}) \ket{0} = (\ket{a} \braket{0|0} + \ket{b} \braket{1|0}) = \ket{a}$ since $\braket{0|0} = 1$ and $\braket{1|0} = 0$.
+    Similarly, we can see $U(\ket{1}) = \ket{b}$.
+
+    \emph{To show $U$ is unitary:}\\
+    \begin{align*}
+        U^\dagger U & =  (\ket{a}\bra{0} + \ket{b}\bra{1})^\dagger (\ket{a}\bra{0} + \ket{b}\bra{1}) 
+        \\ & = (\ket{0}\bra{a} + \ket{1}\bra{b})(\ket{a}\bra{0} + \ket{b}\bra{1}) 
+        \\ & = \ket{0}\bra{a}\ket{a}\bra{0} + \ket{0}\bra{a}\ket{b}\bra{1} + \ket{1}\bra{b}\ket{a}\bra{0} + \ket{1}\bra{1}\ket{b}\bra{1} = \ket{0}\bra{0} + \ket{1}\bra{1} 
+        \\ & = I \text{ since $\bra{a}\ket{a} = \bra{b} \ket{b} = 1$ and $\bra{a}\ket{b} = \bra{b}\ket{a} = 0$}
+    \end{align*}
+\end{proof}
+
+\begin{eg}
+    Consider the ordered basis $\{ \ket{1}, \ket{0} \}$ for a qubit's state space $\mathcal{H}$.
+
+    Then the transformation that takes $\ket{0}$ to $\ket{1}$ and $\ket{1}$ to $\ket{0}$ is given by 
+
+    $U = \ket{1}\bra{0} + \ket{0} \bra{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix}^\dagger + \begin{bmatrix} 1 \\ 0  \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix}^\dagger = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+\end{eg}
+
+
+\begin{prop}
+    Let $\{ \ket{a}, \ket{b} \}$ and $\{ \ket{c}, \ket{d} \}$ be two orthonormal basis sets for a qubits state space $\mathcal{H}$. Then the transformation $U$ that takes $\ket{a}$ to $\ket{c}$ and $\ket{b}$ to $\ket{d}$ is given by $\ket{c}\bra{a} + \ket{d}\bra{b}$.
+
+    Further, the transformation $U$ is unitary.
+\end{prop}
+\begin{proof}
+    \emph{To show $U$ takes $\ket{a}$ to $\ket{c}$: }\\
+    $U \ket{a} = (\ket{c}\bra{a} + \ket{d}\bra{b}) \ket{a} = \ket{c} \bra{a} \ket{a} + \ket{d} \bra{b} \ket{a} = \ket{c}$ since $\bra{a} \ket{a} = \braket{a|a} = 1$ and $\bra{b} \ket{a} = \braket{b|a} = 0$ since $\ket{a}$ and $\ket{b}$ are orthogonal.
+
+    \emph{To show $U$ takes $\ket{b}$ to $\ket{d}$: } \\
+    $U \ket{b} = (\ket{c}\bra{a} + \ket{d}\bra{b}) \ket{b} = \ket{c} \bra{a} \ket{b} + \ket{d} \bra{b} \ket{b} = \ket{d}$ since $\bra{b} \ket{b} = \braket{b|b} = 1$ and $\bra{a} \ket{b} = \braket{a|b} = 0$ since $\ket{a}$ and $\ket{b}$ are orthogonal.
+
+    \emph{To show $U$ is a unitary matrix:} \\
+    Consider the transformation $U_0$ that takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$.
+    Then $U_0$ is a unitary transformation by Proposition \ref{compbasischange}, and therefore so is the inverse $U_0^{-1}$
+    Let $U_1 = U_0^{-1}$. Then $U_1$ is a unitary transformation that takes $\ket{a}$ to $\ket{0}$ and $\ket{b}$ to $\ket{1}$.
+
+    Consider the transformation $U_2$ that takes $\ket{0}$ to $\ket{c}$ and $\ket{1}$ to $\ket{d}$. This is similarly a unitary transformation by Proposition \ref{compbasischange}.
+
+    Therefore $U = U_1 U_2$ is a transformation that takes $\ket{a}$ to $\ket{c}$ and $\ket{b}$ to $\ket{d}$ and it is unitary since composition of unitary tranformations is unitary.
+\end{proof}
 
 \section{Gates on a single Qubit}
 
@@ -760,7 +835,8 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
     \end{enumerate}
 \end{defn}
 
-`TODO: Effect of the Pauli Gates on the Bloch Sphere`
+The Pauli $X$ gate is also known as the \textbf{Quantum NOT gate} because its behaviour of sending $\ket{0}$ to $\ket{1}$ and $\ket{1}$ to $\ket{0}$ resembles the effect of a classical NOT gate on bits $0$ and $1$.
+
 
 \subsection{Hadamard Gate}
 \begin{defn}[Hadamard Gate]
@@ -782,13 +858,13 @@ The Hadamard gate allows us to obtain a superposition state.
 
 \subsection{Phase Gate}
 \begin{defn}
-    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere.
     It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
 
     The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
+    $R_y = \begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
     The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
+    $R_x \begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
 \end{defn}
 
 \section{Gates on Multiple Qubits}
@@ -796,16 +872,16 @@ The Hadamard gate allows us to obtain a superposition state.
 \subsection{CNOT Gate}
 \begin{defn}
     The \textbf{CNOT gate} is a gate that acts on 2 qubits which flips the second bit if the first bit is in the $\ket{1}$ state.\\
-    It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X$
+    It is defined by the matrix $\text{CNOT} = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{bmatrix} = \ket{0}\bra{0} \otimes I + \ket{1}\bra{1} \otimes X = \ket{00}\bra{00} + \ket{01}\bra{01} + \ket{11} \bra{10} + \ket{10} \bra{11}$ 
 \end{defn}
 The CNOT gate allows us to obtain an entangled state.
+\begin{eg}
+    The state $\frac{1}{\sqrt{2}}(\ket{00} + \ket{10})$ is seperable.
 
-\subsection{Toffoli Gate}
-\begin{defn}
-    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
-\end{defn}
+    $\text{CNOT} \frac{1}{\sqrt{2}}(\ket{00} + \ket{10}) = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) $ which is an entangled state.
+\end{eg}
 
-Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
+The CNOT gate is its own inverse. This means it can also take an entangled state to a seperable one.
 
 \subsection{Hadamard Transform}
 \begin{defn}
@@ -817,20 +893,32 @@ Depending on the input the Toffoli gate can function as an AND, NOT and NAND gat
 \end{eg}
 
 \begin{result}
-    For any arbitrary state $\ket{j}$ in an $n$ qubit register $\otimes_{i=1}^n \mathcal{H}_i$, \[ H^{\otimes n} \ket{j} = \frac{1}{2^{n/2}} \sum_{k=0}^{2^n-1} (-1)^{j.k} \ket{k}\] where $j.k$ is the dot product of $j$ and $k$.
+    For any arbitrary state $\ket{j}$ in an $n$ qubit registe , \[ H^{\otimes n} \ket{j} = \frac{1}{2^{n/2}} \sum_{k=0}^{2^n-1} (-1)^{j.k} \ket{k}\] where $j.k$ is the dot product of the bitstrings $j$ and $k$.
 \end{result}
-`Refer Shor Lec 16`
 
-\chapter{Algorithms}
+\begin{eg}
+    $H^{\otimes 5} \ket{01011} = \frac{1}{\sqrt{32}} (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} - \ket{1}) = \frac{1}{\sqrt{32}} ( \ket{00000} - \ket{00001} - \ket{00010} + \ket{00100} - ... + \ket{11111} )$
+\end{eg}
+
+\subsection{Toffoli Gate}
+\begin{defn}
+    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
+\end{defn}
+
+Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
+
+
+
+\chapter{Applications of Qubits}
 
 \line(1,0){360} \\
 
+\begin{comment}
 To include:
-\begin{itemize}
-\item Quantum Algorithms can be abstracted as circuits, and these circuits can be represented as a product of matrices
-\item For any classical circuit, there exists a quantum circuit that performs the computation with similar efficiency
-\item 
-\end{itemize}
+* Quantum Teleportaion
+* Quantum Algorithms can be abstracted as circuits, and these circuits can be represented as a product of matrices
+* For any classical circuit, there exists a quantum circuit that performs the computation with similar efficiency
+\end{comment}
 
 A circuit model for quantum computing describes all computations in terms of a circuit composed of simple gates followed by a sequence of measurements.
 
@@ -940,6 +1028,37 @@ Check Shor Lec 24 for textbook analysis of the algorithm
 
 
 \appendix
+
+\chapter{Geometric Representations of a Qubit}
+
+It is sometimes helpful to have a representation of the state-space of a qubit that corresponds with points in space.
+
+\section{Representation as the Extended Complex Plane}
+We can construct a mapping between the state space of a qubit $\mathcal{H}$ and the set of all complex numbers.
+For any state $\ket\psi \in \mathcal{H}$ with $\ket\psi = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}$.
+    Consider the map $f: \mathcal{H} \to \mathbb{C}$ defined as $f(\ket\psi) = f(a \ket{0} + b \ket{1}) = \frac{b}{a}$.
+    We set $\alpha = \frac{b}{a}$. 
+
+    Its inverse is given by $f^{-1}(\alpha) = \frac{1}{\sqrt{1 + |\alpha|^2}} \ket {0} + \frac{\alpha}{\sqrt {1+|\alpha|^2}} \ket{1}$
+
+To make $f$ well-defined for $\ket{1}$ with $a=0, b=1$, we extend the complex plane by adding the point $\infty$ and define $f^{-1}(\infty) = \ket{1}$
+
+We now have $\ket{0} \mapsto 0$, $\ket{1} \mapsto \infty$, $\ket{+} \mapsto +1$, $\ket{-} \mapsto -1$ under $f$.
+
+
+\section{Bloch Sphere}
+Once we have $\alpha$ in the previous representation, we can map each state onto the unit sphere.
+Say $\alpha = s + it$ for $s,t \in \mathbb{R}$.
+We define the map $g$ as the standard stereographic projection onto the real unit sphere in $3$ dimensions as $g(\alpha) = g(s + it) = \left ( \frac{2s}{|\alpha|^2 + 1}, \frac{2t}{|\alpha|^2 + 1}, \frac{1-|\alpha|^2}{|\alpha|^2 + 1} \right )$
+
+In this representation $\ket{0} \mapsto (0,0,1)$, $\ket{1} \mapsto (0,0,-1)$, $\ket{+} \mapsto (1,0,0)$, $\ket{-} \mapsto (-1,0,0)$.
+
+The unit sphere is the image of all possible states of a qubit and is known as the \textbf{Bloch Sphere}.
+
+On the Bloch sphere we have $\ket{0} \mapsto 0$, $\ket{1} \mapsto \infty$. $\ket{+} \mapsto  +1$, $\ket{-} \mapsto -1$, $\ket{i} \mapsto i$, $\ket{-i} \mapsto -i$.
+
+
+
 
 \chapter{Construction of the Tensor Product Space}
 \label{tensor}

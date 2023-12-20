@@ -11,7 +11,8 @@
     \end{enumerate}
 \end{defn}
 
-`TODO: Effect of the Pauli Gates on the Bloch Sphere`
+The Pauli $X$ gate is also known as the \textbf{Quantum NOT gate} because its behaviour of sending $\ket{0}$ to $\ket{1}$ and $\ket{1}$ to $\ket{0}$ resembles the effect of a classical NOT gate on bits $0$ and $1$.
+
 
 \subsection{Hadamard Gate}
 \begin{defn}[Hadamard Gate]
@@ -33,11 +34,11 @@ The Hadamard gate allows us to obtain a superposition state.
 
 \subsection{Phase Gate}
 \begin{defn}
-    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere. `TODO: Bloch Sphere`\\
+    The \textbf{$z$-Phase Gate} $R_z$ defines a rotation about the $z$-axis by an angle $\theta$ on the Bloch sphere.
     It is given by $R_z= \begin{bmatrix} 1 & 0 \\ 0 & e^{i\phi} \end{bmatrix} = \ket{0}\bra{0} + e^{i\phi} \ket{1}\bra{1}$ \\
 
     The \textbf{$y$-Phase Gate} defines a rotation about the $y$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
+    $R_y = \begin{bmatrix} \cos \frac{\theta}{2} & - \sin \frac{\theta}{2} \\ \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$ \\
     The \textbf{$x$-Phase Gate} defines a rotation about the $x$ axis and is defined by \\
-    $\begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
+    $R_x \begin{bmatrix} \cos \frac{\theta}{2} & - i \sin \frac{\theta}{2} \\ - i \sin \frac{\theta}{2} & \cos \frac{\theta}{2} \end{bmatrix}$
 \end{defn}

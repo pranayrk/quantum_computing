@@ -3,19 +3,17 @@
 
 \begin{comment}
      x Definitition of quantum gates
-     x Gates are unitary
      x reversible defn
-     x Gates are reversible
      x quantum circuit definition
-     * Quantum Gates applied to one qubit in an $n$-qubit register
-     * deferred measurement principle
-     * ket bra notation and how it describes a transformation
+     x deferred measurement principle
+     x Representation of a quantum gate in dirac notation
+     x gate which takes \ket\psi to \ket\phi
+     x ket bra notation and how it describes a transformation
      x any reversible classical gate has a valid quantum analog
-     x Quantum gates have an equal number of inputs and outputs?
      * Single Qubit Gates
      * Eigen values and Eigenvectors of Hadamard Gate
      * Multiple Qubit Gates
-     * Proof that each gate described is unitary
+     * Quantum Gates applied to one qubit in an $n$-qubit register
 \end{comment}
 
 
@@ -23,24 +21,84 @@
     A \textbf{quantum gate} is a function $U: \mathcal{H} \to \mathcal{H}$ such that $f(\ket\psi) = \ket\phi$ where $\ket\psi, \ket\phi \in \mathcal{H}$ are valid quantum states in the state space $\mathcal{H}$ of $n$ interacting qubits.
 \end{defn}
 
-\begin{prop}
-    Any quantum gate is unitary and reversible.
-\end{prop}
-\begin{proof}
-    The principle of transformation (Lemma \ref{transformation}) tells us that the time-evolution of the quantum state is linear and unitary. 
-
-    This implies any quantum gate $U$ is unitary, i.e. $U U^{\dagger} = I$. 
-
-    $U U^\dagger = I \implies U^{-1} = U^\dagger$.
-    Also, $ U U^\dagger = I \implies U^\dagger$ is unitary.  
-    This means reverse the operation of any quantum gate $U$ on the system by applying the quantum gate $U^\dagger$.
-\end{proof}
-
 \begin{defn}
     A \textbf{quantum circuit} is a sequence of quantum gates and measurement operators applied to an $n$-qubit register initialized to some known quantum state.
 \end{defn}
+
+The following proposition is stated without proof. 
 
 \begin{prop}[Deferred Measurement Principle]
     Every quantum circuit is equivalent to a circuit in which all measurements are made after all other computations.
 \end{prop}
 
+This principle allows us to postpone any required measurements till after all quantum gates are applied on the circuit.
+
+\begin{prop}
+    Consider a quantum state space of a single qubit $\mathcal{H}$..
+    The transformation $T$ which takes a quantum state $\ket\psi$ to another state $\ket\phi$ is described by the matrix $T = \ket{\phi}\bra{\psi}$
+\end{prop}
+\begin{proof}
+    \emph{To show $T$ takes $\ket{\psi}$ to $\ket{\phi}$: }\\
+    Let $\ket\psi = \begin{bmatrix} a \\ b \end{bmatrix}$ and $\ket\phi = \begin{bmatrix} c \\ d \end{bmatrix}$ with respect to the computational basis where $|a|^2 + |b|^2 = 1$ and $|c|^2 + |d|^2 = 1$.
+
+        Then $\ket\phi \bra\psi = \begin{bmatrix} c \\ d \end{bmatrix}\begin{bmatrix} a \\ b \end{bmatrix}^\dagger = \begin{bmatrix} c \\ d \end{bmatrix} \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} = \begin{bmatrix} c \overline{a} & c \overline{b} \\ d \overline{a} & d \overline{b} \end{bmatrix}$.
+
+            Applying this matrix to $\ket\psi$, we have $T (\ket\psi) = (\ket\phi \bra\psi) \ket\psi =   \begin{bmatrix} c \overline{a} & c \overline{b} \\ d \overline{a} & d \overline{b} \end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} c \overline{a} a + c \overline{b} b \\ d \overline{a} a + d \overline{b} b\end{bmatrix} = \begin{bmatrix} c (|a|^2 + |b|^2) \\ d (|a|^2 + |b|^2 \end{bmatrix} = \begin{bmatrix} c \\ d \end{bmatrix} = \ket{\phi}$
+
+\end{proof}
+
+\begin{note}
+    The transformation $T$ need not be unitary, i.e. it may not be a valid quantum gate.
+\end{note}
+
+\begin{prop}
+    \label{compbasischange}
+    Let $\{ \ket{a}, \ket{b} \}$ be an orthonormal basis for a qubit state space $\mathcal{H}$.
+    Then the transformation $U$ that takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$ is given by $U = \ket{a}\bra{0} + \ket{b}\bra{1}$.
+
+    Further the transformation is unitary.
+\end{prop}
+\begin{proof}
+    \emph{To show $U$ takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$:} \\
+    $U (\ket{0}) = (\ket{a}\bra{0} + \ket{b}\bra{1}) \ket{0} = (\ket{a} \braket{0|0} + \ket{b} \braket{1|0}) = \ket{a}$ since $\braket{0|0} = 1$ and $\braket{1|0} = 0$.
+    Similarly, we can see $U(\ket{1}) = \ket{b}$.
+
+    \emph{To show $U$ is unitary:}\\
+    \begin{align*}
+        U^\dagger U & =  (\ket{a}\bra{0} + \ket{b}\bra{1})^\dagger (\ket{a}\bra{0} + \ket{b}\bra{1}) 
+        \\ & = (\ket{0}\bra{a} + \ket{1}\bra{b})(\ket{a}\bra{0} + \ket{b}\bra{1}) 
+        \\ & = \ket{0}\bra{a}\ket{a}\bra{0} + \ket{0}\bra{a}\ket{b}\bra{1} + \ket{1}\bra{b}\ket{a}\bra{0} + \ket{1}\bra{1}\ket{b}\bra{1} = \ket{0}\bra{0} + \ket{1}\bra{1} 
+        \\ & = I \text{ since $\bra{a}\ket{a} = \bra{b} \ket{b} = 1$ and $\bra{a}\ket{b} = \bra{b}\ket{a} = 0$}
+    \end{align*}
+\end{proof}
+
+\begin{eg}
+    Consider the ordered basis $\{ \ket{1}, \ket{0} \}$ for a qubit's state space $\mathcal{H}$.
+
+    Then the transformation that takes $\ket{0}$ to $\ket{1}$ and $\ket{1}$ to $\ket{0}$ is given by 
+
+    $U = \ket{1}\bra{0} + \ket{0} \bra{1} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix}^\dagger + \begin{bmatrix} 1 \\ 0  \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix}^\dagger = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \begin{bmatrix} 1 & 0 \end{bmatrix} + \begin{bmatrix} 1 \\ 0 \end{bmatrix} \begin{bmatrix} 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 0 \\ 1 & 0 \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+\end{eg}
+
+
+\begin{prop}
+    Let $\{ \ket{a}, \ket{b} \}$ and $\{ \ket{c}, \ket{d} \}$ be two orthonormal basis sets for a qubits state space $\mathcal{H}$. Then the transformation $U$ that takes $\ket{a}$ to $\ket{c}$ and $\ket{b}$ to $\ket{d}$ is given by $\ket{c}\bra{a} + \ket{d}\bra{b}$.
+
+    Further, the transformation $U$ is unitary.
+\end{prop}
+\begin{proof}
+    \emph{To show $U$ takes $\ket{a}$ to $\ket{c}$: }\\
+    $U \ket{a} = (\ket{c}\bra{a} + \ket{d}\bra{b}) \ket{a} = \ket{c} \bra{a} \ket{a} + \ket{d} \bra{b} \ket{a} = \ket{c}$ since $\bra{a} \ket{a} = \braket{a|a} = 1$ and $\bra{b} \ket{a} = \braket{b|a} = 0$ since $\ket{a}$ and $\ket{b}$ are orthogonal.
+
+    \emph{To show $U$ takes $\ket{b}$ to $\ket{d}$: } \\
+    $U \ket{b} = (\ket{c}\bra{a} + \ket{d}\bra{b}) \ket{b} = \ket{c} \bra{a} \ket{b} + \ket{d} \bra{b} \ket{b} = \ket{d}$ since $\bra{b} \ket{b} = \braket{b|b} = 1$ and $\bra{a} \ket{b} = \braket{a|b} = 0$ since $\ket{a}$ and $\ket{b}$ are orthogonal.
+
+    \emph{To show $U$ is a unitary matrix:} \\
+    Consider the transformation $U_0$ that takes $\ket{0}$ to $\ket{a}$ and $\ket{1}$ to $\ket{b}$.
+    Then $U_0$ is a unitary transformation by Proposition \ref{compbasischange}, and therefore so is the inverse $U_0^{-1}$
+    Let $U_1 = U_0^{-1}$. Then $U_1$ is a unitary transformation that takes $\ket{a}$ to $\ket{0}$ and $\ket{b}$ to $\ket{1}$.
+
+    Consider the transformation $U_2$ that takes $\ket{0}$ to $\ket{c}$ and $\ket{1}$ to $\ket{d}$. This is similarly a unitary transformation by Proposition \ref{compbasischange}.
+
+    Therefore $U = U_1 U_2$ is a transformation that takes $\ket{a}$ to $\ket{c}$ and $\ket{b}$ to $\ket{d}$ and it is unitary since composition of unitary tranformations is unitary.
+\end{proof}

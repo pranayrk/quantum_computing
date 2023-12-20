@@ -1,5 +1,13 @@
 \section{Transformation}
 
+\begin{comment}
+    * Unitary transformation
+    * Unitary matrix and properties
+    * Every transformation is unitary
+    * No cloning principle, Rieffel Polak P73
+    * A measurement cannot be a transformation
+\end{comment}
+
 \begin{defn}
     A \textbf{unitary transformation} $U: \mathcal{H}_1 \to \mathcal{H}_2$ between two Hilbert space $\mathcal{H}_1$ and $\mathcal{H}_2$ is a isomorphism that preserves the inner product.
 
@@ -8,6 +16,32 @@
 
 \end{defn}
 
+\begin{prop}
+    Unitary transformations map orthonormal bases to orthonormal bases.
+\end{prop}
+\begin{proof}
+    Consider an $n$ dimensional Hilbert space $\mathcal{H}$ with orthonormal bases $\{ \ket{e_i} \}_{i=1}^n$ and a unitary transformation $U$.
+    Let $\ket{f_i} = U(\ket{e_i})$ for all $1 \leq i \leq n$.
+
+    \emph{To show $\{ \ket{f_i} \}$ is a basis:}\\
+    Consider there are constants $c_1, c_2, ..., c_n$ such that $c_1 \ket{f_1} + c_2 \ket{f_2} + ... + c_n \ket{f_n} = 0_\mathcal{H}$.
+
+    Then $ c_1 \ket{f_1} + c_2 \ket{f_2} + ... + c_n \ket{f_n} = 0_\mathcal{H} \implies c_1 U(\ket{e_1}) + c_2 U(\ket{e_2} + ... + c_n U(\ket{e_n}) = 0_\mathcal{H} \implies U(c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n}) = 0_\mathcal{H} \implies c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n} = 0_\mathcal{H}$.
+
+    The last implication follows from the fact that $\braket{U \psi | U \phi} = 0$ for all $\ket{\psi} \in \mathcal{H} \implies \braket{\psi|\phi} = 0$ for all $\ket\psi \in \mathcal{H} \implies \ket\phi = 0$ 
+
+    Since $\{ \ket{e_i} \}_{i=1}^n$ is a basis, this implies $c_1 = c_2 = ...=  c_n = 0 \implies \{ \ket{f_i} \}_{i=1}^n$ is linearly independent.
+
+    Since $\{ \ket{f_i} \}_{i=1}^n$ is a linearly independent set of $n$ elements, it is a spanning set for the $n$-dimensional space $\mathcal{H}$.
+
+    \emph{To show $\{ \ket{f_i} \}$ is orthonormal:} \\
+
+
+    Then $\braket{f_\alpha|f_\beta} = \braket{U e_\alpha|U e_\beta} = \braket{e_\alpha|e_\beta} = \delta_{\alpha, \beta}$ since $U$ is unitary.
+
+    This implies $\{ \ket{f_i} \}_{i=1}^n$ is orthonormal.
+\end{proof}
+
 \begin{defn}
     A unitary matrix $U$ is called \textbf{unitary} if its conjugate transpose $U^\dagger$ is its inverse.
 
@@ -15,25 +49,22 @@
 \end{defn}
 
 \begin{thm}
-A unitary transformation $U$ is represented by a unitary matrix.
+A transformation is unitary if and only if its matrix representation $U$ is a unitary matrix.
 \end{thm}
 \begin{proof}
+    Note that $\braket{U \psi | U \phi} = \bra{U \psi} \ket{U \phi} = \ket{U \psi}^\dagger \ket{U \phi} = \ket{\psi}^\dagger U^\dagger \ket{U \phi} = \bra{\psi} U^\dagger U \ket{U\phi}$.
+
+    \emph{To show a unitary matrix $U$ is a unitary transformation: }\\
+    Let $U$ be a unitary matrix with $U\dagger U = I$ and $\ket\psi, \ket\phi \in \mathcal{H}$.
+
+    Then $\braket{U \psi | U \phi} = \bra{\psi} U^\dagger U \ket{\phi} = \bra{\psi} \ket{\phi} = \braket{\psi|\phi} \implies $the transformation is unitary.
+
+    \emph{To show a unitary transformation is represented by a unitary matrix: }\\
+    Let $U$ be a unitary transformation with $\braket{U \psi | U \phi} = \braket{\psi|\phi}$ for all $\ket\psi, \ket\phi \in \mathcal{H}$.
+
+    Then  $\bra{\psi} U^\dagger U \ket{\phi} = \bra{\psi} \ket{\phi}$.
+    Multiplying with $\bra{\psi}^{-1}$ on the left of both sides and $\ket{\phi}^{-1}$ on the right of both sides we have the required equality $U^\dagger U = I$.
 \end{proof}
-
-\begin{defn}
-    A matrix is said to be \textbf{unitary} if and only if one of the following conditions hold:
-    \begin{enumerate}
-        \item $U^\dagger U = I$
-        \item $U U^\dagger = I$
-        \item the columns of $U$ are orthonormal vectors
-        \item the rows of $U$ are orthonormal vectors
-    \end{enumerate}
-\end{defn}
-
-`Alternate from Scherer`
-\begin{defn}
-\end{defn}
-
 
 Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantum states which are not measured evolve unitarily.
 
@@ -48,24 +79,6 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \end{mdframed}
 \end{samepage}
 
-\begin{thm}
-    Any change applied to a quantum state can be represented by a unitary matrix $M$.
-\end{thm}
-\begin{proof}
-    The initial state of the quantum state is a unit and so is the result state. This means we require that the transformation applied to the unit vector $M \ket{\psi}$ is a unit vector itself.
-
-    This will happen when $\braket{M \psi | M\psi} = 1$ for all quantum states $\ket{\psi}$
-
-    $\implies \bra{\psi} M^\dagger M \ket{\psi} = 1$
-    $\implies M^\dagger M = I$ which is the condition for $M$ being a unit vector.
-\end{proof}
-
-
-\begin{lemma}
-    The operator that takes $\ket{a_1} \to \ket{b_1}$ and $\ket{a_2} \to \ket{b_2}$ is obtained by the operation:
-    $\ket{b_1}\ket{b_1} + \ket{b_2}\bra{a_2}$.
-\end{lemma}
-
 \begin{lemma}
     Quantum gates have the same number of inputs and outputs.
 \end{lemma}
@@ -73,3 +86,6 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \begin{lemma}
     Quantum Gates are reversible.
 \end{lemma}
+
+\begin{prop}[No Cloning Principle]
+\end{prop}

@@ -63,8 +63,6 @@ When we have two qubits being treated as a combined system, the state space of t
 
 \begin{prop}
     For a $2$ qubit system, the set $\{ \ket{0} \otimes \ket{0}, \ket{0} \otimes \ket{1}, \ket{1} \otimes \ket{0}, \ket{1} \otimes \ket{1} \} = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is an orthonormal basis for the state space $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$.
-
-    Any arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11} = a \ket{0} + b \ket{1} + c \ket{2} + d \ket{3}$ \\ where $a, b, c, d \in \mathbb{C}$ and $|a|^2 + |b|^2 + |c|^2 + |d|^2 = 1$.
 \end{prop}
 \begin{proof}
     \emph{To show  $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is a basis: } \\
@@ -119,9 +117,7 @@ When we have two qubits being treated as a combined system, the state space of t
 \end{defn}
 
 \begin{eg}
-The state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$ of a $2$-qubit system is seperable. 
-
-We can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
+The state $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{11})$ of a $2$-qubit system is seperable since we can write $\ket{\psi_2} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) \otimes \ket{1}$
 \end{eg}
 
 
@@ -135,9 +131,12 @@ The state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$ of a $2$-qubit
 
 
 For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
+
+\begin{comment}
 \begin{prop}
     The set of seperable states has measure 0.
 \end{prop}
+
 
 \begin{proof}[intuition]
     refer https://physics.stackexchange.com/questions/268831/are-there-more-entangled-states-or-non-entangled-ones 
@@ -148,3 +147,4 @@ Similarly assigning $\ket{\phi} \in \mathcal{H}_2$ has $2$ degrees of freedom.
 
     Consider the $4$-dimensional tensor space $\mathcal{H}_1 \otimes \mathcal{H}_2$. Since the state of any vector $\ket{\omega}$ in this space can be written as $\ket{\omega} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11}$, where $a, b, c, d \in \mathbb{C}$ we have $8$ degrees of freedom initially for assigning the vector $\ket{\omega}$. Including constraint $a^2 + b^2 + c^2 + d^2 = 1$ and that multiplying by global phase leaves the state unchanged, we have $6$ degrees of freedom in assigning the value of $\ket{\omega}$ which is $2$ degrees of freedom more than $4 = 2 \times 2$ from the individual qubits.
 \end{proof}
+\end{comment}
