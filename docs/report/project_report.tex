@@ -382,242 +382,101 @@ x properties of tensor product of vectors
 * Proof that most states are entangled
 \end{comment}
 
-
-A general topological result is stated below.
-\begin{result}
-    \label{product:continuous}
-    Let $f: A \to B$ and $g: C \to D$ be continuous functions. 
-    Then the map $f \times g: A \times C \to B \times D$ given by $f \times g (a x c) = f(a) \times g(c)$ for any $a \in A, c \in C$ is continuous.
-\end{result}
-
-
-\begin{prop}
-    Consider we have finite dimensional Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$. 
-
-    For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for any $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
-
-    Then the functional $f_{\psi,\phi}$ is conjugate linear in both variables and continuous.
-\end{prop}
-\begin{proof}
-    \emph{To show $f_{\psi, \phi}$ is continuous:}
-
-    From \ref{innerproduct:continuous}, we know that the inner products $\braket{\xi|\psi}_{\mathcal{H}_1}$ is a continuous function from $\mathcal{H}_1$ to $\mathbb{C}$. 
-    Similarly, $\braket{\eta|\phi}_{\mathcal{H}_2}$ is a continuous function from $\mathcal{H}_2$ to $\mathbb{C}$.
-
-
-    Using Result \ref{product:continuous}, $f_{\psi, \phi}(\ket\xi, \ket\eta) = \braket{\xi | \psi}_{\mathcal{H}_1} \braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous at all $\ket\xi \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$
-    
-    \emph{To show $f_{\psi, \phi}$ is conjugate linear in both variables:}
-    
-    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$. 
-    \begin{align*}
-        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2} 
-        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
-        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
-        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
-    \end{align*}
-
-    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$ 
-    for any $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
-    \begin{align*}
-    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi} 
-        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
-        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
-        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
-        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
-    \end{align*}
-    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
-\end{proof}
-
-\begin{note}
-    In dirac's bra/ket notation, the functional $f_{\psi,\phi}$ is written as $\ket{\psi} \otimes \ket{\phi}$ where $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$.
-    For simplicity, we also write $\ket{\psi} \otimes \ket{\phi}$ as $\ket{\psi}\ket{\phi}$ or $\ket{\psi\phi}$.
-\end{note}
-
-
-
-\begin{prop}
-    Given two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$, consider the set $\mathcal{G}$ of all anti-linear and continuous functionals from $\mathcal{H}_1 \times \mathcal{H}_2$ to $\mathbb{C}$.
-    Then $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is anti-linear and continuous } \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ g_1 + g_2] (\ket{\xi}, \ket{\eta}) = g_1(\ket{\xi}, \ket{\eta}) + g_2(\ket{\xi}, \ket{\eta})$ for any $g_1, g_2 \in \mathcal{G}$ and scalar multiplication is defined as expected.
-\end{prop}
-\begin{proof}
-    \emph{To show $\mathcal{G}$ has a zero vector:} \\
-
-    Consider the function $0_\mathcal{G}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ defined as $0_\mathcal{G}(\ket{\xi}, \ket{\eta}) = 0$
-
-    Then $0_\mathcal{G}$ is continuous since every constant function between topological spaces is continuous.
-
-    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$, $a,b \in \mathbb{C}$.
-
-    Also $0_\mathcal{G}(a \ket{\xi_1} + b \ket{\xi_2}, \ket{\eta}) = 0 = (\overline{a} \cdot 0 ) + (\overline{b} \cdot 0) = \overline{a} \; 0_\mathcal{G}(\ket{\xi_1}, \ket{\eta}) + \overline{b} \; 0_\mathcal{G} (\ket{\xi_2}, \ket{\eta}) $ 
-    Similarly, $0_\mathcal{G}(\ket{\xi}, a \ket{\eta_1} + b \ket{\eta_2}) = \overline{a} 0_\mathcal{G}(\ket{\xi}, \ket{\eta_1}) + \overline{b} 0_\mathcal{G}(\ket{\xi}, \ket{\eta_2})$ for any $\ket{\xi} \in \mathcal{H}_1$, $\ket{\eta_1}, \ket{\eta_2} \in \mathcal{H}_2$ and $a,b \in \mathbb{C}$.
-
-    This implies $0_\mathcal{G}$ is conjugate linear in both variables and is continuous $\implies 0_\mathcal{G} \in \mathcal{G}$ .
-
-    \emph{To show $\mathcal{G}$ is closed under vector addition:}\\
-
-    Consider any two $g_1, g_2$ in $\mathcal{G}$.
-    \begin{align*}
-        [g_1 + g_2](\ket\xi, \ket\eta) & = g_1(\ket\xi, \ket\eta) + g_2(\ket\xi, \ket\eta)
-        \\ & \implies [g_1 + g_2] \text{ is continuous, since sum of continuous functions is continuous.}
-    \end{align*}
-
-    Also, consider $a \in \mathbb{C}$. 
-    \begin{align*}
-        \text{Then }[g_1 + g_2](a \ket\xi, \ket\eta) & = g_1(a \ket\xi, \ket\eta) + g_2(a \ket\xi, \ket\eta)
-        \\ & = \overline{a} g_1(\ket\xi, \ket\eta) + \overline{a} g_2(\ket\xi, \ket\eta) 
-        \\ & = \overline{a} (g_1(\ket\xi, \ket\eta) + g_2(\ket\xi,\ket\eta))
-        \\ & = \overline{a}[g_1 + g_2](\ket\xi, \ket\eta)
-        \\ & \implies [g_1 + g_2] \text{ is conjugate linear in first variable}
-    \end{align*}
-    Similarly, $[g_1 + g_2]$ is also continuous in the second variable. 
-
-    This implies $[g_1 + g_2]$ is continuous and conjugate linear in both variables $\implies [g_1 + g_2] \in \mathcal{G}$.
-
-
-
-    \emph{To show $\mathcal{G}$ is closed under scalar multiplication} \\
-    Consider $a \in \mathbb{C}$.
-
-    For any functional $g$ in $\mathcal{G}$, $[a \cdot g](\ket\xi, \ket\eta) = a \cdot [ g(\ket\xi, \ket\eta) ]$ which is conjugate linear and continuous at every $\ket\xi \in \mathcal{H}_1, \ket\eta \in \mathcal{H}_2$ $\implies [a \cdot g] \in \mathcal{G}$
-\end{proof}
-
-\begin{note}
-    Consider the set $\mathcal{F} = \{ \ket\psi \otimes \ket\phi \; | \; \ket\psi \in \mathcal{H}_1 \text{ and } \ket\phi \in \mathcal{H}_2 \}$ where $\ket\psi \otimes \ket\phi$ is defined as previously.
-
-    Then any $\ket\psi \otimes \ket\phi \in \mathcal{F}$ is anti-linear and continuous which implies $\mathcal{F} \subseteq \mathcal{G}$.
-\end{note}
-
-\begin{thm}
-    Consider we have Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
-
-    Let $\{ \ket{e_i} \}_{i=1}^n$ be an orthonormal basis for $\mathcal{H}_1$ and $\{ \ket{f_j} \}_{j=1}^m$ be an orthonormal basis for $\mathcal{H}_2$.
-
-    Then $\{ \ket{e_i} \otimes \ket{f_j} | 1 \leq i \leq n, 1 \leq j \leq m \}$ is an orthonormal basis for $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$
-\end{thm}
-\begin{proof}
-    Let $\mathcal{E} = \{ \ket{e_i} \otimes \ket{f_j} \} | 1 \leq i \leq n, 1 \leq j \leq m \}$
-
-    \emph{To show $\mathcal{E}$ is a spanning set for $\mathcal{G}:$} \\
-
-    Let $g \in \mathcal{G}$ and $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$
-
-    Since $\{ \ket{e_i} \}_{i = 1}^n$ is an orthonormal basis for $\mathcal{H}_1$, $\ket{\xi} = c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n}$ for some $c_1, c_2, ..., c_n \in \mathbb{C}$.
-
-    Similarly, since $\{ \ket{f_j} \}_{j = 1}^m$ is an orthonormal basis for $\mathcal{H}_2$, $\ket{\eta} = d_1 \ket{f_1} + d_2 \ket{f_2} + ... + d_n \ket{f_n}$ for some $d_1, d_2, ..., d_n \in \mathbb{C}$.
-
-    $g(\ket{\xi}, \ket{\eta}) = g(\sum_{i=1}^n c_i \ket{e_i}, \sum_{j=1}^m d_j \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m \overline{c_i} \overline{d_j} g(\ket{e_i}, \ket{f_j})$.
-
-    Using the fact that $c_i = \braket{e_i|\xi}$ and $d_j = \braket{f_j|\eta}$,
-
-     $g(\ket{\xi}, \ket{\eta}) = \sum_{i=1}^n \sum_{j=1}^m \overline{\braket{e_i|\xi}} \overline{\braket{f_j|\eta}} g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m \braket{\xi|e_i} \braket{\eta|f_j}g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m [\ket{e_i} \otimes \ket{f_j}](\ket{\xi}, \ket{\eta}) g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} [\ket{e_i} \otimes \ket{f_j}](\ket{e_i}, \ket{f_j})$ where $g_{ij} = g(\ket{e_i}, \ket{f_j})$.
-
-     Thus $g = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \ket{e_i} \otimes \ket{f_j}$
-
-     $\implies \text{every } g \in \mathcal{G} \text{ is a linear combination of functions in } \mathcal{E}$
-
-     \emph{To show $\mathcal{E}$ is a linearly independent set:} \\
-
-     Consider $g \in \mathcal{G}$ such that $g = 0_\mathcal{G}$.
-
-     Then $g(\ket\xi, \ket\eta) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} [\ket{e_i} \otimes \ket{f_j}](\ket\xi, \ket\eta) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \braket{e_i|\xi} \braket{f_j|\eta} = 0_\mathcal{G}$.
-
-     Consider in particular, we take $\ket\xi$ and $\ket\eta$ from the set of basis vectors of $\mathcal{H}_1$ and $\mathcal{H}_2$ respectively, i.e. $(\ket\xi = \ket{e_p}$ and $\ket\eta = \ket{f_q}$ for some $1 \leq p \leq n, 1 \leq q \leq m$.
-
-     Then $g(\ket{e_p}, \ket{e_q}) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \braket{e_i|e_p} \braket{f_j|f_q} = g_{pq}$ since $\braket{e_i|e_p} = \begin{cases} 1 & i = p \\ 0 & i \neq p \end{cases} = \delta_{i,p}$
-     and $\braket{f_j|f_q} = \begin{cases} 1 & j = q \\ 0 & j \neq q \end{cases} = \delta_{j,q}$.
-
-         $g = 0_\mathcal{H} \implies g(\ket{e_p}, \ket{e_q}) = 0 \implies g_{pq} = 0$ for any $1 \leq p \leq n, 1 \leq j \leq m$.
-         Therefore $g = 0_\mathcal{H} \implies  \sum_{i=1}^n \sum_{j=1}^m g_{ij} \ket{e_i} \otimes \ket{f_j} = 0 \implies g_{ij} = 0 \;\; \forall \;\; 1 \leq i \leq n, 1 \leq j \leq m$
-
-         $\implies \mathcal{E}$ is a linearly independent set.
-
-         \emph{To show $\mathcal{E}$ is orthonormal:} \\
-         Consider any $\ket{e_a} \otimes \ket{f_b}, \ket{e_c} \otimes \ket{f_d} \in \mathcal{E}$ for some $1 \leq a,c \leq n, 1 \leq b,d \leq m$.
-
-         Then $\braket{\ket{e_a} \otimes \ket{f_b} \; | \; \ket{e_c} \otimes \ket{f_d}} = \braket{e_a|e_c} \braket{f_b|f_d} $
-
-         $ = \begin{cases} 0 & a \neq c \text{ or } b \neq d \\ 1 & a = b \text{ and } c = d \end{cases} = \delta_{a,c} \delta_{b,d}$
-
-             $\implies \mathcal{E} \text{ is orthonormal}$ 
-\end{proof}
-
-\begin{prop}
-    Let $\{ e_i \}_{i=1}^n$ be an orthonormal basis for $\mathcal{H}_1$ and $\{ f_j \}_{j=1}^m$ be an orthonormal basis for $\mathcal{H}_2$.
-
-    For $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$ and $g_1, g_2 \in \mathcal{G}$ where $g_1 = \sum_{i=1}^n \sum_{j=1}^m c_{ij} \ket{e_i} \otimes \ket{f_j}$ and $g_2 = \sum_{i=1}^n \sum_{j=1}^m d_{ij} \ket{e_i} \otimes \ket{f_j}$, the function $\braket{g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij}$ defines an inner product on $\mathcal{G}$.
-
-\end{prop}
-\begin{proof}
-    $g_1 = \sum_{i=1}^n \sum_{j=1}^m c_{ij} \ket{e_i} \otimes \ket{f_j}$ and $g_2 = \sum_{i=1}^n \sum_{j=1}^m d_{ij} \ket{e_i} \otimes \ket{f_j}$
-
-    \emph{To show the function has conjugate symmetric property:} \\
-    $\braket{g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = \sum_{i=1}^n \sum_{j=1}^m (c_{ij} \overline{d_{ij}})^\dagger = (\sum_{i=1}^n \sum_{j=1}^m c_{ij} \overline{d_{ij}} )^\dagger = \overline{\braket{g_2|g_1}} $
-
-    \emph{To show the function has positive definite property:} \\
-     $\braket{g_1|g_1} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} c_{ij} = \sum_{i=1}^n \sum_{j=1}^m |c_{ij}|^2 \geq 0$
-
-    If $\braket{g_1|g_1} = 0 \implies \sum_{i=1}^n \sum_{j=1}^m |c_{ij}|^2 = 0 \implies |c_{ij}|^2 = 0 \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies c_{ij} = 0  \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies g_1 = 0_\mathcal{H}$
-
-    Conversely, if $g_1 = 0_\mathcal{H} \implies c_{ij} = 0 \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies \braket{g_1|g_1} = 0$
-
-    \emph{To show the function is conjugate linear in first variable:} \\
-
-    Let $g_3 = \sum_{i = 1}^n \sum_{j=1}^m a_{ij} \ket{e_i} \otimes \ket{f_j}$
-
-    $g_1 + g_2 = \sum_{i=1}^n \sum_{j=1}^m (c_{ij} + d_{ij}) \ket{e_i} \otimes \ket{f_j}$
-
-    $\implies \braket{g_1 + g_2 | g_3} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij} + d_{ij}}]a_{ij} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij}} + \overline{d_{ij}}] a_{ij} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij}} a_{ij}+ \overline{d_{ij}} a_{ij}] = \braket{g_1|g_3} \braket{g_2|g_3}$
-
-    Also, $\braket{a \cdot g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{a \cdot c_{ij}} d_{ij} = \sum_{i=1}^n \sum_{j=1}^m \overline{a} \; \overline{c_{ij}} d_{ij} = \overline{a}  \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = \overline{a} \braket{g_1|g_2}$
-
-    \emph{To show the function is linear in the second variable}
-
-    $\braket{g_1| g_2 + g_3} = \braket{g_1|g_2} + \braket{g_1|g_3}$ can be shown similar to previous.
-
-    Also, $\braket{ g_1 | a g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} (a \cdot d_{ij}) = a \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = a \braket{g_1|g_2}$
-
-    $\implies \braket{g_1|g_2}$ is an inner product on $\mathcal{G}$
-\end{proof}
-
 \begin{defn}
-    Consider Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
-
-    The vector space $\mathcal{G} =  \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$  along with the inner product defined as previously is known as the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
-\end{defn}
-
-
-
-\begin{samepage}
-    \begin{mdframed}
-\begin{lemma}[Principle of Entanglement]
-When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
-
-    Similarly, for a system of $n$ interacting qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ qubits taken independently.
-\end{lemma}
-    \end{mdframed}
-\end{samepage}
-
-\begin{prop}
-    Consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$.
-    The linear functional $\ket{\psi} \otimes \ket{\phi}$ defined as $[\ket\psi \otimes \ket\phi](\ket\xi,\ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}$  satisfies the following properties:
+    Let $\mathcal{H}_1$ and $\mathcal{H}_2$ be Hilbert spaces with orthonormal basis $\{ \ket{e_i} \}_{i=1}^n$ and $\{ \ket{f_j} \}_{j=1}^m$ respectively.
+    The \textbf{tensor product} $\mathcal{H}_1 \otimes \mathcal{H}_2$  is an $nm$-dimensional Hilbert space with basis of the form $\{ \ket{e_i} \otimes \ket{f_j} \; | \; 1 \leq i \leq n \text{ and } 1 \leq j \leq m \}$ where $\otimes$ denotes the tensor product operation which satisfies:
     \begin{enumerate}
         \item $(a \ket\psi) \otimes \ket\phi = \ket\psi \otimes (a \ket\phi) = a (\ket\psi \otimes \ket\phi)$
         \item $a (\ket\psi \otimes \ket\phi) + b (\ket\psi \otimes \ket\phi) = (a + b) (\ket\psi \otimes \ket\phi)$
         \item $(\ket\psi_1 + \ket\psi_2) \otimes \ket\phi = \ket\psi_1 \otimes \ket\phi + \ket\psi_2 \otimes \ket\phi$
         \item $\ket\psi \otimes (\ket\phi_1 + \ket\phi_2) = \ket\psi \otimes \ket\phi_1 + \ket\psi \otimes \ket\phi_2$
     \end{enumerate}
-\end{prop}
+    for any $\ket{\psi},\ket{\psi_1},\ket{\psi_2} \in \mathcal{H}_1$, $\ket{\phi}, \ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$ and $a, b \in \mathbb{C}$
 
-\begin{proof}
-    [TODO]
-\end{proof}
+    For any two elements in $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the form $\ket{\psi_1} \otimes \ket{\phi_1}$ and $\ket{\psi_2} \otimes \ket{\phi_2}$ for some $\ket{\psi_1}, \ket{\psi_2} \in \mathcal{H}_1$ and $\ket{\phi_1}, \ket{\phi_2} \in \mathcal{H}_2$, we define the inner product $\braket{} : \mathcal{H}_1 \otimes \mathcal{H}_2 \to \mathbb{C}$ as $\braket{\; \ket{\psi_1} \otimes \ket{\phi_1} \; | \; \ket{\psi_2} \otimes \ket{\phi_2} \;} = \braket{\psi_1|\psi_2}_{\mathcal{H}_1}\braket{\phi_1|\psi_2}_{\mathcal{H}_2}$ and extend it to any pair of elements of $\mathcal{H}_1 \otimes \mathcal{H}_2$ using the linearity and conjugate linearity properties of the inner product.
+\end{defn}
 
-\begin{eg}
-For $n=2$, the state space for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ has computational basis $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \} = \{ \ket{0}, \ket{1}, \ket{2}, \ket{3} \}$.
+\begin{note}
+    Given orthonormal basis $\{ \ket{e_i} \}_{i=1}^n$ for $\mathcal{H}_1$ and $\{ \ket{f_j} \}_{j=1}^m$ for $\mathcal{H}_2$, consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$ such that $\ket\psi = c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n}$ and $\ket{\phi} = d_1 \ket{f_1} + d_2 \ket{f_2} + ... + d_m \ket{f_m}$.
+
+    Then using the properties of the tensor product operation, $\ket\psi \otimes \ket\phi = ( c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n} ) \otimes (d_1 \ket{f_1} + d_2 \ket{f_2} + ... + d_m \ket{f_m}) = \sum_{i=1}^n \sum_{j=1}^m c_i d_j \ket{e_i} \otimes \ket{f_j}$.
+
+    The matrix multiplication rules for tensor product is defined analogously. 
+
+    Let $\ket\psi = \begin{bmatrix} a \\ b \end{bmatrix} \in \mathcal{H}_1$ and $\ket\phi = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}_2$.
+
+        Then $\ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} a \\ b \end{bmatrix} \otimes \begin{bmatrix} c \\ d \end{bmatrix} = \begin{bmatrix} a \begin{bmatrix} c \\ d \end{bmatrix} \\ b \begin{bmatrix} c \\ d \end{bmatrix} \end{bmatrix} = \begin{bmatrix} ac \\ ad \\ bc \\ bd \end{bmatrix}$
+\end{note}
+
+\begin{note}
+    The notation for the  tensor product $\ket\psi \otimes \ket\phi$ is often simplied as $\ket\psi \ket\phi$ or even $\ket{\psi\phi}$
+\end{note}
+
+\begin{note}
+    A more formal construction of the tensor product space can be found in Appendix \ref{tensor}
+\end{note}
+
+
+
+\begin{samepage}
+    \begin{mdframed}
+\begin{axiom}[Principle of Entanglement]
+When we have two qubits being treated as a combined system, the state space of the combined system is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the state spaces $\mathcal{H}_1, \mathcal{H}_2$ of the component qubit subsystems. 
+
+    Similarly, for a system of $n$ interacting qubits, the state space is the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2 \otimes ... \otimes \mathcal{H}_n$ of the state spaces of the $n$ qubits taken independently.
+\end{axiom}
+    \end{mdframed}
+\end{samepage}
+
+
+\begin{prop}
+    For a $2$ qubit system, the set $\{ \ket{0} \otimes \ket{0}, \ket{0} \otimes \ket{1}, \ket{1} \otimes \ket{0}, \ket{1} \otimes \ket{1} \} = \{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is an orthonormal basis for the state space $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$.
 
     Any arbitary state $\ket{\psi} \in \mathcal{H}$ can be described as $\ket{\psi} = a \ket{00} + b \ket{01} + c \ket{10} + d \ket{11} = a \ket{0} + b \ket{1} + c \ket{2} + d \ket{3}$ \\ where $a, b, c, d \in \mathbb{C}$ and $|a|^2 + |b|^2 + |c|^2 + |d|^2 = 1$.
-\end{eg}
+\end{prop}
+\begin{proof}
+    \emph{To show  $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is a basis: } \\
+
+    This follows from the definition of the tensor product space as $\{ \ket{0}, \ket{1} \}$ is a basis for $\mathcal{H}_1$ and $\{ \ket{0}, \ket{1} \}$ is a basis for $\mathcal{H}_2$.
+
+    \emph{To show $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ is an orthonormal set} \\
+    $\braket{ \ket{00} | \ket{00}} = \braket{0|0} \braket{0|0} = 1 \cdot 1 = 1$, 
+    $\braket{ \ket{11} | \ket{11}} = \braket{1|1} \braket{1|1} = 1 \cdot 1 = 1$
+    and $\braket{ \ket{00} | \ket{11}} = \braket{0|1} \braket{1|1} = 0 \cdot 1 = 0$
+
+    This shows that $\ket{00}$ is orthonormal to $\ket{11}$. 
+
+    Similarly, taking the inner product for all combinations of basis elements in $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$, we can see that it is an orthonormal set.
+\end{proof}
+
+\begin{defn}
+    The orthonormal basis $\{ \ket{00}, \ket{01}, \ket{10}, \ket{11} \}$ for $\mathcal{H} = \mathcal{H}_1 \otimes \mathcal{H}_2$ is known as the \textbf{computational basis} for $\mathcal{H}$.
+
+    When there is no ambiguity, the elements of this basis are often represented by replacing the bit-string by the corresponding decimal value as:
+
+    \begin{itemize}
+        \item $\ket{00} = \ket{0}$
+        \item $\ket{01} = \ket{1}$
+        \item $\ket{10} = \ket{2}$
+        \item $\ket{11} = \ket{3}$
+    \end{itemize}
+
+\end{defn}
+\begin{defn}
+    For a system of two interacting qubits, the set $\{ \ket{\phi^+}, \ket{\phi^-}, \ket{\psi^+}, \ket{\psi^-} \}$ forms an orthonormal basis known as the \textbf{bell basis} where 
+
+    $\ket{\phi^+} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ 0 \\ 0 \\ \frac{1}{\sqrt{2}} \end{bmatrix}$
+    $\ket{\phi^-} = \frac{1}{\sqrt{2}} (\ket{00} - \ket{11}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ 0 \\ 0 \\ - \frac{1}{\sqrt{2}} \end{bmatrix}$
+        $\ket{\psi^+} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{10}) = \begin{bmatrix} 0 \\ \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \\0 \end{bmatrix}$
+        $\ket{\psi^-} = \frac{1}{\sqrt{2}} (\ket{01} - \ket{10}) = \begin{bmatrix} 0 \\ \frac{1}{\sqrt{2}} \\ - \frac{1}{\sqrt{2}} \\0 \end{bmatrix}$
+\end{defn}
+
+\begin{defn}
+
+    For a set of $n$ interacting qubits the \textbf{computational basis} is given by $\{ \ket{\underbrace{00...0}_{n \text{ times}}}, \ket{\underbrace{00...0}_{n-1 \text{ times}}1}, ... ,\ket{\underbrace{11...1}_{n \text{ times}}} \} = \{ \ket{0}, \ket{1}, ... , \ket{2^n - 1} \}$
+\end{defn}
+
+
 
 
 \begin{defn}
@@ -1079,6 +938,226 @@ Check Shor Lec 24 for textbook analysis of the algorithm
 
 
 
+
+\appendix
+
+\chapter{Construction of the Tensor Product Space}
+\label{tensor}
+
+A general topological result is stated below.
+\begin{result}
+    \label{product:continuous}
+    Let $f: A \to B$ and $g: C \to D$ be continuous functions.
+    Then the map $f \times g: A \times C \to B \times D$ given by $f \times g (a x c) = f(a) \times g(c)$ for any $a \in A, c \in C$ is continuous.
+\end{result}
+
+
+\begin{prop}
+    Consider we have finite dimensional Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
+
+    For fixed vectors $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$, define a functional $f_{\psi,\phi}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ as $f_{\psi,\phi}(\ket\xi, \ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}$ for any $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$.
+
+    Then the functional $f_{\psi,\phi}$ is conjugate linear in both variables and continuous.
+\end{prop}
+\begin{proof}
+    \emph{To show $f_{\psi, \phi}$ is continuous:}
+
+    From \ref{innerproduct:continuous}, we know that the inner products $\braket{\xi|\psi}_{\mathcal{H}_1}$ is a continuous function from $\mathcal{H}_1$ to $\mathbb{C}$.
+    Similarly, $\braket{\eta|\phi}_{\mathcal{H}_2}$ is a continuous function from $\mathcal{H}_2$ to $\mathbb{C}$.
+
+
+    Using Result \ref{product:continuous}, $f_{\psi, \phi}(\ket\xi, \ket\eta) = \braket{\xi | \psi}_{\mathcal{H}_1} \braket{\eta|\phi}_{\mathcal{H}_2}$ is continuous at all $\ket\xi \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$
+
+    \emph{To show $f_{\psi, \phi}$ is conjugate linear in both variables:}
+
+    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$.
+    \begin{align*}
+        \text{Then }f_{\psi,\phi}(\ket{\xi_1} + \ket{\xi_2}, \ket{\eta}) & = \braket{\xi_1 + \xi_2 | \psi}_{\mathcal{H}_1} \braket{\eta | \phi}_{\mathcal{H}_2}
+        \\ & = (\braket{\xi_1 | \psi}_{\mathcal{H}_1}+ \braket{\xi_2 | \psi}_{\mathcal{H}_1}) \braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = \braket{\xi_1| \psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2} + \braket{\xi_2|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}
+        \\ & = f_{\psi,\phi}(\ket{\xi_1}, \ket{\eta}) + f_{\psi,\phi}(\ket{\xi_2},\ket{\eta})
+    \end{align*}
+
+    Similarly, $f_{\psi,\phi}(\ket\xi, \ket{\eta_1} + \ket{\eta_2}) = f_{\psi,\phi}(\ket\xi, \ket{\eta_1}) + f_{\psi,\phi}(\ket\xi , \ket{\eta_2})$
+    for any $\ket\xi \in \mathcal{H}_1$ and $\ket{\eta_1}, \ket{\eta_2}  \in \mathcal{H}_2$
+    \begin{align*}
+    \text{Let } a \in \mathbb{C}\text{. Then }f_{\psi,\phi}(\ket{a \xi},\ket{\eta}) & = \braket{a \xi|\psi}\braket{\eta|\phi}
+        \\ & = \bra{a \xi}\ket{\psi}\braket{\eta|\phi}
+        \\ & = \ket{a \xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \ket{\xi}^\dagger \ket{\psi} \braket{\eta|\phi}
+        \\ & = \overline{a} \braket{\xi|\psi} \braket{\eta|\phi}
+    \end{align*}
+    Similarly, $f_{\psi,\phi}(\ket\xi, a \ket\eta) = \overline{a}f_{\psi,\phi}(\ket\xi, \ket\eta)$
+\end{proof}
+
+\begin{note}
+    In dirac's bra/ket notation, the functional $f_{\psi,\phi}$ is written as $\ket{\psi} \otimes \ket{\phi}$ where $\ket{\psi} \in \mathcal{H}_1$ and $\ket{\phi} \in \mathcal{H}_2$.
+    For simplicity, we also write $\ket{\psi} \otimes \ket{\phi}$ as $\ket{\psi}\ket{\phi}$ or $\ket{\psi\phi}$.
+\end{note}
+
+
+
+\begin{prop}
+    Given two Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$, consider the set $\mathcal{G}$ of all anti-linear and continuous functionals from $\mathcal{H}_1 \times \mathcal{H}_2$ to $\mathbb{C}$.
+    Then $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is anti-linear and continuous } \}$ is a vector space over $\mathbb{C}$ with vector addition defined as $[ g_1 + g_2] (\ket{\xi}, \ket{\eta}) = g_1(\ket{\xi}, \ket{\eta}) + g_2(\ket{\xi}, \ket{\eta})$ for any $g_1, g_2 \in \mathcal{G}$ and scalar multiplication is defined as expected.
+\end{prop}
+\begin{proof}
+    \emph{To show $\mathcal{G}$ has a zero vector:} \\
+
+    Consider the function $0_\mathcal{G}: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C}$ defined as $0_\mathcal{G}(\ket{\xi}, \ket{\eta}) = 0$
+
+    Then $0_\mathcal{G}$ is continuous since every constant function between topological spaces is continuous.
+
+    Consider $\ket{\xi_1}, \ket{\xi_2} \in \mathcal{H}_1$ and $\ket{\eta} \in \mathcal{H}_2$, $a,b \in \mathbb{C}$.
+
+    Also $0_\mathcal{G}(a \ket{\xi_1} + b \ket{\xi_2}, \ket{\eta}) = 0 = (\overline{a} \cdot 0 ) + (\overline{b} \cdot 0) = \overline{a} \; 0_\mathcal{G}(\ket{\xi_1}, \ket{\eta}) + \overline{b} \; 0_\mathcal{G} (\ket{\xi_2}, \ket{\eta}) $
+    Similarly, $0_\mathcal{G}(\ket{\xi}, a \ket{\eta_1} + b \ket{\eta_2}) = \overline{a} 0_\mathcal{G}(\ket{\xi}, \ket{\eta_1}) + \overline{b} 0_\mathcal{G}(\ket{\xi}, \ket{\eta_2})$ for any $\ket{\xi} \in \mathcal{H}_1$, $\ket{\eta_1}, \ket{\eta_2} \in \mathcal{H}_2$ and $a,b \in \mathbb{C}$.
+
+    This implies $0_\mathcal{G}$ is conjugate linear in both variables and is continuous $\implies 0_\mathcal{G} \in \mathcal{G}$ .
+
+    \emph{To show $\mathcal{G}$ is closed under vector addition:}\\
+
+    Consider any two $g_1, g_2$ in $\mathcal{G}$.
+    \begin{align*}
+        [g_1 + g_2](\ket\xi, \ket\eta) & = g_1(\ket\xi, \ket\eta) + g_2(\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is continuous, since sum of continuous functions is continuous.}
+    \end{align*}
+
+    Also, consider $a \in \mathbb{C}$.
+    \begin{align*}
+        \text{Then }[g_1 + g_2](a \ket\xi, \ket\eta) & = g_1(a \ket\xi, \ket\eta) + g_2(a \ket\xi, \ket\eta)
+        \\ & = \overline{a} g_1(\ket\xi, \ket\eta) + \overline{a} g_2(\ket\xi, \ket\eta)
+        \\ & = \overline{a} (g_1(\ket\xi, \ket\eta) + g_2(\ket\xi,\ket\eta))
+        \\ & = \overline{a}[g_1 + g_2](\ket\xi, \ket\eta)
+        \\ & \implies [g_1 + g_2] \text{ is conjugate linear in first variable}
+    \end{align*}
+    Similarly, $[g_1 + g_2]$ is also continuous in the second variable.
+
+    This implies $[g_1 + g_2]$ is continuous and conjugate linear in both variables $\implies [g_1 + g_2] \in \mathcal{G}$.
+
+
+
+    \emph{To show $\mathcal{G}$ is closed under scalar multiplication} \\
+    Consider $a \in \mathbb{C}$.
+
+    For any functional $g$ in $\mathcal{G}$, $[a \cdot g](\ket\xi, \ket\eta) = a \cdot [ g(\ket\xi, \ket\eta) ]$ which is conjugate linear and continuous at every $\ket\xi \in \mathcal{H}_1, \ket\eta \in \mathcal{H}_2$ $\implies [a \cdot g] \in \mathcal{G}$
+\end{proof}
+
+\begin{note}
+    Consider the set $\mathcal{F} = \{ \ket\psi \otimes \ket\phi \; | \; \ket\psi \in \mathcal{H}_1 \text{ and } \ket\phi \in \mathcal{H}_2 \}$ where $\ket\psi \otimes \ket\phi$ is defined as previously.
+
+    Then any $\ket\psi \otimes \ket\phi \in \mathcal{F}$ is anti-linear and continuous which implies $\mathcal{F} \subseteq \mathcal{G}$.
+\end{note}
+
+\begin{thm}
+    Consider we have Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
+
+    Let $\{ \ket{e_i} \}_{i=1}^n$ be an orthonormal basis for $\mathcal{H}_1$ and $\{ \ket{f_j} \}_{j=1}^m$ be an orthonormal basis for $\mathcal{H}_2$.
+
+    Then $\{ \ket{e_i} \otimes \ket{f_j} | 1 \leq i \leq n, 1 \leq j \leq m \}$ is an orthonormal basis for $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$
+\end{thm}
+\begin{proof}
+    Let $\mathcal{E} = \{ \ket{e_i} \otimes \ket{f_j} \} | 1 \leq i \leq n, 1 \leq j \leq m \}$
+
+    \emph{To show $\mathcal{E}$ is a spanning set for $\mathcal{G}:$} \\
+
+    Let $g \in \mathcal{G}$ and $\ket{\xi} \in \mathcal{H}_1, \ket{\eta} \in \mathcal{H}_2$
+
+    Since $\{ \ket{e_i} \}_{i = 1}^n$ is an orthonormal basis for $\mathcal{H}_1$, $\ket{\xi} = c_1 \ket{e_1} + c_2 \ket{e_2} + ... + c_n \ket{e_n}$ for some $c_1, c_2, ..., c_n \in \mathbb{C}$.
+
+    Similarly, since $\{ \ket{f_j} \}_{j = 1}^m$ is an orthonormal basis for $\mathcal{H}_2$, $\ket{\eta} = d_1 \ket{f_1} + d_2 \ket{f_2} + ... + d_n \ket{f_n}$ for some $d_1, d_2, ..., d_n \in \mathbb{C}$.
+
+    $g(\ket{\xi}, \ket{\eta}) = g(\sum_{i=1}^n c_i \ket{e_i}, \sum_{j=1}^m d_j \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m \overline{c_i} \overline{d_j} g(\ket{e_i}, \ket{f_j})$.
+
+    Using the fact that $c_i = \braket{e_i|\xi}$ and $d_j = \braket{f_j|\eta}$,
+
+     $g(\ket{\xi}, \ket{\eta}) = \sum_{i=1}^n \sum_{j=1}^m \overline{\braket{e_i|\xi}} \overline{\braket{f_j|\eta}} g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m \braket{\xi|e_i} \braket{\eta|f_j}g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m [\ket{e_i} \otimes \ket{f_j}](\ket{\xi}, \ket{\eta}) g(\ket{e_i}, \ket{f_j}) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} [\ket{e_i} \otimes \ket{f_j}](\ket{e_i}, \ket{f_j})$ where $g_{ij} = g(\ket{e_i}, \ket{f_j})$.
+
+     Thus $g = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \ket{e_i} \otimes \ket{f_j}$
+
+     $\implies \text{every } g \in \mathcal{G} \text{ is a linear combination of functions in } \mathcal{E}$
+
+     \emph{To show $\mathcal{E}$ is a linearly independent set:} \\
+
+     Consider $g \in \mathcal{G}$ such that $g = 0_\mathcal{G}$.
+
+     Then $g(\ket\xi, \ket\eta) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} [\ket{e_i} \otimes \ket{f_j}](\ket\xi, \ket\eta) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \braket{e_i|\xi} \braket{f_j|\eta} = 0_\mathcal{G}$.
+
+     Consider in particular, we take $\ket\xi$ and $\ket\eta$ from the set of basis vectors of $\mathcal{H}_1$ and $\mathcal{H}_2$ respectively, i.e. $(\ket\xi = \ket{e_p}$ and $\ket\eta = \ket{f_q}$ for some $1 \leq p \leq n, 1 \leq q \leq m$.
+
+     Then $g(\ket{e_p}, \ket{e_q}) = \sum_{i=1}^n \sum_{j=1}^m g_{ij} \braket{e_i|e_p} \braket{f_j|f_q} = g_{pq}$ since $\braket{e_i|e_p} = \begin{cases} 1 & i = p \\ 0 & i \neq p \end{cases} = \delta_{i,p}$
+     and $\braket{f_j|f_q} = \begin{cases} 1 & j = q \\ 0 & j \neq q \end{cases} = \delta_{j,q}$.
+
+         $g = 0_\mathcal{H} \implies g(\ket{e_p}, \ket{e_q}) = 0 \implies g_{pq} = 0$ for any $1 \leq p \leq n, 1 \leq j \leq m$.
+         Therefore $g = 0_\mathcal{H} \implies  \sum_{i=1}^n \sum_{j=1}^m g_{ij} \ket{e_i} \otimes \ket{f_j} = 0 \implies g_{ij} = 0 \;\; \forall \;\; 1 \leq i \leq n, 1 \leq j \leq m$
+
+         $\implies \mathcal{E}$ is a linearly independent set.
+
+         \emph{To show $\mathcal{E}$ is orthonormal:} \\
+         Consider any $\ket{e_a} \otimes \ket{f_b}, \ket{e_c} \otimes \ket{f_d} \in \mathcal{E}$ for some $1 \leq a,c \leq n, 1 \leq b,d \leq m$.
+
+         Then $\braket{\ket{e_a} \otimes \ket{f_b} \; | \; \ket{e_c} \otimes \ket{f_d}} = \braket{e_a|e_c} \braket{f_b|f_d} $
+
+         $ = \begin{cases} 0 & a \neq c \text{ or } b \neq d \\ 1 & a = b \text{ and } c = d \end{cases} = \delta_{a,c} \delta_{b,d}$
+
+             $\implies \mathcal{E} \text{ is orthonormal}$
+\end{proof}
+
+\begin{prop}
+    Let $\{ e_i \}_{i=1}^n$ be an orthonormal basis for $\mathcal{H}_1$ and $\{ f_j \}_{j=1}^m$ be an orthonormal basis for $\mathcal{H}_2$.
+
+    For $\mathcal{G} = \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$ and $g_1, g_2 \in \mathcal{G}$ where $g_1 = \sum_{i=1}^n \sum_{j=1}^m c_{ij} \ket{e_i} \otimes \ket{f_j}$ and $g_2 = \sum_{i=1}^n \sum_{j=1}^m d_{ij} \ket{e_i} \otimes \ket{f_j}$, the function $\braket{g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij}$ defines an inner product on $\mathcal{G}$.
+
+\end{prop}
+\begin{proof}
+    $g_1 = \sum_{i=1}^n \sum_{j=1}^m c_{ij} \ket{e_i} \otimes \ket{f_j}$ and $g_2 = \sum_{i=1}^n \sum_{j=1}^m d_{ij} \ket{e_i} \otimes \ket{f_j}$
+
+    \emph{To show the function has conjugate symmetric property:} \\
+    $\braket{g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = \sum_{i=1}^n \sum_{j=1}^m (c_{ij} \overline{d_{ij}})^\dagger = (\sum_{i=1}^n \sum_{j=1}^m c_{ij} \overline{d_{ij}} )^\dagger = \overline{\braket{g_2|g_1}} $
+
+    \emph{To show the function has positive definite property:} \\
+     $\braket{g_1|g_1} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} c_{ij} = \sum_{i=1}^n \sum_{j=1}^m |c_{ij}|^2 \geq 0$
+
+    If $\braket{g_1|g_1} = 0 \implies \sum_{i=1}^n \sum_{j=1}^m |c_{ij}|^2 = 0 \implies |c_{ij}|^2 = 0 \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies c_{ij} = 0  \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies g_1 = 0_\mathcal{H}$
+
+    Conversely, if $g_1 = 0_\mathcal{H} \implies c_{ij} = 0 \text{ for all } 1 \leq i \leq n, 1 \leq j \leq m \implies \braket{g_1|g_1} = 0$
+
+    \emph{To show the function is conjugate linear in first variable:} \\
+
+    Let $g_3 = \sum_{i = 1}^n \sum_{j=1}^m a_{ij} \ket{e_i} \otimes \ket{f_j}$
+
+    $g_1 + g_2 = \sum_{i=1}^n \sum_{j=1}^m (c_{ij} + d_{ij}) \ket{e_i} \otimes \ket{f_j}$
+
+    $\implies \braket{g_1 + g_2 | g_3} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij} + d_{ij}}]a_{ij} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij}} + \overline{d_{ij}}] a_{ij} = \sum_{i=1}^n \sum_{j=1}^m [\overline{c_{ij}} a_{ij}+ \overline{d_{ij}} a_{ij}] = \braket{g_1|g_3} \braket{g_2|g_3}$
+
+    Also, $\braket{a \cdot g_1 | g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{a \cdot c_{ij}} d_{ij} = \sum_{i=1}^n \sum_{j=1}^m \overline{a} \; \overline{c_{ij}} d_{ij} = \overline{a}  \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = \overline{a} \braket{g_1|g_2}$
+
+    \emph{To show the function is linear in the second variable}
+
+    $\braket{g_1| g_2 + g_3} = \braket{g_1|g_2} + \braket{g_1|g_3}$ can be shown similar to previous.
+
+    Also, $\braket{ g_1 | a g_2} = \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} (a \cdot d_{ij}) = a \sum_{i=1}^n \sum_{j=1}^m \overline{c_{ij}} d_{ij} = a \braket{g_1|g_2}$
+
+    $\implies \braket{g_1|g_2}$ is an inner product on $\mathcal{G}$
+\end{proof}
+
+\begin{defn}
+    Consider Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$.
+
+    The vector space $\mathcal{G} =  \{ g: \mathcal{H}_1 \times \mathcal{H}_2 \to \mathbb{C} \; | \; g \text{ is conjugate linear and continuous } \}$  along with the inner product defined as previously is known as the \textbf{tensor product} of $\mathcal{H}_1$ and $\mathcal{H}_2$.
+\end{defn}
+
+
+\begin{prop}
+    Consider $\ket\psi \in \mathcal{H}_1, \ket\phi \in \mathcal{H}_2$.
+    The linear functional $\ket{\psi} \otimes \ket{\phi}$ defined as $[\ket\psi \otimes \ket\phi](\ket\xi,\ket\eta) = \braket{\xi|\psi}_{\mathcal{H}_1}\braket{\eta|\phi}_{\mathcal{H}_2}$  satisfies the following properties:
+    \begin{enumerate}
+        \item $(a \ket\psi) \otimes \ket\phi = \ket\psi \otimes (a \ket\phi) = a (\ket\psi \otimes \ket\phi)$
+        \item $a (\ket\psi \otimes \ket\phi) + b (\ket\psi \otimes \ket\phi) = (a + b) (\ket\psi \otimes \ket\phi)$
+        \item $(\ket\psi_1 + \ket\psi_2) \otimes \ket\phi = \ket\psi_1 \otimes \ket\phi + \ket\psi_2 \otimes \ket\phi$
+        \item $\ket\psi \otimes (\ket\phi_1 + \ket\phi_2) = \ket\psi \otimes \ket\phi_1 + \ket\psi \otimes \ket\phi_2$
+    \end{enumerate}
+\end{prop}
 
 \newpage
 \addcontentsline{toc}{chapter}{Bibliography}

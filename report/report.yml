@@ -10,4 +10,5 @@ map:
   - src/qubits
   - src/gates
   - src/algorithms
+  - src/appendix
   - src/bibliography
