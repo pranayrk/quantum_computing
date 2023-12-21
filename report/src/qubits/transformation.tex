@@ -79,13 +79,39 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \end{mdframed}
 \end{samepage}
 
+\begin{prop}
+    Quantum Gates are reversible.
+\end{prop}
+\begin{proof}
+    This is a direct consequence of the fact that the inverse of any unitary matrix is also unitary.
+
+    Therefore $U^\dagger \cdot (U \cdot \ket\psi) = \ket\psi$ for any unitary transformation $U$.
+\end{proof}
+
+The following is a characterization of reversible gates from general information theory.
 \begin{lemma}
     Quantum gates have the same number of inputs and outputs.
 \end{lemma}
 
-\begin{lemma}
-    Quantum Gates are reversible.
-\end{lemma}
+An effect of the linearity of any quantum state transformation $U$ results in the following principle, which has applications in quantum-based communication methods.
 
 \begin{prop}[No Cloning Principle]
+    Unknown quantum states cannot be copied or cloned.
 \end{prop}
+\begin{proof}
+    Consider we have an unknown quantum state of a single qubit $\ket\psi \in \mathcal{H}$ which is to be copied into another qubit set to $\ket{0}$.  The combined system will have the state $\ket\psi \ket{0}$.
+
+    Suppose there is a unitary transformation $U$ acting on the two qubits that copies $\ket\psi$ to the second qubit, i.e.
+    $U(\ket\psi \ket{0}) = \ket{\psi} \ket\psi$ for any given $\ket\psi \in \mathcal{H}$
+    
+    Let $\ket{a}$ and $\ket{b}$ be two orthogonal states in $\mathcal{H}$.
+
+    Then $U(\ket{a}\ket{0}) = \ket{a}\ket{a}$ and $U(\ket{b}\ket{0}) = \ket{b} \ket{b}$.
+
+    Consider $\ket{c} = \frac{1}{\sqrt{2}} (\ket{a} + \ket{b})$
+
+    Then $U(\ket{c}\ket{0}) = \ket{c} \ket{c} = (\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) ) (\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) = \frac{1}{2} (\ket{a}\ket{a} + \ket{a}\ket{b} + \ket{b}\ket{a} + \ket{b}\ket{b})$.
+
+    Also, $U (\ket{c} \ket{0}) = U(\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) \ket{0}) = \frac{1}{\sqrt{2}} (\ket{a}\ket{a} + \ket{b}\ket{b})$ through the linearity of $U$ $\neq \frac{1}{2} (\ket{a}\ket{a} + \ket{a}\ket{b} + \ket{b}\ket{a} + \ket{b}\ket{b}) \implies $ which is a contradiction.
+
+\end{proof}

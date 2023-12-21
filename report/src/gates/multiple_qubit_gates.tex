@@ -30,12 +30,3 @@ The CNOT gate is its own inverse. This means it can also take an entangled state
 \begin{eg}
     $H^{\otimes 5} \ket{01011} = \frac{1}{\sqrt{32}} (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} - \ket{1}) = \frac{1}{\sqrt{32}} ( \ket{00000} - \ket{00001} - \ket{00010} + \ket{00100} - ... + \ket{11111} )$
 \end{eg}
-
-\subsection{Toffoli Gate}
-\begin{defn}
-    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
-\end{defn}
-
-Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
-
-

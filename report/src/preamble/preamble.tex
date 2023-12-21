@@ -46,6 +46,12 @@
 \newtheorem*{sol}{Solution}
 \newenvironment{note}{\textbf{Note:}}{\hfill\ensuremath{\diamondsuit}}
 
+\newtheorem{innerstep}{Step}
+\newenvironment{step}[1]
+  {\renewcommand\theinnerstep{#1}\innerstep}
+{\endinnerstep}
+
+
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother

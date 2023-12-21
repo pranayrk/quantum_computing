@@ -46,6 +46,12 @@
 \newtheorem*{sol}{Solution}
 \newenvironment{note}{\textbf{Note:}}{\hfill\ensuremath{\diamondsuit}}
 
+\newtheorem{innerstep}{Step}
+\newenvironment{step}[1]
+  {\renewcommand\theinnerstep{#1}\innerstep}
+{\endinnerstep}
+
+
 \makeatletter
 \newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
@@ -103,7 +109,12 @@
 
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-\lipsum[1]
+
+Quantum computing represents a revolutionary paradigm in information processing, leveraging the principles of quantum mechanics to perform computations that were once thought to be impossible for classical computers. This report highlights the mathematical foundations of quantum computing and explores the key concepts that distinguish it from classical computation.
+
+The report begins with an overview of the quantum bit, or qubit, and its unique property of superposition, allowing quantum computers to exist in multiple states simultaneously. The framework is then expanded using the quantum specific properties of entanglement and measurement. Further, it develops understanding of the unitary transformations that govern quantum dynamics.
+
+The report concludes with a brief discussion of some applications of quantum computing. These are Quantum teleportation protocol and Grover's algorthm, which were chosen since they adequately highlight the non-intuitive character of quantum computing. 
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 
@@ -111,7 +122,7 @@
 \addcontentsline{toc}{chapter}{Certificate}
 %\markboth{Acknowledgements}{Certificate}
 
-This is to certify that the dissertation entitled \textbf{Mathematics of Quantum Computing (Tentative Title)} submitted by \textbf{Pranay Raja Krishnan} (22MMT002) towards the partial fulfillment of the requirement for the degree of Master of Science (M.Sc) is a bonafide record of work carried out by him at the Department of Mathematics, The LNM Institute of Information Technology, Jaipur, (Rajasthan) India, during the academic session 2023-2024 under my supervision and guidance. \\
+This is to certify that the dissertation entitled \textbf{Mathematical Foundation of Quantum Computing} submitted by \textbf{Pranay Raja Krishnan} (22MMT002) towards the partial fulfillment of the requirement for the degree of Master of Science (M.Sc) is a bonafide record of work carried out by him at the Department of Mathematics, The LNM Institute of Information Technology, Jaipur, (Rajasthan) India, during the academic session 2023-2024 under my supervision and guidance. \\
 \vspace*{3cm}
 \begin{flushright}
 	\hfill
@@ -125,13 +136,14 @@ This is to certify that the dissertation entitled \textbf{Mathematics of Quantum
 \addcontentsline{toc}{chapter}{Acknowledgements}
 \markboth{Acknowledgements}{Acknowledgement}
 
-\lipsum[2]
+
+I extend my heartfelt gratitude to Dr. Trivedi Harsh Chandrakant, my supervisor, for his invaluable assistance, guidance, and supervision throughout the course of my project thesis. His willingness to share his time and expertise whenever needed has been instrumental in the progress of my project.
 
 
-\vspace*{3cm}
-Date: \today
+\vspace*{6cm}
+\textbf{Date: \today}
 \hfill{}
-Pranay Raja Krishnan
+\textbf{Pranay Raja Krishnan}
 
 \chapter*{List of Notations}
 \addcontentsline{toc}{chapter}{List of Notations}
@@ -497,6 +509,8 @@ The state $\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$ of a $2$-qubit
     Equating the components, we find $\alpha_1 \alpha_2 = \displaystyle\frac{1}{\sqrt{2}}$, $\alpha_1 \beta_2 = 0$, $\beta_1 \alpha_2 = 0$ and $\beta_1 \beta_2 = \displaystyle\frac{1}{\sqrt{2}}$. These equations cannot be satisfied simulataneously as either one of $\alpha_1$ or $\beta_2$ has to be $0$.
 \end{eg}
 
+In fact, any pair of qubits in one of the 4 Bell states is entangled. The pair of qubits are commonly referred to as an \textbf{EPR Pair} after the scientists Einstein, Podolsky and Rosen.
+
 
 For Hilbert spaces $\mathcal{H}_1$ and $\mathcal{H}_2$ defining qubit systems, most states in the tensor product space $\mathcal{H}_1 \otimes \mathcal{H}_2$ of the interacting qubit systems are entangled.
 
@@ -520,20 +534,58 @@ Similarly assigning $\ket{\phi} \in \mathcal{H}_2$ has $2$ degrees of freedom.
 \section{Measurement}
 The principle of superposition might indicate that we can use the continuum state of single qubit to store an infinite amount of information. However, a principal of quantum mechanics states that we cannot interact with the qubit without fundamentally altering its state. To know the state stored in a qubit, we must perform a measurement which forces the state of the qubit to "collapse" into one of two \textit{preferred states}.
 
-A naive version principle of measurement for a single qubit is stated below. We will formalize this notion and generalize it to multiple qubits.
-\begin{lemma}[Principle of Measurement]
+A naive version principle of measurement for a single qubit is stated below. We will develop a further formalism for this notion and generalize it to multiple qubits.
+\begin{samepage}
+\begin{mdframed}
+\begin{axiom}[Principle of Measurement]
     Any measurement device that interacts with the qubit will be calibrated with a pair of orthonormal vectors called the \textbf{preferred basis}, say $\{ \ket{u}, \ket{v} \}$. If the state of the qubit with respect to the preferred basis is $\ket{\psi} = a \ket{u} + b \ket{v}$, then measurement of the qubit will yield either $\ket{u}$ with a probability of $|a|^2$ or $\ket{v}$ with a probability $|b|^2$. \\
 The process of measurement leads to the quantum state vector $\ket{\psi}$ undergoing a discontinuous change which leads to the collapse of the state vector onto one of the vectors in the preferred basis.
-\end{lemma}
+\end{axiom}
+\end{mdframed}
+\end{samepage}
 
-To formalize this notion, we have two main options: projection-valued measures (PVM) and positive-operator-valued measure (POVM). We will proceed to describe PVMs here.
+\begin{defn}
+    For a linear map $A: \mathcal{H}_1 \to \mathcal{H}_2$, the \textbf{adjoint} $A^*$ is defined to satisfy the relation 
+    $\braket{A \psi| \phi} = \braket{\psi | A^* \phi}$ for all $\ket\psi \in \mathcal{H}_1,\ket\phi \in \mathcal{H}_2$.
+
+    A matrix $A: \mathcal{H} \to \mathcal{H}$ which is its own adjoint is said to be \textbf{self-adjoint} (or \textbf{Hermitian} in the finite dimensional case).
+
+    A Hermitian operator $A$ will satisfy $\braket{A \psi | \phi} = \braket{\psi | A \phi}$ for all $\ket\psi, \ket\phi\in \mathcal{H}$.
+\end{defn}
+
+\begin{prop}
+    The eigenvalues of a Hermitian operator are real.
+\end{prop}
+\begin{proof}
+    Let $\lambda$ be an eigenvalue of $A$ and $\ket\psi \in \mathcal{H}$ be its associated eigenvector, i.e. $A \ket\psi = \lambda \ket\psi$ for some $\lambda \in \mathbb{C}$.
+
+    $\lambda\braket{\psi|\psi} = \braket{\lambda \psi|\psi} = \braket{\psi|\lambda \psi} = \overline{\braket{\lambda \psi | \psi}} = \overline{\lambda} \braket{\psi|\psi} \implies \lambda = \overline{\lambda} \implies \lambda $ is real.
+
+\end{proof}
+
+\begin{prop}
+    The eigenvectors of a Hermitian operator are orthogonal.
+\end{prop}
+\begin{proof}
+    Given a Hermitian matrix $A$, consider two distinct eigenvalues $\lambda_1$ and $\lambda_2$.
+
+    Let $\ket{\psi_1}$ be the eigenvector corresponding to $\lambda_1$ and $\ket{\psi_2}$ be the eigenvector corresponding to $\lambda_2$.
+
+    Then $A \ket{\psi_1} = \lambda_1 \ket{\psi_1}$ and  $A \ket{\psi_2} = \lambda_2 \ket{\psi_2}$.
+
+    Then $\braket{\psi_1 \; | \; A \psi_2} = \bra{\psi_1} A \ket{ \psi_2} = \bra{\psi_1} \lambda_2 \ket{\psi_2} = \lambda_2 \bra{\psi_1} \ket{\psi_2}$ (since $\lambda_2$ is real $\overline{\lambda_2} = \lambda_2$).
+    
+    Also, $\braket{\psi_1 \; | \; A \psi_2} = \braket{A \psi_1 \; | \; \psi_2} = \bra{\psi_1} \overline{A} \ket{\psi_2} = \bra{\psi_1} \lambda_1 \ket{\psi_2} = \lambda_1 \braket{\psi_1|\psi_2}$
+    
+
+    Subtracting the above equations, we have $(\lambda_1 - \lambda_2) \braket{\psi_1|\psi_2} = 0$.
+    Since $\lambda_1$ and $\lambda_2$ are distinct eigenvalues $(\lambda_1 - \lambda_2) \neq 0 \implies \braket{\psi_1|\psi_2} = 0 \implies \ket{\psi_1} \text{ and } \ket{\psi_2} $ are orthogonal.
+
+\end{proof}
 
 \begin{defn}
     An \textbf{observable} is a physically measurable quantity of a quantum system which is represented by a self-adjoint operator on the Hilbert space associated with the quantum system.
 \end{defn}
-
-TODO: Add direct product in dirac notation
-
 
 \begin{lemma}
     The eigenvectors of an observable form an orthonormal basis for the Hilbert space.
@@ -545,85 +597,22 @@ TODO: Add direct product in dirac notation
     The probability $p_\psi(\lambda)$ that a quantum system in the pure state $\ket{\psi} \in \mathcal{H}$ yields the eigenvalue $\lambda$ of $A$ upon measurement is given by the projection $P_\lambda$ onto the eigenspace $\text{Eig}(A, \lambda)$ of $\lambda$ as $p_\psi(\lambda) = || P_\lambda \ket{\psi} ||^2$
 \end{lemma}
 
-\begin{lemma}[Principle of Measurement]
-Any physical observable is associated with a self-adjoint operator $\mathcal{A}$ on the Hilbert space $\mathcal{H}_S$. The possible outcome of a measurement of the observable $\mathcal{A}$ is one of the eigenvalues of the operator $\mathcal{A}$. \\
-Writing the eigenvalues equation, $\mathcal{A} \ket{i} = a_i \ket{i}$ where $\ket{i}$ is an orthonormal basis of eigenvectors of the operator $\mathcal{A}$, and  $\ket{\psi} = \sum_i c_i \ket{i}$,  then the probability that a measurement of the observable $\mathcal{A}$ results in the outcome $a_i$ is given by $p_i = |\braket{i|\psi}|^2 = |c_i|^2$
-\end{lemma}
+The more general Hermitian operator formalism for the measurement principle is stated below.
 
+\begin{mdframed}
+\begin{axiom}[Principle of Measurement]
+Any physical observable is associated with a self-adjoint operator $A$ on the Hilbert space $\mathcal{H}_S$. 
 
-\begin{defn}
-    A \textbf{density operator} is a positive semi-definite operator on the Hilbert space whose trace is equal to 1.
-\end{defn}
+The possible outcome of a measurement of the observable $A$ is one of the eigenvalues of the operator $\mathcal{A}$.
 
-\begin{lemma}
-    For each measurement that can be defined, the probability distribution over the outcomes of the measurement can be computed from the density operator as defined by Born's rule:
-    $P(x_i) = \text{tr}(\Pi_i \rho)$ where $\rho$ is the density operator and $\Pi_i$ is the projection operator onto the baiss vector corresponding to the measurement outcome $x_i$.
-\end{lemma}
+Writing the eigenvalues equation, $A \ket{\psi_i} = \lambda_i \ket{\psi_i}$ where $\ket{\psi_i}$ is an orthonormal basis of eigenvectors of the operator $A$, and  $\ket{\psi} = \sum_i \lambda_i \ket{\psi_i}$,  then the probability that a measurement of the observable $A$ results in the outcome $\lambda_i$ is given by $P_i = |\braket{\psi_i|\psi}|^2 = |\lambda_i|^2$
 
-\begin{lemma}
-    The expectation value of a quantum state $\rho$ is $<A> = \text{tr}(A \rho)$.
-\end{lemma}
+If the eigenvalue $\lambda_i$ was measured, then the quantum state after measurement is a unit length eigenvector of $A$ corresponding to eigenvalue $\lambda_i$.
+\end{axiom}
+\end{mdframed}
 
-\begin{defn}
-    Let $\mathcal{H}$ be a Hilbert space. We call states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n} \in \mathcal{H}$ perfectly distinguishable if there exists a measurement system $\{ M_i \}_{i=1}^m$ with $m \geq n$ such that $|| M_j \ket{\psi_1} ||^2 = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases}$
-\end{defn}
-Here \textit{perfectly distinguishable} means that there is some experiment or experimental setup that can distinguish between these two states, atleast in theory.
-\begin{result}
-    The states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n}$ are perfectly distinguishable if and only if they are orthogonal. This result is the reason we use orthogonal basis in quantum computing.
-\end{result}
-`TODO: Refer Nielsen, Chuang
 
 This property limits the amount of information that can be extracted from a qubit: a measurment yields atmost a single classical bit worth of information. In most cases, we also cannot make more than one measurement of original state of the qubit. On measurement, we have two possibilities, each corresponding to a probability of $|a|^2$ and $|b|^2$, then the total probability of the whole space will be $|a|^2 + |b|^2 = 1$, which is valid for unit vectors $\ket{\psi} = a \ket{0} + b \ket{1}$.
-
-\begin{note}
-    When $\ket{\psi} = a \ket{0} + b \ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}$, then $\bra{\psi}$ is the conjugate transpose of $\ket{\psi}$ and is read as \textbf{bra psi}, $\bra{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix}$
-\end{note}
-
-This lets us write the inner product for $\mathcal{H}$ as:
-For any $\ket{v} = \begin{bmatrix} a \\ b \end{bmatrix}, \ket{w} = \begin{bmatrix} c \\ d \end{bmatrix} \in \mathcal{H}$, the operation $\braket{v|w} = \bra{v}\ket{w} = \begin{bmatrix} \overline{a} & \overline{b} \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix} = \overline{a} c + \overline{b} d $
-
-We will consider the inner product as being linear in the second variable and conjugate-linear in the first variable.
-
-\begin{remark}
-If $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmatrix}$, then we can show $\braket{0|\psi} = a$, $\braket{1|\psi} = b$.
-Therefore we can write $\ket{\psi} = a \ket{0} + b \ket{1} = \braket{0|\psi} \ket{0} + \braket{1|\psi} \ket{1}$.
-\end{remark}
-
-\begin{remark}
-The standard inner product of the $\ket{\psi} = \begin{bmatrix} a \\ b \end{bmatrix}$ with itself in the Hilbert space $\mathcal{H}$ can therefore be written as $\braket{\psi | \psi} = \bra{\psi}\ket{\psi} = \begin{bmatrix} \overline{a} & \overline{b}\end{bmatrix} \begin{bmatrix} a \\ b \end{bmatrix} = |a|^2 + |b|^2 = 1$
-\end{remark}
-
-`TODO: Proof that self-adjoint matrices represent measurement operators`
-`TODO: Relation of POVM and matrices`
-
-Let $\mathcal{H}_1$ be an $n$-dimensional vector space with basis $\alpha = \{ \ket{a_1}, \ket{a_2}, ..., \ket{a_n} \}$ and $\mathcal{H}_2$ be an $m$-dimensional vector space with basis $\beta = \{ \ket{b_1}, \ket{b_2}, ..., \ket{b_n} \}$, then the tensor product $\mathcal{H}_1 \otimes \mathcal{H}_2$ is an $nm$-dimensional space with basis elements of the form $\ket{a_i} \otimes \ket{b_j}$
-
-\begin{note}
-    In dirac's bra/ket notation, the tensor product of $\ket{v} \in \mathcal{H}_2, \ket{w} \in \mathcal{H}_2$ is $\ket{vw} = \ket{v}\ket{w} = \ket{v} \otimes \ket{w}$
-\end{note}
-
-The tensor product is defined to satisfy the following properties:
-\begin{enumerate}
-    \item $(\ket{v_1} + \ket{v_2} ) \ket{w} = \ket{v_1}\ket{w} + \ket{v_2}\ket{w}$
-    \item $\ket{v}(\ket{w_1} + \ket{w_2}) =  \ket{v}\ket{w_1} + \ket{v}\ket{w_2}$
-    \item $(a \cdot \ket{v})\ket{w} = \ket{v}(a \cdot \ket{w})  = a \cdot (\ket{v}\ket{w})$
-\end{enumerate}
-Every element $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ can be written as a superposition of elements of the basis $\{ \ket{a_i}\ket{bj} \}$ as $\ket{\sigma} = \alpha_{11} \ket{a_1 b_1} + \alpha_{12} \ket{a_1 b2} + ... + \alpha_{nm} \ket{a_n b_m}$.
-
-Most elements $\ket{\sigma} \in \mathcal{H}_1 \otimes \mathcal{H}_2$ \textit{cannot} be decomposed to $\ket{\sigma} = \ket{v}\ket{w}$ where $v \in \mathcal{H}_1, w \in \mathcal{H}_2$.
-`TODO: Check proof`
-
-Here \textit{perfectly distinguishable} means that there is some experiment or experimental setup that can distinguish between these two states, atleast in theory.
-
-\begin{defn}
-            Let $\mathcal{H}$ be a Hilbert space. We call states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n} \in \mathcal{H}$ perfectly distinguishable if there exists a measurement system $\{ M_i \}_{i=1}^m$ with $m \geq n$ such that $|| M_j \ket{\psi_1} ||^2 = \begin{cases} 1 & \text{if } i = j \\ 0 & \text{if } i \neq j \end{cases}$
-\end{defn}
-
-\begin{result}
-            The states $\ket{\psi_1}, \ket{\psi_2}, ..., \ket{\psi_n}$ are perfectly distinguishable if and only if they are orthogonal. This result is the reason we use orthogonal basis in quantum computing.
-\end{result}
-
-Positive-Operator-Valued Measures (POVMs) are a further generalization of the Projection-Valued Measure (PVMs) and are described in the appendix. 
 
 \section{Transformation}
 
@@ -706,16 +695,42 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
 \end{mdframed}
 \end{samepage}
 
+\begin{prop}
+    Quantum Gates are reversible.
+\end{prop}
+\begin{proof}
+    This is a direct consequence of the fact that the inverse of any unitary matrix is also unitary.
+
+    Therefore $U^\dagger \cdot (U \cdot \ket\psi) = \ket\psi$ for any unitary transformation $U$.
+\end{proof}
+
+The following is a characterization of reversible gates from general information theory.
 \begin{lemma}
     Quantum gates have the same number of inputs and outputs.
 \end{lemma}
 
-\begin{lemma}
-    Quantum Gates are reversible.
-\end{lemma}
+An effect of the linearity of any quantum state transformation $U$ results in the following principle, which has applications in quantum-based communication methods.
 
 \begin{prop}[No Cloning Principle]
+    Unknown quantum states cannot be copied or cloned.
 \end{prop}
+\begin{proof}
+    Consider we have an unknown quantum state of a single qubit $\ket\psi \in \mathcal{H}$ which is to be copied into another qubit set to $\ket{0}$.  The combined system will have the state $\ket\psi \ket{0}$.
+
+    Suppose there is a unitary transformation $U$ acting on the two qubits that copies $\ket\psi$ to the second qubit, i.e.
+    $U(\ket\psi \ket{0}) = \ket{\psi} \ket\psi$ for any given $\ket\psi \in \mathcal{H}$
+    
+    Let $\ket{a}$ and $\ket{b}$ be two orthogonal states in $\mathcal{H}$.
+
+    Then $U(\ket{a}\ket{0}) = \ket{a}\ket{a}$ and $U(\ket{b}\ket{0}) = \ket{b} \ket{b}$.
+
+    Consider $\ket{c} = \frac{1}{\sqrt{2}} (\ket{a} + \ket{b})$
+
+    Then $U(\ket{c}\ket{0}) = \ket{c} \ket{c} = (\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) ) (\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) = \frac{1}{2} (\ket{a}\ket{a} + \ket{a}\ket{b} + \ket{b}\ket{a} + \ket{b}\ket{b})$.
+
+    Also, $U (\ket{c} \ket{0}) = U(\frac{1}{\sqrt{2}} (\ket{a} + \ket{b}) \ket{0}) = \frac{1}{\sqrt{2}} (\ket{a}\ket{a} + \ket{b}\ket{b})$ through the linearity of $U$ $\neq \frac{1}{2} (\ket{a}\ket{a} + \ket{a}\ket{b} + \ket{b}\ket{a} + \ket{b}\ket{b}) \implies $ which is a contradiction.
+
+\end{proof}
 
 \chapter{Gates and Circuits}
 \line(1,0){360} \\
@@ -744,11 +759,11 @@ Nature does not allow the state of qubits to evolve arbitrarily. Isolated quantu
     A \textbf{quantum circuit} is a sequence of quantum gates and measurement operators applied to an $n$-qubit register initialized to some known quantum state.
 \end{defn}
 
-The following proposition is stated without proof. 
+The following lemma is stated without proof. 
 
-\begin{prop}[Deferred Measurement Principle]
+\begin{lemma}[Deferred Measurement Principle]
     Every quantum circuit is equivalent to a circuit in which all measurements are made after all other computations.
-\end{prop}
+\end{lemma}
 
 This principle allows us to postpone any required measurements till after all quantum gates are applied on the circuit.
 
@@ -900,36 +915,97 @@ The CNOT gate is its own inverse. This means it can also take an entangled state
     $H^{\otimes 5} \ket{01011} = \frac{1}{\sqrt{32}} (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} + \ket{1}) (\ket{0} - \ket{1}) (\ket{0} - \ket{1}) = \frac{1}{\sqrt{32}} ( \ket{00000} - \ket{00001} - \ket{00010} + \ket{00100} - ... + \ket{11111} )$
 \end{eg}
 
-\subsection{Toffoli Gate}
-\begin{defn}
-    The \textbf{Toffoli gate} is a gate that acts on 3 qubits that flips the third bit if the first two are in the $\ket{1}$ state.\\
-\end{defn}
-
-Depending on the input the Toffoli gate can function as an AND, NOT and NAND gate. Since the NAND gate is universal, the Toffoli is as well. The Toffoli gate is also unitary which means it is a valid quantum gate. This shows that every classical circuit can be implemented as a quantum circuit.
-
-
-
 \chapter{Applications of Qubits}
 
 \line(1,0){360} \\
 
+\section{Quantum Teleportation}
+
+
+Quantum teleportation is a technique for transferring quantum information from a sender at one location to a receiver some distance away. This protocol was developed by Artur Ekert in 1991. This basic principle of quantum teleportation could be extended to establish secure communication channels between two individuals using a quantum key distribution (QKD) scheme, which guarantees eavesdropper-proof encryption keys.
+
+In this prototol, The sender (canonically referred to as \textit{Alice}) wants to transmit an unknown quantum state to the receiver (canonically referred to as \textit{Bob}) who is an arbitrary distance away. 
+
+Consider that Alice wants to send the state of a qubit $\ket\psi = a \ket{0} + b \ket{1}$, we will call this qubit $1$. The coefficients $a$ and $b$ are unknown to both Alice and Bob. Alice and Bob are allowed to communicate through a classical communication channel, however, even if the coefficients were known, since $\ket\psi$ has a continuum of possibilities, Alice would not be able to send the state using only the classical channel.
+
+The presupposition to this protocol is that Alice and Bob had met long ago and each of them had taken one qubit from an EPR pair and that they are able to communicate via a classical communication channel.
+
+Consider the EPR pair is in the Bell state $\ket{\phi^+} = \frac{1}{\sqrt{2}} ( \ket{00} + \ket{11} ) $. We call these qubits as qubit $2$ and qubit $3$ respectively, and assume that qubit $2$ is with Alice and qubit $3$ is with Bob. As we have seen any EPR pair (i.e. a pair of qubits in one of the 4 Bell states) is entangled.
+
+
+We then consider that Alice's qubit (qubit $1$) is allowed to interact with the EPR pair through qubit $2$ to form a combined system. The state of that combined system of three qubits would be the tensor product of the state of qubit $1$ and the EPR pair, i.e. $\ket{\phi_0} = \ket\psi \otimes \ket{\phi^+} =$
+    $ ( a \ket{0} + b \ket{1} ) \otimes \left (\frac{1}{\sqrt{2}} (\ket{00} + \ket{11}) \right ) = $
+    $ \frac{1}{\sqrt{2}} (a \ket{000} + a \ket{011} + b \ket{100} + b \ket{111} )$
+
+Note that, since the EPR pair is seperated, Alice can only interact with qubit $1$ and qubit $2$ and Bob can only interact with qubit $3$.
+
+
+The protocol is highlighted below:
+\begin{step}{1}
+
+Alice applies the CNOT gate to the first two qubits, i.e. qubit $1$ and qubit $2$.
+
+Then the state of the combined system will be 
+
+    $\ket{\phi_1} = (\text{CNOT} \otimes I) (\ket{\phi\_0}) = \frac{1}{\sqrt{2}} (\text{CNOT} \otimes I) (a \ket{000} + a \ket{011} + b \ket{100} + b \ket{111} )$
+
+$ = \frac{1}{\sqrt{2}} (a \ket{000} + a \ket{011} + b \ket{110} + b \ket{101})$
+
+\end{step}
+
+\begin{step}{2} Alice then applies the Hadamard gate to qubit $1$.
+
+The state of the combined system will then be $\ket{\phi_2} = (H \otimes I \otimes I) (\ket{\phi_1}) = \frac{1}{\sqrt{2}} (H \otimes I \otimes I) \frac{1}{\sqrt{2}} (a \ket{000} + a \ket{011} + b \ket{110} + b \ket{101})$
+
+    $ = \frac{1}{\sqrt{2}} (H \otimes I \otimes I) [a \ket{0} (\ket{00} + \ket{11}) + b \ket{1} (\ket{00} + \ket{11}]$
+
+    $ = \frac{1}{\sqrt{2}} [a H \ket{0} (\ket{00} + \ket{11}) + b H \ket{1} (\ket{00} + \ket{11}) ]$
+
+    $ = \frac{1}{2} [a (\ket{0} + \ket{1} (\ket{00} + \ket{11}) + b (\ket{0} - \ket{1}) (\ket{10} + \ket{01}) ] $
+
+$ = \frac{1}{2} \left [ \ket{00} (a \ket{0} + b \ket{1}) \; + \; \ket{01} ( a \ket{1} + b \ket{0} ) \; + \; \ket{10} (a \ket{0} + b \ket{1} ) \; + \; \ket{11} (a \ket{1} - b \ket{0} \right]$
+
+
+\end{step}
+
+\begin{step}{3} Alice then measures her qubits with respect to the computational basis
+
+
+Before measurement the state of the system is
+    $\frac{1}{2} \left [ \ket{00} (a \ket{0} + b \ket{1}) \; + \; \ket{01} ( a \ket{1} + b \ket{0} ) \; + \; \ket{10} (a \ket{0} + b \ket{1} ) \; + \; \ket{11} (a \ket{1} - b \ket{0}) \right]$
+
+    Since the initial EPR pair was entangled, this will cause the whole system to collapse into one of four observed result states, i.e. $\ket{00} \otimes (a \ket{0} + b \ket{1})$ or $\ket{01} \otimes ( a \ket{1} + b \ket{0} )$ or $\ket{10} (a \ket{0} + b \ket{1} )$ or $\ket{11} (a \ket{1} - b \ket{0})$. Alice will have access to the measurement results of qubit $1$ and $2$ which leads to Bob's qubit being in one of four states:
+
+\begin{enumerate}
+    \item  Alice measures $\ket{00} \implies $ Bob's qubit is in the state $a \ket{0} + b \ket{1}$
+    \item  Alice measures $\ket{01} \implies $ Bob's qubit is in the state $a \ket{1} + b \ket{0}$
+    \item  Alice measures $\ket{10} \implies $ Bob's qubit is in the state $a \ket{0} - b \ket{1}$
+    \item Alice measures $\ket{11} \implies $ Bob's qubit is in the state $a \ket{1} - b \ket{0}$
+\end{enumerate}
+
+\end{step}
+
+\begin{step}{4} Alice sends her measurement result to Bob.
+
+Depending on what value Bob receives from Alice, he will apply the one of the following gates to get qubit $3$ in the required state $\ket\psi = a \ket{0} + b \ket{1}$.
+
+\begin{enumerate}
+    \item Alice sends $\ket{00}$, then Bob will apply $I$ gate
+    \item  Alice sends $\ket{01}$, then Bob will apply $X$ gate
+    \item Alice sends $\ket{10}$, then Bob will apply $Z$ gate
+    \item Alice sends $\ket{11}$, then Bob will apply $ZX$ gate
+\end{enumerate}
+
+\end{step}
+
+
+\begin{eg}
+If Bob receives $\ket{01}$ from Alice, then his qubit will be in the $a \ket{1} + b \ket{0} = \begin{bmatrix} b \\ a \end{bmatrix}$ state.
+    Applying the $X$ gate on this, $X \begin{bmatrix} b \\ a \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} b \\ a \end{bmatrix} = \begin{bmatrix} a \\ b \end{bmatrix}$
+\end{eg}
+
+
 \begin{comment}
-To include:
-* Quantum Teleportaion
-* Quantum Algorithms can be abstracted as circuits, and these circuits can be represented as a product of matrices
-* For any classical circuit, there exists a quantum circuit that performs the computation with similar efficiency
-\end{comment}
-
-A circuit model for quantum computing describes all computations in terms of a circuit composed of simple gates followed by a sequence of measurements.
-
-The standard circuit model for quantum computation uses gates from { CNOT gate together with all single qubit transformations} and its measurements as all single qubit measurements in the standard basis, i.e. all computations in the standard basis consist of a sequence of gates that are either CNOT or single-qubit gates followed by a sequence of single-qubit measurements.
-
-In this paper, we will focus on the class of 'black box' algorithms.
-
-\section{Deutsch-Josza Algorithm}
-
-\section{Simon's Algorithm}
-
 \section{Grover's Search Algorithm}
 \begin{itemize}
 \item Unlike Shor's does not have as impressive of an advantage over classical, but can be applied to a broader range of problems
@@ -1019,6 +1095,7 @@ After $\frac{1}{2} \sqrt{N} \sim O(\sqrt{N})$ steps, almost all the amplitudes w
 Check Shor Lec 24 for textbook analysis of the algorithm
 
 
+\end{comment}
 
 
 
@@ -1282,17 +1359,11 @@ A general topological result is stated below.
 \addcontentsline{toc}{chapter}{Bibliography}
 \begin{thebibliography}{9}
     \bibitem{latexcompanion}
-        \lipsum[1][1-3]
+        Rieffel, E. G., \& Polak, W. H. (2014). \emph{Quantum Computing}. London, England: MIT Press.
     \bibitem{latexcompanion}
-        \lipsum[2][1-3]
+        Scherer, W. (2019). \emph{Mathematics of quantum computing} (1st ed.) [PDF]. doi:10.1007/978-3-030-12358-1
     \bibitem{latexcompanion}
-        \lipsum[3][1-3]
-    \bibitem{latexcompanion}
-        \lipsum[4][1-3]
-    \bibitem{latexcompanion}
-        \lipsum[5][1-3]
-    \bibitem{latexcompanion}
-        \lipsum[6][1-3]
+        LaPierre, R. (2021). \emph{Introduction to Quantum Computing} (1st ed.). doi:10.1007/978-3-030-69318-3
 \end{thebibliography}
 \end{document}
 
